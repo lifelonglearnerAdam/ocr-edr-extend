@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+
+# 大文件 / 权重 / 数据
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.ckpt
+data/raw/
+data/processed/
+experiments/runs/
+wandb/
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 密钥
+*.pem
+.env.*
+credentials.json

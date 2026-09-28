@@ -1,0 +1,35 @@
+# OmniDocBench 评测（公式+表格）— 骨架
+benchmark:
+  name: OmniDocBench
+  version: v1.5
+  root: data/omnidocbench
+  split: test
+
+scope:
+  modalities: [formula, table]
+  bad_subset_only: false   # 同时报告全集与 Bad 子集
+
+baselines:
+  - name: paddleocr_vl
+    pred_dir: data/preds/paddleocr_vl
+  - name: mineru
+    pred_dir: data/preds/mineru
+  - name: deepseek_ocr
+    pred_dir: data/preds/deepseek_ocr
+  - name: monkeyocr
+    pred_dir: data/preds/monkeyocr
+
+repair:
+  enabled: true
+  method: ocr_edr_loop
+  max_turns: 6
+  render_backend: team_renderer
+
+metrics:
+  formula: [cdm, case_f1]
+  table: [teds, cell_f1]
+  loop: [preserve, exact_fix, vis_fix, avg_turns, avg_renders]
+
+output:
+  dir: experiments/tables/omnidocbench
+  save_per_sample: true

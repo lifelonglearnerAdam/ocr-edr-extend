@@ -1,0 +1,23 @@
+# Jev 判定层配置
+provider: jev
+mode: cascade          # direct | cascade
+confidence_threshold: 0.9
+
+questions:
+  - id: validity
+    type: binary       # good | bad
+    prompt: "Given the source region, OCR text/markup, and rendering, is the OCR result visually consistent with the source? (allowing rendering-equivalent encodings)"
+  - id: error_class
+    type: choice
+    choices: [invalid_output, global_mismatch, completeness, content, structure, none]
+  - id: needs_render
+    type: binary
+
+cascade:
+  escalate_when_confidence_below: 0.9
+  escalate_to: frozen_docedr   # 或 teacher_vlm
+  # 备注：Jev 对多步推导弱，公式结构校验必须叠加确定性渲染 diff
+
+reliability:
+  require_structural_diff: true
+  require_render_check: true

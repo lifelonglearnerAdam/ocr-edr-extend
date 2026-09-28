@@ -1,0 +1,50 @@
+# GRPO 训练（公式+表格修复）— 骨架，数值待实验填写
+model:
+  base: Qwen/Qwen2-VL-2B-Instruct   # 示例小模型，以实际选用为准
+  freeze_vision_tower: true
+
+data:
+  train_path: data/processed/formula_table_repair_train.jsonl
+  eval_path: data/processed/formula_table_repair_eval.jsonl
+  modalities: [formula, table]
+  max_turns: 6
+
+reward:
+  # Bad 分支
+  alpha_ed: 1.0      # 编辑距离
+  alpha_ex: 1.0      # 精确恢复
+  alpha_v: 1.0       # verifier / Jev 一致
+  alpha_fmt: 0.2     # 格式合法
+  # Good 分支（保留）
+  eta_fmt: 0.2
+  eta_keep: 1.0
+  # 成本
+  lambda_e: 0.5
+  lambda_t: 0.1
+  lambda_R: 0.2
+  mu_rep: 0.3
+  mu_R: 0.2
+  mu_T: 1.0
+  # 过程
+  rho_d: 0.5
+  rho_r: 0.8
+  rho_s: 0.3
+  rho_reg: 1.0
+  rho_bad: 0.5
+
+grpo:
+  group_size: 8
+  clip_eps: 0.2
+  kl_beta: 0.02
+  lr: 1.0e-6
+  epochs: 1
+  per_device_batch: 1
+
+judge:
+  type: jev_cascade   # none | frozen_docedr | jev | jev_cascade
+  confidence_threshold: 0.9
+  escalate_to: teacher_vlm
+
+logging:
+  out_dir: experiments/runs/grpo_qwen2b_formula_table
+  seed: 42
