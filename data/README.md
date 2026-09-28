@@ -8,5 +8,6 @@
 | OCRErrBench | 待确认作者是否开源 | `data/ocerrbench/` | 待确认 |
 | UniMER-Test | 官方仓库 | `data/unimer/` | 见官方 |
 | 训练轨迹（蒸馏/GRPO） | 团队生成 | `data/processed/` | 内部 |
+| 教师模型轨迹（GPT/Claude 等） | **API 额度未申请**，暂缓 | `data/teacher_trajs/` | 视厂商条款 |
 
 **禁止**将评测集原文、教师模型密钥、未授权权重提交进 Git。

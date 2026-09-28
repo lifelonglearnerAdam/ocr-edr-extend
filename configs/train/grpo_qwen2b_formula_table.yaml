@@ -1,6 +1,9 @@
 # GRPO 训练（公式+表格修复）— 骨架，数值待实验填写
 model:
-  base: Qwen/Qwen2-VL-2B-Instruct   # 示例小模型，以实际选用为准
+  # 学生基座：Qwen 小参数视觉语言模型（组会确认）
+  # 具体 checkpoint 以组内实际下载为准，常见候选：Qwen2-VL-2B / Qwen2.5-VL-3B 级
+  family: qwen_small_vl
+  base: Qwen/Qwen2-VL-2B-Instruct
   freeze_vision_tower: true
 
 data:
