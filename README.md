@@ -4,6 +4,10 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 > 基础论文：[OCR-EDR: Rendering-Aware Diagnosis and Repair for Closed-Loop OCR Improvement](https://arxiv.org/abs/2609.03445) (arXiv:2609.03445)
 
+本项目的本地工作区是 `~/d/recovered_final/optimization/ocr-edr-team`。研究方向依据该工作区的独立研究简报推进；MonkeyOCR Note 表格/公式复核属于另一个项目。MonkeyOCR 可作为多系统实验中的一个基线。
+
+完整资料：[研究简报](docs/research/brief.md)、[OCR-EDR 机制](docs/research/findings/F1-ocr-edr.md)、[Jev 与评测](docs/research/findings/F2-jev-omnidocbench.md)。引用数字来自研究记录，尚未在本项目独立复现。
+
 ## 目标（本组研究方向）
 
 1. **聚焦公式与表格**：正文纠错收益不明显且耗时，不作为主线。
@@ -13,21 +17,35 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 5. **多系统普适性**：在 **OmniDocBench** 上验证对多个主流 OCR / 文档解析模型均有提升。
 6. **Jev 判定层**：引入 Jev（决策模型）作为判断 / 奖励 / 级联首筛，降低 verifier 成本。
 
-## 快速开始
+## 当前可运行部分
+
+- 通用状态机：`inspect / diagnose_scope / localize / patch / global_patch / request_render / stop`，包括渲染过时、候选回退和预算约束。
+- 独立区域清单验证：公式/表格输入、测试标记、来源图片和训练/留出集的页面与精确图片重复检查。
+- PNG 渲染程序适配器，以及调用官方 OmniDocBench 的隔离评测入口。
+- 固定参考匹配的前后比较，分别报告页面平均、样本平均及明确标记的 Preserve/Good/Bad 代理指标。
+- CPU 检查、合成样例与服务器运行说明。
+
+当前尚待接入真实策略模型、视觉 judge、公式/表格渲染程序、Jev、蒸馏和 SFT/GRPO。合成样例仅验证软件，尚无方法提升结果。见 [实施计划](docs/EXPERIMENT_PLAN.md)。
+
+## 快速开始（Python ≥3.10，CPU）
 
 ```bash
-# 环境（示例）
-conda create -n ocredrenv python=3.11 -y
-conda activate ocredrenv
-pip install -r requirements.txt
+python -m pip install -r requirements-core.txt
+python -m unittest discover -s tests -v
+python scripts/demo_loop.py
+python scripts/validate_manifest.py --manifest examples/synthetic/regions.jsonl
 
-# 数据与评测
-python scripts/download_data.py --bench omnidocbench
-python scripts/eval_omnidocbench.py --config configs/eval/omnidocbench_formula_table.yaml
-
-# 训练（示例）
-python scripts/train_grpo.py --config configs/train/grpo_qwen2b_formula_table.yaml
+# 官方数据和本项目预测准备好后，先生成配置与命令
+python scripts/eval_omnidocbench.py \
+  --config configs/eval/omnidocbench_formula_table.yaml \
+  --baseline paddleocr_vl \
+  --official-repo /path/to/OmniDocBench \
+  --gt /path/to/OmniDocBench.json \
+  --pred-dir /path/to/paddleocr_predictions \
+  --dry-run
 ```
+
+训练依赖保留在 `requirements.txt`，训练 YAML 是待验证配方，当前没有 `train_grpo.py` 入口。格式见 [数据协议](docs/DATA_PROTOCOL.md)，远端路径见 [服务器说明](docs/SERVER_RUNBOOK.md)。
 
 ## 目录结构
 
@@ -35,7 +53,9 @@ python scripts/train_grpo.py --config configs/train/grpo_qwen2b_formula_table.ya
 ocr-edr-extend/
 ├── README.md
 ├── CONTRIBUTING.md
-├── LICENSE
+├── pyproject.toml
+├── requirements-core.txt
+├── requirements-dev.txt
 ├── requirements.txt
 ├── .gitignore
 ├── .github/
@@ -55,11 +75,9 @@ ocr-edr-extend/
 │   └── MEETING_NOTES.md
 ├── scripts/            # 一键复现入口
 ├── src/
-│   ├── diagnosis/      # 诊断与定位
-│   ├── repair/         # patch / global_patch
-│   ├── render/         # 渲染与等价判定
-│   ├── judge/          # Jev / verifier / reward
-│   └── train/          # SFT / GRPO / distill
+│   └── ocr_edr/        # 闭环、渲染接口、清单与官方结果对比
+├── examples/synthetic/ # 合成输入，仅用于软件验证
+├── tests/              # CPU 与 CLI 检查
 ├── data/               # 不进 Git，放 LFS 或网盘索引
 └── experiments/        # 运行日志、结果表（可选 LFS）
 ```

@@ -1,0 +1,2 @@
+# CPU scripts only; model/GRPO dependencies remain in requirements.txt.
+PyYAML>=6

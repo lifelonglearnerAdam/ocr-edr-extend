@@ -35,12 +35,18 @@ PaddleOCR-VL(-1.5)、MinerU(2.x)、DeepSeek-OCR、MonkeyOCR；可选 Qwen-VL 系
 | VisFix | 渲染后与源图视觉一致 |
 | Cost | 平均轮次、渲染调用、token / 时延 |
 
+当前对比脚本读取官方 CDM/TEDS，不自行重实现。单条 metric=1 的 Good/Bad 划分仅作为标明 `proxy` 的分支统计；VisFix 保持空值，需独立盲审或视觉验证。页面平均和样本平均分开报告。
+
+前后配对固定页面、GT 索引、GT 位置与归一化 GT；匹配变化时停止配对统计。策略和 judge 的 Observation 不携带参考标注或官方分数。训练/开发/测试必须隔离来源页面和图片，派生裁剪/增强还需近重复审核。区域格式见 [DATA_PROTOCOL.md](DATA_PROTOCOL.md)。
+
 ## 5. 判定层消融
 
 - A0：冻结 DocEDR verifier（原文）
 - A1：纯 Jev
 - A2：Jev 级联（高置信接受，低置信升级教师/DocEDR）
 - A3：Jev + 确定性渲染/结构 diff（推荐，防 judge 分数不可靠）
+
+基础对照包括保持原始输出、一次修复、不更新渲染的多轮和更新渲染的闭环；保持学生、数据和推理预算一致，再增加 SFT/GRPO 对照。
 
 ## 6. 训练配方记录
 

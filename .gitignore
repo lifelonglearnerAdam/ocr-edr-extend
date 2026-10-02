@@ -28,3 +28,20 @@ Thumbs.db
 *.pem
 .env.*
 credentials.json
+
+# Project datasets, temporary tooling and personal contact material
+data/preds/
+data/omnidocbench/
+data/ocrerrbench/
+data/unimer/
+data/teacher_trajs/
+*.key
+*.pub
+known_hosts*
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+docs/assets/*wechat*
+docs/assets/*qr*
+docs/assets/classmate*

@@ -1,6 +1,6 @@
 # 研究简报摘要
 
-完整版见 `research/ocr-edr-extend/brief.md`（本仓库 docs 同步副本）。
+完整版见 [research/brief.md](research/brief.md)，同步自 `optimization/research/ocr-edr-extend`。实验状态以 README 和实施计划为准。
 
 ## 一句话
 
@@ -8,11 +8,11 @@
 
 ## 论文机制（OCR-EDR）
 
-- 输入 `(I, p, R(p))`，动作 `inspect/diagnose/localize/patch/global_patch/request_render/stop`
+- 输入 `(I, p, R(p))`，动作 `inspect/diagnose_scope/localize/patch/global_patch/request_render/stop`
 - 训练：Verifier SFT → Curriculum Repair SFT → GRPO
 - 关键发现：**必须「迭代 + 更新渲染」**，否则过修
 
-## 本组改造点
+## 本组计划验证的改造点
 
 1. 模态收窄到公式 + 表格
 2. Jev 替代/级联 verifier 与 reward
