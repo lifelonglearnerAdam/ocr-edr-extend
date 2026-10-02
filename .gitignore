@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 .venv/
+.venv-pilot/
+
 venv/
 .env
 *.egg-info/

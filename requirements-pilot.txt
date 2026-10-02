@@ -1,0 +1,9 @@
+# Diagnostic inference only; install Torch from the CUDA 12.8 wheel index.
+torch==2.8.0+cu128
+torchvision==0.23.0+cu128
+transformers==4.57.1
+accelerate==1.10.1
+huggingface-hub==0.35.3
+pillow==11.3.0
+matplotlib==3.10.6
+numpy==2.3.3
