@@ -18,6 +18,8 @@ The paper text was inspected directly on October 2. Its reported scores remain a
 | H4: teacher distillation | A small student that retains image fidelity and correct-input preservation at useful cost | Same small model before distillation and with direct-answer versus trajectory SFT | A modest train/dev-only set of teacher examples; counterfactual source controls | Continue if it improves held-out net repairs and preservation. No paid teacher generation starts without available quota and authorization. |
 | H5: transfer | Evidence that the selected mechanism survives changed OCR error distributions | At least two parsers, with one parser held out from tuning; eventually the full parser matrix | Fixed train/dev parser and blinded second-parser pilot | Do not claim generality from one parser or selected Bad cases. Report all inputs, per-parser regressions and costs. Transfer is evidence, not a new algorithm by itself. |
 
+The original H1 claim that formula/table gains exceed text gains remains untested. This first diagnostic checks the narrower prerequisite that rendering can help repair formulas without damage.
+
 A possible joint direction is a small, selective repair policy that explicitly controls harmful edits to tables and formulas. This is a candidate, not an established novel contribution. Compare related selective-prediction and structured-edit methods before naming it as the paper's contribution.
 
 ## Literature that changes the plan

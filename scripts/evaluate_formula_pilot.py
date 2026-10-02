@@ -61,6 +61,9 @@ def evaluate(predictions: list[dict], references: list[dict], root: Path) -> tup
             == ref["reference"],
             "changed": result["initial_prediction"] != result["final_prediction"],
             "syntax_failures": sum(call["render_error"] is not None for call in result["trace"]),
+            "wrapper_contract_violations": sum(
+                call["extraction"] != "latex_tags" for call in result["trace"]
+            ),
             "generation_seconds": sum(call["generation_seconds"] for call in result["trace"]),
             "input_tokens": sum(call["input_tokens"] for call in result["trace"]),
             "output_tokens": sum(call["output_tokens"] for call in result["trace"]),
@@ -105,6 +108,7 @@ def evaluate(predictions: list[dict], references: list[dict], root: Path) -> tup
                 "full_set_raster_exact_proxy": mean(r["final_raster_exact_proxy"] for r in group),
                 "normalized_exact_rate": mean(r["final_normalized_exact"] for r in group),
                 "syntax_failures": sum(r["syntax_failures"] for r in group),
+                "wrapper_contract_violations": sum(r["wrapper_contract_violations"] for r in group),
                 "mean_generation_seconds": mean(r["generation_seconds"] for r in group),
                 "mean_input_tokens": mean(r["input_tokens"] for r in group),
                 "mean_output_tokens": mean(r["output_tokens"] for r in group),
@@ -141,7 +145,7 @@ def main() -> None:
         + "\n"
     )
     with (root / "summary.csv").open("w") as f:
-        writer = csv.DictWriter(f, fieldnames=list(summary[0]))
+        writer = csv.DictWriter(f, fieldnames=list(summary[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(summary)
     print(json.dumps(summary, indent=2))

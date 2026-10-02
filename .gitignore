@@ -47,3 +47,6 @@ dist/
 docs/assets/*wechat*
 docs/assets/*qr*
 docs/assets/classmate*
+
+# Generated diagnostic replay cache
+**/evaluation_renders/

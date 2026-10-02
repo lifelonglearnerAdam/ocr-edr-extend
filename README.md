@@ -24,8 +24,9 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 - PNG 渲染程序适配器，以及调用官方 OmniDocBench 的隔离评测入口。
 - 固定参考匹配的前后比较，分别报告页面平均、样本平均及明确标记的 Preserve/Good/Bad 代理指标。
 - CPU 检查、合成样例与服务器运行说明。
+- 真实 Qwen2-VL-2B 推理提案接口、受限 MathText 公式渲染、参考隔离的受控实验与成本记录。实验条件包括不修改、源图单轮、带渲染单轮、更新/过时渲染双轮。
 
-当前尚待接入真实策略模型、视觉 judge、公式/表格渲染程序、Jev、蒸馏和 SFT/GRPO。合成样例仅验证软件，尚无方法提升结果。见 [实施计划](docs/EXPERIMENT_PLAN.md)。
+当前已接入未训练 2B 模型的独立公式提案实验；完整闭环的策略/视觉 judge、完整 TeX/表格渲染器、Jev、蒸馏和 SFT/GRPO 尚待实现。受控实验用于检查模型行为，不能视作真实 OCR 基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[公式实验协议](docs/research/FORMULA_PILOT.md)、[首轮真实模型结果](docs/research/RESULTS_20261002.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
 
 ## 快速开始（Python ≥3.10，CPU）
 
