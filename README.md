@@ -13,21 +13,52 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 5. **多系统普适性**：在 **OmniDocBench** 上验证对多个主流 OCR / 文档解析模型均有提升。
 6. **Jev 判定层**：引入 Jev（决策模型）作为判断 / 奖励 / 级联首筛，降低 verifier 成本。
 
-## 快速开始
+## 当前可运行部分
+
+- `src/ocr_edr/loop.py`：独立的编辑 / 重渲染 / 再判断状态机；编辑后清空旧渲染与判断，未验证的修改回退到初始预测。
+- `src/ocr_edr/render.py`：调用团队渲染程序的 PNG 适配器；每次渲染使用独立目录。
+- `scripts/prepare_note_eval.py`：导入已有 Note 诊断数据与官方匹配结果，保留 `test_only` 标记与图片哈希。
+- `scripts/eval_omnidocbench.py`：生成官方配置，在独立运行目录调用上游评测程序。
+- `scripts/compare_official_results.py`：固定参考匹配的前后对比；区分官方页面平均与样本平均。
+- `tests/`：CPU 单元与命令行集成检查；GitHub Actions 检查 Python 3.10 / 3.12。
+
+**研究状态**：当前是可运行的实验基建。模型 policy / judge、真实公式/表格渲染程序、Jev、教师蒸馏、SFT 和 GRPO 训练尚待接入。`demo_loop.py` 使用合成输入和脚本化判断，只验证状态机。现有基线报告不是修复效果，也不是新模型结果。
+
+## 快速开始（Python ≥3.10，CPU）
 
 ```bash
-# 环境（示例）
-conda create -n ocredrenv python=3.11 -y
-conda activate ocredrenv
-pip install -r requirements.txt
+python -m pip install -r requirements-core.txt
+python -m unittest discover -s tests -v
+python scripts/demo_loop.py
 
-# 数据与评测
-python scripts/download_data.py --bench omnidocbench
-python scripts/eval_omnidocbench.py --config configs/eval/omnidocbench_formula_table.yaml
+# 本地只读服务器镜像；从仓库根目录运行
+python scripts/prepare_note_eval.py \
+  --source-root ../../server_mirror \
+  --output data/raw/note_eval
 
-# 训练（示例）
-python scripts/train_grpo.py --config configs/train/grpo_qwen2b_formula_table.yaml
+# 官方评测：先生成配置与命令；确认数据路径后去掉 --dry-run
+python scripts/eval_omnidocbench.py \
+  --config configs/eval/omnidocbench_formula_table.yaml \
+  --official-repo ../omnidocbench-eval \
+  --gt ../../server_mirror/OmniDocBench_note/OmniDocBench_note.json \
+  --pred-dir ../../server_mirror/baselines/monkeyocrv2_b_note/markdowns \
+  --dry-run
 ```
+
+官方 CDM/TEDS 的运行环境由上游仓库提供；CPU 基建不需要安装 PyTorch 或下载权重。训练配置是待实验验证的配方，当前没有 `train_grpo.py` 训练入口。数据获取说明见 [data/README.md](data/README.md)，服务器操作见 [docs/SERVER_RUNBOOK.md](docs/SERVER_RUNBOOK.md)。
+
+## 已有 Note 基线核对
+
+| 项目 | 数量 / 分数 |
+|------|-------------|
+| Note 测试页面 | 118 |
+| 诊断 GT 元素 | 25 公式 + 37 表格 |
+| 官方匹配评测记录 | 28 公式 + 37 表格 |
+| 可明确一对一对齐的诊断元素 | 23 公式 + 37 表格；2 公式保持未对齐 |
+| Formula CDM（官方页面平均） | 65.05273810% |
+| Table TEDS（官方页面平均） | 73.12665319% |
+
+原始记录与图片留在服务器或本地 `data/raw/`；Git 只保存 [核对摘要](experiments/tables/note_baseline_audit.json)。公式样本平均是 68.69642857%，表格样本平均是 72.09616353%，不能替换上表的官方页面平均。详见 [docs/BASELINE_AUDIT.md](docs/BASELINE_AUDIT.md)。
 
 ## 目录结构
 
@@ -35,7 +66,8 @@ python scripts/train_grpo.py --config configs/train/grpo_qwen2b_formula_table.ya
 ocr-edr-extend/
 ├── README.md
 ├── CONTRIBUTING.md
-├── LICENSE
+├── pyproject.toml
+├── requirements-core.txt
 ├── requirements.txt
 ├── .gitignore
 ├── .github/
@@ -55,11 +87,8 @@ ocr-edr-extend/
 │   └── MEETING_NOTES.md
 ├── scripts/            # 一键复现入口
 ├── src/
-│   ├── diagnosis/      # 诊断与定位
-│   ├── repair/         # patch / global_patch
-│   ├── render/         # 渲染与等价判定
-│   ├── judge/          # Jev / verifier / reward
-│   └── train/          # SFT / GRPO / distill
+│   └── ocr_edr/        # 状态机、渲染适配、数据导入与指标对比
+├── tests/              # 不使用真实测试集的合成检查
 ├── data/               # 不进 Git，放 LFS 或网盘索引
 └── experiments/        # 运行日志、结果表（可选 LFS）
 ```

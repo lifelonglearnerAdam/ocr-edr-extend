@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "split": "test",
+  "test_only": true,
+  "note_pages": 118,
+  "diagnostic_elements": {
+    "formula": 25,
+    "table": 37
+  },
+  "official_matches": {
+    "formula": 28,
+    "table": 37
+  },
+  "alignment": {
+    "formula:one_to_one": 23,
+    "formula:unmatched": 2,
+    "table:one_to_one": 37
+  },
+  "blocked_image_hashes": 180,
+  "source_artifacts": [
+    {
+      "file": "OmniDocBench_note/OmniDocBench_note.json",
+      "sha256": "9af792c9eef071743dbe6415a816956e6539cbdb6cc0f214ebc635925aab0185"
+    },
+    {
+      "file": "diagnostics/OmniDocBench_note_test_only/formula/manifest_test_only.jsonl",
+      "sha256": "2205b06bc7632cd0b907ee6f3030590de2f7cf9e553715246e408f98a2bc5a6e"
+    },
+    {
+      "file": "baselines/monkeyocrv2_b_note/omnidocbench_results_cdm/markdowns_quick_match_display_formula_result.json",
+      "sha256": "f55a033ee69079aaf972b06d04200a822bf9c55d6bdaf203736620bea36f45ac"
+    },
+    {
+      "file": "diagnostics/OmniDocBench_note_test_only/table/manifest_test_only.jsonl",
+      "sha256": "2034a87d3108a683e02d44a429875af1d148028209a1ad182cbb6179bf9cd6e6"
+    },
+    {
+      "file": "baselines/monkeyocrv2_b_note/omnidocbench_results_cdm/markdowns_quick_match_table_result.json",
+      "sha256": "faee121ca540e2432be93ba57089f6545e8afa7a014c935f181b29a446403245"
+    }
+  ],
+  "baseline": {
+    "schema_version": 1,
+    "run_type": "baseline_self_comparison",
+    "good_definition": "official per-match metric >= 1.0; a proxy, not a visual label",
+    "vis_fix": null,
+    "modalities": {
+      "formula": {
+        "metric": "CDM",
+        "matched_samples": 28,
+        "official_page_average_before": 0.6505273809523809,
+        "official_page_average_after": 0.6505273809523809,
+        "official_page_delta_pp": 0.0,
+        "sample_average_before": 0.6869642857142857,
+        "sample_average_after": 0.6869642857142857,
+        "initial_good_proxy_count": 5,
+        "initial_bad_proxy_count": 23,
+        "preserve_proxy": 1.0,
+        "regression_proxy": 0.0,
+        "bad_fix_proxy": 0.0,
+        "initial_nonexact_count": 24,
+        "normalized_exact_fix": 0.0,
+        "unchanged_predictions": 28
+      },
+      "table": {
+        "metric": "TEDS",
+        "matched_samples": 37,
+        "official_page_average_before": 0.7312665318548561,
+        "official_page_average_after": 0.7312665318548561,
+        "official_page_delta_pp": 0.0,
+        "sample_average_before": 0.7209616352919621,
+        "sample_average_after": 0.7209616352919621,
+        "initial_good_proxy_count": 5,
+        "initial_bad_proxy_count": 32,
+        "preserve_proxy": 1.0,
+        "regression_proxy": 0.0,
+        "bad_fix_proxy": 0.0,
+        "initial_nonexact_count": 32,
+        "normalized_exact_fix": 0.0,
+        "unchanged_predictions": 37
+      }
+    },
+    "source_artifacts": [
+      {
+        "role": "before",
+        "file": "markdowns_quick_match_display_formula_result.json",
+        "sha256": "f55a033ee69079aaf972b06d04200a822bf9c55d6bdaf203736620bea36f45ac"
+      },
+      {
+        "role": "after",
+        "file": "markdowns_quick_match_display_formula_result.json",
+        "sha256": "f55a033ee69079aaf972b06d04200a822bf9c55d6bdaf203736620bea36f45ac"
+      },
+      {
+        "role": "before",
+        "file": "markdowns_quick_match_table_result.json",
+        "sha256": "faee121ca540e2432be93ba57089f6545e8afa7a014c935f181b29a446403245"
+      },
+      {
+        "role": "after",
+        "file": "markdowns_quick_match_table_result.json",
+        "sha256": "faee121ca540e2432be93ba57089f6545e8afa7a014c935f181b29a446403245"
+      },
+      {
+        "role": "before",
+        "file": "markdowns_quick_match_metric_result.json",
+        "sha256": "09448a29658e761f93d87413ca4ab613c213b67cbd88060e59c67215124029b9"
+      },
+      {
+        "role": "after",
+        "file": "markdowns_quick_match_metric_result.json",
+        "sha256": "09448a29658e761f93d87413ca4ab613c213b67cbd88060e59c67215124029b9"
+      }
+    ]
+  }
+}

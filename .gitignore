@@ -14,6 +14,11 @@ venv/
 *.ckpt
 data/raw/
 data/processed/
+data/preds/
+data/omnidocbench/
+data/ocerrbench/
+data/unimer/
+data/teacher_trajs/
 experiments/runs/
 wandb/
 *.log
@@ -28,3 +33,12 @@ Thumbs.db
 *.pem
 .env.*
 credentials.json
+*.key
+*.pub
+known_hosts*
+
+# Local tooling
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
