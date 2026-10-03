@@ -1,0 +1,2 @@
+{"sample_id": "synthetic-formula-1", "page_id": "synthetic-formula-page", "benchmark": "synthetic", "modality": "formula", "split": "test", "test_only": true, "source_image": "formula.png", "prediction": "x^3", "reference": "x^2"}
+{"sample_id": "synthetic-table-1", "page_id": "synthetic-table-page", "benchmark": "synthetic", "modality": "table", "split": "test", "test_only": true, "source_image": "table.png", "prediction": "<table><tr><td>13</td></tr></table>", "reference": "<table><tr><td>12</td></tr></table>"}

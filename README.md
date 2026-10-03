@@ -4,6 +4,10 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 > 基础论文：[OCR-EDR: Rendering-Aware Diagnosis and Repair for Closed-Loop OCR Improvement](https://arxiv.org/abs/2609.03445) (arXiv:2609.03445)
 
+本项目的本地工作区是 `~/d/recovered_final/optimization/ocr-edr-team`。研究方向依据该工作区的独立研究简报推进；MonkeyOCR Note 表格/公式复核属于另一个项目。MonkeyOCR 可作为多系统实验中的一个基线。
+
+完整资料：[研究简报](docs/research/brief.md)、[OCR-EDR 机制](docs/research/findings/F1-ocr-edr.md)、[Jev 与评测](docs/research/findings/F2-jev-omnidocbench.md)。引用数字来自研究记录，尚未在本项目独立复现。
+
 ## 目标（本组研究方向）
 
 1. **聚焦公式与表格**：正文纠错收益不明显且耗时，不作为主线。
@@ -13,21 +17,59 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 5. **多系统普适性**：在 **OmniDocBench** 上验证对多个主流 OCR / 文档解析模型均有提升。
 6. **Jev 判定层**：引入 Jev（决策模型）作为判断 / 奖励 / 级联首筛，降低 verifier 成本。
 
-## 快速开始
+## 当前可运行部分
+
+- 通用状态机：`inspect / diagnose_scope / localize / patch / global_patch / request_render / stop`，包括渲染过时、候选回退和预算约束。
+- 独立区域清单验证：公式/表格输入、测试标记、来源图片和训练/留出集的页面与精确图片重复检查。
+- PNG 渲染程序适配器，以及调用官方 OmniDocBench 的隔离评测入口。
+- 固定参考匹配的前后比较，分别报告页面平均、样本平均及明确标记的 Preserve/Good/Bad 代理指标。
+- CPU 检查、合成样例与服务器运行说明。
+- 真实 Qwen2-VL-2B 推理提案接口、受限 MathText 公式渲染、参考隔离的受控实验与成本记录。实验条件包括不修改、源图单轮、带渲染单轮、更新/过时渲染双轮。
+
+当前已接入未训练 2B 模型的独立公式提案实验；完整闭环的策略/视觉 judge、完整 TeX/表格渲染器、Jev、蒸馏和 SFT/GRPO 尚待实现。受控实验用于检查模型行为，不能视作真实 OCR 基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[公式实验协议](docs/research/FORMULA_PILOT.md)、[首轮真实模型结果](docs/research/RESULTS_20261002.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
+
+## 环境（Windows / Ubuntu）
+
+| 平台 | 用途 | 解释器 |
+|------|------|--------|
+| Windows 工作机 | 文档、轻量脚本、代码审阅 | 系统 Python 或 **Windows** venv：`.\.venv\Scripts\python.exe` |
+| Ubuntu / GPU 机 | 模型推理、完整渲染器、官方评测、训练 | POSIX venv：`bin/python`（见 [SERVER_RUNBOOK](docs/SERVER_RUNBOOK.md)） |
+
+Linux 下创建的 `.venv`（`bin/`+`lib/`）**不能**在 Windows 直接用；Windows 请本地重建 venv。CI（3.10 / 3.12）是跨平台质量闸门。
+
+## 快速开始（Python ≥3.10，CPU）
+
+**Windows**
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-core.txt
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe scripts\demo_loop.py
+.\.venv\Scripts\python.exe scripts\validate_manifest.py --manifest examples\synthetic\regions.jsonl
+```
+
+**Ubuntu / macOS**
 
 ```bash
-# 环境（示例）
-conda create -n ocredrenv python=3.11 -y
-conda activate ocredrenv
-pip install -r requirements.txt
-
-# 数据与评测
-python scripts/download_data.py --bench omnidocbench
-python scripts/eval_omnidocbench.py --config configs/eval/omnidocbench_formula_table.yaml
-
-# 训练（示例）
-python scripts/train_grpo.py --config configs/train/grpo_qwen2b_formula_table.yaml
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-core.txt
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/demo_loop.py
+.venv/bin/python scripts/validate_manifest.py --manifest examples/synthetic/regions.jsonl
 ```
+
+# 官方数据和本项目预测准备好后，先生成配置与命令
+python scripts/eval_omnidocbench.py \
+  --config configs/eval/omnidocbench_formula_table.yaml \
+  --baseline paddleocr_vl \
+  --official-repo /path/to/OmniDocBench \
+  --gt /path/to/OmniDocBench.json \
+  --pred-dir /path/to/paddleocr_predictions \
+  --dry-run
+```
+
+训练依赖保留在 `requirements.txt`，训练 YAML 是待验证配方，当前没有 `train_grpo.py` 入口。格式见 [数据协议](docs/DATA_PROTOCOL.md)，远端路径见 [服务器说明](docs/SERVER_RUNBOOK.md)。
 
 ## 目录结构
 
@@ -35,7 +77,9 @@ python scripts/train_grpo.py --config configs/train/grpo_qwen2b_formula_table.ya
 ocr-edr-extend/
 ├── README.md
 ├── CONTRIBUTING.md
-├── LICENSE
+├── pyproject.toml
+├── requirements-core.txt
+├── requirements-dev.txt
 ├── requirements.txt
 ├── .gitignore
 ├── .github/
@@ -55,11 +99,9 @@ ocr-edr-extend/
 │   └── MEETING_NOTES.md
 ├── scripts/            # 一键复现入口
 ├── src/
-│   ├── diagnosis/      # 诊断与定位
-│   ├── repair/         # patch / global_patch
-│   ├── render/         # 渲染与等价判定
-│   ├── judge/          # Jev / verifier / reward
-│   └── train/          # SFT / GRPO / distill
+│   └── ocr_edr/        # 闭环、渲染接口、清单与官方结果对比
+├── examples/synthetic/ # 合成输入，仅用于软件验证
+├── tests/              # CPU 与 CLI 检查
 ├── data/               # 不进 Git，放 LFS 或网盘索引
 └── experiments/        # 运行日志、结果表（可选 LFS）
 ```

@@ -1,4 +1,9 @@
-# OmniDocBench 评测（公式+表格）— 骨架
+# Official evaluator wrapper; paths may be overridden from the CLI.
+official:
+  repo: ../omnidocbench-eval
+  workers: 4
+  match_method: quick_match
+
 benchmark:
   name: OmniDocBench
   version: v1.5
@@ -19,11 +24,8 @@ baselines:
   - name: monkeyocr
     pred_dir: data/preds/monkeyocr
 
-repair:
-  enabled: true
-  method: ocr_edr_loop
-  max_turns: 6
-  render_backend: team_renderer
+# Run repair separately, then evaluate its prediction directory with --pred-dir.
+# Policy, judge and renderer adapters must be supplied before real repair runs.
 
 metrics:
   formula: [cdm, case_f1]
