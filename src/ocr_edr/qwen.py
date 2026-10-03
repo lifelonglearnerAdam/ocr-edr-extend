@@ -5,7 +5,53 @@ from __future__ import annotations
 import time
 from pathlib import Path
 
-from .formula_pilot import make_prompt
+from .formula_pilot import make_prompt, sha256_file
+from .loop import digest
+
+EVIDENCE_MODES = (
+    "source_only",
+    "source_first",
+    "source_last",
+    "labeled_source_first",
+    "labeled_source_last",
+    "duplicate_source",
+)
+
+
+def evidence_message(source: Path, prediction: str, rendered: Path | None, mode: str):
+    """Construct image roles and their processor order together, without labels from GT."""
+    if mode not in EVIDENCE_MODES:
+        raise ValueError("Unknown evidence mode")
+    if mode not in {"source_only", "duplicate_source"} and rendered is None:
+        raise ValueError("Candidate evidence mode requires its rendered image")
+    if mode == "source_only":
+        paths, prompt = [source], make_prompt(prediction, False)
+    elif mode == "duplicate_source":
+        paths = [source, source]
+        prompt = make_prompt(prediction, False).replace(
+            "Image 1 is the source formula.",
+            "Image 1 is the source formula. Image 2 is an identical copy of the source formula.",
+        )
+    else:
+        source_last = mode in {"source_last", "labeled_source_last"}
+        paths = [rendered, source] if source_last else [source, rendered]
+        prompt = make_prompt(prediction, True)
+        if source_last:
+            prompt = prompt.replace(
+                "Image 1 is the source formula. Image 2 is a rendering of the current OCR prediction.",
+                "Image 1 is a rendering of the current OCR prediction. Image 2 is the source formula.",
+            )
+    content = []
+    if mode.startswith("labeled_"):
+        roles = ["SOURCE FORMULA", "CURRENT OCR RENDERING"]
+        if mode == "labeled_source_last":
+            roles.reverse()
+        for role in roles:
+            content.extend([{"type": "text", "text": role + ":"}, {"type": "image"}])
+    else:
+        content.extend({"type": "image"} for _ in paths)
+    content.append({"type": "text", "text": prompt})
+    return paths, [{"role": "user", "content": content}], prompt
 
 
 class QwenFormulaProposer:
@@ -31,19 +77,26 @@ class QwenFormulaProposer:
         ).to(device)
         self.model.eval()
 
-    def propose(self, source: Path, prediction: str, rendered: Path | None) -> dict:
+    def propose(
+        self,
+        source: Path,
+        prediction: str,
+        rendered: Path | None,
+        *,
+        evidence_mode: str | None = None,
+    ) -> dict:
+        mode = evidence_mode or ("source_first" if rendered is not None else "source_only")
+        paths, messages, prompt = evidence_message(source, prediction, rendered, mode)
+        return self.generate(paths, messages, prompt)
+
+    def generate(self, image_paths: list[Path], messages: list[dict], prompt: str) -> dict:
         from PIL import Image
 
-        image_paths = [source] + ([rendered] if rendered is not None else [])
-        prompt = make_prompt(prediction, rendered is not None)
-        messages = [
-            {
-                "role": "user",
-                "content": (
-                    [{"type": "image"} for _ in image_paths] + [{"type": "text", "text": prompt}]
-                ),
-            }
-        ]
+        image_count = sum(
+            block["type"] == "image" for message in messages for block in message["content"]
+        )
+        if image_count != len(image_paths) or not image_paths:
+            raise ValueError("Message image markers must match the ordered image inputs")
         text = self.processor.apply_chat_template(
             messages, tokenize=False, add_generation_prompt=True
         )
@@ -74,4 +127,8 @@ class QwenFormulaProposer:
             "output_tokens": int(generated.shape[1]),
             "generation_seconds": elapsed,
             "prompt": prompt,
+            "messages": messages,
+            "ordered_image_sha256": [sha256_file(path) for path in image_paths],
+            "chat_template_sha256": digest(text),
+            "image_grid_thw": inputs.image_grid_thw.detach().cpu().tolist(),
         }
