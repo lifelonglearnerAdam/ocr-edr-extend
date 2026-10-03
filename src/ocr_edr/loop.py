@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import math
+from copy import deepcopy
 from dataclasses import asdict, dataclass, field, replace
 from typing import Literal, Protocol
 
@@ -163,8 +164,6 @@ class RepairLoop:
                 return finish("preserved", accepted=True)
             for steps in range(1, self.budget.max_steps + 1):
                 # Policy receives a copy of history so it cannot mutate the audit trail.
-                from copy import deepcopy
-
                 action = self.policy.act(current, rendered, verdict, tuple(deepcopy(trace)))
                 trace.append({"event": "action", "step": steps, **asdict(action)})
                 if action.kind in {"inspect", "diagnose_scope", "localize"}:

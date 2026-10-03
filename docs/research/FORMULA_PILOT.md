@@ -40,6 +40,8 @@ A positive result only warrants a real-data pilot. Zero gain or regressions warr
 
 Install `requirements-pilot.txt` into an isolated Python 3.12 environment; the pinned Torch/Torchvision wheels use the CUDA 12.8 wheel index. CPU fallback is supported. Download the `Qwen/Qwen2-VL-2B-Instruct` snapshot `895c3a49bc3fa70a340399125c650a463535e71c` into a private ignored cache.
 
+**Platform note.** The archived 2026-10-02 batch and its `.venv-pilot` snapshot were produced on the Ubuntu/POSIX research host. On Windows, create a native venv (`py -3.12 -m venv .venv-pilot`) and never mount or reuse a Linux `bin/` venv; see `docs/SERVER_RUNBOOK.md`. Offline score replay (`evaluate_formula_pilot.py`) is OS-independent when artifact hashes match.
+
 ```bash
 .venv-pilot/bin/python scripts/make_formula_pilot.py \
   --output experiments/runs/formula-pilot-20261002/data

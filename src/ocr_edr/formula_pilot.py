@@ -13,6 +13,9 @@ from pathlib import Path
 
 from .loop import Observation, Rendered, digest
 
+# Twelve controlled families; the first diagnostic uses FORMULAS[:4] only
+# (two source directions). Later entries are reserved for broader pilots and
+# are not evidence for the 2026-10-02 batch.
 FORMULAS = (
     (r"E=mc^{2}", r"E=mc^{3}", "exponent"),
     (r"\frac{a+b}{c}", r"\frac{a-b}{c}", "operator"),

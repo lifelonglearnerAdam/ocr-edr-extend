@@ -28,13 +28,36 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 当前已接入未训练 2B 模型的独立公式提案实验；完整闭环的策略/视觉 judge、完整 TeX/表格渲染器、Jev、蒸馏和 SFT/GRPO 尚待实现。受控实验用于检查模型行为，不能视作真实 OCR 基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[公式实验协议](docs/research/FORMULA_PILOT.md)、[首轮真实模型结果](docs/research/RESULTS_20261002.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
 
+## 环境（Windows / Ubuntu）
+
+| 平台 | 用途 | 解释器 |
+|------|------|--------|
+| Windows 工作机 | 文档、轻量脚本、代码审阅 | 系统 Python 或 **Windows** venv：`.\.venv\Scripts\python.exe` |
+| Ubuntu / GPU 机 | 模型推理、完整渲染器、官方评测、训练 | POSIX venv：`bin/python`（见 [SERVER_RUNBOOK](docs/SERVER_RUNBOOK.md)） |
+
+Linux 下创建的 `.venv`（`bin/`+`lib/`）**不能**在 Windows 直接用；Windows 请本地重建 venv。CI（3.10 / 3.12）是跨平台质量闸门。
+
 ## 快速开始（Python ≥3.10，CPU）
 
+**Windows**
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-core.txt
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe scripts\demo_loop.py
+.\.venv\Scripts\python.exe scripts\validate_manifest.py --manifest examples\synthetic\regions.jsonl
+```
+
+**Ubuntu / macOS**
+
 ```bash
-python -m pip install -r requirements-core.txt
-python -m unittest discover -s tests -v
-python scripts/demo_loop.py
-python scripts/validate_manifest.py --manifest examples/synthetic/regions.jsonl
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-core.txt
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/demo_loop.py
+.venv/bin/python scripts/validate_manifest.py --manifest examples/synthetic/regions.jsonl
+```
 
 # 官方数据和本项目预测准备好后，先生成配置与命令
 python scripts/eval_omnidocbench.py \
