@@ -32,7 +32,11 @@ def main() -> None:
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--max-new-tokens", type=int, default=128)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--renderer", choices=["mathtext", "tectonic"], default="mathtext")
+    parser.add_argument("--modes", nargs="+", choices=EVIDENCE_MODES, default=list(EVIDENCE_MODES))
     args = parser.parse_args()
+    if len(set(args.modes)) != len(args.modes):
+        parser.error("Duplicate evidence modes")
     if args.model_path.resolve().name != REVISION:
         parser.error("Use the pinned model snapshot")
     if args.limit is not None and args.limit < 1:
@@ -60,7 +64,7 @@ def main() -> None:
         },
         "input_sha256": sha256_file(input_path),
         "cases": len(cases),
-        "arms": ["unchanged_0", *EVIDENCE_MODES],
+        "arms": ["unchanged_0", *args.modes],
         "device": args.device,
         "max_new_tokens": args.max_new_tokens,
         "seed": 20261003,
@@ -73,7 +77,7 @@ def main() -> None:
         "status": "initializing",
         "cpu_threads": 8,
         "image_pixels": {"min": 128 * 28 * 28, "max": 256 * 28 * 28},
-        "renderer": "MathText cm 160 dpi",
+        "renderer": args.renderer,
         "syntax_gate": "rollback only on render error",
         "dtype": "bfloat16",
         "attention": "sdpa",
@@ -88,16 +92,27 @@ def main() -> None:
     proposer = QwenFormulaProposer(
         args.model_path, device=args.device, max_new_tokens=args.max_new_tokens
     )
-    renderer = MathTextRenderer(root / "renders")
+    if args.renderer == "tectonic":
+        from ocr_edr.tex import TectonicRenderer
+
+        renderer = TectonicRenderer(root / "renders")
+        metadata["tectonic_binary_sha256"] = renderer.binary_sha256
+    else:
+        renderer = MathTextRenderer(root / "renders")
     count = 0
     try:
         with (root / "predictions.jsonl").open("w") as results:
             for case in cases:
                 source = input_path.parent / case["source_image"]
                 initial = case["prediction"]
-                rendered = renderer.render(
-                    Observation(case["sample_id"], "formula", str(source), initial)
-                )
+                initial_render_error = None
+                try:
+                    rendered = renderer.render(
+                        Observation(case["sample_id"], "formula", str(source), initial)
+                    )
+                except Exception as exc:
+                    rendered = None
+                    initial_render_error = f"{type(exc).__name__}: {str(exc)[:400]}"
                 results.write(
                     json.dumps(
                         {
@@ -111,9 +126,29 @@ def main() -> None:
                     )
                     + "\n"
                 )
-                for mode in EVIDENCE_MODES:
+                for mode in args.modes:
+                    if rendered is None and mode not in {"source_only", "duplicate_source"}:
+                        results.write(
+                            json.dumps(
+                                {
+                                    "sample_id": case["sample_id"],
+                                    "family_id": case["family_id"],
+                                    "arm": mode,
+                                    "initial_prediction": initial,
+                                    "final_prediction": initial,
+                                    "trace": [],
+                                    "skip_reason": "initial_render_failed",
+                                    "initial_render_error": initial_render_error,
+                                }
+                            )
+                            + "\n"
+                        )
+                        continue
                     call = proposer.propose(
-                        source, initial, Path(rendered.path), evidence_mode=mode
+                        source,
+                        initial,
+                        Path(rendered.path) if rendered else None,
+                        evidence_mode=mode,
                     )
                     count += 1
                     candidate, extraction = extract_formula(call["raw_output"])
@@ -151,7 +186,10 @@ def main() -> None:
                         + "\n"
                     )
                 results.flush()
-                print(f"{case['sample_id']}: six conditions completed; {count} calls", flush=True)
+                print(
+                    f"{case['sample_id']}: {len(args.modes)} conditions completed; {count} calls",
+                    flush=True,
+                )
         metadata["status"] = "completed"
     except Exception as exc:
         metadata["status"] = "failed"

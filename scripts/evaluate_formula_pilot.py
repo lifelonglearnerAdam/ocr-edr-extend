@@ -21,11 +21,13 @@ from ocr_edr.formula_pilot import (
 from ocr_edr.loop import Observation
 
 
-def evaluate(predictions: list[dict], references: list[dict], root: Path) -> tuple[list, list]:
+def evaluate(
+    predictions: list[dict], references: list[dict], root: Path, renderer=None
+) -> tuple[list, list]:
     refs = {ref["sample_id"]: ref for ref in references}
     if len(refs) != len(references):
         raise ValueError("Duplicate reference sample IDs")
-    renderer = MathTextRenderer(root / "evaluation_renders")
+    renderer = renderer or MathTextRenderer(root / "evaluation_renders")
     rows, groups = [], defaultdict(list)
     seen = set()
     for result in predictions:
@@ -121,14 +123,20 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", required=True, type=Path)
     parser.add_argument("--references", required=True, type=Path)
+    parser.add_argument("--renderer", choices=["mathtext", "tectonic"], default="mathtext")
     args = parser.parse_args()
     root = args.run.resolve()
 
     def read_rows(path):
         return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
+    renderer = None
+    if args.renderer == "tectonic":
+        from ocr_edr.tex import TectonicRenderer
+
+        renderer = TectonicRenderer(root / "evaluation_renders")
     rows, summary = evaluate(
-        read_rows(root / "predictions.jsonl"), read_rows(args.references), root
+        read_rows(root / "predictions.jsonl"), read_rows(args.references), root, renderer
     )
     (root / "evaluation.json").write_text(
         json.dumps(
