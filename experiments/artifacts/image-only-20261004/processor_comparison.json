@@ -1,0 +1,8 @@
+{
+  "sources": 16,
+  "calls": 32,
+  "equal_grid_pairs": 16,
+  "equal_output_pairs": 16,
+  "output_token_cap_hits": 0,
+  "claim": "Changing only the upper image-pixel bound did not change actual grids or outputs on any of the 16 sources. This is not a higher-resolution comparison."
+}

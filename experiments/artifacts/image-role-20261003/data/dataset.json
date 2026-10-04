@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-02",
+  "dataset": "controlled_mathtext_formula_diagnostic_v1",
+  "cases": 20,
+  "source_families": 8,
+  "references_separate": true,
+  "held_out_from_training": true,
+  "renderer": "matplotlib.mathtext:cm:160dpi:22pt:16px-border",
+  "input_sha256": "86d57ad4e67c3b81f004eff85df063f448edba1905895826c04fc0ba3d29f99d",
+  "reference_sha256": "55f22243364d482914622c32f473d3e6b452d04e3504e7c624869e516816b0fc",
+  "limitations": [
+    "synthetic",
+    "single font",
+    "hand-authored perturbations",
+    "no real parser errors",
+    "equivalent controls are whitespace-only"
+  ]
+}

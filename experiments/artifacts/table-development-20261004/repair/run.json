@@ -1,0 +1,56 @@
+{
+  "started_at": "2026-10-04T01:09:53.841204+00:00",
+  "model": "Qwen/Qwen2-VL-2B-Instruct",
+  "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+  "source_revision": "db46e1f1b08a920d720b61ef45a016b3caede6f9",
+  "source_dirty": true,
+  "source_hashes": {
+    "scripts/run_table_pilot.py": "c271ac41fc3a6bc29d16c075288328e0a6a5e7a52a9f063c66d86b817dc90ec7",
+    "src/ocr_edr/qwen.py": "5b83deb0e0b6b8293530bf8afc168a8dd7de7c7ebdb5ddfcb04fbd94b4d5d38d",
+    "src/ocr_edr/table_pilot.py": "764377a22b43002cfa5129c26d3a69d4033ae893e1c18f3e4d9b5bfdae49948d"
+  },
+  "input_sha256": "447aa0d9294b60650161dbe3678bb08c3d8b411af1e54addd84fd7f8438aa215",
+  "cases": 14,
+  "reference_access": "none",
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "cpu_threads": 8,
+  "max_new_tokens": 512,
+  "seed": 20261004,
+  "do_sample": false,
+  "image_pixels": {
+    "min": 100352,
+    "max": 200704
+  },
+  "renderer": "WeasyPrint fixed CSS",
+  "renderer_fonts": {
+    "Noto Sans CJK SC": {
+      "path": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+      "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+    },
+    "sans-serif": {
+      "path": "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf",
+      "sha256": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d"
+    }
+  },
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.1",
+    "weasyprint": "66.0",
+    "lxml": "6.0.2",
+    "Pillow": "11.3.0",
+    "pydyf": "0.12.1",
+    "cffi": "2.1.1"
+  },
+  "status": "completed",
+  "calls": 56,
+  "arms": [
+    "unchanged_0",
+    "source_only_rewrite",
+    "source_first_rewrite",
+    "source_last_rewrite",
+    "source_only_patch"
+  ],
+  "gate": "rollback only for adapter/schema/render failure; no learned visual judge",
+  "finished_at": "2026-10-04T01:29:29.896444+00:00"
+}

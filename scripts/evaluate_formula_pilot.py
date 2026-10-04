@@ -27,6 +27,8 @@ def evaluate(
     refs = {ref["sample_id"]: ref for ref in references}
     if len(refs) != len(references):
         raise ValueError("Duplicate reference sample IDs")
+    if not refs or not predictions:
+        raise ValueError("Empty reference or prediction coverage")
     renderer = renderer or MathTextRenderer(root / "evaluation_renders")
     rows, groups = [], defaultdict(list)
     seen = set()
@@ -35,7 +37,11 @@ def evaluate(
         if key in seen:
             raise ValueError("Duplicate prediction per sample/arm")
         seen.add(key)
+        if result["sample_id"] not in refs:
+            raise ValueError("Unexpected prediction sample ID")
         ref = refs[result["sample_id"]]
+        if result.get("family_id", ref["family_id"]) != ref["family_id"]:
+            raise ValueError("Prediction/reference family mismatch")
         signatures = []
         errors = []
         for markup in [ref["reference"], result["initial_prediction"], result["final_prediction"]]:
@@ -74,8 +80,8 @@ def evaluate(
         rows.append(row)
         groups[result["arm"]].append(row)
     arm_ids = [{row["sample_id"] for row in group} for group in groups.values()]
-    if any(ids != arm_ids[0] for ids in arm_ids):
-        raise ValueError("Unpaired arm coverage; do not compare partial cases")
+    if any(ids != set(refs) for ids in arm_ids):
+        raise ValueError("Unpaired arm/reference coverage; do not compare partial cases")
     summary = []
     for arm, group in groups.items():
         bad = [r for r in group if not r["initial_raster_exact_proxy"]]

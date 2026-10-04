@@ -55,20 +55,10 @@ def evidence_message(source: Path, prediction: str, rendered: Path | None, mode:
 
 
 class QwenFormulaProposer:
-    def __init__(
-        self,
-        model_path: Path,
-        *,
-        device: str = "cuda:0",
-        max_new_tokens: int = 192,
-        min_pixels: int = 128 * 28 * 28,
-        max_pixels: int = 256 * 28 * 28,
-    ):
+    def __init__(self, model_path: Path, *, device: str = "cuda:0", max_new_tokens: int = 192):
         import torch
         from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
 
-        if min_pixels <= 0 or max_pixels < min_pixels:
-            raise ValueError("Positive ordered image pixel limits required")
         self.torch = torch
         self.device = device
         self.max_new_tokens = max_new_tokens
@@ -76,8 +66,8 @@ class QwenFormulaProposer:
             str(model_path),
             local_files_only=True,
             use_fast=False,
-            min_pixels=min_pixels,
-            max_pixels=max_pixels,
+            min_pixels=128 * 28 * 28,
+            max_pixels=256 * 28 * 28,
         )
         self.model = Qwen2VLForConditionalGeneration.from_pretrained(
             str(model_path),

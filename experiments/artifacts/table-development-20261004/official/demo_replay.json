@@ -1,0 +1,184 @@
+{
+  "official_source": {
+    "repository": "opendatalab/OmniDocBench",
+    "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "files": {
+      "src/metrics/table_metric.py": {
+        "git_blob_sha1": "705e294919bb1ff96cf1a69655b1267958a66407",
+        "sha256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e"
+      },
+      "src/core/preprocess/data_preprocess.py": {
+        "git_blob_sha1": "71f27dcbe9975e08303e138a250e4e6f5258c89b",
+        "sha256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd"
+      },
+      "src/core/preprocess/table_postprocess.py": {
+        "git_blob_sha1": "b00c37e0a7c44d21cb9b2fedae2fc69a64d61f59",
+        "sha256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762"
+      },
+      "src/core/preprocess/table_utils.py": {
+        "git_blob_sha1": "d91e64f33eb50d4fae66df64496705cffb494b06",
+        "sha256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731"
+      },
+      "src/core/preprocess/text_postprocess.py": {
+        "git_blob_sha1": "bb6c315f86ab66903159c2b10ee1a8f4d034acbb",
+        "sha256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29"
+      }
+    }
+  },
+  "records": [
+    {
+      "img_id": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4.jpg",
+      "gt_position": [
+        8
+      ],
+      "published": {
+        "TEDS": 0.7020650214108631,
+        "TEDS_structure_only": 0.9425287356321839,
+        "Edit_dist": 0.21774193548387097
+      },
+      "replayed": {
+        "TEDS": 0.7020650214108631,
+        "TEDS_structure_only": 0.9425287356321839
+      }
+    },
+    {
+      "img_id": "docstructbench_dianzishu_zhongwenzaixian-o.O-61522235.pdf_170.jpg",
+      "gt_position": [
+        9
+      ],
+      "published": {
+        "TEDS": 0.7477954144620811,
+        "TEDS_structure_only": 0.7592592592592593,
+        "Edit_dist": 0.17744154057771663
+      },
+      "replayed": {
+        "TEDS": 0.7477954144620811,
+        "TEDS_structure_only": 0.7592592592592593
+      }
+    },
+    {
+      "img_id": "docstructbench_dianzishu_zhongwenzaixian-o.O-61520814.pdf_185.jpg",
+      "gt_position": [
+        3
+      ],
+      "published": {
+        "TEDS": 0.9658888730317302,
+        "TEDS_structure_only": 1.0,
+        "Edit_dist": 0.027522935779816515
+      },
+      "replayed": {
+        "TEDS": 0.9658888730317302,
+        "TEDS_structure_only": 1.0
+      }
+    },
+    {
+      "img_id": "jiaocaineedrop_Chapter9.pdf_46.jpg",
+      "gt_position": [
+        27
+      ],
+      "published": {
+        "TEDS": 0.8823529411764706,
+        "TEDS_structure_only": 0.8823529411764706,
+        "Edit_dist": 0.16
+      },
+      "replayed": {
+        "TEDS": 0.8823529411764706,
+        "TEDS_structure_only": 0.8823529411764706
+      }
+    },
+    {
+      "img_id": "jiaocaineedrop_jiaocai_needrop_en_1898.jpg",
+      "gt_position": [
+        17
+      ],
+      "published": {
+        "TEDS": 0.9995049504950495,
+        "TEDS_structure_only": 1.0,
+        "Edit_dist": 0.007462686567164179
+      },
+      "replayed": {
+        "TEDS": 0.9995049504950495,
+        "TEDS_structure_only": 1.0
+      }
+    },
+    {
+      "img_id": "notes_1ba14cb325bc448f7201b20502ecf2b5_15.jpg",
+      "gt_position": [
+        18
+      ],
+      "published": {
+        "TEDS": 0.5248263888888889,
+        "TEDS_structure_only": 0.8333333333333334,
+        "Edit_dist": 0.26548672566371684
+      },
+      "replayed": {
+        "TEDS": 0.5248263888888889,
+        "TEDS_structure_only": 0.8333333333333334
+      }
+    },
+    {
+      "img_id": "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg",
+      "gt_position": [
+        15
+      ],
+      "published": {
+        "TEDS": 0.8729591836734694,
+        "TEDS_structure_only": 1.0,
+        "Edit_dist": 0.5435606060606061
+      },
+      "replayed": {
+        "TEDS": 0.8729591836734694,
+        "TEDS_structure_only": 1.0
+      }
+    },
+    {
+      "img_id": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg",
+      "gt_position": [
+        6
+      ],
+      "published": {
+        "TEDS": 0.5818176807760141,
+        "TEDS_structure_only": 0.8333333333333334,
+        "Edit_dist": 0.24084778420038536
+      },
+      "replayed": {
+        "TEDS": 0.5818176807760141,
+        "TEDS_structure_only": 0.8333333333333334
+      }
+    },
+    {
+      "img_id": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg",
+      "gt_position": [
+        30
+      ],
+      "published": {
+        "TEDS": 0.692295975629309,
+        "TEDS_structure_only": 0.9365079365079365,
+        "Edit_dist": 0.13394919168591224
+      },
+      "replayed": {
+        "TEDS": 0.692295975629309,
+        "TEDS_structure_only": 0.9365079365079365
+      }
+    },
+    {
+      "img_id": "yanbaopptmerge_0c79d327060dbf9f1582d03c235dadb039533a19091d2c0d24f2ad95d267f79b.pdf_2.jpg",
+      "gt_position": [
+        4
+      ],
+      "published": {
+        "TEDS": 0.8686189860559609,
+        "TEDS_structure_only": 0.9285714285714286,
+        "Edit_dist": 0.2512479201331115
+      },
+      "replayed": {
+        "TEDS": 0.8686189860559609,
+        "TEDS_structure_only": 0.9285714285714286
+      }
+    }
+  ],
+  "count": 10,
+  "all_match": true,
+  "tolerance": 1e-12,
+  "new_experiment_normalization": "symmetric current upstream; published demos replay their saved normalized markup"
+}

@@ -1,0 +1,15 @@
+{
+  "operation": "offline portable artifact replay; no model calls or source images",
+  "comparison": "all per-case records and all summary records; whole JSON equal also checked",
+  "reference_sha256": "c0c2981823913dba5ed1c48618bf32dd7038516aa2b50cc0e4e639d64b1bd603",
+  "recognition_sha256": "bb768eec2ae7542660e92ff5dee4b85d43b303314f8114e844e6011e32b9846e",
+  "native_inputs_sha256": "f2c97f15c011ac8d213ee566755f7e14df3e6379dbba2a4d4b2418e4b68ca9b9",
+  "cases": 80,
+  "summary_records": 5,
+  "cases_equal": true,
+  "summary_equal": true,
+  "whole_evaluation_equal": true,
+  "original_evaluation_sha256": "a631b09f99b7f29c3b444ea480504e35dd2594eee10049dcc68c7e98f4e85563",
+  "replayed_evaluation_sha256": "a631b09f99b7f29c3b444ea480504e35dd2594eee10049dcc68c7e98f4e85563",
+  "renderer": "Tectonic and pdftoppm; same-renderer raster proxy only"
+}

@@ -1,0 +1,10 @@
+{
+  "source_only": {
+    "cases": 20,
+    "exact_output_reproductions": 20
+  },
+  "source_first": {
+    "cases": 20,
+    "exact_output_reproductions": 20
+  }
+}

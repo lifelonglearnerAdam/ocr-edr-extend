@@ -1,0 +1,22 @@
+{
+  "dataset": "wanderkid/UniMER_Dataset",
+  "dataset_revision": "2343ddd963290469da36ca83e3a56c66e068add9",
+  "archive_sha256": "9bf370b8cac868fee84835f40dec26c477430611253e3feb681356a8149a3a90",
+  "annotation_mapping_source_revision": "5a2c80d96b1d2dba447ff18d873e5fb73ba03c35",
+  "mapping": "numeric image basename indexes the split annotation file",
+  "selection": "sha256(20261003:archive_path) order; first eligible per split",
+  "per_split": 8,
+  "cases": 32,
+  "sources": 16,
+  "reference_access_for_selection": true,
+  "model_outputs_used_for_selection": false,
+  "role": "exploratory development; permanently exclude from future frozen test claims",
+  "metric": "restricted same-renderer raster proxy; no CDM or VisFix",
+  "limits": [
+    "MathText-supported and <=200-character labels only",
+    "controlled one-symbol errors, not native parser predictions",
+    "published benchmark sources may have appeared in model pretraining"
+  ],
+  "input_sha256": "2fbfa9149b009effb0e240589c18b54ae804be89cb45966ba200f878539baf90",
+  "reference_sha256": "e557749e6ebde65169b6343f6b5560c2e4cdbaa430f0a1b0402ec56988f9183c"
+}

@@ -24,9 +24,11 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 - PNG 渲染程序适配器，以及调用官方 OmniDocBench 的隔离评测入口。
 - 固定参考匹配的前后比较，分别报告页面平均、样本平均及明确标记的 Preserve/Good/Bad 代理指标。
 - CPU 检查、合成样例与服务器运行说明。
-- 真实 Qwen2-VL-2B 推理提案接口、受限 MathText 公式渲染、参考隔离的受控实验与成本记录。实验条件包括不修改、源图单轮、带渲染单轮、更新/过时渲染双轮。
+- 真实 Qwen2-VL-2B 推理提案接口、MathText 与完整 Tectonic 公式渲染、参考隔离实验、图像顺序/角色标签消融及实际 token/CPU 生成成本记录。
+- 独立 UniMER 开发样本、Nougat-LaTeX 原生输出、图像单独识别对照；全部样本保留，公式分数仍是同渲染器精确光栅代理，尚非 CDM。
+- WeasyPrint 中文/合并单元格表格渲染与单步 JSON 编辑；固定配对的官方 TEDS/TEDS-S 离线评测，分别报告修复、回退、退化、页面平均及成本。官方源码先与固定 Git blob 核验。
 
-当前已接入未训练 2B 模型的独立公式提案实验；完整闭环的策略/视觉 judge、完整 TeX/表格渲染器、Jev、蒸馏和 SFT/GRPO 尚待实现。受控实验用于检查模型行为，不能视作真实 OCR 基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[公式实验协议](docs/research/FORMULA_PILOT.md)、[首轮真实模型结果](docs/research/RESULTS_20261002.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
+当前已接入完整 TeX/表格渲染和独立评测。完整闭环的学习策略/视觉 judge、Jev、蒸馏和 SFT/GRPO 尚待实现；表格 demo 的原始解析器身份未公开，不能据此声称具名解析器迁移。未训练 2B 的开发结果包含失败与退化，不能视作基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[10 月 3 日公式结果](docs/research/RESULTS_20261003.md)、[10 月 4 日对照与表格结果](docs/research/RESULTS_20261004.md)、[相关工作与新颖性检查](docs/research/PRIOR_ART_20261003.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
 
 ## 环境（Windows / Ubuntu）
 
@@ -59,8 +61,10 @@ python3 -m venv .venv
 .venv/bin/python scripts/validate_manifest.py --manifest examples/synthetic/regions.jsonl
 ```
 
-# 官方数据和本项目预测准备好后，先生成配置与命令
-python scripts/eval_omnidocbench.py \
+官方数据和本项目预测准备好后，先生成配置与命令：
+
+```bash
+.venv/bin/python scripts/eval_omnidocbench.py \
   --config configs/eval/omnidocbench_formula_table.yaml \
   --baseline paddleocr_vl \
   --official-repo /path/to/OmniDocBench \
