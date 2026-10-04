@@ -1,0 +1,8 @@
+arm,cases,families,bad_n,good_n,bad_fixed_proxy,good_regressions_proxy,correct_regressions_proxy,equivalent_regressions_proxy,counterfactual_fixed_proxy,counterfactual_good_regressions_proxy,full_set_raster_exact_proxy,normalized_exact_rate,syntax_failures,wrapper_contract_violations,mean_generation_seconds,mean_input_tokens,mean_output_tokens
+unchanged_0,20,8,8,12,0,0,0,0,0,0,0.6,0.6,0,0,0,0,0
+source_only,20,8,8,12,7,0,0,0,3,0,0.95,0.75,0,20,2.507559813600011,251.95,15.15
+source_first,20,8,8,12,2,0,0,0,1,0,0.7,0.6,0,20,3.4756600648500013,404.7,14.9
+source_last,20,8,8,12,5,0,0,0,3,0,0.85,0.85,0,20,3.5081146601,404.7,15
+labeled_source_first,20,8,8,12,1,0,0,0,1,0,0.65,0.55,0,20,3.50717484635,413.7,14.9
+labeled_source_last,20,8,8,12,5,0,0,0,2,0,0.85,0.85,1,20,3.548051612500001,413.7,15.3
+duplicate_source,20,8,8,12,7,0,0,0,3,0,0.95,0.85,0,20,3.5014293431999706,404.7,14.85

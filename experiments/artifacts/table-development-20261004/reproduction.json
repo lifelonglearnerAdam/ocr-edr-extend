@@ -1,0 +1,21 @@
+{
+  "operation": "offline portable table score replay; no model calls, rendering or source images",
+  "cases": 70,
+  "summary_records": 25,
+  "per_page_records": 90,
+  "cases_equal": true,
+  "summary_equal": true,
+  "per_page_equal": true,
+  "whole_evaluation_equal": true,
+  "original_evaluation_sha256": "97f3f16d3bd40fe2b86bfa1b1ebdc35c3f6ee53f07a5a189b8abe3a76af6f60a",
+  "replayed_evaluation_sha256": "97f3f16d3bd40fe2b86bfa1b1ebdc35c3f6ee53f07a5a189b8abe3a76af6f60a",
+  "official_revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "input_sha256": "447aa0d9294b60650161dbe3678bb08c3d8b411af1e54addd84fd7f8438aa215",
+  "reference_sha256": "847271cd7c76ceaf3199bed408881453985ad71d14c27fb7d9b4514b2764fc33",
+  "prediction_sha256": "5d1fa961b26740aa90be0ce8d8b0c1253ea15c77e37999c5280746e185a8e25f",
+  "fresh_source_download_replay": {
+    "all_evaluation_content_equal": true,
+    "evaluation_sha256": "97f3f16d3bd40fe2b86bfa1b1ebdc35c3f6ee53f07a5a189b8abe3a76af6f60a",
+    "files_downloaded_without_images_or_weights": 8
+  }
+}

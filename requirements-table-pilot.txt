@@ -1,0 +1,7 @@
+# Isolated optional table-rendering and official metric dependencies.
+weasyprint==66.0
+lxml==6.0.2
+apted==1.0.3
+Levenshtein==0.27.1
+beautifulsoup4==4.14.2
+pylatexenc==2.10

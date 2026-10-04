@@ -1,0 +1,8 @@
+{
+  "role": "native OCR development; all selected sources retained",
+  "sources_sha256": "d2034132c9fcf043806f49a2c2c47ebbb7c75e2dfb078fdad4c73352ba876a67",
+  "native_predictions_sha256": "a0ee53981f0aa2def387bd4b82968f1ad4a4515ec3faf573766a36ac81dc7566",
+  "sources": 16,
+  "removed_for_model_performance": 0,
+  "input_sha256": "f2c97f15c011ac8d213ee566755f7e14df3e6379dbba2a4d4b2418e4b68ca9b9"
+}

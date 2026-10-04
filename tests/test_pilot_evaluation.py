@@ -3,9 +3,12 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from evaluate_formula_pilot import evaluate
+
+from ocr_edr.loop import Rendered
 
 
 @unittest.skipUnless(importlib.util.find_spec("matplotlib"), "optional pilot dependencies")
@@ -71,6 +74,35 @@ class PilotEvaluationTests(unittest.TestCase):
                 evaluate(results, references, Path(tmp))
             with self.assertRaisesRegex(ValueError, "Duplicate prediction"):
                 evaluate([results[0], results[0]], references, Path(tmp))
+
+
+class FrozenCoverageTests(unittest.TestCase):
+    def test_joint_omission_from_all_arms_cannot_hide_a_reference_case(self):
+        references = [
+            {
+                "sample_id": sid,
+                "family_id": sid,
+                "reference": "x",
+                "variant": "correct",
+                "source_kind": "base",
+                "error_type": None,
+            }
+            for sid in ["a", "b"]
+        ]
+        results = [PilotEvaluationTests.result("a", arm, "x", "x") for arm in ["one", "two"]]
+
+        class FakeRenderer:
+            def render(self, observation):
+                return Rendered("fake.png", "hash", "fake")
+
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch("evaluate_formula_pilot.pixel_signature", return_value="fixed"),
+        ):
+            with self.assertRaisesRegex(ValueError, "Unpaired arm/reference"):
+                evaluate(results, references, Path(tmp), FakeRenderer())
+        with self.assertRaisesRegex(ValueError, "Empty"):
+            evaluate([], references, Path("unused"))
 
 
 if __name__ == "__main__":
