@@ -78,6 +78,25 @@ def extract_table(raw: str) -> tuple[str, str]:
     return (match[1].strip(), "code_fence") if match else (raw.strip(), "unwrapped")
 
 
+def table_cell_map(initial: str) -> list[dict]:
+    """Expose every initial cell using the same DOM addresses as the action adapter."""
+    table, _ = parse_table(initial)
+    entries = []
+    for row_index, row in enumerate(table.xpath("./tr|./thead/tr|./tbody/tr|./tfoot/tr")):
+        for cell_index, cell in enumerate(row.xpath("./td|./th")):
+            entries.append(
+                {
+                    "row": row_index,
+                    "cell": cell_index,
+                    "tag": cell.tag,
+                    "rowspan": int(cell.get("rowspan", "1")),
+                    "colspan": int(cell.get("colspan", "1")),
+                    "text": "".join(cell.itertext()),
+                }
+            )
+    return entries
+
+
 def apply_table_action(initial: str, raw_output: str) -> tuple[str, dict]:
     """One validated, atomic operation addressed in the initial row/cell order."""
     text = raw_output.strip()

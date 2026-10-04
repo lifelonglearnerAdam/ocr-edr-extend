@@ -15,12 +15,16 @@ import _bootstrap  # noqa: F401
 from ocr_edr.formula_pilot import sha256_file, validate_pilot_inputs
 from ocr_edr.loop import Observation
 from ocr_edr.qwen import QwenFormulaProposer
-from ocr_edr.table_pilot import HTMLTableRenderer, apply_table_action, extract_table
+from ocr_edr.table_pilot import HTMLTableRenderer, apply_table_action, extract_table, table_cell_map
 
 MODES = ["source_only_rewrite", "source_first_rewrite", "source_last_rewrite", "source_only_patch"]
+PATCH_MODES = {"source_only_patch", "source_only_patch_indexed"}
+ALL_MODES = [*MODES, "source_only_patch_indexed"]
 
 
 def message(source: Path, initial: str, rendered: Path | None, mode: str):
+    if mode not in ALL_MODES:
+        raise ValueError("Unknown table evidence mode")
     roles = "Image 1 is the source table."
     paths = [source]
     if mode in {"source_first_rewrite", "source_last_rewrite"}:
@@ -37,7 +41,14 @@ def message(source: Path, initial: str, rendered: Path | None, mode: str):
         "in the source. Preserve correct cell text, row/column order, rowspan and colspan. "
         "If the table is already correct, preserve it.\nCurrent OCR table:\n" + initial + "\n"
     )
-    if mode == "source_only_patch":
+    if mode == "source_only_patch_indexed":
+        prompt += (
+            "Cell address map computed from the current HTML (zero-based row/cell indices):\n"
+            "<cell_map>\n"
+            + json.dumps(table_cell_map(initial), ensure_ascii=False, separators=(",", ":"))
+            + "\n</cell_map>\n"
+        )
+    if mode in PATCH_MODES:
         prompt += (
             'Return exactly one JSON object using one of these actions: {"action":"stop"}; '
             '{"action":"replace_cell","row":0,"cell":0,"text":"correct plain cell text"}; '
@@ -67,7 +78,10 @@ def main() -> None:
     parser.add_argument("--inputs", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--modes", nargs="+", choices=ALL_MODES, default=MODES)
     args = parser.parse_args()
+    if len(set(args.modes)) != len(args.modes):
+        parser.error("Each proposal mode must be selected only once")
     if args.output.exists():
         raise ValueError("Use a new output directory")
     inputs = list(map(json.loads, args.inputs.read_text().splitlines()))
@@ -108,7 +122,10 @@ def main() -> None:
         },
         "status": "running",
         "calls": 0,
-        "arms": ["unchanged_0", *MODES],
+        "arms": ["unchanged_0", *args.modes],
+        "cell_map_source": (
+            "initial_html_only" if "source_only_patch_indexed" in args.modes else "none"
+        ),
         "gate": "rollback only for adapter/schema/render failure; no learned visual judge",
     }
     (args.output / "run.json").write_text(json.dumps(metadata, indent=2) + "\n")
@@ -125,7 +142,7 @@ def main() -> None:
                     )
                 except Exception as exc:
                     initial_error = f"{type(exc).__name__}: {str(exc)[:200]}"
-                for mode in ["unchanged_0", *MODES]:
+                for mode in ["unchanged_0", *args.modes]:
                     result = {
                         "sample_id": case["sample_id"],
                         "family_id": case["family_id"],
@@ -147,7 +164,7 @@ def main() -> None:
                             metadata["calls"] += 1
                             candidate, adapter_error, render_error, action = None, None, None, None
                             try:
-                                if mode == "source_only_patch":
+                                if mode in PATCH_MODES:
                                     candidate, action = apply_table_action(
                                         initial, call["raw_output"]
                                     )
@@ -179,7 +196,8 @@ def main() -> None:
                     sink.write(json.dumps(result, ensure_ascii=False) + "\n")
                     sink.flush()
                 print(
-                    f"{case['sample_id']}: four arms; {metadata['calls']} model calls", flush=True
+                    f"{case['sample_id']}: {len(args.modes)} proposal arms; {metadata['calls']} model calls",
+                    flush=True,
                 )
         metadata["status"] = "completed"
     except Exception as exc:
