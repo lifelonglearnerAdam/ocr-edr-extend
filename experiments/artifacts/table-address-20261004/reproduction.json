@@ -1,0 +1,13 @@
+{
+  "method": "fresh offline evaluation of the portable inputs/outputs using a separately downloaded hash-verified official source root",
+  "replay_output": "experiments/runs/table-address-20261004/portable-replay/evaluation.json",
+  "cases_compared": 42,
+  "summaries_compared": 15,
+  "page_records_compared": 54,
+  "exact_case_match": true,
+  "exact_summary_match": true,
+  "exact_page_match": true,
+  "model_inference_in_replay": false,
+  "benchmark_images_or_weights_required": false,
+  "timing": "copied from the completed original calls; not remeasured"
+}
