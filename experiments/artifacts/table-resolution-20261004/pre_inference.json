@@ -1,0 +1,58 @@
+{
+  "created_at": "2026-10-04T04:58:13.160916+00:00",
+  "stage": "frozen_after_processor_checks_before_model_weights",
+  "source_revision": "ca64cae3ea185215101ce906930d9fcee622b8cc",
+  "source_dirty": false,
+  "source_hashes": {
+    "scripts/run_table_pilot.py": "a2560f22bbcdaaa24d5d62044ca8981af259939b9efa35530f65b4d0385b8968",
+    "src/ocr_edr/qwen.py": "5b83deb0e0b6b8293530bf8afc168a8dd7de7c7ebdb5ddfcb04fbd94b4d5d38d",
+    "src/ocr_edr/table_pilot.py": "58547685a9168568f50828b17f5da1c7cf752f9b32e82578cad7615f543944f3",
+    "docs/research/TABLE_RESOLUTION_PROTOCOL.md": "9c8bee77cec3022bdfad9050eb89541acb550468a25a8a4b842cdbfb84dd702e",
+    "tests/test_table_addresses.py": "8b6310622dee39c20c6f35565d9496497057a8878597dfb924629c8afe7b5bcc"
+  },
+  "input_path": "experiments/runs/table-development-20261004/data-v2/inputs.jsonl",
+  "input_sha256": "447aa0d9294b60650161dbe3678bb08c3d8b411af1e54addd84fd7f8438aa215",
+  "reference_sha256_for_offline_pairing_only": "847271cd7c76ceaf3199bed408881453985ad71d14c27fb7d9b4514b2764fc33",
+  "reference_access_during_inference": "none",
+  "call_manifest_sha256": "313ecf95b7215b64e2b59500e15a72443dab7fc1f9ed7ed711a0ec08483da845",
+  "calls_planned": 28,
+  "rows_planned": 56,
+  "cases_per_condition": 14,
+  "pages": 4,
+  "conditions": {
+    "low": {
+      "min": 100352,
+      "max": 200704
+    },
+    "high": {
+      "min": 802816,
+      "max": 802816
+    }
+  },
+  "call_order": "all low cases in input order, then all high cases in input order",
+  "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "cpu_threads": 8,
+  "max_new_tokens": 512,
+  "seed": 20261004,
+  "do_sample": false,
+  "actual_larger_grid_for_all_source_families": true,
+  "core_tests": {
+    "run": 71,
+    "pass": 57,
+    "skips": 14
+  },
+  "pilot_tests": {
+    "run": 71,
+    "pass": 71,
+    "skips": 0
+  },
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.1",
+    "Pillow": "11.3.0",
+    "weasyprint": "66.0",
+    "lxml": "6.0.2"
+  }
+}

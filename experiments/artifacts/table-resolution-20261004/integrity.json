@@ -1,0 +1,280 @@
+{
+  "calls": 28,
+  "rows": 56,
+  "all_manifest_and_runtime_grid_token_matches": true,
+  "all_source_hashes_match_clean_frozen_revision": true,
+  "all_actions_replay": true,
+  "low_reproduces_all_14_prior_calls": true,
+  "high_grids_larger_for_every_source": true,
+  "per_call": [
+    {
+      "condition": "low",
+      "sample_id": "d001",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d002",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d003",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d004",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d005",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d006",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d007",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d008",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d009",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d010",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d011",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d012",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d013",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "low",
+      "sample_id": "d014",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": []
+    },
+    {
+      "condition": "high",
+      "sample_id": "d001",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "raw_output",
+        "image_grid_thw",
+        "input_tokens",
+        "output_tokens",
+        "candidate",
+        "action",
+        "final_prediction"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d002",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "raw_output",
+        "image_grid_thw",
+        "input_tokens",
+        "output_tokens",
+        "candidate",
+        "action",
+        "final_prediction"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d003",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "image_grid_thw",
+        "input_tokens"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d004",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "image_grid_thw",
+        "input_tokens"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d005",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "image_grid_thw",
+        "input_tokens"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d006",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "image_grid_thw",
+        "input_tokens"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d007",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "raw_output",
+        "image_grid_thw",
+        "input_tokens",
+        "adapter_error"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d008",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "image_grid_thw",
+        "input_tokens"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d009",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "image_grid_thw",
+        "input_tokens"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d010",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "image_grid_thw",
+        "input_tokens"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d011",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "raw_output",
+        "image_grid_thw",
+        "input_tokens",
+        "output_tokens",
+        "adapter_error",
+        "hit_length_cap"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d012",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "raw_output",
+        "image_grid_thw",
+        "input_tokens",
+        "output_tokens",
+        "adapter_error",
+        "hit_length_cap"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d013",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "raw_output",
+        "image_grid_thw",
+        "input_tokens",
+        "output_tokens",
+        "candidate",
+        "action",
+        "extraction",
+        "adapter_error",
+        "hit_length_cap"
+      ]
+    },
+    {
+      "condition": "high",
+      "sample_id": "d014",
+      "manifest_matches": true,
+      "action_replay_matches": true,
+      "changes_from_previous_low": [
+        "raw_output",
+        "image_grid_thw",
+        "input_tokens",
+        "output_tokens",
+        "adapter_error",
+        "hit_length_cap"
+      ]
+    }
+  ]
+}

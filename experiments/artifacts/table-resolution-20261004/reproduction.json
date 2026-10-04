@@ -1,0 +1,32 @@
+{
+  "method": "fresh offline evaluation of both portable conditions using a separately downloaded Git-blob-verified official source root",
+  "conditions": {
+    "low": {
+      "replay_output": "experiments/runs/table-resolution-portable-replay-20261004/low/evaluation.json",
+      "replay_sha256": "74ff0e8054939462b6763d4d9fb69862d95fbb846e5d6c605bf1a4e2fa2330f2",
+      "cases_compared": 28,
+      "summaries_compared": 10,
+      "page_records_compared": 36,
+      "exact_match": {
+        "cases": true,
+        "summary": true,
+        "per_page": true
+      }
+    },
+    "high": {
+      "replay_output": "experiments/runs/table-resolution-portable-replay-20261004/high/evaluation.json",
+      "replay_sha256": "a1d73fcaec3f18f4c427cb3917c50b5dcf7c3f6c06bbc012e62f5384166978e7",
+      "cases_compared": 28,
+      "summaries_compared": 10,
+      "page_records_compared": 36,
+      "exact_match": {
+        "cases": true,
+        "summary": true,
+        "per_page": true
+      }
+    }
+  },
+  "model_inference_in_replay": false,
+  "benchmark_images_or_weights_required": false,
+  "timing": "copied from the completed original calls; not remeasured"
+}

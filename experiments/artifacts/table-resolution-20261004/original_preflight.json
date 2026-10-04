@@ -1,0 +1,86 @@
+[
+  {
+    "sample_id": "d001",
+    "family_id": "t001",
+    "variant": "reference_control",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/2504beaefb846de92c734e7fb9e6e232b7cfced3644bc0423c466bb684f5c423/render.png"
+  },
+  {
+    "sample_id": "d002",
+    "family_id": "t001",
+    "variant": "cell_perturbation",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/a1bfa16e9da7ead79126dcd3cb5eda057b514fb54b2288c46d24b126136fe47e/render.png"
+  },
+  {
+    "sample_id": "d003",
+    "family_id": "t001",
+    "variant": "published_demo_prediction",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/9aa18103f0f3080cf75209aa3984670df8b86431cac988397d5a7285ff71fec6/render.png"
+  },
+  {
+    "sample_id": "d004",
+    "family_id": "t002",
+    "variant": "reference_control",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/de4ca3ef82f611c86cb6daa051b01bbca3a324a7deeceee8bb8d9e29692da208/render.png"
+  },
+  {
+    "sample_id": "d005",
+    "family_id": "t002",
+    "variant": "cell_perturbation",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/43950df121a9b34cd5a6fea14cfe46122e091afc2ffab333f2420e13c5873c7c/render.png"
+  },
+  {
+    "sample_id": "d006",
+    "family_id": "t002",
+    "variant": "published_demo_prediction",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/194b7410be0682f2a7ff51aafa7fcc137940f813389cdddcb9ddc505de968212/render.png"
+  },
+  {
+    "sample_id": "d007",
+    "family_id": "t003",
+    "variant": "reference_control",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/0644c043674c447b18682d2e64fc117696c1bad868e78fb450f2875aab31646a/render.png"
+  },
+  {
+    "sample_id": "d008",
+    "family_id": "t003",
+    "variant": "cell_perturbation",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/df78276d6ea7d34f9598751048d6edded148e31bab1f7e2a6438a6ad01eda1dd/render.png"
+  },
+  {
+    "sample_id": "d009",
+    "family_id": "t003",
+    "variant": "published_demo_prediction",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/5d1850f766bf568f05198f96540aed30dd0bc2beee85b764ad8ef7b68b9867cc/render.png"
+  },
+  {
+    "sample_id": "d010",
+    "family_id": "t003",
+    "variant": "span_perturbation",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/0554c27e50960081ebd29f7df1a7da9c8eec40d89c5429be3c2b00e406ba31c3/render.png"
+  },
+  {
+    "sample_id": "d011",
+    "family_id": "t004",
+    "variant": "reference_control",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/2da3b60a9de01e9ebd09b71e8d049f1b72c3b41aae95097a308eb8b6c445ac8d/render.png"
+  },
+  {
+    "sample_id": "d012",
+    "family_id": "t004",
+    "variant": "cell_perturbation",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/d61fb44df5e92c2fc9f18c648e6d96a5eb440e94085a68ea258215b298d889d9/render.png"
+  },
+  {
+    "sample_id": "d013",
+    "family_id": "t004",
+    "variant": "published_demo_prediction",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/becd5123be1e59cafeb92f58a78b52386f89e35eccc51211d1f166c5a5e442bc/render.png"
+  },
+  {
+    "sample_id": "d014",
+    "family_id": "t004",
+    "variant": "span_perturbation",
+    "render": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/experiments/runs/table-development-20261004/preflight-renders/cc4996b7e40166fcefa4a33dfcbb782ba6f6d1c831c0f620845d7d0558ee131f/render.png"
+  }
+]
