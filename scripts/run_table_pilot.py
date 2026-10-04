@@ -71,17 +71,26 @@ def message(source: Path, initial: str, rendered: Path | None, mode: str):
     )
 
 
-def main() -> None:
-    import torch
-
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inputs", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--modes", nargs="+", choices=ALL_MODES, default=MODES)
-    args = parser.parse_args()
+    parser.add_argument("--min-pixels", type=int, default=100352)
+    parser.add_argument("--max-pixels", type=int, default=200704)
+    args = parser.parse_args(argv)
     if len(set(args.modes)) != len(args.modes):
         parser.error("Each proposal mode must be selected only once")
+    if args.min_pixels <= 0 or args.max_pixels < args.min_pixels:
+        parser.error("Positive ordered image pixel limits required")
+    return args
+
+
+def main() -> None:
+    args = parse_args()
+    import torch
+
     if args.output.exists():
         raise ValueError("Use a new output directory")
     inputs = list(map(json.loads, args.inputs.read_text().splitlines()))
@@ -113,7 +122,7 @@ def main() -> None:
         "max_new_tokens": 512,
         "seed": 20261004,
         "do_sample": False,
-        "image_pixels": {"min": 100352, "max": 200704},
+        "image_pixels": {"min": args.min_pixels, "max": args.max_pixels},
         "renderer": "WeasyPrint fixed CSS",
         "renderer_fonts": renderer.fonts,
         "versions": {
@@ -130,7 +139,13 @@ def main() -> None:
     }
     (args.output / "run.json").write_text(json.dumps(metadata, indent=2) + "\n")
     try:
-        proposer = QwenFormulaProposer(args.model, device="cpu", max_new_tokens=512)
+        proposer = QwenFormulaProposer(
+            args.model,
+            device="cpu",
+            max_new_tokens=512,
+            min_pixels=args.min_pixels,
+            max_pixels=args.max_pixels,
+        )
         with (args.output / "predictions.jsonl").open("w") as sink:
             for case in inputs:
                 initial = case["prediction"]

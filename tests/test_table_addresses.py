@@ -1,4 +1,6 @@
+import contextlib
 import importlib.util
+import io
 import json
 import sys
 import unittest
@@ -7,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
+import run_table_pilot
 from run_table_pilot import message
 
 from ocr_edr import table_pilot
@@ -37,6 +40,55 @@ class TablePromptPreservationTests(unittest.TestCase):
     def test_unknown_condition_cannot_silently_select_full_rewrite(self):
         with self.assertRaisesRegex(ValueError, "Unknown table evidence mode"):
             message(Path("source.png"), "<table><tr><td>x</td></tr></table>", None, "typo")
+
+
+class TablePixelArgumentTests(unittest.TestCase):
+    base = ["--inputs", "inputs.jsonl", "--model", "snapshot", "--output", "new-run"]
+
+    def test_default_resolution_keeps_the_archived_experiment_bounds(self):
+        args = run_table_pilot.parse_args(self.base)
+        self.assertEqual((args.min_pixels, args.max_pixels), (100352, 200704))
+        self.assertEqual(
+            args.modes,
+            [
+                "source_only_rewrite",
+                "source_first_rewrite",
+                "source_last_rewrite",
+                "source_only_patch",
+            ],
+        )
+
+    def test_custom_bounds_are_retained_with_an_explicit_single_proposal_mode(self):
+        args = run_table_pilot.parse_args(
+            self.base
+            + [
+                "--min-pixels",
+                "802816",
+                "--max-pixels",
+                "802816",
+                "--modes",
+                "source_only_patch",
+            ]
+        )
+        self.assertEqual((args.min_pixels, args.max_pixels), (802816, 802816))
+        self.assertEqual(args.modes, ["source_only_patch"])
+
+    def test_invalid_pixel_bounds_fail_before_any_model_or_output_access(self):
+        for minimum, maximum in [(0, 200704), (-1, 200704), (200704, 100352)]:
+            with self.subTest(minimum=minimum, maximum=maximum):
+                stderr = io.StringIO()
+                with contextlib.redirect_stderr(stderr), self.assertRaises(SystemExit) as caught:
+                    run_table_pilot.parse_args(
+                        self.base
+                        + [
+                            "--min-pixels",
+                            str(minimum),
+                            "--max-pixels",
+                            str(maximum),
+                        ]
+                    )
+                self.assertEqual(caught.exception.code, 2)
+                self.assertIn("Positive ordered image pixel limits required", stderr.getvalue())
 
 
 @unittest.skipUnless(importlib.util.find_spec("lxml"), "optional table dependency")
