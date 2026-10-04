@@ -1,0 +1,30 @@
+{
+  "method": "combine supplied AMS/Computer Modern Type1 maps without altering font files",
+  "source_maps": [
+    {
+      "path": "root/usr/share/texlive/texmf-dist/fonts/map/dvips/amsfonts/cm.map",
+      "sha256": "fe2bdcbf7d33fd3e63443c3ee19d84abaaf2d9cff88593799b0f354e53c06df8"
+    },
+    {
+      "path": "root/usr/share/texlive/texmf-dist/fonts/map/dvips/amsfonts/cmextra.map",
+      "sha256": "144a1ccfa5b819f9b81bcc40161626d1d1f10bb7f98e8b5d2e1f2cc32c48d2ad"
+    },
+    {
+      "path": "root/usr/share/texlive/texmf-dist/fonts/map/dvips/amsfonts/cyrillic.map",
+      "sha256": "69ef1dad5a61dd2eb6928557997b550cbaadeaa4d19aaca800bf28911b443956"
+    },
+    {
+      "path": "root/usr/share/texlive/texmf-dist/fonts/map/dvips/amsfonts/euler.map",
+      "sha256": "a02f57d10cdbca89199639ea6b3a07141f7383f79479a1bcebe5f3ef1362576e"
+    },
+    {
+      "path": "root/usr/share/texlive/texmf-dist/fonts/map/dvips/amsfonts/latxfont.map",
+      "sha256": "09163cfc750c6d642465fdd138f7bd419ef17a22e9a18bf9b0b6029566854b7e"
+    },
+    {
+      "path": "root/usr/share/texlive/texmf-dist/fonts/map/dvips/amsfonts/symbols.map",
+      "sha256": "203853b8cc06e4bcee749c5a4dda0fea91bfc35a701c7f3f477839ed234e6c66"
+    }
+  ],
+  "combined_map_sha256": "74e57ba5538cb488bf5bd79be52deb601ad62f21797a30c326f6cfd9220b9368"
+}

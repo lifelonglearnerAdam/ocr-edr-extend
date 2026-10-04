@@ -1,0 +1,98 @@
+{
+  "method": "fresh offline replay of portable inputs using independently downloaded Git-blob-verified official CDM sources and the same pinned runtime",
+  "conditions": {
+    "native": {
+      "cases_compared": 64,
+      "summaries_compared": 4,
+      "reference_selfchecks_compared": 16,
+      "all_fields_exact": {
+        "cases": true,
+        "summary": true,
+        "reference_readiness": true,
+        "controls": true,
+        "official_source": true,
+        "source_hashes": true,
+        "metric_calls": true,
+        "prediction_sha256": true,
+        "reference_sha256": true,
+        "normalization": true,
+        "new_model_calls": true,
+        "random_seed_per_metric_call": true,
+        "versions": true
+      },
+      "fresh_replay_sha256": "f9418223b1eb8cbb7d92e65d8440bbc679c41081acc07907af860868298378df",
+      "replay_path": "experiments/runs/cdm-portable-replay-20261004/native/evaluation.json"
+    },
+    "adapter": {
+      "cases_compared": 128,
+      "summaries_compared": 8,
+      "reference_selfchecks_compared": 16,
+      "all_fields_exact": {
+        "cases": true,
+        "summary": true,
+        "reference_readiness": true,
+        "controls": true,
+        "official_source": true,
+        "source_hashes": true,
+        "metric_calls": true,
+        "prediction_sha256": true,
+        "reference_sha256": true,
+        "normalization": true,
+        "new_model_calls": true,
+        "random_seed_per_metric_call": true,
+        "versions": true
+      },
+      "fresh_replay_sha256": "fd9ef9d3259d41ad30968f828062fa1e1646423a0a0b064be5cb8f7d0aa0c8c8",
+      "replay_path": "experiments/runs/cdm-portable-replay-20261004/adapter/evaluation.json"
+    },
+    "agreement": {
+      "cases_compared": 48,
+      "summaries_compared": 3,
+      "reference_selfchecks_compared": 16,
+      "all_fields_exact": {
+        "cases": true,
+        "summary": true,
+        "reference_readiness": true,
+        "controls": true,
+        "official_source": true,
+        "source_hashes": true,
+        "metric_calls": true,
+        "prediction_sha256": true,
+        "reference_sha256": true,
+        "normalization": true,
+        "new_model_calls": true,
+        "random_seed_per_metric_call": true,
+        "versions": true
+      },
+      "fresh_replay_sha256": "4ada4161cb75272362f2acf80e43cc1edda24bf72b5d27329c04d7821af0afac",
+      "replay_path": "experiments/runs/cdm-portable-replay-20261004/agreement/evaluation.json"
+    },
+    "recognition": {
+      "cases_compared": 80,
+      "summaries_compared": 5,
+      "reference_selfchecks_compared": 16,
+      "all_fields_exact": {
+        "cases": true,
+        "summary": true,
+        "reference_readiness": true,
+        "controls": true,
+        "official_source": true,
+        "source_hashes": true,
+        "metric_calls": true,
+        "prediction_sha256": true,
+        "reference_sha256": true,
+        "normalization": true,
+        "new_model_calls": true,
+        "random_seed_per_metric_call": true,
+        "versions": true
+      },
+      "fresh_replay_sha256": "33fa43d8559fecfa1ed2afd133e54ada0f82ad9c5b811a2cf0744d8f6b8df7c6",
+      "replay_path": "experiments/runs/cdm-portable-replay-20261004/recognition/evaluation.json"
+    }
+  },
+  "total_cases_compared": 320,
+  "total_summaries_compared": 20,
+  "new_model_calls": 0,
+  "benchmark_images_or_weights_required": false,
+  "excluded_fields": "fresh metric seconds, temporary paths, source_dirty working-tree metadata differ by design; all scoring/data/source/runtime-version fields above match"
+}

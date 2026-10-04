@@ -1,0 +1,97 @@
+{
+  "method": "apt-get download exact versions; dpkg-deb extraction only into the project cache",
+  "archives": [
+    {
+      "archive": "libkpathsea6_2025.20250727.75242+ds-5build1_amd64.deb",
+      "size": 66032,
+      "sha256": "46d092e728e02f9b4d75ff942ac6a34166d68ab8874a7acd997d8112de127b3b",
+      "metadata": "Package: libkpathsea6\nVersion: 2025.20250727.75242+ds-5build1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "libptexenc1_2025.20250727.75242+ds-5build1_amd64.deb",
+      "size": 46356,
+      "sha256": "f2a68d08840abc9ee3698a1c106c1284ef008713c0abe7b62ff9ebcd70979ed9",
+      "metadata": "Package: libptexenc1\nVersion: 2025.20250727.75242+ds-5build1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "libsynctex2_2025.20250727.75242+ds-5build1_amd64.deb",
+      "size": 62104,
+      "sha256": "3682db699c8bdc6ed7074004e2a1f5d4f5db0fc533c299f64fb679c90857083b",
+      "metadata": "Package: libsynctex2\nVersion: 2025.20250727.75242+ds-5build1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "libtexlua53-5_2025.20250727.75242+ds-5build1_amd64.deb",
+      "size": 124876,
+      "sha256": "f2c7072b6ce0ca160edd501d20e288e548062cad592a29cddae148e943b725b4",
+      "metadata": "Package: libtexlua53-5\nVersion: 2025.20250727.75242+ds-5build1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "texlive-base_2025.20260124-1_all.deb",
+      "size": 22801456,
+      "sha256": "5971a8d995cb34d708355a62a40fb0bc8af45edff49680590cc803f4af7eb8a5",
+      "metadata": "Package: texlive-base\nVersion: 2025.20260124-1\nArchitecture: all\n"
+    },
+    {
+      "archive": "texlive-binaries_2025.20250727.75242+ds-5build1_amd64.deb",
+      "size": 8746662,
+      "sha256": "cda02814822862de96c6e25d7911371c8978cffcb1f20a868653c544e48cd29b",
+      "metadata": "Package: texlive-binaries\nVersion: 2025.20250727.75242+ds-5build1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "texlive-fonts-recommended_2025.20260124-1_all.deb",
+      "size": 4972476,
+      "sha256": "594cd0a3c14ce79664b33aab26085beee1299e4fb963542618c9f2d7b0237edb",
+      "metadata": "Package: texlive-fonts-recommended\nVersion: 2025.20260124-1\nArchitecture: all\n"
+    },
+    {
+      "archive": "texlive-latex-base_2025.20260124-1_all.deb",
+      "size": 1320976,
+      "sha256": "f18bdba64de8dd509c27561a46da2b3cf83b391f82ba12f47165d84cf15a2584",
+      "metadata": "Package: texlive-latex-base\nVersion: 2025.20260124-1\nArchitecture: all\n"
+    },
+    {
+      "archive": "texlive-latex-extra_2025.20260124-1_all.deb",
+      "size": 32324364,
+      "sha256": "0522a96ca321464c4c0a5609de995bcdb2ae7e796a59183224e8162e0fd2b4fe",
+      "metadata": "Package: texlive-latex-extra\nVersion: 2025.20260124-1\nArchitecture: all\n"
+    },
+    {
+      "archive": "texlive-latex-recommended_2025.20260124-1_all.deb",
+      "size": 8501380,
+      "sha256": "580efe1bfdccb1290e0126b334fb66740b3584833259fd059891793b747720a6",
+      "metadata": "Package: texlive-latex-recommended\nVersion: 2025.20260124-1\nArchitecture: all\n"
+    },
+    {
+      "archive": "imagemagick-7-common_8%3a7.1.2.18+dfsg1-1_all.deb",
+      "size": 73046,
+      "sha256": "30a6e06b9053c28eaef9b7b14e0d0a713736999c76645eeb2668a4d31298b992",
+      "metadata": "Package: imagemagick-7-common\nVersion: 8:7.1.2.18+dfsg1-1\nArchitecture: all\n"
+    },
+    {
+      "archive": "imagemagick-7.q16_8%3a7.1.2.18+dfsg1-1_amd64.deb",
+      "size": 703350,
+      "sha256": "11c12f0a2ef0ac9391d75259eb92bab448e74dd09153292122e9dfea89f7b958",
+      "metadata": "Package: imagemagick-7.q16\nVersion: 8:7.1.2.18+dfsg1-1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "libmagickcore-7.q16-10_8%3a7.1.2.18+dfsg1-1_amd64.deb",
+      "size": 1976902,
+      "sha256": "1e1503ad6e94508ccfe9c06c84092274ce32876f20af85307cfc796c7acfbb19",
+      "metadata": "Package: libmagickcore-7.q16-10\nVersion: 8:7.1.2.18+dfsg1-1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "libmagickwand-7.q16-10_8%3a7.1.2.18+dfsg1-1_amd64.deb",
+      "size": 343448,
+      "sha256": "e826e24d5230bc415cb89e2d112dce371f26fa0d89de675a5847a12801f46bd2",
+      "metadata": "Package: libmagickwand-7.q16-10\nVersion: 8:7.1.2.18+dfsg1-1\nArchitecture: amd64\n"
+    },
+    {
+      "archive": "liblqr-1-0_0.4.2-2.2_amd64.deb",
+      "size": 29366,
+      "sha256": "e0712227152b5b9d0233a4136a7fafc04870c0d8aee45914836a16923b372656",
+      "metadata": "Package: liblqr-1-0\nVersion: 0.4.2-2.2\nArchitecture: amd64\n"
+    }
+  ],
+  "bytes_downloaded": 82092794,
+  "prefix": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/data/raw/cdm-tex-runtime-20261004/root"
+}

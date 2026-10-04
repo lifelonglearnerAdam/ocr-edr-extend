@@ -1,0 +1,32 @@
+{
+  "stage": "frozen_before_native_output_CDM_scoring",
+  "source_revision": "a4218fc08b186da46dfc2a907bb1e26f692eefa4",
+  "source_dirty": false,
+  "source_hashes": {
+    "scripts/evaluate_cdm.py": "d891f56b8864759aa10989fff043a767d4b25eb2c590a9e5366da8e5716925f2",
+    "src/ocr_edr/official_cdm.py": "336e44d09c2fc49c05d57d75291b4a08461322c23b8574fd9176d73fccff92ad",
+    "src/ocr_edr/cdm_evaluation.py": "49a0a26daf837fc287c2583be8ef558a1837dc55f9457474f1f0114de0e9b4b6",
+    "docs/research/CDM_PROTOCOL.md": "30bc32197252fec5f381439ad1eabec818d9f223e4bfd9be8ce40a4cb0a13e5b"
+  },
+  "data_hashes": {
+    "experiments/artifacts/unimer-development-20261003/native-tex/predictions.jsonl": "fcfc9f4fe7fc3418cef33564e0c8b5699c09ce2895f058bb942c87a1fe685a99",
+    "experiments/artifacts/unimer-development-20261003/native-tex-adapter-audit/predictions.jsonl": "dcdf8da6d829ff3b97ea7621d6f7c7e23301f21fc22bd89349868f7b9474762d",
+    "experiments/artifacts/unimer-development-20261003/native-tex-agreement-audit/predictions.jsonl": "cfdb7dedd1a07a6ca9a2925786038a441cf88f1e16c87fef5aeb18a2ef6de939",
+    "experiments/artifacts/image-only-20261004/evaluation/predictions.jsonl": "a672a0bc2558cd0d2599101049ebc93d7036b80bc03caa6071b06028b3c8655b",
+    "experiments/artifacts/image-only-20261004/data/references.jsonl": "c0c2981823913dba5ed1c48618bf32dd7038516aa2b50cc0e4e639d64b1bd603"
+  },
+  "output_records": 320,
+  "source_images": 16,
+  "new_model_calls": 0,
+  "official_revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "core_tests": {
+    "run": 80,
+    "passed": 65,
+    "skipped": 15
+  },
+  "pilot_tests": {
+    "run": 80,
+    "passed": 80,
+    "skipped": 0
+  }
+}

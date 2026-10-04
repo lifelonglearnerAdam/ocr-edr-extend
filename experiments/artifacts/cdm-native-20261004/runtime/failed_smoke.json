@@ -1,0 +1,66 @@
+{
+  "official_revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "source_files_verified": 19,
+  "versions": {
+    "numpy": "2.3.3",
+    "scipy": "1.16.2",
+    "Pillow": "11.3.0",
+    "pylatexenc": "2.10"
+  },
+  "runtime_env_path": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/data/raw/cdm-tex-runtime-20261004/env.json",
+  "seed": 20261004,
+  "controls": [
+    {
+      "name": "identical",
+      "reference": "x^2+1",
+      "prediction": "x^2+1",
+      "metrics": {
+        "recall": 0.0,
+        "precision": 0.0,
+        "F1_score": 0.0,
+        "tp": 0,
+        "gt_tokens": 0,
+        "pred_tokens": 0
+      }
+    },
+    {
+      "name": "equivalent_bracing",
+      "reference": "x^2+1",
+      "prediction": "x^{2}+1",
+      "metrics": {
+        "recall": 0.0,
+        "precision": 0.0,
+        "F1_score": 0.0,
+        "tp": 0,
+        "gt_tokens": 0,
+        "pred_tokens": 0
+      }
+    },
+    {
+      "name": "wrong_exponent",
+      "reference": "x^2+1",
+      "prediction": "x^3+1",
+      "metrics": {
+        "recall": 0.0,
+        "precision": 0.0,
+        "F1_score": 0.0,
+        "tp": 0,
+        "gt_tokens": 0,
+        "pred_tokens": 0
+      }
+    },
+    {
+      "name": "invalid_prediction",
+      "reference": "x^2+1",
+      "prediction": "\\frac{",
+      "metrics": {
+        "recall": 0.0,
+        "precision": 0.0,
+        "F1_score": 0.0,
+        "tp": 0,
+        "gt_tokens": 0,
+        "pred_tokens": 0
+      }
+    }
+  ]
+}

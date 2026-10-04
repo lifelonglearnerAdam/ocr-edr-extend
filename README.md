@@ -25,10 +25,10 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 - 固定参考匹配的前后比较，分别报告页面平均、样本平均及明确标记的 Preserve/Good/Bad 代理指标。
 - CPU 检查、合成样例与服务器运行说明。
 - 真实 Qwen2-VL-2B 推理提案接口、MathText 与完整 Tectonic 公式渲染、参考隔离实验、图像顺序/角色标签消融及实际 token/CPU 生成成本记录。
-- 独立 UniMER 开发样本、Nougat-LaTeX 原生输出、图像单独识别对照；全部样本保留，公式分数仍是同渲染器精确光栅代理，尚非 CDM。
+- 独立 UniMER 开发样本、Nougat-LaTeX 原生输出、图像单独识别对照；全部样本保留，原有精确光栅代理保持独立标注；已新增固定配对的官方 core CDM 离线重评、参考自检与哈希核验。
 - WeasyPrint 中文/合并单元格表格渲染与单步 JSON 编辑；固定配对的官方 TEDS/TEDS-S 离线评测，分别报告修复、回退、退化、页面平均及成本。官方源码先与固定 Git blob 核验。
 
-当前已接入完整 TeX/表格渲染和独立评测。完整闭环的学习策略/视觉 judge、Jev、蒸馏和 SFT/GRPO 尚待实现；表格 demo 的原始解析器身份未公开，不能据此声称具名解析器迁移。未训练 2B 的开发结果包含失败与退化，不能视作基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[10 月 3 日公式结果](docs/research/RESULTS_20261003.md)、[10 月 4 日对照与表格结果](docs/research/RESULTS_20261004.md)、[相关工作与新颖性检查](docs/research/PRIOR_ART_20261003.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
+当前已接入完整 TeX/表格渲染和独立评测，包括官方 core CDM 重评（尚非端到端基准评测）。完整闭环的学习策略/视觉 judge、Jev、蒸馏和 SFT/GRPO 尚待实现；表格 demo 的原始解析器身份未公开，不能据此声称具名解析器迁移。未训练 2B 的开发结果包含失败与退化，不能视作基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[10 月 3 日公式结果](docs/research/RESULTS_20261003.md)、[10 月 4 日对照与表格结果](docs/research/RESULTS_20261004.md)、[相关工作与新颖性检查](docs/research/PRIOR_ART_20261003.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
 
 ## 环境（Windows / Ubuntu）
 

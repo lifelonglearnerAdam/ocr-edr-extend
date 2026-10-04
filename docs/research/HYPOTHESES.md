@@ -34,3 +34,17 @@ A possible joint direction is a small, selective repair policy that explicitly c
 2. Build real train/dev formula and table regions separate from frozen test pages, pin a full TeX/table renderer and the official evaluator, and obtain predictions from two parsers.
 3. Measure proposal improvement and correct-input regression separately from a frozen judge's acceptance errors. Preserve rendering-equivalent inputs and include source counterfactuals.
 4. Use those measurements to choose between better evidence/local edits, distillation, or verifier work. Only then spend resources on RL and broad transfer runs.
+
+## October 4 checkpoint after official metric replay
+
+The cell-map and genuinely larger-grid table controls are complete. The map preserves by stopping; the larger grids add harm and cost without repairs. Official core CDM replay is now operational, with all-reference selfchecks and exact fresh replay on the 16 inspected native formula sources. One mg content proposal improves 0.778 → 1.0, while the main repair/recognition means decrease. The original raster scores remain separate. CDM can miss one inspected subscript mismatch, and frozen reference disagreements can reward changes away from visible source details. See [the full October 4 results](RESULTS_20261004.md) and [the scoring protocol](CDM_PROTOCOL.md).
+
+| Hypothesis | Current decision | Next experiment prerequisite |
+| --- | --- | --- |
+| H1 formula/table repair | Keep active; small untrained prompt interventions do not provide a net repair benefit | Improve proposal capability with independent train/dev supervision; evaluate useful local edits and preservation together |
+| H2 agentic RL | Defer training until a functioning SFT proposal baseline and audited reward exist | Include structural/source checks and preservation; then compare SFT and RL with the same data, model and budget |
+| H3 selective verifier/cascade | Keep active; metric/render/consensus agreement is insufficient alone | Separate proposal quality from acceptance errors; calibrate risk versus coverage/cost on untouched data |
+| H4 small-model distillation | Keep active; the unit correction is a candidate capability signal, not enough training evidence | Train/dev-only licensed trajectories with source-grounded positives and preservation examples; no paid teacher calls without quota and authorization |
+| H5 parser transfer | Unproven: native formula repair uses Nougat-LaTeX; published table demo parser remains unknown | Native outputs from a second identified parser, with one parser held out from tuning |
+
+Do not train on these inspected development pages and call them untouched evaluation. Do not name rendering, GRPO, local edits, preservation or transfer alone as novel; the prior-art overlap remains unresolved. The next useful work is proposal supervision and independently checked acceptance, with a frozen data split and bounded compute, before scaling RL.

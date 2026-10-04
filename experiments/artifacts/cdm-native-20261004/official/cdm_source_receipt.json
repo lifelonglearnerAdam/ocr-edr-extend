@@ -1,0 +1,82 @@
+{
+  "repository": "opendatalab/OmniDocBench",
+  "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "files": {
+    "src/metrics/cdm/__init__.py": {
+      "git_blob_sha1": "95ec8bcdbfb044338f7ee532656a4763eca9583b",
+      "sha256": "5e531eb3ab7d32d8e4add39101e8fd0f3b3ebd18c3c41d904a502a1574c55f55"
+    },
+    "src/metrics/cdm/cdm.py": {
+      "git_blob_sha1": "a47dd2f235e249e6630b1692dae3ee6b9321b5da",
+      "sha256": "6e07d3e8271740295d8f4e874f7a55942379327e12d74c56db5f1cb41fd2bbf7"
+    },
+    "src/metrics/cdm/modules/__init__.py": {
+      "git_blob_sha1": "0df44ebf16a0cb779318a97377299a067629cccd",
+      "sha256": "445c1d23fe34064c7451fb333b15029636c66db4d88d091ed6286901c8984327"
+    },
+    "src/metrics/cdm/modules/latex2bbox_color.py": {
+      "git_blob_sha1": "dbadeb089f0067368a9c2ac34333defa321caf3c",
+      "sha256": "df6f61f2d89f7fe12d317b3987fea9cfb3484472522852a0c5f6a56953b42daf"
+    },
+    "src/metrics/cdm/modules/latex_processor.py": {
+      "git_blob_sha1": "7a144729fbd7abded377e77c17c3a890cb21f259",
+      "sha256": "87bdd03e674b970ba96e966f6bfd352f968b3dd4f8625e3bf7c32a2d8599f209"
+    },
+    "src/metrics/cdm/modules/latex_render_percentage.py": {
+      "git_blob_sha1": "567ba76bab10af51d5fe5ab1dc18d68ee51b69c6",
+      "sha256": "683621e677968436dbf101a13d10f1d2f049a858520de24ee60e8c08b1962f89"
+    },
+    "src/metrics/cdm/modules/ransac.py": {
+      "git_blob_sha1": "ccd32cc2a7b50c6315fc821c75f62757afaf589c",
+      "sha256": "2ea2d0bfa06ff150a108a959a060782beb30efc4aecb25c19cc25967378ebde0"
+    },
+    "src/metrics/cdm/modules/texlive_env.py": {
+      "git_blob_sha1": "f3a929e02466cea966e064b2487784f41fd30b6b",
+      "sha256": "59395404645c6658953299c92cbecc4d0423aa7b3a324a89bfee15fcb2d2a876"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/__init__.py": {
+      "git_blob_sha1": "233c327209dc24172cff4c956302cacf3ec9ef42",
+      "sha256": "672e0d66f6d98858023ee0a90fa23f135b37fb0df4db0129396b32bc17a4fdd9"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/katex_nodes.py": {
+      "git_blob_sha1": "dde9e97aabbe1fb4fa1a9f8cff33b55edbd277f0",
+      "sha256": "e818410d1f164f5a9100ea8fe4b1806a2ca76f3f62206812c46ae0933ebcc288"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/katex_renderer.py": {
+      "git_blob_sha1": "7761a4b43d5bf1a8b3894a0f47923387fc3a2179",
+      "sha256": "5763d61e21c27608778c0b52120c2a84a3145e525fe08357444627ccbad7dd8e"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/options.py": {
+      "git_blob_sha1": "b5c1adfdaa9bb0ba3820a6705aee103189bdbd3b",
+      "sha256": "330c32f2a39f708d5adee1f8a63acc45870f0c8443a45a258cdca968c0e73bce"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/parse_guard.py": {
+      "git_blob_sha1": "a3362ed16a89e13981518152cb429d653606de2e",
+      "sha256": "2caa82605ebe3f9399d5dd0c00feaa4ac8201f8ae13826aa4e0da7deadf0c440"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/preprocess_formula.py": {
+      "git_blob_sha1": "17e5104e1678dcd510163c1dc88b20cb5c46be17",
+      "sha256": "b6a344cc47c3662a6f64153de2d6f91026aa84add027d59c7aa7fde3cfd2e37c"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/preprocess_tabular.py": {
+      "git_blob_sha1": "0846d53cf826f9646f4d1edfb62f8a989258dc6d",
+      "sha256": "bd71ee1aa580011bdfcdcec9d093430eaf59674323f9791bd65f4113b847fcbf"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/pylatexenc_to_katex.py": {
+      "git_blob_sha1": "dbac317c52841c438f7f2c4e8863d3e515f4c3a1",
+      "sha256": "214be62fc429273f871f4b4e29290555bd37c4ff28f0a89186340163d87beeff"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/pylatexenc_tokenizer.py": {
+      "git_blob_sha1": "f8481b77a5a1942a06fa30177b0a9e40fbc241f6",
+      "sha256": "2ea3d0ffe9947e9ca48e6bec1ddc2fc5f05471daa620c4369a59465f81159e31"
+    },
+    "src/metrics/cdm/modules/tokenize_latex/tokenize_latex.py": {
+      "git_blob_sha1": "44bfca55f829bf952b6e7e5f66bff7c2e82e3e13",
+      "sha256": "9f77e5dc3194f3fce9cd7f2162a5c9a23cd7bb162ac27717d1c5cbc44a7fa0d5"
+    },
+    "src/metrics/cdm/modules/visual_matcher.py": {
+      "git_blob_sha1": "6c48ac16119627224f9af17187faade2a06c8c7c",
+      "sha256": "6c51325e6d7ad7047d85db0c653f6fa730ae717e219cb18253c0473a825c3257"
+    }
+  }
+}
