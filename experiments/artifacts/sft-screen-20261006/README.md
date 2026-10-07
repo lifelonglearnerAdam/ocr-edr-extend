@@ -1,0 +1,15 @@
+# Direct-target SFT development screen, 2026-10-06
+
+Two pinned Qwen2-VL-2B LoRA training arms each complete 192 optimizer steps, 768 sample exposures and 35,550 assistant target tokens. The full mixture has explicit preservation/control/native targets; the comparison removes explicit preservation pairs but retains native matching inputs. Both have six exposures per training source. No dev record enters optimization and no checkpoint is chosen from dev scores.
+
+Three models generate all 96 fixed dev calls each; syntax-only adaptation is frozen without references before unmodified official core CDM scoring. The mixed mean rises predominantly because all 32 controlled errors become full metric matches. Neither SFT fixes any of the three native metric nonmatches; each causes one native matching regression, which is a visually confirmed extra superscript. Do not call mixed controlled-data gains native OCR improvement or cross-parser performance. Two SFT arms have identical final bytes on 94/96 inputs.
+
+The separate predeclared source permutation changes 94/96 raw responses, but is not a deployment quality or attention-mechanism result. Jev official documentation is checked: the current hosted version accepts text/structured text only, so the proposed cascade needs a separately charged visual evidence module.
+
+See repository reports `docs/research/SFT_SCREEN_RESULTS_20261006.md`, `INTEGRATED_RESEARCH_20261006.md`, `JEV_INTERFACE_CHECK_20261006.md` and the frozen training/counterfactual protocols.
+
+Contents include training schedules, sequence/grid/mask statistics, model/data/source/checkpoint hashes, inference run receipts, official core metric cases/aggregates, descriptive source-group statistics, audit observations and exact code snapshots. `training_source/` is the source version imported by training; `source_snapshot/` includes the later offline adaptation code. The different revisions are explicit. Runtime uses CUDA 12.4; recorded backward warnings mean fixed seeds do not establish bitwise deterministic replay. The 32 sources are inspected development images, not original-document-independent locked tests.
+
+Raw benchmark images, source/reference text manifests, raw model responses and adapter weights remain in ignored local/server run directories; no credentials or weights are in this package. Exact metric replay additionally requires those frozen strings and the pinned official runtime; hashes here identify them but are not a substitute for access to the files. Summary/statistic reproduction can use `cdm/evaluation.json`. Never describe software checks, valid tags or CDM=1 as visual correctness certificates.
+
+After completing the frozen training runs, a CPU reproduction exposed an initialization-failure logging gap when Torch/PEFT/CUDA is absent. The current trainer now writes a terminal failed receipt and re-raises; the failure fixture passes. These changes were not applied to the completed experiment. `training_source/` remains the exact executed version. The robustness fix does not change the optimizer, schedule or checkpoint of this screen.

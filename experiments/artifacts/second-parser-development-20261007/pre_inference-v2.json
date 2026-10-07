@@ -1,0 +1,12 @@
+{
+  "source_sha256": {
+    "scripts/run_sft_screen.py": "242959394dfc946ef7631c55102e5dc11fd1ea51276bb8eff67bc16b08098c10",
+    "src/ocr_edr/qwen.py": "d82329b69e59de30f6a04b28be37cdee379dd203e365a88323a9613c65616d2e",
+    "src/ocr_edr/sft.py": "ba3f543820539cb24fa674cf3063955f79ce4cf02ce4b0089a6c0bc13f7b4cb6",
+    "src/ocr_edr/formula_pilot.py": "647aa92d9b9177c775a48987916b95ddb79aa37299fcfa126258e496dc30f95c"
+  },
+  "device": "cpu",
+  "same_frozen_32_sources": true,
+  "references_in_generation": false,
+  "condition_change": "none; HF-cache symlink layout validation fixed before any generation"
+}

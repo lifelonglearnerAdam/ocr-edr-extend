@@ -1,0 +1,14 @@
+{
+  "train_sources": 128,
+  "dev_sources": 32,
+  "train_dev_family_overlap": 0,
+  "train_dev_exact_image_overlap": 0,
+  "train_dev_decoded_pixel_overlap": 0,
+  "train_dev_reference_or_corruption_key_overlap": 0,
+  "benchmark_exact_image_overlap": 0,
+  "benchmark_decoded_pixel_overlap": 0,
+  "benchmark_reference_or_corruption_key_overlap": 0,
+  "verified_written_source_images": 160,
+  "document_level_independence": "not verifiable from archive metadata",
+  "test_blocked_image_rows": 23757
+}

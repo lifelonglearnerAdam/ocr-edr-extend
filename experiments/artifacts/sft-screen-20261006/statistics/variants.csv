@@ -1,0 +1,13 @@
+arm,variant,cases,source_groups,initial_mean_cdm,final_mean_cdm,mean_delta_cdm,initial_metric_matching,initial_metric_nonmatching,matching_regressions,nonmatching_fixed,preserve_metric_proxy,improved,degraded,changed
+unchanged_0,preservation,32,32,1.0,1.0,0.0,32,0,0,0,1.0,0,0,0
+unchanged_0,controlled_error,32,32,0.9260625,0.9260625,0.0,0,32,0,0,,0,0,0
+unchanged_0,native_parser_prediction,32,32,0.99471875,0.99471875,0.0,29,3,0,0,1.0,0,0,0
+base,preservation,32,32,1.0,0.9995625,-0.0004375000000000004,32,0,1,0,0.96875,0,1,1
+base,controlled_error,32,32,0.9260625,0.92903125,0.0029687500000000026,0,32,0,2,,3,0,3
+base,native_parser_prediction,32,32,0.99471875,0.99471875,0.0,29,3,0,0,1.0,0,0,1
+all,preservation,32,32,1.0,1.0,0.0,32,0,0,0,1.0,0,0,1
+all,controlled_error,32,32,0.9260625,1.0,0.07393750000000002,0,32,0,32,,32,0,32
+all,native_parser_prediction,32,32,0.99471875,0.99065625,-0.0040625,29,3,1,0,0.9655172413793104,0,1,31
+no_explicit_preservation,preservation,32,32,1.0,1.0,0.0,32,0,0,0,1.0,0,0,1
+no_explicit_preservation,controlled_error,32,32,0.9260625,1.0,0.07393750000000002,0,32,0,32,,32,0,32
+no_explicit_preservation,native_parser_prediction,32,32,0.99471875,0.991875,-0.002843749999999999,29,3,1,0,0.9655172413793104,0,1,31

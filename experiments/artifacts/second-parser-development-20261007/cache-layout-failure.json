@@ -1,0 +1,7 @@
+{
+  "original_attempt": "failed before model loading; standard Hugging Face blob symlinks outside snapshot rejected",
+  "failed_log_sha256": "286e6fa0fba40dfc298b33d7630ad3db676b01d9ad8639262cc2757c73148620",
+  "no_model_calls_in_original_attempt": true,
+  "test_reproduction": "HF-cache layout positive/external link/traversal/hash-negative checks",
+  "retry_scope": "same frozen model/data; source layout correction only"
+}

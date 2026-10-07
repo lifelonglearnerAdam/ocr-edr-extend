@@ -1,0 +1,13 @@
+{
+  "mirror": "ajimeno/PubTabNet",
+  "official_repository_link": "https://github.com/ibm-aur-nlp/PubTabNet",
+  "revision": "06963b1af16203f4633c718e2c50109eb57ed658",
+  "source_url": "https://huggingface.co/datasets/ajimeno/PubTabNet/resolve/06963b1af16203f4633c718e2c50109eb57ed658/pubtabnet.tar.gz",
+  "size": 11244059914,
+  "sha256": "90c55e733c85c98edf6d350b77f1e4c23767577555fc932e44ad723674de8d3e",
+  "whole_archive_verified": true,
+  "retrieved_at": "2026-10-06T15:29:38.659155+00:00",
+  "download_seconds": 491.77879255300104,
+  "license_tag_conflict": "mirror cdla-sharing-1.0 versus primary annotations CDLA-Permissive-1.0; retain primary/image conditions separately",
+  "purpose": "independent training/development table regions; use released train only for optimizer data"
+}

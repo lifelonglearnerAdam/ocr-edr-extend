@@ -1,0 +1,44 @@
+{
+  "scope": "training/model-dev label/adapter readiness only; no model prediction; not all roles inspected",
+  "locked_and_calibration_scored": false,
+  "unmodified_official_teds": {
+    "repository": "opendatalab/OmniDocBench",
+    "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "files": {
+      "src/metrics/table_metric.py": {
+        "git_blob_sha1": "705e294919bb1ff96cf1a69655b1267958a66407",
+        "sha256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e"
+      },
+      "src/core/preprocess/data_preprocess.py": {
+        "git_blob_sha1": "71f27dcbe9975e08303e138a250e4e6f5258c89b",
+        "sha256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd"
+      },
+      "src/core/preprocess/table_postprocess.py": {
+        "git_blob_sha1": "b00c37e0a7c44d21cb9b2fedae2fc69a64d61f59",
+        "sha256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762"
+      },
+      "src/core/preprocess/table_utils.py": {
+        "git_blob_sha1": "d91e64f33eb50d4fae66df64496705cffb494b06",
+        "sha256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731"
+      },
+      "src/core/preprocess/text_postprocess.py": {
+        "git_blob_sha1": "bb6c315f86ab66903159c2b10ee1a8f4d034acbb",
+        "sha256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29"
+      }
+    }
+  },
+  "results": {
+    "train": {
+      "cases": 410,
+      "sources": 128,
+      "controlled_error_cases_visible_to_metric": 282,
+      "target_replay_metric_ready": true
+    },
+    "model_dev": {
+      "cases": 103,
+      "sources": 32,
+      "controlled_error_cases_visible_to_metric": 71,
+      "target_replay_metric_ready": true
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "train": {
+    "native_inputs_verified_from_manifest_parent": 128,
+    "sft_records_verified_from_manifest_parent": 384,
+    "status": "passed"
+  },
+  "dev": {
+    "native_inputs_verified_from_manifest_parent": 32,
+    "sft_records_verified_from_manifest_parent": 96,
+    "status": "passed"
+  }
+}

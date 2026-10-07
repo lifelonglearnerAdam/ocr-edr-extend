@@ -1,12 +1,18 @@
 # Jev 判定层配置
 provider: jev
+implementation_status: research_template_not_connected
+model: jev-1.13.0
+input_kind: text_or_structured_text
+direct_image_input_supported: false
+visual_evidence_provider: independent_visual_module_not_yet_verified
 mode: cascade          # direct | cascade
-confidence_threshold: 0.9
+confidence_threshold: null  # Select on independent calibration data, not inspected dev scores.
+confidence_definition: "(p_max - 1/n) / (1 - 1/n) for Choice; preserve probabilities separately"
 
 questions:
   - id: validity
     type: binary       # good | bad
-    prompt: "Given the source region, OCR text/markup, and rendering, is the OCR result visually consistent with the source? (allowing rendering-equivalent encodings)"
+    prompt: "Given the structured, provenance-tagged source/evidence observations and proposed OCR edit, is acceptance supported? If visual evidence is missing or conflicts with structure, escalate. No reference annotation is supplied."
   - id: error_class
     type: choice
     choices: [invalid_output, global_mismatch, completeness, content, structure, none]
@@ -14,10 +20,16 @@ questions:
     type: binary
 
 cascade:
-  escalate_when_confidence_below: 0.9
+  escalate_when_confidence_below: null  # Uncalibrated: no automatic acceptance threshold.
   escalate_to: frozen_docedr   # 或 teacher_vlm
   # 备注：Jev 对多步推导弱，公式结构校验必须叠加确定性渲染 diff
 
 reliability:
   require_structural_diff: true
   require_render_check: true
+  require_independent_visual_evidence: true
+  account_for_evidence_generation_cost: true
+  ground_truth_oracle_features_allowed: false
+  source_documentation: https://docs.typesafe.ai/models
+  confidence_documentation: https://docs.typesafe.ai/confidence
+  documentation_checked: '2026-10-06'

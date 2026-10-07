@@ -1,0 +1,10 @@
+{
+  "command": "OCR_EDR_TEST_CDM=1 OCR_EDR_TEST_TABLE=1 OCR_EDR_TEST_TECTONIC=1 .venv-pilot/bin/python -m unittest discover -s tests -q",
+  "tests": 93,
+  "optional_integrations_skipped": 0,
+  "status": "passed",
+  "log_sha256": "25c16370166f84060a606879dc35573b7285b807ac655b229c1c477b4ba0f3e3",
+  "ruff": "passed",
+  "black": "passed",
+  "initialization_failure_regression_fixture": "failed before fix, passed after fix; completed training source preserved"
+}

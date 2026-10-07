@@ -1,5 +1,20 @@
 # Standalone project server setup
 
+## Current primary host — October 6
+
+The selected campus host is `zmzeng@222.20.97.161:223`, with eight RTX 4090 GPUs. Use the user's authenticated shared SSH connection while it is available; keep authentication secrets outside project files.
+
+```bash
+cd /data/zmzeng/projects/ocr-edr-extend
+PY=/data/zmzeng/envs/ocr-edr-sft/bin/python
+"$PY" -m pip check
+"$PY" -m unittest discover -s tests -q
+```
+
+The project has a dedicated Python 3.12.15 / PyTorch 2.6.0+cu124 / PEFT 0.17.1 environment. Training data is staged at `/data/zmzeng/datasets/ocr-edr-extend/supervision-20261006`; the pinned Qwen2-VL-2B snapshot is under `/data/zmzeng/models/ocr-edr-extend/`. Recheck GPU occupancy before each run.
+
+A two-example, one-step LoRA resource check passes, with 4.6844 GiB peak allocated / 5.0078 GiB reserved memory. No checkpoint is saved and this is not a full SFT experiment. See [the check and its limits](research/GPU_READINESS_20261006.md). The prior yxliu setup below remains a historical fallback.
+
 ## Platform split
 
 | Role | Host | Environment | Use for |

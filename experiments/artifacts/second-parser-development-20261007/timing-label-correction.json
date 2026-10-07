@@ -1,0 +1,7 @@
+{
+  "scope": "prior summary text inherited GPU-only wording; actual inference receipts always said CPU",
+  "actual_time_numbers_or_scores_changed": false,
+  "corrected_statistics": "statistics-device-corrected/report.json",
+  "prior_summary_retained": true,
+  "verification": "all fields identical after replacing only timing_scope text"
+}

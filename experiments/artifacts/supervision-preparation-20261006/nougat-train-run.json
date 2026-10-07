@@ -1,0 +1,32 @@
+{
+  "started_at": "2026-10-06T13:27:43.622354+00:00",
+  "model": "Norm/nougat-latex-base",
+  "model_revision": "6c6f2afe62ae51d57d0621ea9f2e11e02fb8385a",
+  "processor_revision": "d735d3a31bfd0cd48a020e01c5233a9154c6d4c2",
+  "source_revision": "626104f5c5a7f48c1475b0ca187e74f3977b1c89",
+  "source_dirty": true,
+  "input_sha256": "48bda34b58711c09ecd6600fe5e34bfb30185db11516573c5d8b94e0d5cac22c",
+  "cases": 128,
+  "reference_access": "none",
+  "processor_hashes": {
+    "nougat_latex/image_processing_nougat.py": "1181bad7b34c638f8166a66bee4e5d215c3fe2d927b53d8af8c37748fe124551",
+    "nougat_latex/image_processor_img2latex.py": "ff01db823846e0958c504237e410020b245ec19c1cf4352adbc88aceb4e9dc22",
+    "nougat_latex/util.py": "aa9899233fd9f4242ffbda71664ec03b7380c46647bae9e6a976cfd9e0f24072",
+    "nougat_latex/__init__.py": "dce666218cfdad38c2affe7c9a4bc17247e184b088d1e5e1c8dd4bd2eb4a6b59"
+  },
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.1",
+    "pillow": "11.3.0",
+    "numpy": "2.3.3"
+  },
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "cpu_threads": 8,
+  "num_beams": 5,
+  "seed": 20261003,
+  "status": "completed",
+  "max_length": 800,
+  "finished_at": "2026-10-06T13:29:33.028656+00:00",
+  "completed_sources": 128
+}

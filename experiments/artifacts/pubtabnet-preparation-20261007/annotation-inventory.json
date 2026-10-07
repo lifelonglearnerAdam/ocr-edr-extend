@@ -1,0 +1,15 @@
+{
+  "counts": {
+    "train": 500777,
+    "val": 9115
+  },
+  "document_counts": {
+    "train": 290449,
+    "val": 8977
+  },
+  "published_split_document_intersections": {
+    "train__val": 6105
+  },
+  "filenames_without_PMC_id": 0,
+  "elapsed_seconds": 26.067029606999995
+}

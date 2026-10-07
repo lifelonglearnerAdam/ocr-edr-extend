@@ -1,0 +1,141 @@
+{
+  "variants": [
+    {
+      "arm": "unchanged_0",
+      "variant": "native_parser_prediction",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.899375,
+      "final_mean_cdm": 0.899375,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 21,
+      "initial_metric_nonmatching": 11,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 1.0,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 0
+    },
+    {
+      "arm": "base",
+      "variant": "native_parser_prediction",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.899375,
+      "final_mean_cdm": 0.899375,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 21,
+      "initial_metric_nonmatching": 11,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 1.0,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 1
+    },
+    {
+      "arm": "all",
+      "variant": "native_parser_prediction",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.899375,
+      "final_mean_cdm": 0.98990625,
+      "mean_delta_cdm": 0.09053125,
+      "initial_metric_matching": 21,
+      "initial_metric_nonmatching": 11,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 6,
+      "preserve_metric_proxy": 1.0,
+      "improved": 10,
+      "degraded": 0,
+      "changed": 31
+    }
+  ],
+  "comparisons": [
+    {
+      "arm": "all",
+      "comparator": "base",
+      "source_groups": 32,
+      "case_pairs": 32,
+      "mean_delta_vs_comparator": 0.09053125,
+      "descriptive_percentile_95_interval": [
+        0.03415625,
+        0.16459374999999998
+      ],
+      "resampling_unit": "source_image family, not repeated variants; original document IDs unavailable",
+      "seed": 20261006,
+      "resamples": 2000,
+      "interpretation": "single-seed inspected development result; not a confirmatory significance claim"
+    }
+  ],
+  "cost_and_adapter": [
+    {
+      "arm": "base",
+      "calls": 32,
+      "cap_hits": 0,
+      "contract_or_render_rollbacks": 30,
+      "raw_contract_accepts": 2,
+      "changed_finals": 1,
+      "mean_input_tokens": 280,
+      "mean_output_tokens": 33.46875,
+      "generation_seconds_total": 153.84727014800012,
+      "mean_generation_seconds": 4.807727192125004,
+      "timing_scope": "model generation only; not end-to-end; device/concurrency recorded in inference receipts"
+    },
+    {
+      "arm": "all",
+      "calls": 32,
+      "cap_hits": 1,
+      "contract_or_render_rollbacks": 1,
+      "raw_contract_accepts": 31,
+      "changed_finals": 31,
+      "mean_input_tokens": 280,
+      "mean_output_tokens": 59.46875,
+      "generation_seconds_total": 239.61132049800028,
+      "mean_generation_seconds": 7.487853765562509,
+      "timing_scope": "model generation only; not end-to-end; device/concurrency recorded in inference receipts"
+    }
+  ],
+  "metric_proxy_utility_sensitivity": [
+    {
+      "arm": "base",
+      "regression_weight": 1,
+      "mean_utility": 0.0,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "base",
+      "regression_weight": 2,
+      "mean_utility": 0.0,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "base",
+      "regression_weight": 4,
+      "mean_utility": 0.0,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "all",
+      "regression_weight": 1,
+      "mean_utility": 0.09053125,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "all",
+      "regression_weight": 2,
+      "mean_utility": 0.09053125,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "all",
+      "regression_weight": 4,
+      "mean_utility": 0.09053125,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    }
+  ],
+  "evaluation_sha256": "832f63d92f40f968011ee1c3c6e2219ff8b743165f0291f1b5157f253cb9e06d",
+  "predictions_sha256": "b4e34967f297294e370427cffd863a20fa9a7c3077a4095335a1853bd33455a5",
+  "status": "single-seed development screen; no visual accuracy or benchmark transfer claim"
+}

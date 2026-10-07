@@ -1,0 +1,22 @@
+{
+  "source_hashes": {
+    "src/ocr_edr/sft.py": "2011cd60ca228cd6a7335458679904b2cc3f31a709aeae1e69fd8a4706a5e3b8",
+    "scripts/train_formula_sft.py": "61b22db2563f67050b253add045128d6a1e67d88fd8ed292ca4be67bf9f10f74",
+    "tests/test_sft.py": "71302232a97701dee1bffe0f36c690e93276d067e7b9cea58b97170450ef2d7c",
+    "configs/train/sft_formula_screen.yaml": "9c475eaa9e0f2e4cf6a48831e6630be7fb9a850d11a95f6e6aeacc6734a99b29",
+    "docs/research/INTEGRATED_RESEARCH_20261006.md": "34b44df5a0681115c0ff68f8bd106089b25ec7920796fbc9716cf34b542d9814",
+    "docs/research/SFT_SCREEN_PROTOCOL_20261006.md": "020155e71347381b35ac19de16e067641f28e6a1376e28dfd031fe58764f86c4"
+  },
+  "fixed_arms": [
+    "all",
+    "no_explicit_preservation"
+  ],
+  "optimizer_steps": 192,
+  "gradient_accumulation": 4,
+  "seed": 20261006,
+  "dev_optimizer_access": false,
+  "checkpoint_selection": "terminal_only",
+  "user_objective": "five-direction integrated research with ablations",
+  "initial_student": "pinned base; not prior smoke adapter",
+  "protocol_version": "20261006-initial"
+}

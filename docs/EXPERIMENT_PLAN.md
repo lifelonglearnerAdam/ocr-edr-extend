@@ -10,3 +10,9 @@ The first milestone is a formula/table correction pilot and implementation plan,
 6. Evaluate Jev directly and as a calibrated cascade, including escalation, false acceptance, quality and cost. Choose the gate on development data before frozen test evaluation.
 
 The brief's initial success criterion is improvement on at least two OCR systems, with a student of at most 3B parameters and reproducible costs. Estimate uncertainty at the parent-page level rather than treating same-page crops as independent observations. Validate novelty against the base paper's rendering and GRPO contributions.
+
+## October 6 execution update
+
+The dated initial plan above is retained as context. The unified five-direction design and factorized comparisons are now in `docs/research/INTEGRATED_RESEARCH_20261006.md` and `configs/research/five_direction_ablation.yaml`. Two direct-target LoRA arms complete 192 steps, with fixed terminal checkpoints and no dev optimizer use; all 96 dev cases per model are generated and officially core-CDM scored. Controlled errors improve, native errors do not, and one extra-superscript harm is visually confirmed. The results require independent acceptance/source supervision rather than immediately expanding RL.
+
+Official Jev documentation now establishes a text-only hosted interface. Treat Jev as a calibrated router on provenance-tagged evidence, with an independent visual module and same-evidence rule comparator; charge all evidence-generation costs. Teacher access, trajectory targets, verified acceptance/calibration, table training, a second identified parser and untouched evaluation remain pending. These tasks remain part of the full project, not omitted scope.

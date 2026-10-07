@@ -1,0 +1,340 @@
+{
+  "variants": [
+    {
+      "arm": "unchanged_0",
+      "variant": "preservation",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 1.0,
+      "final_mean_cdm": 1.0,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 32,
+      "initial_metric_nonmatching": 0,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 1.0,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 0
+    },
+    {
+      "arm": "unchanged_0",
+      "variant": "controlled_error",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.9260625,
+      "final_mean_cdm": 0.9260625,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 0,
+      "initial_metric_nonmatching": 32,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": null,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 0
+    },
+    {
+      "arm": "unchanged_0",
+      "variant": "native_parser_prediction",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.99471875,
+      "final_mean_cdm": 0.99471875,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 29,
+      "initial_metric_nonmatching": 3,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 1.0,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 0
+    },
+    {
+      "arm": "base",
+      "variant": "preservation",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 1.0,
+      "final_mean_cdm": 0.9995625,
+      "mean_delta_cdm": -0.0004375000000000004,
+      "initial_metric_matching": 32,
+      "initial_metric_nonmatching": 0,
+      "matching_regressions": 1,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 0.96875,
+      "improved": 0,
+      "degraded": 1,
+      "changed": 1
+    },
+    {
+      "arm": "base",
+      "variant": "controlled_error",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.9260625,
+      "final_mean_cdm": 0.92903125,
+      "mean_delta_cdm": 0.0029687500000000026,
+      "initial_metric_matching": 0,
+      "initial_metric_nonmatching": 32,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 2,
+      "preserve_metric_proxy": null,
+      "improved": 3,
+      "degraded": 0,
+      "changed": 3
+    },
+    {
+      "arm": "base",
+      "variant": "native_parser_prediction",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.99471875,
+      "final_mean_cdm": 0.99471875,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 29,
+      "initial_metric_nonmatching": 3,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 1.0,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 1
+    },
+    {
+      "arm": "all",
+      "variant": "preservation",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 1.0,
+      "final_mean_cdm": 1.0,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 32,
+      "initial_metric_nonmatching": 0,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 1.0,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 1
+    },
+    {
+      "arm": "all",
+      "variant": "controlled_error",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.9260625,
+      "final_mean_cdm": 1.0,
+      "mean_delta_cdm": 0.07393750000000002,
+      "initial_metric_matching": 0,
+      "initial_metric_nonmatching": 32,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 32,
+      "preserve_metric_proxy": null,
+      "improved": 32,
+      "degraded": 0,
+      "changed": 32
+    },
+    {
+      "arm": "all",
+      "variant": "native_parser_prediction",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.99471875,
+      "final_mean_cdm": 0.99065625,
+      "mean_delta_cdm": -0.0040625,
+      "initial_metric_matching": 29,
+      "initial_metric_nonmatching": 3,
+      "matching_regressions": 1,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 0.9655172413793104,
+      "improved": 0,
+      "degraded": 1,
+      "changed": 31
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "variant": "preservation",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 1.0,
+      "final_mean_cdm": 1.0,
+      "mean_delta_cdm": 0.0,
+      "initial_metric_matching": 32,
+      "initial_metric_nonmatching": 0,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 1.0,
+      "improved": 0,
+      "degraded": 0,
+      "changed": 1
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "variant": "controlled_error",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.9260625,
+      "final_mean_cdm": 1.0,
+      "mean_delta_cdm": 0.07393750000000002,
+      "initial_metric_matching": 0,
+      "initial_metric_nonmatching": 32,
+      "matching_regressions": 0,
+      "nonmatching_fixed": 32,
+      "preserve_metric_proxy": null,
+      "improved": 32,
+      "degraded": 0,
+      "changed": 32
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "variant": "native_parser_prediction",
+      "cases": 32,
+      "source_groups": 32,
+      "initial_mean_cdm": 0.99471875,
+      "final_mean_cdm": 0.991875,
+      "mean_delta_cdm": -0.002843749999999999,
+      "initial_metric_matching": 29,
+      "initial_metric_nonmatching": 3,
+      "matching_regressions": 1,
+      "nonmatching_fixed": 0,
+      "preserve_metric_proxy": 0.9655172413793104,
+      "improved": 0,
+      "degraded": 1,
+      "changed": 31
+    }
+  ],
+  "comparisons": [
+    {
+      "arm": "all",
+      "comparator": "base",
+      "source_groups": 32,
+      "case_pairs": 96,
+      "mean_delta_vs_comparator": 0.022447916666666668,
+      "descriptive_percentile_95_interval": [
+        0.014114583333333337,
+        0.033406250000000005
+      ],
+      "resampling_unit": "source_image family, not repeated variants; original document IDs unavailable",
+      "seed": 20261006,
+      "resamples": 2000,
+      "interpretation": "single-seed inspected development result; not a confirmatory significance claim"
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "comparator": "base",
+      "source_groups": 32,
+      "case_pairs": 96,
+      "mean_delta_vs_comparator": 0.02285416666666667,
+      "descriptive_percentile_95_interval": [
+        0.013979166666666671,
+        0.03425
+      ],
+      "resampling_unit": "source_image family, not repeated variants; original document IDs unavailable",
+      "seed": 20261006,
+      "resamples": 2000,
+      "interpretation": "single-seed inspected development result; not a confirmatory significance claim"
+    }
+  ],
+  "cost_and_adapter": [
+    {
+      "arm": "base",
+      "calls": 96,
+      "cap_hits": 0,
+      "contract_or_render_rollbacks": 88,
+      "raw_contract_accepts": 8,
+      "changed_finals": 5,
+      "mean_input_tokens": 287.1354166666667,
+      "mean_output_tokens": 36.114583333333336,
+      "generation_seconds_total": 85.96244078595191,
+      "mean_generation_seconds": 0.8954420915203324,
+      "timing_scope": "GPU generation only; not end-to-end; parallel GPU contention possible"
+    },
+    {
+      "arm": "all",
+      "calls": 96,
+      "cap_hits": 0,
+      "contract_or_render_rollbacks": 1,
+      "raw_contract_accepts": 95,
+      "changed_finals": 64,
+      "mean_input_tokens": 287.1354166666667,
+      "mean_output_tokens": 54.822916666666664,
+      "generation_seconds_total": 161.03458000114188,
+      "mean_generation_seconds": 1.6774435416785611,
+      "timing_scope": "GPU generation only; not end-to-end; parallel GPU contention possible"
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "calls": 96,
+      "cap_hits": 0,
+      "contract_or_render_rollbacks": 1,
+      "raw_contract_accepts": 95,
+      "changed_finals": 64,
+      "mean_input_tokens": 287.1354166666667,
+      "mean_output_tokens": 54.78125,
+      "generation_seconds_total": 205.0431667547673,
+      "mean_generation_seconds": 2.1358663203621595,
+      "timing_scope": "GPU generation only; not end-to-end; parallel GPU contention possible"
+    }
+  ],
+  "metric_proxy_utility_sensitivity": [
+    {
+      "arm": "base",
+      "regression_weight": 1,
+      "mean_utility": -0.009572916666666665,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "base",
+      "regression_weight": 2,
+      "mean_utility": -0.019989583333333335,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "base",
+      "regression_weight": 4,
+      "mean_utility": -0.04082291666666667,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "all",
+      "regression_weight": 1,
+      "mean_utility": 0.012875000000000004,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "all",
+      "regression_weight": 2,
+      "mean_utility": 0.002458333333333338,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "all",
+      "regression_weight": 4,
+      "mean_utility": -0.018374999999999996,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "regression_weight": 1,
+      "mean_utility": 0.013281250000000003,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "regression_weight": 2,
+      "mean_utility": 0.002864583333333335,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "regression_weight": 4,
+      "mean_utility": -0.01796875,
+      "formula": "delta core CDM minus weight * initial-metric-Good regression indicator; quality units, no cost term"
+    }
+  ],
+  "evaluation_sha256": "c7ac42a88b7311f9f2ad4b9950567fcd2f77400fb24965e9b0a089fb721504a1",
+  "predictions_sha256": "0dfa0fcf5ee5a2dba4726055691793a599d41720958533a33b071e9855cffb21",
+  "status": "single-seed development screen; no visual accuracy or benchmark transfer claim"
+}

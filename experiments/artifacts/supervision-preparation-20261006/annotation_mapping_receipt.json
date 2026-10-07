@@ -1,0 +1,8 @@
+{
+  "mapping_source": "https://raw.githubusercontent.com/opendatalab/UniMERNet/5a2c80d96b1d2dba447ff18d873e5fb73ba03c35/unimernet/datasets/datasets/formula.py",
+  "retrieved_date": "2026-10-06",
+  "expected_git_blob": "3a628b149099f621502eb014cd8747545497f57a",
+  "observed_git_blob": "3a628b149099f621502eb014cd8747545497f57a",
+  "mapping": "int(image numeric basename) indexes annotation split lines",
+  "source_bytes_verified": true
+}

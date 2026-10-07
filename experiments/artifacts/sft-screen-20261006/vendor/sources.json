@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://docs.typesafe.ai/models",
+    "final_url": "https://docs.typesafe.ai/models",
+    "status": 200,
+    "retrieved_at": "2026-10-06T14:54:33.499001+00:00",
+    "sha256": "4dee1e8a3ccb1f873d8b4a402a444536fd9a79e4520c2d2fc3d9e05773ab797d"
+  },
+  {
+    "url": "https://docs.typesafe.ai/api",
+    "status": "request_failed",
+    "error_type": "ReadTimeout",
+    "retrieved_at": "2026-10-06T14:54:41.513836+00:00"
+  },
+  {
+    "url": "https://docs.typesafe.ai/confidence",
+    "final_url": "https://docs.typesafe.ai/confidence",
+    "status": 200,
+    "retrieved_at": "2026-10-06T14:54:42.552473+00:00",
+    "sha256": "b78d0238007da62ab4af5eaea6f34c7028a3dd061955d40c6aa4d9a403977d2f"
+  }
+]

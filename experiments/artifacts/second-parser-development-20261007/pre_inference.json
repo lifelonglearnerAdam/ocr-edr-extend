@@ -1,0 +1,18 @@
+{
+  "protocol_sha256": "8d587536ab44f4e9d37665478644d5cd88d568bb5c3f1dca03784fe004938347",
+  "source_sha256": {
+    "scripts/run_sft_screen.py": "c5177c5a6a31032ddb52b20bd11f8718302bad6ab49335c8bd9c274d48d755c7",
+    "src/ocr_edr/qwen.py": "d82329b69e59de30f6a04b28be37cdee379dd203e365a88323a9613c65616d2e",
+    "src/ocr_edr/formula_pilot.py": "647aa92d9b9177c775a48987916b95ddb79aa37299fcfa126258e496dc30f95c"
+  },
+  "student_checkpoint": "sft-screen-20261006/all/terminal-192",
+  "parser_used_in_student_training": false,
+  "source_groups": 32,
+  "conditions": [
+    "base",
+    "all"
+  ],
+  "device": "cpu",
+  "references_in_generation": false,
+  "outputs_filtered_for_quality": false
+}

@@ -1,0 +1,6 @@
+{
+  "protocol": "docs/research/SFT_SOURCE_COUNTERFACTUAL_20261006.md",
+  "sha256": "44a37bc7da4685f498b923520464396a32acfd17856bb7b60152093d2c401e4c",
+  "created_before_counterfactual_model_calls": true,
+  "source_metadata_uses_reference": false
+}

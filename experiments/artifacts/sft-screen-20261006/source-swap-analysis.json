@@ -1,0 +1,30 @@
+{
+  "inputs": 96,
+  "source_groups": 32,
+  "raw_output_changed_cases": 94,
+  "source_groups_with_any_response_change": 32,
+  "full_tag_contract_outputs": 93,
+  "whitespace_key_equal_to_original_source_reference": 2,
+  "whitespace_key_equal_to_permuted_source_reference": 24,
+  "raw_change_by_variant": {
+    "preservation": {
+      "cases": 32,
+      "changed": 31
+    },
+    "controlled_error": {
+      "cases": 32,
+      "changed": 32
+    },
+    "native_parser_prediction": {
+      "cases": 32,
+      "changed": 31
+    }
+  },
+  "cap_hits": 3,
+  "original_generation_seconds": 161.03458000114188,
+  "permuted_generation_seconds": 185.18263374641538,
+  "tokens_original": 27565,
+  "tokens_permuted": 27565,
+  "claim": "source permutation changes model behavior; not an attention diagnosis, literal visual-accuracy certificate or a comparable deployment-quality test",
+  "selection_uses_reference": false
+}

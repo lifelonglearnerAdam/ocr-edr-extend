@@ -1,0 +1,4 @@
+arm,cases,sources,case_mean_initial_cdm,case_mean_final_cdm,case_mean_delta_cdm,source_mean_initial_cdm,source_mean_final_cdm,source_mean_delta_cdm,initial_matching,initial_nonmatching,matching_regressions,nonmatching_fixed,improved,degraded,final_matching,changed,initial_prediction_unrenderable_or_empty,final_prediction_unrenderable_or_empty
+unchanged_0,32,32,0.899375,0.899375,0.0,0.899375,0.899375,0.0,21,11,0,0,0,0,21,0,0,0
+base,32,32,0.899375,0.899375,0.0,0.899375,0.899375,0.0,21,11,0,0,0,0,21,1,0,0
+all,32,32,0.899375,0.98990625,0.09053125,0.899375,0.98990625,0.09053125,21,11,0,6,10,0,27,31,0,0

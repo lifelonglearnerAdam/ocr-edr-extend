@@ -20,3 +20,5 @@ python scripts/validate_manifest.py \
 Training checks require a nonempty held-out manifest and reject overlapping parent pages or exact images even if sample names change. This is not a perceptual near-duplicate detector: preserve parent-page provenance and review derived/augmented copies before training. Select thresholds/checkpoints on independent development data, then freeze decisions before test evaluation.
 
 Store raw inputs and generated trajectories in ignored data directories or the external project dataset root. Publish source/release information, hashes, configurations and aggregate results after actual experiments. Public examples are generated synthetic fixtures.
+
+The October 6 UniMER-1M pilot uses `page_id=unimer1m-image:<annotation_index>` as the available archive-image identity, not an asserted original-document identity. Its additional image/formula screening is recorded separately. Original document grouping and pretrained-model exposure cannot be established from this archive. Direct-answer SFT targets remain separate from the strict reference-free recognition/repair input files; no optimizer step has been run on the assembled records.

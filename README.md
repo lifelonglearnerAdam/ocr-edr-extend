@@ -19,6 +19,10 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 ## 当前可运行部分
 
+10月7日完成[第二具名公式解析器开发诊断](docs/research/SECOND_PARSER_RESULTS_20261007.md)：固定SFT在LaTeX-OCR原生候选上的core-CDM由0.8994到0.9899，6个完整/4个部分修复；同源此前Nougat结果仍保留负向结论，不能称独立迁移。另完成[PubTabNet文章隔离四角色数据](docs/research/TABLE_DATA_RESULTS_20261007.md)与训练/model-dev局部JSON目标，发现并排除了发布split文章重叠；标注缺行风险已标记，尚未运行表格训练或锁定评测。
+
+10 月 6 日已将五个方向写成[统一研究设计](docs/research/INTEGRATED_RESEARCH_20261006.md)，含分层消融、独立验收/校准与parser留出要求；当前仍是待验证机制。首轮两个192-step公式LoRA和三模型96-dev输入推断已完成，见[SFT结果](docs/research/SFT_SCREEN_RESULTS_20261006.md)：受控错误全修复到core-CDM=1，原生metric不匹配没有修复且发生一次可见结构退化。当前官方Jev是文本-only，视觉证据必须另生成并计费，见[接口核查](docs/research/JEV_INTERFACE_CHECK_20261006.md)。尚无完整五方向系统或论文效果结论。
+
 - 通用状态机：`inspect / diagnose_scope / localize / patch / global_patch / request_render / stop`，包括渲染过时、候选回退和预算约束。
 - 独立区域清单验证：公式/表格输入、测试标记、来源图片和训练/留出集的页面与精确图片重复检查。
 - PNG 渲染程序适配器，以及调用官方 OmniDocBench 的隔离评测入口。
@@ -28,7 +32,7 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 - 独立 UniMER 开发样本、Nougat-LaTeX 原生输出、图像单独识别对照；全部样本保留，原有精确光栅代理保持独立标注；已新增固定配对的官方 core CDM 离线重评、参考自检与哈希核验。
 - WeasyPrint 中文/合并单元格表格渲染与单步 JSON 编辑；固定配对的官方 TEDS/TEDS-S 离线评测，分别报告修复、回退、退化、页面平均及成本。官方源码先与固定 Git blob 核验。
 
-当前已接入完整 TeX/表格渲染和独立评测，包括官方 core CDM 重评（尚非端到端基准评测）。完整闭环的学习策略/视觉 judge、Jev、蒸馏和 SFT/GRPO 尚待实现；表格 demo 的原始解析器身份未公开，不能据此声称具名解析器迁移。未训练 2B 的开发结果包含失败与退化，不能视作基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[10 月 3 日公式结果](docs/research/RESULTS_20261003.md)、[10 月 4 日对照与表格结果](docs/research/RESULTS_20261004.md)、[相关工作与新颖性检查](docs/research/PRIOR_ART_20261003.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
+当前已接入完整 TeX/表格渲染和独立评测，包括官方 core CDM 重评（尚非端到端基准评测）。10 月 6 日从已核验的 UniMER-1M 训练包冻结了 128 个 train 源和 32 个 dev 源，生成保持/受控错误及全部原生 Nougat 输出，共 384/96 条监督记录；数据准备阶段没有训练更新。随后在 RTX 4090 上完成了两个训练样例的一步 LoRA 可行性检查，未保存 checkpoint，该smoke之后已完成第一轮直接目标SFT开发筛查，结果与限制见上文。完整闭环的学习策略/视觉 judge、Jev、教师轨迹蒸馏和 Agentic GRPO 尚待实现；表格 demo 的原始解析器身份未公开，不能据此声称具名解析器迁移。未训练 2B 的开发结果包含失败与退化，不能视作基准提升。先看 [假设与决策](docs/research/HYPOTHESES.md)、[10 月 3 日公式结果](docs/research/RESULTS_20261003.md)、[10 月 4 日对照与表格结果](docs/research/RESULTS_20261004.md)、[10 月 6 日监督数据准备](docs/research/RESULTS_20261006.md)、[4090 单卡训练检查](docs/research/GPU_READINESS_20261006.md)、[相关工作与新颖性检查](docs/research/PRIOR_ART_20261003.md) 和 [实施计划](docs/EXPERIMENT_PLAN.md)。
 
 ## 环境（Windows / Ubuntu）
 
@@ -73,7 +77,7 @@ python3 -m venv .venv
   --dry-run
 ```
 
-训练依赖保留在 `requirements.txt`，训练 YAML 是待验证配方，当前没有 `train_grpo.py` 入口。格式见 [数据协议](docs/DATA_PROTOCOL.md)，远端路径见 [服务器说明](docs/SERVER_RUNBOOK.md)。
+公式开发筛查入口为 `scripts/train_formula_sft.py`，冻结配置 `configs/train/sft_formula_screen.yaml`；先核验本项目train/dev及模型哈希，再运行两个固定终态对照。`scripts/run_sft_screen.py`只读取参考隔离输入，`adapt_sft_screen.py`固定syntax-only输出后才交官方离线评估。完整Agentic GRPO配置仍是待验证配方，当前没有 `train_grpo.py` 入口。格式见 [数据协议](docs/DATA_PROTOCOL.md)，远端路径见 [服务器说明](docs/SERVER_RUNBOOK.md)。
 
 ## 目录结构
 
