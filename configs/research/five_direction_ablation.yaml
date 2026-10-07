@@ -52,6 +52,22 @@ contrasts:
     prompt_control_result: docs/research/TABLE_PROMPT_CONTROL_RESULTS_20261007.md
     literal_base: {cases: 103, executable_actions: 103, stop_actions: 103, actual_edits: 0, full_fixes: 0}
     training_source_prompt_smoke: {source_documents: 1, variants: 3, descriptive_valid: 0, literal_valid: 3, literal_stop_actions: 3, actual_edits: 0}
+  P_table_nf4:
+    status: boundary_optimizer_and_separate_reload_verified_full_training_started
+    report: docs/research/TABLE_NF4_READINESS_RESULTS_20261007.md
+    protocol: docs/research/TABLE_NF4_SCREEN_PROTOCOL_20261007.md
+    recipe: configs/train/sft_table_nf4_screen_20261007.yaml
+    arms: [same_nf4_base, all, no_explicit_preservation]
+    fixed: [student_revision, seed, documents, document_exposures, optimizer_steps, inference_precision, prompt]
+    hardware: RTX_5070_Laptop_GPU_8GiB
+    precision: nf4_double_quant_bf16_matmul_fp32_nonquantized
+    loss_projection: supervised_positions_exact_masked_CE
+    inference_projection: last_position_only
+    optimizer_steps_per_arm: 381
+    exposures_per_document: 12
+    full_training_completed: false
+    independent_bf16_condition_retained: true
+    disclosed_not_matched: [supervised_token_counts, repair_variant_exposures]
   D0:
     status: interactive_teacher_train_pilot_collected_student_distillation_pending
     fixed: [teacher_version, student, source_groups, training_token_budget]

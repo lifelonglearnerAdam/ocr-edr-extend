@@ -74,6 +74,8 @@ def main():
         repo / "src/ocr_edr/sft.py",
         repo / "src/ocr_edr/formula_pilot.py",
         repo / "src/ocr_edr/sft_training.py",
+        repo / "src/ocr_edr/training_precision.py",
+        repo / "src/ocr_edr/supervised_projection.py",
     ]
     receipt = {
         "status": "initializing",

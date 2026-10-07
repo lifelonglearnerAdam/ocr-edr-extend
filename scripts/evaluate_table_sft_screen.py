@@ -76,6 +76,15 @@ def main():
         }
         signature["versions"] = {n: run["versions"][n] for n in ["torch", "transformers", "Pillow"]}
         signature["prompt_format"] = run.get("prompt_format", "descriptive_schema")
+        signature["precision_profile"] = run.get("precision_profile", "bf16_lora")
+        signature["logits_projection"] = run.get("logits_projection", "full")
+        if signature["precision_profile"] == "nf4_lora_8gb":
+            if not run.get("quantization") or not all(
+                run["versions"].get(n) for n in ["bitsandbytes", "peft"]
+            ):
+                raise ValueError("NF4 pairing requires quantization and dependency provenance")
+            signature["quantization"] = run["quantization"]
+            signature["versions"].update({n: run["versions"][n] for n in ["bitsandbytes", "peft"]})
         if run["device"].startswith("cuda"):
             for field in ["gpu", "cuda_runtime"]:
                 if not run.get(field):

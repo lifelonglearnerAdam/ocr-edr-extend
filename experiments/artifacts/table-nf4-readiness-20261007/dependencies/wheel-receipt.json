@@ -1,0 +1,16 @@
+[
+  {
+    "package": "bitsandbytes",
+    "file": "bitsandbytes-0.48.1-py3-none-manylinux_2_24_x86_64.whl",
+    "url": "https://files.pythonhosted.org/packages/a1/63/00b3f2af0b88edf5855792681641a71cf0605d6d88c62e98d75cff86d105/bitsandbytes-0.48.1-py3-none-manylinux_2_24_x86_64.whl",
+    "bytes": 60088899,
+    "sha256": "3e72cf07ba6d2169e69a61282a6f072fc675efee86049e56a33de099a0363ef2"
+  },
+  {
+    "package": "peft",
+    "file": "peft-0.17.1-py3-none-any.whl",
+    "url": "https://files.pythonhosted.org/packages/49/fe/a2da1627aa9cb6310b6034598363bd26ac301c4a99d21f415b1b2855891e/peft-0.17.1-py3-none-any.whl",
+    "bytes": 504896,
+    "sha256": "3d129d64def3d74779c32a080d2567e5f7b674e77d546e3585138216d903f99e"
+  }
+]

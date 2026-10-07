@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import importlib.metadata
 import json
+import shutil
 import subprocess
 from collections import Counter
 from datetime import datetime, timezone
@@ -68,6 +69,8 @@ def main():
         repo / "src/ocr_edr/table_supervision.py",
         repo / "src/ocr_edr/table_pilot.py",
         repo / "src/ocr_edr/sft_training.py",
+        repo / "src/ocr_edr/training_precision.py",
+        repo / "src/ocr_edr/supervised_projection.py",
         repo / "src/ocr_edr/sft.py",
     ]
     receipt = {
@@ -101,10 +104,26 @@ def main():
     }
     (root / "run.json").write_text(json.dumps(receipt, indent=2) + "\n")
     try:
+        for path in paths:
+            destination = root / "source" / path.resolve().relative_to(repo)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(path, destination)
+        shutil.copyfile(args.config, root / "source/training-config.yaml")
         receipt["versions"] = {
             n: importlib.metadata.version(n)
             for n in ["torch", "transformers", "peft", "accelerate", "Pillow"]
         }
+        if cfg.get("precision_profile") == "nf4_lora_8gb":
+            receipt["versions"]["bitsandbytes"] = importlib.metadata.version("bitsandbytes")
+            if any(receipt["versions"].get(k) != v for k, v in cfg["versions"].items()):
+                raise ValueError("Frozen NF4 runtime versions differ")
+            occupancy = subprocess.check_output(
+                ["nvidia-smi", "--query-compute-apps=pid", "--format=csv,noheader"], text=True
+            ).strip()
+            if occupancy:
+                raise RuntimeError(
+                    "Explicit local NF4 run requires no competing GPU compute process"
+                )
         train_fixed_schedule(args, cfg, train, schedule, root, receipt)
     except Exception as error:
         receipt.update(status="failed", error_type=type(error).__name__, error=str(error)[:1000])

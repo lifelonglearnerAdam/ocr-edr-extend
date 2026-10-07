@@ -64,6 +64,7 @@ class QwenFormulaProposer:
         min_pixels: int = 128 * 28 * 28,
         max_pixels: int = 256 * 28 * 28,
         adapter_path: Path | None = None,
+        precision_profile: str = "bf16_lora",
     ):
         import torch
         from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
@@ -73,6 +74,7 @@ class QwenFormulaProposer:
         self.torch = torch
         self.device = device
         self.max_new_tokens = max_new_tokens
+        self.precision_metadata = {}
         self.processor = AutoProcessor.from_pretrained(
             str(model_path),
             local_files_only=True,
@@ -80,12 +82,19 @@ class QwenFormulaProposer:
             min_pixels=min_pixels,
             max_pixels=max_pixels,
         )
-        self.model = Qwen2VLForConditionalGeneration.from_pretrained(
-            str(model_path),
-            local_files_only=True,
-            dtype=torch.bfloat16,
-            attn_implementation="sdpa",
-        ).to(device)
+        if precision_profile == "bf16_lora":
+            self.model = Qwen2VLForConditionalGeneration.from_pretrained(
+                str(model_path),
+                local_files_only=True,
+                dtype=torch.bfloat16,
+                attn_implementation="sdpa",
+            ).to(device)
+        elif precision_profile == "nf4_lora_8gb" and device == "cuda:0":
+            from .inference_precision import load_nf4_inference_base
+
+            self.model, self.precision_metadata = load_nf4_inference_base(model_path)
+        else:
+            raise ValueError("Unknown inference precision profile or incompatible device")
         if adapter_path is not None:
             from peft import PeftModel
 

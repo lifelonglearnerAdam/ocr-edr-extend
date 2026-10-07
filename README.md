@@ -19,7 +19,7 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 ## 当前可运行部分
 
-10月7日继续完成[表格SFT准入与执行准备](docs/research/TABLE_SFT_READINESS_20261007.md)：排除已确认缺行的p0002整族，保留127文档/406训练记录；两臂各381步的assistant掩码与不截断预检查通过。单JSON动作推理、失败回退、官方TEDS及文档级评估入口已执行软件验证；表格optimizer尚未运行，实际模型结果另以完整运行记录为准。
+10月7日继续完成[表格SFT准入与执行准备](docs/research/TABLE_SFT_READINESS_20261007.md)：排除已确认缺行的p0002整族，保留127文档/406训练记录；两臂各381步的assistant掩码与不截断预检查通过。单JSON动作推理、失败回退、官方TEDS及文档级评估入口已执行软件验证；原BF16表格optimizer尚未运行，独立NF4条件进展见下文，实际模型结果以完整运行记录为准。
 
 随后[完整103例表格基座运行](docs/research/TABLE_BASE_RESULTS_20261007.md)全部因动作契约失败回退，其中60例达输出上限；没有修复或实际修改。TEDS维持0.95754，零退化来自全拒绝，不能称学习到保持。追加明确JSON示例的提示对照需要与SFT收益分开检验。[原生表格parser官方接口来源](docs/research/NATIVE_TABLE_INTERFACE_CHECK_20261007.md)已固定，预测结果见下方32源诊断。
 
@@ -29,7 +29,9 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 当前助手已实际生成并封存[首批12个训练文档的教师轨迹](docs/research/INTERACTIVE_TEACHER_RESULTS_20261007.md)：9例编辑、3例不修改，全部机械回放通过；8例形成同终答的临时配对监督视图，4例保留待复核。官方TEDS满分数9→10，但均值0.9951→0.9727，包含一次教师拆行与公开参考合并表示的分歧；不能称总体提升。教师自检与独立判定分开记录，学生蒸馏尚未执行。
 
-10月7日完成[第二具名公式解析器开发诊断](docs/research/SECOND_PARSER_RESULTS_20261007.md)：固定SFT在LaTeX-OCR原生候选上的core-CDM由0.8994到0.9899，6个完整/4个部分修复；同源此前Nougat结果仍保留负向结论，不能称独立迁移。另完成[PubTabNet文章隔离四角色数据](docs/research/TABLE_DATA_RESULTS_20261007.md)与训练/model-dev局部JSON目标，发现并排除了发布split文章重叠；标注缺行风险已标记，尚未运行表格训练或锁定评测。
+新增[本地NF4训练可行性证据](docs/research/TABLE_NF4_READINESS_RESULTS_20261007.md)：8 GiB显卡上的原全logits交叉熵OOM后，仅省略ignored位置的词表projection，在两个预定边界样本完成优化，峰值allocated3.78 GiB；独立新进程重载112个adapter tensor完全一致，原失败保留。已据此启动[独立NF4两臂381-step实验](docs/research/TABLE_NF4_SCREEN_PROTOCOL_20261007.md)，将重新运行同精度基座与完整开发推断；当前不报告完整训练质量收益。
+
+10月7日完成[第二具名公式解析器开发诊断](docs/research/SECOND_PARSER_RESULTS_20261007.md)：固定SFT在LaTeX-OCR原生候选上的core-CDM由0.8994到0.9899，6个完整/4个部分修复；同源此前Nougat结果仍保留负向结论，不能称独立迁移。另完成[PubTabNet文章隔离四角色数据](docs/research/TABLE_DATA_RESULTS_20261007.md)与训练/model-dev局部JSON目标，发现并排除了发布split文章重叠；标注缺行风险已标记，锁定评测尚未执行。
 
 10 月 6 日已将五个方向写成[统一研究设计](docs/research/INTEGRATED_RESEARCH_20261006.md)，含分层消融、独立验收/校准与parser留出要求；当前仍是待验证机制。首轮两个192-step公式LoRA和三模型96-dev输入推断已完成，见[SFT结果](docs/research/SFT_SCREEN_RESULTS_20261006.md)：受控错误全修复到core-CDM=1，原生metric不匹配没有修复且发生一次可见结构退化。当前官方Jev是文本-only，视觉证据必须另生成并计费，见[接口核查](docs/research/JEV_INTERFACE_CHECK_20261006.md)。尚无完整五方向系统或论文效果结论。
 

@@ -261,11 +261,16 @@ class TableScreenCliPairingTests(unittest.TestCase):
                     {"cuda_runtime": "12.1"},
                     {"admission_sha256": "4" * 64},
                     {"prompt_format": "literal_examples"},
+                    {"precision_profile": "nf4_lora_8gb"},
+                    {"logits_projection": "last_position_only"},
                     {"versions": {**original[-1]["versions"], "peft": "0.18.1"}},
                 ]
             ):
                 last_calls.write_bytes(original_calls)
                 changed_run = {**original[-1], **change}
+                if change.get("precision_profile") == "nf4_lora_8gb":
+                    changed_run["quantization"] = {"name": "nf4_lora_8gb", "modules": ["fixture"]}
+                    changed_run["versions"] = {**changed_run["versions"], "bitsandbytes": "0.48.1"}
                 if "prompt_format" in change:
                     # Each run remains internally valid. The only intended
                     # rejection is pairing two different prompt protocols.
@@ -288,6 +293,32 @@ class TableScreenCliPairingTests(unittest.TestCase):
                         else "Paired conditions require"
                     )
                     self.assertIn(expected_error, bad.stderr)
+            # An internally valid NF4 cohort must pair, but dependency or layer
+            # precision drift must fail even with otherwise identical receipts.
+            last_calls.write_bytes(original_calls)
+            nf4_runs = []
+            for folder, old in zip(run_dirs, original):
+                run = copy.deepcopy(old)
+                run.update(
+                    precision_profile="nf4_lora_8gb",
+                    logits_projection="last_position_only",
+                    quantization={"name": "nf4_lora_8gb", "modules": ["fixture"]},
+                )
+                run["versions"].update(bitsandbytes="0.48.1", peft="0.17.1")
+                nf4_runs.append(run)
+                (folder / "run.json").write_text(json.dumps(run))
+            good_nf4 = run_cli("compatible_nf4")
+            self.assertEqual(good_nf4.returncode, 0, good_nf4.stderr)
+            for index, change in enumerate(
+                [
+                    {"versions": {**nf4_runs[-1]["versions"], "bitsandbytes": "0.48.2"}},
+                    {"quantization": {"name": "nf4_lora_8gb", "modules": ["different"]}},
+                ]
+            ):
+                (run_dirs[-1] / "run.json").write_text(json.dumps({**nf4_runs[-1], **change}))
+                bad = run_cli("nf4_mismatch" + str(index))
+                self.assertNotEqual(bad.returncode, 0)
+                self.assertIn("Paired conditions require", bad.stderr)
 
 
 if __name__ == "__main__":

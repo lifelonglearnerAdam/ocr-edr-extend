@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import importlib.metadata
 import json
+import shutil
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -39,6 +40,15 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     cfg = yaml.safe_load(args.config.read_text())
+    precision_profile = cfg.get("precision_profile", "bf16_lora")
+    nf4 = precision_profile == "nf4_lora_8gb"
+    if precision_profile not in {"bf16_lora", "nf4_lora_8gb"} or (nf4 and args.device != "cuda:0"):
+        raise ValueError("Unsupported explicit inference precision/device")
+    if nf4 and (
+        args.prompt_format != cfg["inference"]["prompt_format"]
+        or cfg["inference"]["logits_projection"] != "last_position_only"
+    ):
+        raise ValueError("Frozen NF4 prompt/projection protocol differs")
     cases = load_table_screen_inputs(args.dataset)
     if (
         len(cases) != cfg["data"]["model_dev_records"]
@@ -78,6 +88,8 @@ def main():
         repo / "src/ocr_edr/table_supervision.py",
         repo / "src/ocr_edr/table_pilot.py",
         repo / "src/ocr_edr/formula_pilot.py",
+        repo / "src/ocr_edr/inference_precision.py",
+        repo / "src/ocr_edr/training_precision.py",
     ]
     receipt = {
         "status": "initializing",
@@ -86,7 +98,9 @@ def main():
         "condition": args.condition,
         "prompt_format": args.prompt_format,
         "device": args.device,
-        "dtype": "bfloat16",
+        "dtype": "nf4_bf16_compute_fp32_nonquantized" if nf4 else "bfloat16",
+        "precision_profile": precision_profile,
+        "logits_projection": "last_position_only" if nf4 else "full",
         "attention": "sdpa",
         "cpu_threads": 4,
         "model_revision": cfg["model_revision"],
@@ -115,8 +129,22 @@ def main():
     (root / "run.json").write_text(json.dumps(receipt, indent=2) + "\n")
     count = 0
     try:
-        packages = ["torch", "transformers", "Pillow"] + (["peft"] if adapter else [])
+        for path in source_paths:
+            destination = root / "source" / path.resolve().relative_to(repo)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(path, destination)
+        packages = ["torch", "transformers", "Pillow"] + (["peft"] if adapter or nf4 else [])
+        if nf4:
+            packages.append("bitsandbytes")
         receipt["versions"] = {n: importlib.metadata.version(n) for n in packages}
+        if nf4:
+            if any(receipt["versions"].get(k) != v for k, v in cfg["versions"].items()):
+                raise ValueError("Frozen NF4 inference versions differ")
+            occupancy = subprocess.check_output(
+                ["nvidia-smi", "--query-compute-apps=pid", "--format=csv,noheader"], text=True
+            ).strip()
+            if occupancy:
+                raise RuntimeError("NF4 inference requires no competing compute process")
         import torch
 
         torch.manual_seed(cfg["seed"])
@@ -130,7 +158,9 @@ def main():
             min_pixels=cfg["min_pixels"],
             max_pixels=cfg["max_pixels"],
             max_new_tokens=cfg["inference"]["max_new_tokens"],
+            precision_profile=precision_profile,
         )
+        receipt.update(proposer.precision_metadata)
         receipt["status"] = "running"
         if args.device.startswith("cuda"):
             receipt.update(gpu=torch.cuda.get_device_name(0), cuda_runtime=torch.version.cuda)

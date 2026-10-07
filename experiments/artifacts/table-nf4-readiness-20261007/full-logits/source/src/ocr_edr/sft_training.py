@@ -11,17 +11,12 @@ import time
 from datetime import datetime, timezone
 
 from .sft import assistant_labels, sha256
-from .supervised_projection import qwen_lora_supervised_loss
 from .training_precision import configure_training_device, load_training_base
 
 
 def train_fixed_schedule(args, cfg, train, schedule, root, receipt):
     steps = cfg["steps"]
     accumulation = cfg["gradient_accumulation"]
-    projection = cfg.get("loss_projection", "full")
-    if projection not in {"full", "supervised_only"}:
-        raise ValueError("Unknown causal loss projection")
-    receipt["loss_projection"] = projection
     import torch
     from peft import LoraConfig, get_peft_model
     from PIL import Image
@@ -140,16 +135,12 @@ def train_fixed_schedule(args, cfg, train, schedule, root, receipt):
                 for index in schedule[step * accumulation : (step + 1) * accumulation]:
                     full, labels = processed[index]
                     inputs = {key: value.to("cuda:0") for key, value in full.items()}
-                    target_labels = labels.to("cuda:0")
-                    if projection == "supervised_only":
-                        loss = qwen_lora_supervised_loss(model, inputs, target_labels)
-                    else:
-                        loss = model(**inputs, labels=target_labels, use_cache=False).loss
-                    if not torch.isfinite(loss):
+                    result = model(**inputs, labels=labels.to("cuda:0"), use_cache=False)
+                    if not torch.isfinite(result.loss):
                         raise ValueError("Nonfinite supervised loss")
-                    (loss / accumulation).backward()
-                    losses.append(float(loss.detach()))
-                    del inputs, target_labels, loss
+                    (result.loss / accumulation).backward()
+                    losses.append(float(result.loss.detach()))
+                    del inputs, result
                 if any(p.grad is not None for _, p in frozen):
                     raise ValueError("Frozen base parameter received a gradient")
                 norm = torch.nn.utils.clip_grad_norm_(
