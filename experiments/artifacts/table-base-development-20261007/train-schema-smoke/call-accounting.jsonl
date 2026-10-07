@@ -1,0 +1,6 @@
+{"sample_id": "p0001-preservation", "condition": "descriptive_schema", "input_tokens": 1106, "output_tokens": 192, "generation_seconds": 31.819112134000534, "executable_action": null, "contract_failure": "ValueError: token_cap"}
+{"sample_id": "p0001-preservation", "condition": "literal_examples", "input_tokens": 1196, "output_tokens": 6, "generation_seconds": 7.630493198001204, "executable_action": {"action": "stop"}, "contract_failure": null}
+{"sample_id": "p0001-cell_perturbation", "condition": "descriptive_schema", "input_tokens": 1106, "output_tokens": 192, "generation_seconds": 31.779811824000717, "executable_action": null, "contract_failure": "ValueError: token_cap"}
+{"sample_id": "p0001-cell_perturbation", "condition": "literal_examples", "input_tokens": 1196, "output_tokens": 6, "generation_seconds": 7.726715495000462, "executable_action": {"action": "stop"}, "contract_failure": null}
+{"sample_id": "p0001-extra_row", "condition": "descriptive_schema", "input_tokens": 1314, "output_tokens": 192, "generation_seconds": 36.646935629001746, "executable_action": null, "contract_failure": "ValueError: token_cap"}
+{"sample_id": "p0001-extra_row", "condition": "literal_examples", "input_tokens": 1404, "output_tokens": 6, "generation_seconds": 8.712130879999677, "executable_action": {"action": "stop"}, "contract_failure": null}

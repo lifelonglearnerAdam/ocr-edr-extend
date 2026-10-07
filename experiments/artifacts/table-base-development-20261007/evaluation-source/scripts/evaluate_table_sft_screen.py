@@ -75,7 +75,6 @@ def main():
             ]
         }
         signature["versions"] = {n: run["versions"][n] for n in ["torch", "transformers", "Pillow"]}
-        signature["prompt_format"] = run.get("prompt_format", "descriptive_schema")
         if run["device"].startswith("cuda"):
             for field in ["gpu", "cuda_runtime"]:
                 if not run.get(field):
@@ -169,7 +168,6 @@ def main():
                         call,
                         renderer=renderer.render,
                         max_new_tokens=run["config"]["inference"]["max_new_tokens"],
-                        prompt_format=run.get("prompt_format", "descriptive_schema"),
                     )
                 )
         predictions_path = root / "predictions.jsonl"

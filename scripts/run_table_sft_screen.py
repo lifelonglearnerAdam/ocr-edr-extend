@@ -16,6 +16,7 @@ import yaml
 from ocr_edr.qwen import QwenFormulaProposer
 from ocr_edr.sft import sha256, verify_model_files
 from ocr_edr.table_sft_screen import (
+    PROMPT_FORMATS,
     load_table_screen_inputs,
     table_messages,
     validate_table_adapter,
@@ -34,6 +35,7 @@ def main():
         "--condition", choices=["base", "all", "no_explicit_preservation"], required=True
     )
     parser.add_argument("--device", choices=["cpu", "cuda:0"], default="cuda:0")
+    parser.add_argument("--prompt-format", choices=PROMPT_FORMATS, default="descriptive_schema")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     cfg = yaml.safe_load(args.config.read_text())
@@ -82,6 +84,7 @@ def main():
         "started_at": datetime.now(timezone.utc).isoformat(),
         "study": cfg["study"],
         "condition": args.condition,
+        "prompt_format": args.prompt_format,
         "device": args.device,
         "dtype": "bfloat16",
         "attention": "sdpa",
@@ -135,7 +138,9 @@ def main():
         with (root / "calls.jsonl").open("w") as sink:
             for case in cases:
                 source = (args.dataset / case["source_image"]).resolve()
-                messages, prompt = table_messages(case["prediction"])
+                messages, prompt = table_messages(
+                    case["prediction"], prompt_format=args.prompt_format
+                )
                 call = proposer.generate([source], messages, prompt)
                 if call["ordered_image_sha256"] != [case["source_sha256"]]:
                     raise ValueError("Source changed after input validation")

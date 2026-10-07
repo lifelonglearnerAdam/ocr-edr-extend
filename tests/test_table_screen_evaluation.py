@@ -253,18 +253,41 @@ class TableScreenCliPairingTests(unittest.TestCase):
             evaluation = json.loads((root / "compatible/evaluation.json").read_text())
             self.assertEqual(len(evaluation["cases"]), 4)
             self.assertEqual(sum(r["model_calls"] for r in evaluation["cases"]), 3)
+            last_calls = run_dirs[-1] / "calls.jsonl"
+            original_calls = last_calls.read_bytes()
             for index, change in enumerate(
                 [
                     {"gpu": "NVIDIA GeForce RTX 4090"},
                     {"cuda_runtime": "12.1"},
                     {"admission_sha256": "4" * 64},
+                    {"prompt_format": "literal_examples"},
                     {"versions": {**original[-1]["versions"], "peft": "0.18.1"}},
                 ]
             ):
-                (run_dirs[-1] / "run.json").write_text(json.dumps({**original[-1], **change}))
+                last_calls.write_bytes(original_calls)
+                changed_run = {**original[-1], **change}
+                if "prompt_format" in change:
+                    # Each run remains internally valid. The only intended
+                    # rejection is pairing two different prompt protocols.
+                    literal_call = json.loads(original_calls)
+                    messages, prompt = table_messages(
+                        case["prediction"], prompt_format="literal_examples"
+                    )
+                    literal_call.update(messages=messages, prompt=prompt)
+                    last_calls.write_text(json.dumps(literal_call) + "\n")
+                    changed_run["calls_sha256"] = hashlib.sha256(
+                        last_calls.read_bytes()
+                    ).hexdigest()
+                (run_dirs[-1] / "run.json").write_text(json.dumps(changed_run))
                 with self.subTest(change=change):
                     bad = run_cli("mismatch" + str(index))
                     self.assertNotEqual(bad.returncode, 0, "Incompatible runs were silently paired")
+                    expected_error = (
+                        "SFT conditions differ"
+                        if {"admission_sha256", "versions"} & change.keys()
+                        else "Paired conditions require"
+                    )
+                    self.assertIn(expected_error, bad.stderr)
 
 
 if __name__ == "__main__":

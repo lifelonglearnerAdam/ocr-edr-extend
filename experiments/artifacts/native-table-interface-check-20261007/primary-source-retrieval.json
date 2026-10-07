@@ -1,0 +1,112 @@
+{
+  "revision": "e218c0a35fbcb5085ab3527931b2d8d08f8f0292",
+  "tag": "v2.10.0",
+  "sources": [
+    {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/ppstructure/table/predict_table.py",
+      "retrieved_at": "2026-10-07T07:47:29.031643+00:00",
+      "path": "ppstructure/table/predict_table.py",
+      "status": "read",
+      "bytes": 8586,
+      "sha256": "65d06a7afff9936912f82f9fc15b14ffe4915d89c6187f05b951dd8203062ae2",
+      "git_blob_sha1": "e1880cd8add6a141128401454f8a8235a5ae2002"
+    },
+    {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/ppstructure/table/matcher.py",
+      "retrieved_at": "2026-10-07T07:47:29.779915+00:00",
+      "path": "ppstructure/table/matcher.py",
+      "status": "read",
+      "bytes": 8186,
+      "sha256": "341283070bd965aa75968d2955523e340cc6d5446d556f055f79ed22faca626a",
+      "git_blob_sha1": "ae32b4b153d6e8c42c40d4e89f4eed4aef083358"
+    },
+    {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/ppstructure/table/README.md",
+      "retrieved_at": "2026-10-07T07:47:30.495478+00:00",
+      "path": "ppstructure/table/README.md",
+      "status": "read",
+      "bytes": 8183,
+      "sha256": "b2709092e2930039d12474f5a533f872575294e69067425befb20aa2f7107f7d",
+      "git_blob_sha1": "1f3fe38551b10d4aa64a4c6d68b3dbe62802aa34"
+    },
+    {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/ppstructure/docs/table/README.md",
+      "retrieved_at": "2026-10-07T07:47:31.204598+00:00",
+      "path": "ppstructure/docs/table/README.md",
+      "status": "not_read",
+      "error": "gh: Not Found (HTTP 404)\n"
+    },
+    {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/ppstructure/docs/models_list.md",
+      "retrieved_at": "2026-10-07T07:47:31.943516+00:00",
+      "path": "ppstructure/docs/models_list.md",
+      "status": "not_read",
+      "error": "gh: Not Found (HTTP 404)\n"
+    },
+    {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/requirements.txt",
+      "retrieved_at": "2026-10-07T07:47:32.659044+00:00",
+      "path": "requirements.txt",
+      "status": "read",
+      "bytes": 196,
+      "sha256": "8fe46f5644f82c98cffad5bfc033ac20da3c51293aefc51c39d2f00745aac342",
+      "git_blob_sha1": "7fc903cb270f5a436c8357fc5686e38607a781e1"
+    },
+    {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/LICENSE",
+      "retrieved_at": "2026-10-07T07:47:33.443586+00:00",
+      "path": "LICENSE",
+      "status": "read",
+      "bytes": 11438,
+      "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+      "git_blob_sha1": "5fe86943b37a77970679f826e78c71045569f819"
+    },
+    {
+      "path": "docs/ppstructure/models_list.en.md",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/docs/ppstructure/models_list.en.md",
+      "status": "read",
+      "retrieved_at": "2026-10-07T07:52:42.712763+00:00",
+      "bytes": 8204,
+      "sha256": "6223d1b3fa5804aa96a29122695c7b33363e3f6b3310cfd93ee8020480dcd5de",
+      "git_blob_sha1": "dbd77fb7907269023512c162d8291c6438ac8d8b"
+    },
+    {
+      "path": "docs/algorithm/table_recognition/algorithm_table_slanet.md",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/docs/algorithm/table_recognition/algorithm_table_slanet.md",
+      "status": "read",
+      "retrieved_at": "2026-10-07T07:52:42.712822+00:00",
+      "bytes": 5898,
+      "sha256": "8e1523a783f1894def3422018fea08dbdebd788699f6b1390392a2fceb2fdabe",
+      "git_blob_sha1": "977b75a965fb0f2278f65787861ffef24c3fce3b"
+    },
+    {
+      "path": "configs/table/SLANet.yml",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/configs/table/SLANet.yml",
+      "status": "read",
+      "retrieved_at": "2026-10-07T07:52:42.712845+00:00",
+      "bytes": 3838,
+      "sha256": "2d037af102d2756a577f77db75a46d0c06de4ba78a384f42c94ab0d5c5b03d5c",
+      "git_blob_sha1": "4388c5f550cc527af6f463ca69502694b204c919"
+    },
+    {
+      "path": "ppstructure/docs/models_list_en.md",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/ppstructure/docs/models_list_en.md",
+      "retrieval_date": "2026-10-07",
+      "status": "not_read",
+      "error": "TLS handshake timeout; page not read"
+    },
+    {
+      "path": "doc/doc_en/table_recognition_en.md",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/e218c0a35fbcb5085ab3527931b2d8d08f8f0292/doc/doc_en/table_recognition_en.md",
+      "retrieval_date": "2026-10-07",
+      "status": "not_read",
+      "error": "HTTP 404; page not read"
+    }
+  ],
+  "not_executed": [
+    "native_parser_weight_download",
+    "native_parser_inference",
+    "student_native_table_repair"
+  ],
+  "read_scope_note": "Some files were retrieved for provenance without full semantic review; see linked interface report for actual interpreted reading scope."
+}

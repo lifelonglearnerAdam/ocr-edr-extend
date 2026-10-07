@@ -1,0 +1,79 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-07T07:07:26.978912+00:00",
+  "study": "table_controlled_action_sft_20261007",
+  "condition": "base",
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "cpu_threads": 4,
+  "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+  "model_receipt_sha256": "dd60552afec53b549fe0f95202a880f519c4082171bee4ead4f407f9f59a45bc",
+  "adapter_sha256": {},
+  "adapter_run_sha256": null,
+  "admission_sha256": null,
+  "dataset_sha256": "6b0f11251005d510c040f38c267d2121fc4a046f5f1f61419301812d5afb8796",
+  "input_sha256": "75a719fd6c7cd961730f8b54c28440dedb56e7385cb2b66fc5d2e2142bd13be6",
+  "cases": 103,
+  "completed_calls": 103,
+  "reference_access": "none",
+  "calibration_locked_images_loaded": false,
+  "config": {
+    "study": "table_controlled_action_sft_20261007",
+    "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+    "seed": 20261007,
+    "steps": 381,
+    "gradient_accumulation": 4,
+    "passes_per_document": 12,
+    "learning_rate": 0.0001,
+    "lora_rank": 4,
+    "lora_alpha": 8,
+    "clip_gradient": 1.0,
+    "max_sequence_tokens": 4096,
+    "min_pixels": 100352,
+    "max_pixels": 200704,
+    "arms": [
+      "all",
+      "no_explicit_preservation"
+    ],
+    "inference": {
+      "max_new_tokens": 192,
+      "do_sample": false,
+      "evidence": "source_and_current_html_addresses"
+    },
+    "data": {
+      "dataset": "pubtabnet-four-roles-20261007",
+      "admitted_train_documents": 127,
+      "admitted_train_records": 406,
+      "model_dev_documents": 32,
+      "model_dev_records": 103,
+      "explicit_preservation_records": 127,
+      "excluded_training_families": [
+        "p0002"
+      ],
+      "calibration_locked_optimizer_access": false,
+      "admission_policy": "configs/train/table_admission_20261007.yaml",
+      "target_provenance": "published_weak_supervision_controlled_actions"
+    }
+  },
+  "config_sha256": "02b8c0cca5864a3d5468b50fd318ac7832a4f84f17eddb0bef76b353d15fe73b",
+  "source_revision": "af048ac02dc3efb53f132a84630001bef95ad11a",
+  "source_dirty": true,
+  "source_sha256": {
+    "scripts/run_table_sft_screen.py": "9648d9d4110cec1a8ec747b3dcf790e1d30d7b66f305bf2e824ebc15c8c1463b",
+    "src/ocr_edr/qwen.py": "d82329b69e59de30f6a04b28be37cdee379dd203e365a88323a9613c65616d2e",
+    "src/ocr_edr/sft.py": "ba3f543820539cb24fa674cf3063955f79ce4cf02ce4b0089a6c0bc13f7b4cb6",
+    "src/ocr_edr/table_sft_screen.py": "5d86ffc94f5564906931aca23fc9016c8eeab79f20125bbc84a4c59caee62c69",
+    "src/ocr_edr/table_supervision.py": "0e3ed2feb09ab7b620d6ea58ff0359a349e09a5b305ad81801119d47eefadd15",
+    "src/ocr_edr/table_pilot.py": "58547685a9168568f50828b17f5da1c7cf752f9b32e82578cad7615f543944f3",
+    "src/ocr_edr/formula_pilot.py": "647aa92d9b9177c775a48987916b95ddb79aa37299fcfa126258e496dc30f95c"
+  },
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.1",
+    "Pillow": "11.3.0"
+  },
+  "gate": "raw calls frozen before offline strict JSON/cap/render rollback; no visual acceptance judge",
+  "calls_sha256": "860afe3d720aed43a9da049b068ec559b63e084689050df404dc01992405b482",
+  "finished_at": "2026-10-07T07:56:05.612300+00:00"
+}

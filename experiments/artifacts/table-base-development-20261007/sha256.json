@@ -1,0 +1,17 @@
+{
+  "README.md": "40859f07a9e3ffa2c1bffe098c320673b04a48421b3fe53df02f23b9d9633777",
+  "evaluation-run.json": "9b2d250069ca048dd03795442b24d67f47b5834f4fd899896c00b3e3c70a1155",
+  "evaluation-source/scripts/evaluate_table_sft_screen.py": "12555efaa5ed92d70540739249d99f6b0a5d001f7936ba715da5adbd3233b017",
+  "evaluation-source/src/ocr_edr/table_evaluation.py": "7c34df715dcaacf411803a3bb1ddffdba89f30126a227552964e0fb5503788f0",
+  "evaluation-source/src/ocr_edr/table_screen_evaluation.py": "407561da0dafb9950f58895d4d6b12cce17d44663b1bfe72ca3c13cc62cbede5",
+  "evaluation-source/src/ocr_edr/table_sft_screen.py": "5d86ffc94f5564906931aca23fc9016c8eeab79f20125bbc84a4c59caee62c69",
+  "failure-accounting.json": "713ef716e108bf9edab1db1b955444cd7be5f4c090babf3f808496c6b65ca7d0",
+  "inference-run.json": "a193593781b52675f9a9fbaa94232ad63b480b12b939f3b016ad8cdb0b98fb2b",
+  "per_case.jsonl": "cfd5b7e979c301ef0dcf61473bce5d5c69cb084237f08e86225c9d4412291d6c",
+  "per_document.csv": "b6d647cf41170da8f31f6652189052262ac425a1f2407caa3c72d2d9473a1008",
+  "summary.csv": "2d487ab7afdd67c18224fd2b7cb6a9d959d30befc073fba85137a1635a1bc3a3",
+  "train-schema-smoke/README.md": "e8a0ce7eb97c9ac744c51552162e470e5813497e8dedeb9a3c0443b51d5866a5",
+  "train-schema-smoke/call-accounting.jsonl": "8add95c5472fccba37db497ccabdf8b724149a5351f21b3c97249dbb82207246",
+  "train-schema-smoke/run.json": "100f560e667570d7f89e06ddfdf9931573ae7b2440ddbbaee44e734cd52bbaf5",
+  "train-schema-smoke/train_schema_smoke.py": "5c8066c19dea8fed4ee7c24ef96ca2f164d795eab6c6c186455c9a6ad73c3590"
+}

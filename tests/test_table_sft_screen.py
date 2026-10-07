@@ -15,10 +15,11 @@ try:
     from ocr_edr.table_sft_screen import (
         adapt_table_call,
         load_table_screen_inputs,
+        table_messages,
         validate_table_adapter,
     )
 except ImportError:
-    adapt_table_call = load_table_screen_inputs = validate_table_adapter = None
+    adapt_table_call = load_table_screen_inputs = table_messages = validate_table_adapter = None
 
 
 @unittest.skipUnless(importlib.util.find_spec("lxml"), "optional table dependency")
@@ -109,6 +110,32 @@ class TableScreenBoundaryTests(unittest.TestCase):
         ]:
             with self.subTest(change=change), self.assertRaises(ValueError):
                 self.adapt({**self.call('{"action":"stop"}'), **change})
+
+    def test_literal_examples_are_explicitly_selected_and_cannot_replace_evidence(self):
+        self.assertTrue(callable(table_messages))
+        try:
+            messages, prompt = table_messages(
+                self.case["prediction"], prompt_format="literal_examples"
+            )
+        except TypeError as error:
+            self.fail(f"Explicit prompt-format selection is unavailable: {error}")
+        self.assertIn('{"action":"stop"}', prompt)
+        self.assertIn(self.case["prediction"], prompt)
+        self.assertEqual(messages[0]["content"][-1]["text"], prompt)
+        call = {**self.call('{"action":"stop"}'), "messages": messages, "prompt": prompt}
+        result = adapt_table_call(
+            self.case,
+            call,
+            renderer=lambda observation: None,
+            max_new_tokens=192,
+            prompt_format="literal_examples",
+        )
+        self.assertEqual(result["final_prediction"], self.case["prediction"])
+        self.assertEqual(result["trace"][0]["action"], {"action": "stop"})
+        with self.assertRaises(ValueError):
+            self.adapt(call)
+        with self.assertRaises(ValueError):
+            table_messages(self.case["prediction"], prompt_format="unknown")
 
     def test_loader_needs_no_reference_file_and_rejects_role_image_or_schema_drift(self):
         self.assertTrue(callable(load_table_screen_inputs))

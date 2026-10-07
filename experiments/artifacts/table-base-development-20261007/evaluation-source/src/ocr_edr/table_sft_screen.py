@@ -13,16 +13,6 @@ from .sft import sha256
 from .table_pilot import apply_table_action, parse_table
 from .table_supervision import table_action_prompt
 
-PROMPT_FORMATS = ("descriptive_schema", "literal_examples")
-LITERAL_ACTION_EXAMPLES = (
-    "\nExact response-shape examples (indices and replacement text are placeholders; "
-    "choose your own from the current HTML and source image, and emit exactly one object):\n"
-    '{"action":"stop"}\n'
-    '{"action":"replace_cell","row":0,"cell":0,"text":"correct plain cell text"}\n'
-    '{"action":"set_span","row":0,"cell":0,"rowspan":1,"colspan":1}\n'
-    '{"action":"delete_row","row":0}'
-)
-
 
 def load_table_screen_inputs(dataset_root: Path) -> list[dict]:
     """Load all model-dev inputs; never open a target/reference or held-out image."""
@@ -103,14 +93,8 @@ def validate_table_adapter(
     return hashes
 
 
-def table_messages(
-    initial: str, *, prompt_format: str = "descriptive_schema"
-) -> tuple[list[dict], str]:
-    if prompt_format not in PROMPT_FORMATS:
-        raise ValueError("Unknown table prompt format")
+def table_messages(initial: str) -> tuple[list[dict], str]:
     prompt = table_action_prompt(initial)
-    if prompt_format == "literal_examples":
-        prompt += LITERAL_ACTION_EXAMPLES
     return [
         {"role": "user", "content": [{"type": "image"}, {"type": "text", "text": prompt}]}
     ], prompt
@@ -125,14 +109,7 @@ def _unique_object(pairs):
     return value
 
 
-def adapt_table_call(
-    case: dict,
-    call: dict,
-    *,
-    renderer,
-    max_new_tokens: int,
-    prompt_format: str = "descriptive_schema",
-) -> dict:
+def adapt_table_call(case: dict, call: dict, *, renderer, max_new_tokens: int) -> dict:
     """Apply at most one strict action, rolling back failures without erasing cost.
 
     The renderer is a callable taking an Observation. Neither it nor this function
@@ -140,7 +117,7 @@ def adapt_table_call(
     """
     if type(max_new_tokens) is not int or max_new_tokens < 1:
         raise ValueError("Positive output-token cap required")
-    messages, prompt = table_messages(case["prediction"], prompt_format=prompt_format)
+    messages, prompt = table_messages(case["prediction"])
     if (
         any(call.get(key) != value for key, value in case.items())
         or call.get("prompt") != prompt

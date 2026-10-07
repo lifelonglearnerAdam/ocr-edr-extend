@@ -1,0 +1,55 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-07T08:04:14.411873+00:00",
+  "purpose": "train-only prompt-format feasibility diagnostic; no quality/repair-gain estimate",
+  "selection": "first admitted train family p0001; all three of its existing variants",
+  "samples": [
+    "p0001-preservation",
+    "p0001-cell_perturbation",
+    "p0001-extra_row"
+  ],
+  "independent_source_documents": 1,
+  "reference_access": "none",
+  "calibration_locked_access": false,
+  "conditions": [
+    "descriptive_schema",
+    "literal_examples"
+  ],
+  "literal_suffix": "\nExact response-shape examples (indices and replacement text are placeholders; choose your own from the current HTML and source image, and emit exactly one object):\n{\"action\":\"stop\"}\n{\"action\":\"replace_cell\",\"row\":0,\"cell\":0,\"text\":\"correct plain cell text\"}\n{\"action\":\"set_span\",\"row\":0,\"cell\":0,\"rowspan\":1,\"colspan\":1}\n{\"action\":\"delete_row\",\"row\":0}",
+  "max_new_tokens": 192,
+  "min_pixels": 100352,
+  "max_pixels": 200704,
+  "seed": 20261007,
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "cpu_threads": 4,
+  "model_receipt_sha256": "dd60552afec53b549fe0f95202a880f519c4082171bee4ead4f407f9f59a45bc",
+  "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+  "train_input_sha256": "2312f2782caa5a1ad0059cd5ad25b7d07f690399a599eb58d60bb74a5dae6d36",
+  "driver_sha256": "5c8066c19dea8fed4ee7c24ef96ca2f164d795eab6c6c186455c9a6ad73c3590",
+  "completed_calls": 6,
+  "optimizer_steps": 0,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.1",
+    "Pillow": "11.3.0"
+  },
+  "calls_sha256": "5b8b8763dd5add79072b3a214846b18065baa17865b590191fabd3127d73c3c3",
+  "summary": {
+    "descriptive_schema": {
+      "calls": 3,
+      "executable_actions": 0,
+      "input_tokens": 3526,
+      "output_tokens": 576,
+      "generation_seconds": 100.245859587003
+    },
+    "literal_examples": {
+      "calls": 3,
+      "executable_actions": 3,
+      "input_tokens": 3796,
+      "output_tokens": 18,
+      "generation_seconds": 24.069339573001344
+    }
+  },
+  "finished_at": "2026-10-07T08:06:21.633883+00:00"
+}
