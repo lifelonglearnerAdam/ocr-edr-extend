@@ -32,6 +32,18 @@ contrasts:
     status: planned
     fixed: [student, source_groups, training_budget, inference_budget]
     arms: [annotation_only_sft, controlled_errors_only_sft, native_errors_only_sft, mixed_sft]
+  P_table:
+    status: admitted_mask_preflight_passed_optimizer_pending
+    fixed: [base_model, seed, original_documents, optimizer_steps, document_exposures, image_bounds]
+    arms: [base, direct_sft_all, direct_sft_no_explicit_preservation]
+    recipe: configs/train/sft_table_screen.yaml
+    admission_policy: configs/train/table_admission_20261007.yaml
+    admitted_train: {documents: 127, records: 406}
+    model_dev: {documents: 32, records: 103}
+    optimizer_steps_per_arm: 381
+    exposures_per_document: 12
+    disclosed_not_matched: [actual_token_counts, repair_variant_exposures, target_distribution]
+    report: docs/research/TABLE_SFT_READINESS_20261007.md
   D0:
     status: awaiting_teacher_access_and_verified_train_trajectories
     fixed: [teacher_version, student, source_groups, training_token_budget]
@@ -69,7 +81,7 @@ contrasts:
     arms: [seen_parser, entirely_held_out_parser]
     minimum_identified_parsers: 2
   T1:
-    status: four_role_table_data_prepared_label_review_and_native_parser_pending
+    status: table_data_admitted_sft_ready_optimizer_and_native_parser_pending
     prepared_table_roles: {train: 128, model_dev: 32, gate_calibration: 32, locked_evaluation: 64}
     table_role_unit: PMC_article_one_table_per_article
     flagged_training_annotation_family: p0002

@@ -1,0 +1,18 @@
+{
+  "reviewed_at": "2026-10-07T07:32:17.061565+00:00",
+  "sources_reviewed": 32,
+  "new_confirmed_missing_row_or_value_annotation_conflicts": 0,
+  "representation_caveat_families": [
+    "p0139"
+  ],
+  "cleared_panel_suspicion_families": [
+    "p0153"
+  ],
+  "references_edited": 0,
+  "cases_excluded": 0,
+  "independent_human_audit": false,
+  "character_level_gold_labels_created": false,
+  "model_outputs_consulted": false,
+  "calibration_locked_images_loaded": false,
+  "scope": "single assistant source-reference screen; absence of detected errors is not a correctness guarantee"
+}

@@ -1,0 +1,29 @@
+study: table_controlled_action_sft_20261007
+model_revision: 895c3a49bc3fa70a340399125c650a463535e71c
+seed: 20261007
+steps: 381
+gradient_accumulation: 4
+passes_per_document: 12
+learning_rate: 0.0001
+lora_rank: 4
+lora_alpha: 8
+clip_gradient: 1.0
+max_sequence_tokens: 4096
+min_pixels: 100352
+max_pixels: 200704
+arms: [all, no_explicit_preservation]
+inference:
+  max_new_tokens: 192
+  do_sample: false
+  evidence: source_and_current_html_addresses
+data:
+  dataset: pubtabnet-four-roles-20261007
+  admitted_train_documents: 127
+  admitted_train_records: 406
+  model_dev_documents: 32
+  model_dev_records: 103
+  explicit_preservation_records: 127
+  excluded_training_families: [p0002]
+  calibration_locked_optimizer_access: false
+  admission_policy: configs/train/table_admission_20261007.yaml
+  target_provenance: published_weak_supervision_controlled_actions

@@ -4,7 +4,7 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 > 基础论文：[OCR-EDR: Rendering-Aware Diagnosis and Repair for Closed-Loop OCR Improvement](https://arxiv.org/abs/2609.03445) (arXiv:2609.03445)
 
-本项目的本地工作区是 `~/d/recovered_final/optimization/ocr-edr-team`。研究方向依据该工作区的独立研究简报推进；MonkeyOCR Note 表格/公式复核属于另一个项目。MonkeyOCR 可作为多系统实验中的一个基线。
+本项目的工作区是 `optimization/ocr-edr-team`，当前 Linux 挂载路径以实际检测结果为准。研究方向依据该工作区的独立研究简报推进；MonkeyOCR Note 表格/公式复核属于另一个项目。MonkeyOCR 可作为多系统实验中的一个基线。
 
 完整资料：[研究简报](docs/research/brief.md)、[OCR-EDR 机制](docs/research/findings/F1-ocr-edr.md)、[Jev 与评测](docs/research/findings/F2-jev-omnidocbench.md)。引用数字来自研究记录，尚未在本项目独立复现。
 
@@ -18,6 +18,8 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 6. **Jev 判定层**：引入 Jev（决策模型）作为判断 / 奖励 / 级联首筛，降低 verifier 成本。
 
 ## 当前可运行部分
+
+10月7日继续完成[表格SFT准入与执行准备](docs/research/TABLE_SFT_READINESS_20261007.md)：排除已确认缺行的p0002整族，保留127文档/406训练记录；两臂各381步的assistant掩码与不截断预检查通过。单JSON动作推理、失败回退、官方TEDS及文档级评估入口已执行软件验证；表格optimizer尚未运行，实际模型结果另以完整运行记录为准。
 
 10月7日完成[第二具名公式解析器开发诊断](docs/research/SECOND_PARSER_RESULTS_20261007.md)：固定SFT在LaTeX-OCR原生候选上的core-CDM由0.8994到0.9899，6个完整/4个部分修复；同源此前Nougat结果仍保留负向结论，不能称独立迁移。另完成[PubTabNet文章隔离四角色数据](docs/research/TABLE_DATA_RESULTS_20261007.md)与训练/model-dev局部JSON目标，发现并排除了发布split文章重叠；标注缺行风险已标记，尚未运行表格训练或锁定评测。
 
@@ -78,6 +80,8 @@ python3 -m venv .venv
 ```
 
 公式开发筛查入口为 `scripts/train_formula_sft.py`，冻结配置 `configs/train/sft_formula_screen.yaml`；先核验本项目train/dev及模型哈希，再运行两个固定终态对照。`scripts/run_sft_screen.py`只读取参考隔离输入，`adapt_sft_screen.py`固定syntax-only输出后才交官方离线评估。完整Agentic GRPO配置仍是待验证配方，当前没有 `train_grpo.py` 入口。格式见 [数据协议](docs/DATA_PROTOCOL.md)，远端路径见 [服务器说明](docs/SERVER_RUNBOOK.md)。
+
+表格对应入口为 `admit_table_training.py`、`train_table_sft.py`、`run_table_sft_screen.py`、`evaluate_table_sft_screen.py`；见[固定协议](docs/research/TABLE_SFT_SCREEN_PROTOCOL_20261007.md)和[复现命令](docs/research/TABLE_SFT_READINESS_20261007.md)。生成程序不读取参考；官方评分及正确动作地址只在原始调用冻结后的离线评估中使用。
 
 ## 目录结构
 

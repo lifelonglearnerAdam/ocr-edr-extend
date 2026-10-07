@@ -1,0 +1,38 @@
+{
+  "status": "admitted_as_published_weak_supervision",
+  "dataset": "pubtabnet-four-roles-20261007",
+  "policy_sha256": "e0117ca25cffa18d4c6f3cd8115c66319b58f971c0cf63e6d0ed1cbe3ff294d8",
+  "review_ledger_sha256": "51d355c6b5b9c02a8f3b13df1e04dc1f51e394d2e4530a956e99e40c57cc9a48",
+  "original_train_sha256": "3e2d0de39e8762663b8d18fccf93b2ae1cf8cab85ad99565ac29d5bdef941e7c",
+  "original_dev_sha256": "e7c32d34765b7e540820d7b1f199a679643edb89f9910be6124eb22b2715ad03",
+  "records": 406,
+  "documents": 127,
+  "variants": {
+    "preservation": 127,
+    "cell_perturbation": 127,
+    "extra_row": 127,
+    "span_perturbation": 25
+  },
+  "excluded_records": 4,
+  "excluded_families": {
+    "p0002": "released_reference_missing_visible_bottom_row"
+  },
+  "reviewed_training_sources": 8,
+  "all_targets_independently_verified": false,
+  "unreviewed_label_noise_unresolved": true,
+  "reference_relabeling": false,
+  "model_outputs_used_for_admission": false,
+  "optimizer_steps": 0,
+  "calibration_locked_targets_loaded": false,
+  "file_sha256": {
+    "exclusions.jsonl": "091d36f8db539e76228640705c6f76b0b5349845a409a0f15a707c000129bd34",
+    "model_dev-sft.jsonl": "e7c32d34765b7e540820d7b1f199a679643edb89f9910be6124eb22b2715ad03",
+    "train-sft.jsonl": "89a81398c23e72dea77682c9dd9a48b55bc0b836d8bbf25008b9fd56c25a4b42"
+  },
+  "source_sha256": {
+    "scripts/admit_table_training.py": "cc2300b9cc5c22546dcfab0a073430879d14cf07d4bb7e9c8cdecf79c8debfe5",
+    "src/ocr_edr/table_training.py": "e9f05362699dfa55eb25eb5f011578e61b7d4290533f6b0bb628e179d41d3425"
+  },
+  "original_receipt_sha256": "6a65f68a9bfedd6d61a4a8677bc950494de7040db3971ddf02cdbd83f2dfade3",
+  "public_copy_transformation": "only absolute source-path key normalized; original receipt hash retained"
+}
