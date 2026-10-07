@@ -1,0 +1,23 @@
+{
+  "protocol_sha256": "1211521fdeae03c9e690509a1d44c84e39f9db44908415996de74fdc1ec56819",
+  "statistics_files_sha256": {
+    "src/ocr_edr/table_statistics.py": "886c76640e8a0eb68381ae945b8195c04984abc121fd812c009ffb87f938e72f",
+    "scripts/summarize_table_sft_screen.py": "a30595d8f72ca5aac4369072747660d4a0a0ea5388bf6e40e6e8d75a7210e8ec",
+    "tests/test_table_statistics.py": "e5a68d95313d84a0f663a4f3788df5d8278fd792179b431896e9e8bbb03d81bb",
+    "docs/research/TABLE_NF4_ANALYSIS_PROTOCOL_20261007.md": "1211521fdeae03c9e690509a1d44c84e39f9db44908415996de74fdc1ec56819"
+  },
+  "full_environment_tests": 144,
+  "optional_skips": 0,
+  "test_log_sha256": "118219fb9c1097c60f1a6061716115ec49b2a423e9ec1e9b9e098301d2f01801",
+  "review": "read-only statistical/code review found no blocking issue; no GPU accessed",
+  "nf4_development_inference_started": false,
+  "recorded_at": "2026-10-07T15:17:45.172560+00:00",
+  "core_tests": {
+    "discovered": 144,
+    "skipped_optional": 47,
+    "result": "passed",
+    "log_sha256": "3764e97a3364f706c9a23e106b2fc809e7ff8c981291cbb7a1154d5dc31ce29f"
+  },
+  "integration_tests_result": "144 passed, zero optional skips",
+  "source_scope": "code and synthetic fixture validation only; no NF4 model-dev results read before this protocol"
+}

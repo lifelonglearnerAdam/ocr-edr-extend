@@ -25,3 +25,13 @@
 先冻结全部raw调用，之后离线严格JSON/cap/render回退与官方对称TEDS/TEDS-S。全样本、逐原始文档、按preservation/controlled类型报告修复、退化、动作地址与完整动作匹配以及token/时延/显存。最多只作单seed已检查开发源的可行性/能力结论，不选best checkpoint，不因指标差而重训或挑样本。
 
 此阶段为H1/提议能力与保持对照提供证据。现有12条交互教师轨迹不进入本次optimizer；H4蒸馏需要另行匹配表示/预算。独立judge/Jev、闭环证据控制、RL和未知parser/锁定评测仍待完成。训练完成或loss下降均不等于研究目标完成。
+
+统计附录已在本条件开发推断开始前固定：[文档级配对bootstrap、风险/成本及全修改源审计](TABLE_NF4_ANALYSIS_PROTOCOL_20261007.md)。完整四臂离线evaluation冻结后，执行：
+
+```bash
+.venv-pilot/bin/python scripts/summarize_table_sft_screen.py \
+  --evaluation-dir experiments/runs/table-nf4-screen-20261007/evaluation \
+  --output experiments/runs/table-nf4-screen-20261007/statistics
+```
+
+该统计工具不替换原评估器，不改raw模型输出；拒绝少于103例/32文档或缺臂、hash漂移的比较。区间是单seed已检查开发集的描述，不做确认性或低风险保证。

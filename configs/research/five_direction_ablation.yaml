@@ -53,7 +53,7 @@ contrasts:
     literal_base: {cases: 103, executable_actions: 103, stop_actions: 103, actual_edits: 0, full_fixes: 0}
     training_source_prompt_smoke: {source_documents: 1, variants: 3, descriptive_valid: 0, literal_valid: 3, literal_stop_actions: 3, actual_edits: 0}
   P_table_nf4:
-    status: boundary_optimizer_and_separate_reload_verified_full_training_started
+    status: all_arm_completed_no_preservation_training_full_evaluation_pending
     report: docs/research/TABLE_NF4_READINESS_RESULTS_20261007.md
     protocol: docs/research/TABLE_NF4_SCREEN_PROTOCOL_20261007.md
     recipe: configs/train/sft_table_nf4_screen_20261007.yaml
@@ -66,6 +66,8 @@ contrasts:
     optimizer_steps_per_arm: 381
     exposures_per_document: 12
     full_training_completed: false
+    completed_all_arm_steps: 381
+    analysis_protocol: docs/research/TABLE_NF4_ANALYSIS_PROTOCOL_20261007.md
     independent_bf16_condition_retained: true
     disclosed_not_matched: [supervised_token_counts, repair_variant_exposures]
   D0:
