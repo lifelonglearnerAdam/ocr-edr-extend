@@ -1,0 +1,100 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-07T08:31:51.814376+00:00",
+  "input_sha256": "75a719fd6c7cd961730f8b54c28440dedb56e7385cb2b66fc5d2e2142bd13be6",
+  "reference_sha256": "d09a01006106e70610968ffa6e96bf016425e8d1d90d946fae253de2140c64e9",
+  "arms": [
+    "unchanged_0",
+    "base"
+  ],
+  "inference_run_sha256": {
+    "base": "13af9b6728e87d78f63cf94be292efe102e8b9553f6b10d30039d7998c7e875c"
+  },
+  "official_source": {
+    "repository": "opendatalab/OmniDocBench",
+    "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "files": {
+      "src/metrics/table_metric.py": {
+        "git_blob_sha1": "705e294919bb1ff96cf1a69655b1267958a66407",
+        "sha256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e"
+      },
+      "src/core/preprocess/data_preprocess.py": {
+        "git_blob_sha1": "71f27dcbe9975e08303e138a250e4e6f5258c89b",
+        "sha256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd"
+      },
+      "src/core/preprocess/table_postprocess.py": {
+        "git_blob_sha1": "b00c37e0a7c44d21cb9b2fedae2fc69a64d61f59",
+        "sha256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762"
+      },
+      "src/core/preprocess/table_utils.py": {
+        "git_blob_sha1": "d91e64f33eb50d4fae66df64496705cffb494b06",
+        "sha256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731"
+      },
+      "src/core/preprocess/text_postprocess.py": {
+        "git_blob_sha1": "bb6c315f86ab66903159c2b10ee1a8f4d034acbb",
+        "sha256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29"
+      }
+    }
+  },
+  "cohort": {
+    "config_sha256": "02b8c0cca5864a3d5468b50fd318ac7832a4f84f17eddb0bef76b353d15fe73b",
+    "model_receipt_sha256": "dd60552afec53b549fe0f95202a880f519c4082171bee4ead4f407f9f59a45bc",
+    "device": "cpu",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "cpu_threads": 4,
+    "source_sha256": {
+      "scripts/run_table_sft_screen.py": "58b30a5cf8bf182536c0b8c1dac069a9dc060fd1eec5cf8a63d7ac84b876dd3e",
+      "src/ocr_edr/qwen.py": "d82329b69e59de30f6a04b28be37cdee379dd203e365a88323a9613c65616d2e",
+      "src/ocr_edr/sft.py": "ba3f543820539cb24fa674cf3063955f79ce4cf02ce4b0089a6c0bc13f7b4cb6",
+      "src/ocr_edr/table_sft_screen.py": "3f05e231ca3451e9a624a19b00f634b1e2711604eaaa449d6305bb88dcda3766",
+      "src/ocr_edr/table_supervision.py": "0e3ed2feb09ab7b620d6ea58ff0359a349e09a5b305ad81801119d47eefadd15",
+      "src/ocr_edr/table_pilot.py": "58547685a9168568f50828b17f5da1c7cf752f9b32e82578cad7615f543944f3",
+      "src/ocr_edr/formula_pilot.py": "647aa92d9b9177c775a48987916b95ddb79aa37299fcfa126258e496dc30f95c"
+    },
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "transformers": "4.57.1",
+      "Pillow": "11.3.0"
+    },
+    "prompt_format": "literal_examples"
+  },
+  "sft_cohort": null,
+  "source_sha256": {
+    "scripts/evaluate_table_sft_screen.py": "cd2ad2ca8e147f6daca35c4fbdc1c730a23872966303ad98320002578496b1db",
+    "src/ocr_edr/table_screen_evaluation.py": "407561da0dafb9950f58895d4d6b12cce17d44663b1bfe72ca3c13cc62cbede5",
+    "src/ocr_edr/table_sft_screen.py": "3f05e231ca3451e9a624a19b00f634b1e2711604eaaa449d6305bb88dcda3766",
+    "src/ocr_edr/table_evaluation.py": "7c34df715dcaacf411803a3bb1ddffdba89f30126a227552964e0fb5503788f0"
+  },
+  "benchmark_evaluation": false,
+  "metric": "unmodified official OmniDocBench TEDS and TEDS-S",
+  "label_scope": "published weak-reference agreement; not source-visual correctness",
+  "aggregation": "all cases and means within original PMC documents; one source per document",
+  "action_scope": "controlled single edits; address and exact action agreement scored offline only",
+  "gate": "strict JSON/cap/render fallback only; no independent visual acceptance",
+  "timing_scope": "generation excludes model loading and image/prompt preprocessing; render replay uses a shared content cache and is reported separately; not end-to-end deployment latency",
+  "versions": {
+    "lxml": "6.0.2",
+    "apted": "1.0.3",
+    "Levenshtein": "0.27.1",
+    "beautifulsoup4": "4.14.2",
+    "pylatexenc": "2.10",
+    "weasyprint": "66.0",
+    "Pillow": "11.3.0"
+  },
+  "fonts": {
+    "Noto Sans CJK SC": {
+      "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a",
+      "font_file_name": "NotoSansCJK-Regular.ttc"
+    },
+    "sans-serif": {
+      "sha256": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d",
+      "font_file_name": "NotoSans-Regular.ttf"
+    }
+  },
+  "prediction_sha256": "dac15f96b254f06f7f41f0e919ada479f2e0fac323600a8618bb018cd7844b27",
+  "evaluation_sha256": "8219eaa9982c49dbd0be6f01eba5170c7d46bae83396819cd4d2a8ece389bb7d",
+  "finished_at": "2026-10-07T08:32:17.017971+00:00",
+  "original_receipt_sha256": "a1f8fc0e907161a874c7827b42e9da25cc566a9fff4c2c0fb131246ffd00401e",
+  "public_copy_transformation": "absolute source-path keys normalized and font paths replaced by file names; original receipt hash retained"
+}

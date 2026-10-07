@@ -33,7 +33,7 @@ contrasts:
     fixed: [student, source_groups, training_budget, inference_budget]
     arms: [annotation_only_sft, controlled_errors_only_sft, native_errors_only_sft, mixed_sft]
   P_table:
-    status: base_development_completed_all_contract_rollbacks_optimizer_pending
+    status: two_base_prompt_controls_completed_no_repairs_optimizer_pending
     fixed: [base_model, seed, original_documents, optimizer_steps, document_exposures, image_bounds]
     arms: [base, direct_sft_all, direct_sft_no_explicit_preservation]
     recipe: configs/train/sft_table_screen.yaml
@@ -49,6 +49,8 @@ contrasts:
     base_development_cases: 103
     next_control: literal_json_examples_before_attributing_sft_gain_to_visual_repair
     prompt_control_protocol: docs/research/TABLE_PROMPT_CONTROL_PROTOCOL_20261007.md
+    prompt_control_result: docs/research/TABLE_PROMPT_CONTROL_RESULTS_20261007.md
+    literal_base: {cases: 103, executable_actions: 103, stop_actions: 103, actual_edits: 0, full_fixes: 0}
     training_source_prompt_smoke: {source_documents: 1, variants: 3, descriptive_valid: 0, literal_valid: 3, literal_stop_actions: 3, actual_edits: 0}
   D0:
     status: awaiting_teacher_access_and_verified_train_trajectories
