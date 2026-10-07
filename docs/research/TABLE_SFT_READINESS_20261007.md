@@ -73,3 +73,5 @@ task_run=experiments/runs/table-sft-screen-20261007
 同样以`--arm no_explicit_preservation`执行第二训练臂；所有SFT推理的生成源码应与base冻结版本相同。这里给出命令不表示两个训练作业已执行。已为一台校园3090服务器独立暂存159张train/model-dev图、准入文件和固定模型；逐文件哈希通过。服务器已有工作负载，本轮未启动表格训练。
 
 [公开准备证据](../../experiments/artifacts/table-sft-readiness-20261007/README.md)仅包含协议、token计数、hash、源码及有边界的审查记录，不包含原图、原始HTML、凭据或模型权重。后续仍需完整基座/SFT结果、具名原生表格parser、独立视觉验收、教师轨迹、Jev/同证据规则比较、GRPO及锁定验证。
+
+补充：[独立暂存环境的CPU重放](../../experiments/artifacts/table-sft-readiness-20261007/remote-cpu-replay/README.md)已完成。PyTorch2.5.1+cu121、Transformers4.57.1、Pillow11.3.0下全部406条掩码/token/网格记录与原本地文件逐字节相同，SHA256均为`047f6862b51073a389ff8bd6dc83c3e6630cf8efe418e70a2dd57167f7d0ebb1`。这里验证的是预处理与预算迁移，不是两个环境未来浮点训练或结果等价；仍无GPU forward/backward或optimizer更新。
