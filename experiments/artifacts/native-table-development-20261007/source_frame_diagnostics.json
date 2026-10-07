@@ -1,0 +1,596 @@
+{
+  "scope": "reference-free box boundary descriptor; not a calibrated acceptance policy",
+  "threshold": "any x/y coordinate outside literal image dimensions; no clipping or score-based threshold search",
+  "summary": {
+    "author": {
+      "sources": 32,
+      "sources_with_outside_cell_box": 32,
+      "cell_boxes": 652,
+      "outside_cell_boxes": 475
+    },
+    "original_frame_compatibility": {
+      "sources": 32,
+      "sources_with_outside_cell_box": 0,
+      "cell_boxes": 652,
+      "outside_cell_boxes": 0
+    }
+  },
+  "sources": [
+    {
+      "condition": "author",
+      "family_id": "p0129",
+      "source_width": 502,
+      "source_height": 119,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 14,
+      "mean_ocr_confidence": 0.979070774714152
+    },
+    {
+      "condition": "author",
+      "family_id": "p0130",
+      "source_width": 502,
+      "source_height": 119,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 21,
+      "mean_ocr_confidence": 0.9774249659644233
+    },
+    {
+      "condition": "author",
+      "family_id": "p0131",
+      "source_width": 227,
+      "source_height": 68,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9772542595863343
+    },
+    {
+      "condition": "author",
+      "family_id": "p0132",
+      "source_width": 486,
+      "source_height": 72,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 18,
+      "mean_ocr_confidence": 0.987244900316
+    },
+    {
+      "condition": "author",
+      "family_id": "p0133",
+      "source_width": 256,
+      "source_height": 132,
+      "cell_boxes": 20,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9851108278547015
+    },
+    {
+      "condition": "author",
+      "family_id": "p0134",
+      "source_width": 251,
+      "source_height": 47,
+      "cell_boxes": 12,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9543713380893072
+    },
+    {
+      "condition": "author",
+      "family_id": "p0135",
+      "source_width": 486,
+      "source_height": 68,
+      "cell_boxes": 11,
+      "boxes_outside_original_frame": 11,
+      "mean_ocr_confidence": 0.937427988419166
+    },
+    {
+      "condition": "author",
+      "family_id": "p0136",
+      "source_width": 413,
+      "source_height": 97,
+      "cell_boxes": 27,
+      "boxes_outside_original_frame": 24,
+      "mean_ocr_confidence": 0.9796084849922745
+    },
+    {
+      "condition": "author",
+      "family_id": "p0137",
+      "source_width": 279,
+      "source_height": 86,
+      "cell_boxes": 20,
+      "boxes_outside_original_frame": 16,
+      "mean_ocr_confidence": 0.9995341062545776
+    },
+    {
+      "condition": "author",
+      "family_id": "p0138",
+      "source_width": 486,
+      "source_height": 177,
+      "cell_boxes": 28,
+      "boxes_outside_original_frame": 18,
+      "mean_ocr_confidence": 0.973714480566424
+    },
+    {
+      "condition": "author",
+      "family_id": "p0139",
+      "source_width": 238,
+      "source_height": 104,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9912292391061783
+    },
+    {
+      "condition": "author",
+      "family_id": "p0140",
+      "source_width": 201,
+      "source_height": 114,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 10,
+      "mean_ocr_confidence": 0.9817273981041379
+    },
+    {
+      "condition": "author",
+      "family_id": "p0141",
+      "source_width": 486,
+      "source_height": 101,
+      "cell_boxes": 25,
+      "boxes_outside_original_frame": 20,
+      "mean_ocr_confidence": 0.9794958622559257
+    },
+    {
+      "condition": "author",
+      "family_id": "p0142",
+      "source_width": 432,
+      "source_height": 105,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 16,
+      "mean_ocr_confidence": 0.9830013758995954
+    },
+    {
+      "condition": "author",
+      "family_id": "p0143",
+      "source_width": 364,
+      "source_height": 44,
+      "cell_boxes": 9,
+      "boxes_outside_original_frame": 9,
+      "mean_ocr_confidence": 0.9859817549586296
+    },
+    {
+      "condition": "author",
+      "family_id": "p0144",
+      "source_width": 244,
+      "source_height": 127,
+      "cell_boxes": 28,
+      "boxes_outside_original_frame": 16,
+      "mean_ocr_confidence": 0.97419493338641
+    },
+    {
+      "condition": "author",
+      "family_id": "p0145",
+      "source_width": 415,
+      "source_height": 134,
+      "cell_boxes": 22,
+      "boxes_outside_original_frame": 19,
+      "mean_ocr_confidence": 0.9871688225994939
+    },
+    {
+      "condition": "author",
+      "family_id": "p0146",
+      "source_width": 503,
+      "source_height": 245,
+      "cell_boxes": 22,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9933253689245745
+    },
+    {
+      "condition": "author",
+      "family_id": "p0147",
+      "source_width": 238,
+      "source_height": 110,
+      "cell_boxes": 13,
+      "boxes_outside_original_frame": 7,
+      "mean_ocr_confidence": 0.9796355605125427
+    },
+    {
+      "condition": "author",
+      "family_id": "p0148",
+      "source_width": 363,
+      "source_height": 119,
+      "cell_boxes": 20,
+      "boxes_outside_original_frame": 13,
+      "mean_ocr_confidence": 0.981877581069344
+    },
+    {
+      "condition": "author",
+      "family_id": "p0149",
+      "source_width": 505,
+      "source_height": 108,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 20,
+      "mean_ocr_confidence": 0.9815847563743592
+    },
+    {
+      "condition": "author",
+      "family_id": "p0150",
+      "source_width": 238,
+      "source_height": 124,
+      "cell_boxes": 32,
+      "boxes_outside_original_frame": 16,
+      "mean_ocr_confidence": 0.9819090059309294
+    },
+    {
+      "condition": "author",
+      "family_id": "p0151",
+      "source_width": 273,
+      "source_height": 103,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9939531944692135
+    },
+    {
+      "condition": "author",
+      "family_id": "p0152",
+      "source_width": 166,
+      "source_height": 75,
+      "cell_boxes": 28,
+      "boxes_outside_original_frame": 20,
+      "mean_ocr_confidence": 0.9811255612543651
+    },
+    {
+      "condition": "author",
+      "family_id": "p0153",
+      "source_width": 242,
+      "source_height": 167,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 8,
+      "mean_ocr_confidence": 0.9909149278765139
+    },
+    {
+      "condition": "author",
+      "family_id": "p0154",
+      "source_width": 238,
+      "source_height": 130,
+      "cell_boxes": 27,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9891719222068787
+    },
+    {
+      "condition": "author",
+      "family_id": "p0155",
+      "source_width": 364,
+      "source_height": 130,
+      "cell_boxes": 26,
+      "boxes_outside_original_frame": 16,
+      "mean_ocr_confidence": 0.9886703651684982
+    },
+    {
+      "condition": "author",
+      "family_id": "p0156",
+      "source_width": 238,
+      "source_height": 73,
+      "cell_boxes": 15,
+      "boxes_outside_original_frame": 12,
+      "mean_ocr_confidence": 0.9901716907819113
+    },
+    {
+      "condition": "author",
+      "family_id": "p0157",
+      "source_width": 486,
+      "source_height": 101,
+      "cell_boxes": 21,
+      "boxes_outside_original_frame": 18,
+      "mean_ocr_confidence": 0.9804755307379223
+    },
+    {
+      "condition": "author",
+      "family_id": "p0158",
+      "source_width": 502,
+      "source_height": 67,
+      "cell_boxes": 14,
+      "boxes_outside_original_frame": 14,
+      "mean_ocr_confidence": 0.980112978390285
+    },
+    {
+      "condition": "author",
+      "family_id": "p0159",
+      "source_width": 244,
+      "source_height": 80,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 20,
+      "mean_ocr_confidence": 0.9956353254940199
+    },
+    {
+      "condition": "author",
+      "family_id": "p0160",
+      "source_width": 245,
+      "source_height": 86,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 15,
+      "mean_ocr_confidence": 0.9946716560257806
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0129",
+      "source_width": 502,
+      "source_height": 119,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.979070774714152
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0130",
+      "source_width": 502,
+      "source_height": 119,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9774249659644233
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0131",
+      "source_width": 227,
+      "source_height": 68,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9772542595863343
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0132",
+      "source_width": 486,
+      "source_height": 72,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.987244900316
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0133",
+      "source_width": 256,
+      "source_height": 132,
+      "cell_boxes": 20,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9851108278547015
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0134",
+      "source_width": 251,
+      "source_height": 47,
+      "cell_boxes": 12,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9543713380893072
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0135",
+      "source_width": 486,
+      "source_height": 68,
+      "cell_boxes": 11,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.937427988419166
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0136",
+      "source_width": 413,
+      "source_height": 97,
+      "cell_boxes": 27,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9796084849922745
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0137",
+      "source_width": 279,
+      "source_height": 86,
+      "cell_boxes": 20,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9995341062545776
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0138",
+      "source_width": 486,
+      "source_height": 177,
+      "cell_boxes": 28,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.973714480566424
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0139",
+      "source_width": 238,
+      "source_height": 104,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9912292391061783
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0140",
+      "source_width": 201,
+      "source_height": 114,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9817273981041379
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0141",
+      "source_width": 486,
+      "source_height": 101,
+      "cell_boxes": 25,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9794958622559257
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0142",
+      "source_width": 432,
+      "source_height": 105,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9830013758995954
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0143",
+      "source_width": 364,
+      "source_height": 44,
+      "cell_boxes": 9,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9859817549586296
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0144",
+      "source_width": 244,
+      "source_height": 127,
+      "cell_boxes": 28,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.97419493338641
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0145",
+      "source_width": 415,
+      "source_height": 134,
+      "cell_boxes": 22,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9871688225994939
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0146",
+      "source_width": 503,
+      "source_height": 245,
+      "cell_boxes": 22,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9933253689245745
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0147",
+      "source_width": 238,
+      "source_height": 110,
+      "cell_boxes": 13,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9796355605125427
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0148",
+      "source_width": 363,
+      "source_height": 119,
+      "cell_boxes": 20,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.981877581069344
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0149",
+      "source_width": 505,
+      "source_height": 108,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9815847563743592
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0150",
+      "source_width": 238,
+      "source_height": 124,
+      "cell_boxes": 32,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9819090059309294
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0151",
+      "source_width": 273,
+      "source_height": 103,
+      "cell_boxes": 16,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9939531944692135
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0152",
+      "source_width": 166,
+      "source_height": 75,
+      "cell_boxes": 28,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9811255612543651
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0153",
+      "source_width": 242,
+      "source_height": 167,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9909149278765139
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0154",
+      "source_width": 238,
+      "source_height": 130,
+      "cell_boxes": 27,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9891719222068787
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0155",
+      "source_width": 364,
+      "source_height": 130,
+      "cell_boxes": 26,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9886703651684982
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0156",
+      "source_width": 238,
+      "source_height": 73,
+      "cell_boxes": 15,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9901716907819113
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0157",
+      "source_width": 486,
+      "source_height": 101,
+      "cell_boxes": 21,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9804755307379223
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0158",
+      "source_width": 502,
+      "source_height": 67,
+      "cell_boxes": 14,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.980112978390285
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0159",
+      "source_width": 244,
+      "source_height": 80,
+      "cell_boxes": 24,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9956353254940199
+    },
+    {
+      "condition": "original_frame_compatibility",
+      "family_id": "p0160",
+      "source_width": 245,
+      "source_height": 86,
+      "cell_boxes": 18,
+      "boxes_outside_original_frame": 0,
+      "mean_ocr_confidence": 0.9946716560257806
+    }
+  ]
+}

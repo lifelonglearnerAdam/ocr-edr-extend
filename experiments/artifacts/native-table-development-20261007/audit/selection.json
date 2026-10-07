@@ -1,0 +1,11 @@
+{
+  "selection": "metric full-match escaping example; two structure mismatches; one raw-text-match but nonfull TEDS case",
+  "families": [
+    "p0130",
+    "p0135",
+    "p0141",
+    "p0143"
+  ],
+  "scope": "diagnostic assistant audit, not random sample or human gold labels",
+  "reference_changes": false
+}

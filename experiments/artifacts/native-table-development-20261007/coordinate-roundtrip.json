@@ -1,0 +1,27 @@
+{
+  "source": "pinned author TableBoxEncode then TableLabelDecode",
+  "input_shape_hw": [
+    50,
+    200
+  ],
+  "original_box": [
+    20.0,
+    10.0,
+    100.0,
+    35.0
+  ],
+  "normalized": [
+    0.10000000149011612,
+    0.20000000298023224,
+    0.5,
+    0.699999988079071
+  ],
+  "author_decoded": [
+    20.0,
+    40.0,
+    100.0,
+    140.0
+  ],
+  "roundtrip_pass": false,
+  "references_used": false
+}

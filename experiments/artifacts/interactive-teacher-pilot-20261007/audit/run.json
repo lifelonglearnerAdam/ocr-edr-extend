@@ -1,0 +1,86 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-07T12:06:08.697661+00:00",
+  "cohort_seal_sha256": "bcac83b834301467bd8ec189d46ed682521c86ab220a92ac46f6983558a84b5d",
+  "independent_visual_judge": false,
+  "label_scope": "published train weak-reference agreement; not visual gold",
+  "admission_policy": "mechanically_valid + valid_final_html + low_terminal_uncertainty + both_official_scores_full_match_1e-12",
+  "paired_views_scope": "same episodes, source, initial state and teacher final answer; not separately elicited direct-answer teacher",
+  "token_budget_matched": false,
+  "student_training_executed": false,
+  "calibration_locked_reference_access": false,
+  "code_sha256": {
+    "scripts/audit_teacher_table_pilot.py": "8ed0904cda843254257e88db421fffec79d15198197377add8d496ea565cb107",
+    "src/ocr_edr/teacher_audit.py": "33375d053bc9b3fa99b15fc8245d2b8fd4cf5eacda9d4b73f077404b23da1d30"
+  },
+  "mechanical_completed_at": "2026-10-07T12:06:13.617046+00:00",
+  "reference_stage_started_at": "2026-10-07T12:06:13.617061+00:00",
+  "reference_sha256": "a9783a834cd0224ee9283891b6668a2f3930ac15cdae50441c8245a984e5d981",
+  "official_source": {
+    "repository": "opendatalab/OmniDocBench",
+    "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "files": {
+      "src/metrics/table_metric.py": {
+        "git_blob_sha1": "705e294919bb1ff96cf1a69655b1267958a66407",
+        "sha256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e"
+      },
+      "src/core/preprocess/data_preprocess.py": {
+        "git_blob_sha1": "71f27dcbe9975e08303e138a250e4e6f5258c89b",
+        "sha256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd"
+      },
+      "src/core/preprocess/table_postprocess.py": {
+        "git_blob_sha1": "b00c37e0a7c44d21cb9b2fedae2fc69a64d61f59",
+        "sha256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762"
+      },
+      "src/core/preprocess/table_utils.py": {
+        "git_blob_sha1": "d91e64f33eb50d4fae66df64496705cffb494b06",
+        "sha256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731"
+      },
+      "src/core/preprocess/text_postprocess.py": {
+        "git_blob_sha1": "bb6c315f86ab66903159c2b10ee1a8f4d034acbb",
+        "sha256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29"
+      }
+    }
+  },
+  "summary": {
+    "source_documents": 12,
+    "mechanically_valid": 12,
+    "changed_episodes": 9,
+    "teacher_self_check": 9,
+    "teacher_abstention": 3,
+    "provisionally_admitted": 8,
+    "review_required": 4,
+    "edit_attempts": 9,
+    "global_edits": 7,
+    "local_edits": 2,
+    "action_failures": 0,
+    "render_failures": 0,
+    "before_teds_mean": 0.9950743529447234,
+    "before_teds_full_match": 9,
+    "before_teds_structure_mean": 1.0,
+    "before_teds_structure_full_match": 12,
+    "after_teds_mean": 0.9726591894473839,
+    "after_teds_full_match": 10,
+    "after_teds_structure_mean": 0.9791666666666666,
+    "after_teds_structure_full_match": 11
+  },
+  "source_paths_relative_to": "sealed packet root",
+  "outputs_sha256": {
+    "episodes.jsonl": "f1b190e9783c2516b3699b754e881e7c7f84b39a7f83c024737b070c6a747755",
+    "final-only.jsonl": "027b2cfa7be5b05606ef9b3960686ded6c4488dd859ea853430d77a410b5b082",
+    "trajectory.jsonl": "4417b19ef63db4a9d7262f024c77b8806aba4191562ddc4f21f9ea2bef655d0e",
+    "review-required.jsonl": "ff31e639cd8c2bbf8542ff4b84d72b3c9a1dffd3643ed6e0378b6695eb57f653",
+    "evaluation.json": "0abb844729fc7beeb5db26681aec8f827eae959cb8898065d9b8b22d7dfc4bb8",
+    "per_source.csv": "2600b27454cfc15422296c737590cc4083cbc2347850aabff157ea57bbbf8f9d",
+    "mechanical.json": "cb92d4041fa460d7f6f7684c774316114f3964d3411c294d2ea446ad3dcecc34"
+  },
+  "versions": {
+    "lxml": "6.0.2",
+    "weasyprint": "66.0",
+    "Pillow": "11.3.0",
+    "apted": "1.0.3",
+    "Levenshtein": "0.27.1",
+    "beautifulsoup4": "4.14.2"
+  },
+  "finished_at": "2026-10-07T12:06:14.246199+00:00"
+}

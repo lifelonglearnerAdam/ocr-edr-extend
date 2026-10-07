@@ -53,9 +53,17 @@ contrasts:
     literal_base: {cases: 103, executable_actions: 103, stop_actions: 103, actual_edits: 0, full_fixes: 0}
     training_source_prompt_smoke: {source_documents: 1, variants: 3, descriptive_valid: 0, literal_valid: 3, literal_stop_actions: 3, actual_edits: 0}
   D0:
-    status: awaiting_teacher_access_and_verified_train_trajectories
+    status: interactive_teacher_train_pilot_collected_student_distillation_pending
     fixed: [teacher_version, student, source_groups, training_token_budget]
     arms: [annotation_targets, teacher_direct_answers, teacher_verified_trajectories, shuffled_process_control]
+    teacher_pilot_report: docs/research/INTERACTIVE_TEACHER_RESULTS_20261007.md
+    teacher_pilot: {train_documents: 12, native: 6, controlled: 6, sealed_episodes: 12, edit_attempts: 9, provisional_paired_documents: 8, review_required: 4}
+    current_views: same_final_answer_projection_vs_its_observed_trajectory
+    separately_elicited_direct_teacher_condition: false
+    immutable_teacher_snapshot_available: false
+    independent_visual_teacher_labels_available: false
+    matched_training_token_budget: false
+    student_distillation_executed: false
   E0:
     status: planned_after_functioning_sft_proposals
     fixed: [proposer_checkpoint, candidates, generation_budget, editor]
@@ -89,11 +97,15 @@ contrasts:
     arms: [seen_parser, entirely_held_out_parser]
     minimum_identified_parsers: 2
   T1:
-    status: table_data_admitted_sft_ready_optimizer_and_native_parser_pending
+    status: native_table_development_completed_with_explicit_coordinate_compatibility_sft_pending
     prepared_table_roles: {train: 128, model_dev: 32, gate_calibration: 32, locked_evaluation: 64}
     table_role_unit: PMC_article_one_table_per_article
     flagged_training_annotation_family: p0002
     published_splits_share_original_articles: true
+    identified_native_table_parser: PaddleOCR_English_det_rec_SLANet_e218c0a
+    native_table_report: docs/research/NATIVE_TABLE_RESULTS_20261007.md
+    coordinate_compatibility_is_not_student_gain: true
+    normalized_metric_full_match_is_not_raw_render_fidelity: true
     fixed: [family_partitions, compute_reporting]
     arms: [formula, table, mixed_modalities]
 metrics:

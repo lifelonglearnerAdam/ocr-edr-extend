@@ -21,9 +21,13 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 10月7日继续完成[表格SFT准入与执行准备](docs/research/TABLE_SFT_READINESS_20261007.md)：排除已确认缺行的p0002整族，保留127文档/406训练记录；两臂各381步的assistant掩码与不截断预检查通过。单JSON动作推理、失败回退、官方TEDS及文档级评估入口已执行软件验证；表格optimizer尚未运行，实际模型结果另以完整运行记录为准。
 
-随后[完整103例表格基座运行](docs/research/TABLE_BASE_RESULTS_20261007.md)全部因动作契约失败回退，其中60例达输出上限；没有修复或实际修改。TEDS维持0.95754，零退化来自全拒绝，不能称学习到保持。追加明确JSON示例的提示对照需要与SFT收益分开检验。已固定[原生表格parser官方接口来源](docs/research/NATIVE_TABLE_INTERFACE_CHECK_20261007.md)，尚未执行parser预测。
+随后[完整103例表格基座运行](docs/research/TABLE_BASE_RESULTS_20261007.md)全部因动作契约失败回退，其中60例达输出上限；没有修复或实际修改。TEDS维持0.95754，零退化来自全拒绝，不能称学习到保持。追加明确JSON示例的提示对照需要与SFT收益分开检验。[原生表格parser官方接口来源](docs/research/NATIVE_TABLE_INTERFACE_CHECK_20261007.md)已固定，预测结果见下方32源诊断。
 
 [完整提示对照](docs/research/TABLE_PROMPT_CONTROL_RESULTS_20261007.md)随后得到103/103合法动作，但全部为stop，仍无修改或修复；与零调用unchanged基线质量相同。后续SFT使用相同提示条件比较，不能将协议合法率当作视觉纠错收益。
+
+现已完成[32源具名原生表格诊断](docs/research/NATIVE_TABLE_RESULTS_20261007.md)。在显式修正官方代码/导出权重的坐标约定不一致后，parser平均TEDS为0.98285、13/32满分；这是基线兼容性修正，不是学生模型收益。raw渲染的字面标签、参考DOM歧义及metric规范化边界均保留；该批源不具备parser未见来源声明。
+
+当前助手已实际生成并封存[首批12个训练文档的教师轨迹](docs/research/INTERACTIVE_TEACHER_RESULTS_20261007.md)：9例编辑、3例不修改，全部机械回放通过；8例形成同终答的临时配对监督视图，4例保留待复核。官方TEDS满分数9→10，但均值0.9951→0.9727，包含一次教师拆行与公开参考合并表示的分歧；不能称总体提升。教师自检与独立判定分开记录，学生蒸馏尚未执行。
 
 10月7日完成[第二具名公式解析器开发诊断](docs/research/SECOND_PARSER_RESULTS_20261007.md)：固定SFT在LaTeX-OCR原生候选上的core-CDM由0.8994到0.9899，6个完整/4个部分修复；同源此前Nougat结果仍保留负向结论，不能称独立迁移。另完成[PubTabNet文章隔离四角色数据](docs/research/TABLE_DATA_RESULTS_20261007.md)与训练/model-dev局部JSON目标，发现并排除了发布split文章重叠；标注缺行风险已标记，尚未运行表格训练或锁定评测。
 
