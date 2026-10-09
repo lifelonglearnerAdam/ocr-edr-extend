@@ -104,13 +104,19 @@ def validate_table_adapter(
 
 
 def table_messages(
-    initial: str, *, prompt_format: str = "descriptive_schema"
+    initial: str, *, prompt_format: str = "descriptive_schema", diagnosis=None, case=None
 ) -> tuple[list[dict], str]:
     if prompt_format not in PROMPT_FORMATS:
         raise ValueError("Unknown table prompt format")
     prompt = table_action_prompt(initial)
     if prompt_format == "literal_examples":
         prompt += LITERAL_ACTION_EXAMPLES
+    if diagnosis is not None:
+        from .table_diagnosis import diagnosis_advice
+
+        if case is None or case["prediction"] != initial:
+            raise ValueError("Diagnosis prompt needs its original case identity")
+        prompt += diagnosis_advice(case, diagnosis)
     return [
         {"role": "user", "content": [{"type": "image"}, {"type": "text", "text": prompt}]}
     ], prompt
@@ -132,6 +138,7 @@ def adapt_table_call(
     renderer,
     max_new_tokens: int,
     prompt_format: str = "descriptive_schema",
+    diagnosis=None,
 ) -> dict:
     """Apply at most one strict action, rolling back failures without erasing cost.
 
@@ -140,7 +147,9 @@ def adapt_table_call(
     """
     if type(max_new_tokens) is not int or max_new_tokens < 1:
         raise ValueError("Positive output-token cap required")
-    messages, prompt = table_messages(case["prediction"], prompt_format=prompt_format)
+    messages, prompt = table_messages(
+        case["prediction"], prompt_format=prompt_format, diagnosis=diagnosis, case=case
+    )
     if (
         any(call.get(key) != value for key, value in case.items())
         or call.get("prompt") != prompt
