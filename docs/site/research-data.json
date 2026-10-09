@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T15:31:23.462357+00:00",
+  "updated_at": "2026-10-09T15:32:26.076266+00:00",
   "repository": "https://github.com/lifelonglearnerAdam/ocr-edr-extend",
   "goal_status": "active_incomplete",
   "table_screen": {
@@ -716,7 +716,7 @@
   },
   "diagnosis_component_progress": {
     "training_status": "running",
-    "observed_steps": 234,
+    "observed_steps": 241,
     "stalled": false,
     "target_steps": 381,
     "training_service": "active",
