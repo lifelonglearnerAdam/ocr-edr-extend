@@ -27,5 +27,5 @@
 2. [x] Freeze public peer provenance and current result snapshot; publish the completed negative NF4 evidence.
 3. [x] Test secure serialization and evidence-bound update behavior, then implement the generator and responsive template.
 4. [x] Build, review quantitative content and inspect actual desktop/mobile browser render.
-5. [ ] Push feature work and publish the reviewed site on a separate `gh-pages` branch; enable/read back the public page under the user's publication request.
-6. [ ] Connect experiment snapshot refresh and repeat publication; include prompt-ablation output only after actual completion. Keep the five-direction research goal active.
+5. [x] Push feature work and publish the reviewed static site using an official Pages deployment workflow from the authorized research branch; enable/read back the public page under the user's publication request.
+6. [x] Connect experiment snapshot refresh and repeat publication; include prompt-ablation output only after actual completion. Keep the five-direction research goal active.
