@@ -6,6 +6,10 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 本项目的工作区是 `optimization/ocr-edr-team`，当前 Linux 挂载路径以实际检测结果为准。研究方向依据该工作区的独立研究简报推进；MonkeyOCR Note 表格/公式复核属于另一个项目。MonkeyOCR 可作为多系统实验中的一个基线。
 
+**共享研究进展页：<https://lifelonglearnerAdam.github.io/ocr-edr-extend/>**。包含易懂的研究问题、术语、学长核验材料、本项目全部结果与失败、五方向路线及证据入口；[单文件 HTML](docs/site/index.html)可下载离线阅读，[更新方式](docs/site/README.md)保留可重建的数据快照与自动发布。
+
+10月9日两组NF4表格模型已完成381步×2和完整103例×3评估。首轮字面示例均为负向，随后固定checkpoint描述式对照中all修复31/71（全为受控重复行）、0/32退化，去保持臂修复48/71但14/32退化；[完整提示对照](docs/research/TABLE_PROMPT_ABLATION_RESULTS_20261009.md)与[首轮负结果](docs/research/TABLE_NF4_RESULTS_20261009.md)并列保留。学长提供的Qwen核验材料已[注明来源整理](docs/research/SENIOR_CONTRIBUTIONS_20261009.md)，尚未独立复现。
+
 10月9日因原NTFS卷只读/I/O故障，[恢复到Linux原生文件系统](docs/research/RESEARCH_RECOVERY_20261009.md)中的`~/research/optimization/ocr-edr-team`。已完成的第一臂381步检查点保留并核验；第二臂在外部中断后从原基座重跑，原62步及成本记录未删除。模型/数据/22个执行文件hash保持一致，完整质量评估仍待运行结果。
 
 完整资料：[研究简报](docs/research/brief.md)、[OCR-EDR 机制](docs/research/findings/F1-ocr-edr.md)、[Jev 与评测](docs/research/findings/F2-jev-omnidocbench.md)。引用数字来自研究记录，尚未在本项目独立复现。
@@ -31,7 +35,7 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 当前助手已实际生成并封存[首批12个训练文档的教师轨迹](docs/research/INTERACTIVE_TEACHER_RESULTS_20261007.md)：9例编辑、3例不修改，全部机械回放通过；8例形成同终答的临时配对监督视图，4例保留待复核。官方TEDS满分数9→10，但均值0.9951→0.9727，包含一次教师拆行与公开参考合并表示的分歧；不能称总体提升。教师自检与独立判定分开记录，学生蒸馏尚未执行。
 
-新增[本地NF4训练可行性证据](docs/research/TABLE_NF4_READINESS_RESULTS_20261007.md)：8 GiB显卡上的原全logits交叉熵OOM后，仅省略ignored位置的词表projection，在两个预定边界样本完成优化，峰值allocated3.78 GiB；独立新进程重载112个adapter tensor完全一致，原失败保留。已据此启动[独立NF4两臂381-step实验](docs/research/TABLE_NF4_SCREEN_PROTOCOL_20261007.md)，将重新运行同精度基座与完整开发推断；当前不报告完整训练质量收益。
+新增[本地NF4训练可行性证据](docs/research/TABLE_NF4_READINESS_RESULTS_20261007.md)：8 GiB显卡上的原全logits交叉熵OOM后，仅省略ignored位置的词表projection，在两个预定边界样本完成优化，峰值allocated3.78 GiB；独立新进程重载112个adapter tensor完全一致，原失败保留。[独立NF4两臂381-step实验](docs/research/TABLE_NF4_SCREEN_PROTOCOL_20261007.md)及后续提示对照已完成，结果与类型局限见上文；不外推为原生/未知parser锁定收益。
 
 10月7日完成[第二具名公式解析器开发诊断](docs/research/SECOND_PARSER_RESULTS_20261007.md)：固定SFT在LaTeX-OCR原生候选上的core-CDM由0.8994到0.9899，6个完整/4个部分修复；同源此前Nougat结果仍保留负向结论，不能称独立迁移。另完成[PubTabNet文章隔离四角色数据](docs/research/TABLE_DATA_RESULTS_20261007.md)与训练/model-dev局部JSON目标，发现并排除了发布split文章重叠；标注缺行风险已标记，锁定评测尚未执行。
 

@@ -1,0 +1,15 @@
+{
+  "archived_at": "2026-10-09T11:14:52.589699+00:00",
+  "new_model_calls": 618,
+  "source_documents": 32,
+  "cases_per_condition": 103,
+  "conditions_per_prompt": 3,
+  "prompt_count": 2,
+  "training_optimizer_updates_for_followup": 0,
+  "post_hoc_exploratory": true,
+  "original_negative_results_retained": true,
+  "literal_replay_all309_raw_responses_exactly_equal": true,
+  "raw_images_html_labels_weights_in_archive": false,
+  "pipeline_original_sha256": "73dfc5ac22339b8595aac785da17973832e458c1e60f1183b23ed6331b177714",
+  "comparison_original_sha256": "fe4166ef1a497d0c7d538f7d9973ba76447c9deaac705fdff09e94e5c1f1a898"
+}

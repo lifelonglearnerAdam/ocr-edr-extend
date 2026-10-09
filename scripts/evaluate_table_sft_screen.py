@@ -76,6 +76,7 @@ def main():
         }
         signature["versions"] = {n: run["versions"][n] for n in ["torch", "transformers", "Pillow"]}
         signature["prompt_format"] = run.get("prompt_format", "descriptive_schema")
+        signature["inference_protocol_sha256"] = run.get("inference_protocol_sha256")
         signature["precision_profile"] = run.get("precision_profile", "bf16_lora")
         signature["logits_projection"] = run.get("logits_projection", "full")
         if signature["precision_profile"] == "nf4_lora_8gb":

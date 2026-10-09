@@ -1,0 +1,77 @@
+{
+  "post_hoc_exploratory": true,
+  "only_measured_prompt_factor": "literal example appendix removal; also shorter prompt and matches training prompt",
+  "training_or_checkpoint_changes": false,
+  "literal_raw_replay_identical_all309": true,
+  "runtime_source_cohort_matched_except_prompt": true,
+  "comparisons": [
+    {
+      "arm": "base",
+      "metric": "teds",
+      "documents": 32,
+      "case_pairs": 103,
+      "descriptive_minus_literal_document_mean": 0.0,
+      "descriptive_percentile_95_interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "arm": "base",
+      "metric": "teds_structure",
+      "documents": 32,
+      "case_pairs": 103,
+      "descriptive_minus_literal_document_mean": 0.0,
+      "descriptive_percentile_95_interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "arm": "all",
+      "metric": "teds",
+      "documents": 32,
+      "case_pairs": 103,
+      "descriptive_minus_literal_document_mean": 0.05666238205679658,
+      "descriptive_percentile_95_interval": [
+        0.047769252002857414,
+        0.0661234029357966
+      ]
+    },
+    {
+      "arm": "all",
+      "metric": "teds_structure",
+      "documents": 32,
+      "case_pairs": 103,
+      "descriptive_minus_literal_document_mean": 0.038204103797604354,
+      "descriptive_percentile_95_interval": [
+        0.030424100114773353,
+        0.046775682427058596
+      ]
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "metric": "teds",
+      "documents": 32,
+      "case_pairs": 103,
+      "descriptive_minus_literal_document_mean": 0.07249240501224748,
+      "descriptive_percentile_95_interval": [
+        0.04885342128561456,
+        0.09611299598240809
+      ]
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "metric": "teds_structure",
+      "documents": 32,
+      "case_pairs": 103,
+      "descriptive_minus_literal_document_mean": 0.0367246604940985,
+      "descriptive_percentile_95_interval": [
+        0.020889528056289505,
+        0.05178756390640765
+      ]
+    }
+  ],
+  "reference_role": "model_dev",
+  "calibration_locked_access": false
+}
