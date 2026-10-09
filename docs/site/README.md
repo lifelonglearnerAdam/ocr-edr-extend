@@ -30,3 +30,9 @@
 2026-10-09新增 `beginner.fragment.html`，包含实际终端任务、四个冻结样本的源内容/候选/动作/结果、七步实验过程与常见疑问。`walkthrough-data.json` 和 `native-walkthrough-data.json` 分别绑定受控和原生评估，更新器核对每例动作、文档、分数及输入/输出hash；无法用一份自报hash伪造案例成绩。新原生汇总还核对全部32源×4条件和三组原调用/adapter。下载后的HTML保留图表与案例交互；网页每60秒检查已发布数据，GitHub Pages发布有延迟，不等于直接流式读取GPU。
 
 页面另有三幅HTML流程／对照图：已执行的真实失败路径、学长核验与本项目修复的连接蓝图（状态明确）、完整受控与原生结果表；源图/白图探针的动作比较同步显示。模板与解释fragment的hash进入更新快照，因此仅解释图表更新也会触发网页的版本刷新。
+
+## 当前Linux自动更新服务
+
+本机已安装并启用用户级 `ocr-edr-research-dashboard.service`，工作目录为当前ext4研究副本；终端关闭不影响其运行，用户会话在线时每60秒检查已支持实验与页面模板。只在内容变化时提交并推送生成的两个文件；其他暂存工作或非快进push会拒绝，不覆盖协作者内容。本站再每60秒检查已发布版本；GitHub Pages构建仍有发布延迟。
+
+可用 `systemctl --user status ocr-edr-research-dashboard.service` 查看、`journalctl --user -u ocr-edr-research-dashboard.service` 查日志、`systemctl --user stop ocr-edr-research-dashboard.service` 停止。可移植配置在 `configs/systemd/ocr-edr-research-dashboard.service`；它不包含认证材料。原nohup观察器在宿主执行会话结束后退出，其历史记录保留；新用户服务另写运行回执。
