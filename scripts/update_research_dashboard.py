@@ -11,8 +11,12 @@ import _bootstrap  # noqa: F401
 from ocr_edr.dashboard_evidence import (
     verify_completion_binding,
     verify_four_arm_coverage,
+    verify_native_coverage,
     verify_prompt_stage,
+    verify_walkthrough_cases,
 )
+from ocr_edr.native_table_repair import native_repair_inputs, verify_native_calls
+from ocr_edr.native_tables import load_native_table_sources
 from ocr_edr.research_dashboard import render_dashboard, validate_snapshot
 from ocr_edr.sft import sha256
 
@@ -27,6 +31,9 @@ def main():
         "--prompt-results",
         type=Path,
         default=Path("experiments/runs/table-prompt-ablation-20261009"),
+    )
+    parser.add_argument(
+        "--native-results", type=Path, default=Path("experiments/runs/native-table-sft-20261009")
     )
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
@@ -193,6 +200,124 @@ def main():
             "senior_provenance_sha256": sha256(args.site / "senior-provenance.json"),
         },
     }
+    if (args.site / "walkthrough-data.json").exists():
+        cases = json.loads((args.site / "walkthrough-data.json").read_text())
+        descriptive = args.prompt_results / "descriptive_schema/evaluation/evaluation.json"
+        if cases["evaluation_original_sha256"] != sha256(descriptive):
+            raise ValueError("Teaching cases must remain bound to the frozen actual experiment")
+        verify_walkthrough_cases(
+            cases["cases"],
+            json.loads(descriptive.read_text()),
+            [
+                json.loads(line)
+                for line in descriptive.with_name("predictions.jsonl").read_text().splitlines()
+            ],
+        )
+        data["walkthroughs"] = cases["cases"]
+    activity = {"status": "not_started", "stage": "准备输入", "runs": []}
+    if (args.native_results / "pipeline-status.json").exists():
+        record = json.loads((args.native_results / "pipeline-status.json").read_text())
+        activity.update(status=record["status"], stage=record["stage"])
+        for folder in sorted((args.native_results / "inference").glob("*")):
+            if not (folder / "run.json").exists():
+                continue
+            r = json.loads((folder / "run.json").read_text())
+            activity["runs"].append(
+                {
+                    "condition": r["condition"],
+                    "status": r["status"],
+                    "completed_calls": r["completed_calls"],
+                    "target_calls": 32,
+                }
+            )
+        evaluated = args.native_results / "evaluation"
+        if (evaluated / "evaluation.json").exists() and record["status"] == "completed":
+            r = json.loads((evaluated / "run.json").read_text())
+            sealed = next(s for s in record["completed_stages"] if s["stage"] == "evaluation")
+            if (
+                sha256(evaluated / "run.json") != sealed["receipt_sha256"]
+                or sha256(evaluated / "evaluation.json") != r["evaluation_sha256"]
+                or sha256(evaluated / "predictions.jsonl") != r["predictions_sha256"]
+            ):
+                raise ValueError("Native diagnostic result drifted after completion")
+            complete = json.loads((evaluated / "evaluation.json").read_text())
+            verify_native_coverage(complete)
+            native_examples = json.loads((args.site / "native-walkthrough-data.json").read_text())
+            if native_examples["evaluation_original_sha256"] != sha256(
+                evaluated / "evaluation.json"
+            ):
+                raise ValueError("Native walkthrough differs from its frozen evaluation")
+            verify_walkthrough_cases(
+                native_examples["cases"],
+                complete,
+                [
+                    json.loads(line)
+                    for line in (evaluated / "predictions.jsonl").read_text().splitlines()
+                ],
+            )
+            data["native_walkthroughs"] = native_examples["cases"]
+            dataset = root / "data/processed/pubtabnet-four-roles-20261007"
+            native_inputs = args.native_results / "frozen-native-inputs/predictions.jsonl"
+            if sha256(native_inputs) != r["native_prediction_sha256"]:
+                raise ValueError("Frozen native source input changed")
+            inputs = native_repair_inputs(
+                [json.loads(line) for line in native_inputs.read_text().splitlines()],
+                load_native_table_sources(dataset, role="model_dev"),
+                role="model_dev",
+            )
+            for arm in ["base", "all", "no_explicit_preservation"]:
+                inference = args.native_results / "inference" / arm
+                receipt = json.loads((inference / "run.json").read_text())
+                sealed = [s for s in record["completed_stages"] if s["stage"] == "inference_" + arm]
+                if (
+                    len(sealed) != 1
+                    or sha256(inference / "run.json") != sealed[0]["receipt_sha256"]
+                    or receipt["status"] != "completed"
+                    or receipt["completed_calls"] != 32
+                    or sha256(inference / "calls.jsonl") != receipt["calls_sha256"]
+                ):
+                    raise ValueError("Native model calls differ from the complete pipeline seal")
+                verify_native_calls(
+                    [
+                        json.loads(line)
+                        for line in (inference / "calls.jsonl").read_text().splitlines()
+                    ],
+                    inputs,
+                    arm,
+                )
+                if arm != "base":
+                    trained = json.loads((args.results / "training" / arm / "run.json").read_text())
+                    if receipt["adapter_sha256"] != trained["checkpoint_sha256"]:
+                        raise ValueError(
+                            "Native adapter identity differs from the frozen trained checkpoint"
+                        )
+            summary = complete["summary"]
+            original = next(
+                s for s in summary if s["variant"] == "all" and s["arm"] == "unchanged_0"
+            )
+            activity.update(
+                initial_matching=original["teds_initial_matching_n"],
+                initial_nonmatching=original["teds_initial_nonmatching_n"],
+                evaluation_sha256=sha256(evaluated / "evaluation.json"),
+            )
+            activity["results"] = [
+                {
+                    "arm": s["arm"],
+                    "teds": s["case_mean_final_teds"],
+                    "repairs": s["teds_nonmatching_fixed"],
+                    "regressions": s["teds_matching_regressions"],
+                    "changed": s["changed"],
+                    "cases": s["cases"],
+                    "normalized_changed": s["normalized_changed"],
+                    "degraded": s["teds_degraded"],
+                    "improved": s["teds_improved"],
+                    "adapter_failures": s["adapter_failures"],
+                    "caps": s["hit_length_cap"],
+                }
+                for s in summary
+                if s["variant"] == "all"
+            ]
+    data["current_activity"] = activity
     validate_snapshot(data)
     args.site.mkdir(parents=True, exist_ok=True)
     current = args.site / "research-data.json"
@@ -208,7 +333,16 @@ def main():
     if (args.site / "template.html").exists():
         assets = {p.name: p.read_bytes() for p in (args.site / "assets").glob("*.png")}
         (args.site / "index.html").write_text(
-            render_dashboard(data, (args.site / "template.html").read_text(), assets)
+            render_dashboard(
+                data,
+                (args.site / "template.html").read_text(),
+                assets,
+                (
+                    (args.site / "beginner.fragment.html").read_text()
+                    if (args.site / "beginner.fragment.html").exists()
+                    else None
+                ),
+            )
         )
     print(
         json.dumps(

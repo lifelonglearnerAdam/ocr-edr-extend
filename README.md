@@ -10,7 +10,9 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 10月9日两组NF4表格模型已完成381步×2和完整103例×3评估。首轮字面示例均为负向，随后固定checkpoint描述式对照中all修复31/71（全为受控重复行）、0/32退化，去保持臂修复48/71但14/32退化；[完整提示对照](docs/research/TABLE_PROMPT_ABLATION_RESULTS_20261009.md)与[首轮负结果](docs/research/TABLE_NF4_RESULTS_20261009.md)并列保留。学长提供的Qwen核验材料已[注明来源整理](docs/research/SENIOR_CONTRIBUTIONS_20261009.md)，尚未独立复现。
 
-10月9日因原NTFS卷只读/I/O故障，[恢复到Linux原生文件系统](docs/research/RESEARCH_RECOVERY_20261009.md)中的`~/research/optimization/ocr-edr-team`。已完成的第一臂381步检查点保留并核验；第二臂在外部中断后从原基座重跑，原62步及成本记录未删除。模型/数据/22个执行文件hash保持一致，完整质量评估仍待运行结果。
+10月9日继续完成[真实原生表格学生诊断](docs/research/NATIVE_TABLE_REPAIR_RESULTS_20261009.md)：32源×3模型共96调用，两学生均0/19全修复；含保持训练1/13原满分退化，去保持7/13。受控重复行收益尚未变成可靠原生纠错。共享网页新增四个逐步案例及“终端究竟在做什么”的入门解释，所有新数值绑定完整冻结结果。
+
+10月9日因原NTFS卷只读/I/O故障，[恢复到Linux原生文件系统](docs/research/RESEARCH_RECOVERY_20261009.md)中的`~/research/optimization/ocr-edr-team`。已完成的第一臂381步检查点保留并核验；第二臂在外部中断后从原基座重跑，原62步及成本记录未删除。模型/数据/22个执行文件hash保持一致，完整训练、质量评估及离线重载核验现已完成，结果见上文。
 
 完整资料：[研究简报](docs/research/brief.md)、[OCR-EDR 机制](docs/research/findings/F1-ocr-edr.md)、[Jev 与评测](docs/research/findings/F2-jev-omnidocbench.md)。引用数字来自研究记录，尚未在本项目独立复现。
 

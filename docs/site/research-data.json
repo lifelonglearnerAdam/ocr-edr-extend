@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T11:06:29.608420+00:00",
+  "updated_at": "2026-10-09T12:40:25.579613+00:00",
   "repository": "https://github.com/lifelonglearnerAdam/ocr-edr-extend",
   "goal_status": "active_incomplete",
   "table_screen": {
@@ -504,5 +504,211 @@
     "main_stats_sha256": "ec056bdd882f98e4413d71e0eddc85b5ec0d4a9184f410347685f871c32549db",
     "verified_completion_sha256": "2c7c9bb64abb7415abd1fa7b9cab940fd98122fd408530b6acec8deb6ae4588d",
     "senior_provenance_sha256": "527383e49732dd78a91d54e0b71204600d29d1e65575a25c4514c5846566aa7e"
+  },
+  "walkthroughs": [
+    {
+      "sample_id": "p0153-extra_row",
+      "kind": "duplicate",
+      "source_document": "PMC4733134",
+      "source_scope": "local value/label transcription from inspected source, not the complete original image/HTML",
+      "original_visible_value": "17.3",
+      "candidate_value": "17.3",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "delete_row",
+            "row": 12
+          },
+          "initial_teds": 0.925,
+          "final_teds": 1.0,
+          "output_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 12
+          },
+          "initial_teds": 0.925,
+          "final_teds": 1.0,
+          "output_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+        }
+      ],
+      "input_sha256": "8fe432199f5650dfad61c8e919b8d577afca7035e23012e78fd1c146218c1f32"
+    },
+    {
+      "sample_id": "p0153-cell_perturbation",
+      "kind": "number",
+      "source_document": "PMC4733134",
+      "source_scope": "local value/label transcription from inspected source, not the complete original image/HTML",
+      "original_visible_value": "17.3",
+      "candidate_value": "27.3",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "stop"
+          },
+          "initial_teds": 0.9932432432432432,
+          "final_teds": 0.9932432432432432,
+          "output_sha256": "9ccf1b59da92dd1ea5bb46ad09baa8671b90f2bea144860080c18132a9e26fa8"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 11
+          },
+          "initial_teds": 0.9932432432432432,
+          "final_teds": 0.9121621621621622,
+          "output_sha256": "7611dc8cee98e31dbfbfe6980b0174f0ee122b11b4ad1e5ce8582a8f9c073df2"
+        }
+      ],
+      "input_sha256": "9ccf1b59da92dd1ea5bb46ad09baa8671b90f2bea144860080c18132a9e26fa8"
+    },
+    {
+      "sample_id": "p0153-preservation",
+      "kind": "preserve",
+      "source_document": "PMC4733134",
+      "source_scope": "local value/label transcription from inspected source, not the complete original image/HTML",
+      "original_visible_value": "17.3",
+      "candidate_value": "17.3",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "stop"
+          },
+          "initial_teds": 1.0,
+          "final_teds": 1.0,
+          "output_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 11
+          },
+          "initial_teds": 1.0,
+          "final_teds": 0.9189189189189189,
+          "output_sha256": "01ae13fef1b4c929278e4904bba27dbd009fac7b62593a1e1daae52f6bb35784"
+        }
+      ],
+      "input_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+    }
+  ],
+  "native_walkthroughs": [
+    {
+      "sample_id": "p0148-native",
+      "kind": "native_row",
+      "source_document": "PMC2880022",
+      "source_scope": "post-hoc source-visible local row transcription; no independent visual gold",
+      "original_visible_value": "0.072 / 0.146",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "delete_row",
+            "row": 4
+          },
+          "initial_teds": 1.0,
+          "final_teds": 0.8214285714285714,
+          "output_sha256": "687f554fb1ac95097fe93868297f87da9c66884653a49209cf1651f54ca6f3b9"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 4
+          },
+          "initial_teds": 1.0,
+          "final_teds": 0.8214285714285714,
+          "output_sha256": "687f554fb1ac95097fe93868297f87da9c66884653a49209cf1651f54ca6f3b9"
+        }
+      ],
+      "input_sha256": "82964bf64bcbc4fa5f86b4f6f40c0b163626e6773497504562ea6570c032d1a7"
+    }
+  ],
+  "current_activity": {
+    "status": "completed",
+    "stage": "completed",
+    "runs": [
+      {
+        "condition": "all",
+        "status": "completed",
+        "completed_calls": 32,
+        "target_calls": 32
+      },
+      {
+        "condition": "base",
+        "status": "completed",
+        "completed_calls": 32,
+        "target_calls": 32
+      },
+      {
+        "condition": "no_explicit_preservation",
+        "status": "completed",
+        "completed_calls": 32,
+        "target_calls": 32
+      }
+    ],
+    "initial_matching": 13,
+    "initial_nonmatching": 19,
+    "evaluation_sha256": "69088d37534f7c13bc1db2a743c72840bbe804dbfc2909aa707a99327bb62f38",
+    "results": [
+      {
+        "arm": "unchanged_0",
+        "teds": 0.9828480744588889,
+        "repairs": 0,
+        "regressions": 0,
+        "changed": 0,
+        "cases": 32,
+        "normalized_changed": 0,
+        "degraded": 0,
+        "improved": 0,
+        "adapter_failures": 0,
+        "caps": 0
+      },
+      {
+        "arm": "base",
+        "teds": 0.9828480744588889,
+        "repairs": 0,
+        "regressions": 0,
+        "changed": 0,
+        "cases": 32,
+        "normalized_changed": 0,
+        "degraded": 0,
+        "improved": 0,
+        "adapter_failures": 32,
+        "caps": 19
+      },
+      {
+        "arm": "all",
+        "teds": 0.9772677173160318,
+        "repairs": 0,
+        "regressions": 1,
+        "changed": 1,
+        "cases": 32,
+        "normalized_changed": 1,
+        "degraded": 1,
+        "improved": 0,
+        "adapter_failures": 0,
+        "caps": 0
+      },
+      {
+        "arm": "no_explicit_preservation",
+        "teds": 0.9477252352118468,
+        "repairs": 0,
+        "regressions": 7,
+        "changed": 32,
+        "cases": 32,
+        "normalized_changed": 16,
+        "degraded": 16,
+        "improved": 0,
+        "adapter_failures": 0,
+        "caps": 0
+      }
+    ]
   }
 }

@@ -52,8 +52,12 @@ def validate_snapshot(snapshot):
     return snapshot
 
 
-def render_dashboard(snapshot, template, assets):
+def render_dashboard(snapshot, template, assets, explainer=None):
     validate_snapshot(snapshot)
+    if "{{EXPLAINER}}" in template:
+        if not isinstance(explainer, str) or not explainer.strip():
+            raise ValueError("The detailed report requires its beginner explanation fragment")
+        template = template.replace("{{EXPLAINER}}", explainer)
     if template.count("{{DATA}}") != 1:
         raise ValueError("Template needs exactly one embedded research-data slot")
     encoded = (

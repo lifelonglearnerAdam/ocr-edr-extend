@@ -29,3 +29,7 @@
 4. [x] Build, review quantitative content and inspect actual desktop/mobile browser render.
 5. [x] Push feature work and publish the reviewed static site using an official Pages deployment workflow from the authorized research branch; enable/read back the public page under the user's publication request.
 6. [x] Connect experiment snapshot refresh and repeat publication; include prompt-ablation output only after actual completion. Keep the five-direction research goal active.
+
+## Beginner explanation update (October9)
+
+The user is a sophomore research beginner and needs to understand actual terminal work. Add a concrete current task with actual source/call denominators, four frozen worked cases (controlled fix, unresolved numeric error, correct-input regression, native deletion), a seven-step experiment story, and how the senior verifier connects. Bind public case facts and native rollups to complete hashes, preserve historical receipt gaps explicitly, test offline downloads/tabs/mobile layout, and publish/read back the reviewed update. Native research continues while the explanatory page is developed; no claim of completed five-direction integration.

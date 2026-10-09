@@ -1,0 +1,35 @@
+{
+  "cases": [
+    {
+      "sample_id": "p0148-native",
+      "kind": "native_row",
+      "source_document": "PMC2880022",
+      "source_scope": "post-hoc source-visible local row transcription; no independent visual gold",
+      "original_visible_value": "0.072 / 0.146",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "delete_row",
+            "row": 4
+          },
+          "initial_teds": 1.0,
+          "final_teds": 0.8214285714285714,
+          "output_sha256": "687f554fb1ac95097fe93868297f87da9c66884653a49209cf1651f54ca6f3b9"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 4
+          },
+          "initial_teds": 1.0,
+          "final_teds": 0.8214285714285714,
+          "output_sha256": "687f554fb1ac95097fe93868297f87da9c66884653a49209cf1651f54ca6f3b9"
+        }
+      ],
+      "input_sha256": "82964bf64bcbc4fa5f86b4f6f40c0b163626e6773497504562ea6570c032d1a7"
+    }
+  ],
+  "evaluation_original_sha256": "69088d37534f7c13bc1db2a743c72840bbe804dbfc2909aa707a99327bb62f38"
+}

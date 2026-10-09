@@ -92,3 +92,5 @@ U=\Delta Q-\lambda_{\mathrm{reg}}\mathbf{1}[G_0\land\neg G_T]
 [完整NF4两臂](TABLE_NF4_RESULTS_20261009.md)在首轮literal示例下无修复且各12/32保持退化；固定同checkpoint的[提示消融](TABLE_PROMPT_ABLATION_RESULTS_20261009.md)移除示例后，all只修复31/32受控重复行、不修数字/跨度，no-preservation修复更多却14/32保持退化。原生视觉提议和范围绑定仍是能力缺口，不能把受控重复行满分主张为普适修复或直接开始宣称RL收益。
 
 [学长材料](SENIOR_CONTRIBUTIONS_20261009.md)给出候选内verdict/error/region核验监督和n1800的报告，但代码/checkpoint、原始文档隔离与完整分布确认仍缺。合理连接是固定refiner和预算，对比无诊断/真实范围/打乱范围及不同verifier的实际下游修复和风险；诊断准确率与修复分数不得直接比较。实时[共享进展页](../site/index.html)集中展示已执行、材料报告和未验证假设，后续证据追加而非替换负结果。
+
+[同checkpoint真实原生表格诊断](NATIVE_TABLE_REPAIR_RESULTS_20261009.md)进一步限制H1/H5：两个学生0/19全修复，无部分TEDS提高；all1/13、去保持7/13原满分退化。后者32次raw修改只有16次规范化修改，不能用修改计数冒充质量增量。先检验源图使用与定位机制，再接入独立诊断，避免在没有可用提议时将RL当能力替代。

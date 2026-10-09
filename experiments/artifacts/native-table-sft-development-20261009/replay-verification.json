@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "original_evaluation_sha256": "69088d37534f7c13bc1db2a743c72840bbe804dbfc2909aa707a99327bb62f38",
+  "replay_evaluation_sha256": "69088d37534f7c13bc1db2a743c72840bbe804dbfc2909aa707a99327bb62f38",
+  "original_receipts_modified": false,
+  "replay_receipt_sha256": "b06fd3f5f8ee2574a651283b28ba870ad91bf3dbfb78756a433a2c3413690af2"
+}

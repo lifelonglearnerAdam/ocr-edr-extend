@@ -1,7 +1,11 @@
 {
-  "verification.json": "5f55617596661ff5a86326faa12c4a6aff9ad166142a8fba9ac706f9696fcabe",
-  "desktop-final.png": "a0bb60ffe4e2a179b017be2ec3ba6e12e687afed95a87608a5cb2da30942768e",
-  "public-live.png": "a0bb60ffe4e2a179b017be2ec3ba6e12e687afed95a87608a5cb2da30942768e",
   "README.md": "159222e783f147a2e12043e75cbfb9dc4ca54372d65b56a40683d68dc2668b87",
-  "mobile-final.png": "ea4638e8d6003eb1624b4dceed5747b079d1739c48cec8c1fe7b479f8ddaa198"
+  "beginner-v2-desktop-native-case.png": "eb59a92ddb248dd9fd16ec2dc9ab7cce5055b165ad73c9ac81b46e05748ecfb7",
+  "beginner-v2-desktop-top.png": "65714219f2eece7cf8aa602ae438054fe577c4d5fbc7f34daa3fcb106587e9fb",
+  "beginner-v2-mobile-number-case.png": "137307f8a361d9500ffbb66652ddb513065eb122d65a72695e2ec4bd3bb21ccd",
+  "desktop-final.png": "a0bb60ffe4e2a179b017be2ec3ba6e12e687afed95a87608a5cb2da30942768e",
+  "mobile-final.png": "ea4638e8d6003eb1624b4dceed5747b079d1739c48cec8c1fe7b479f8ddaa198",
+  "public-live.png": "a0bb60ffe4e2a179b017be2ec3ba6e12e687afed95a87608a5cb2da30942768e",
+  "verification-beginner-v2.json": "2a0aed2f032c3e58ebdf27d4dcf4f69d3ead2aaca4ea56f14eeef62bce0f6da8",
+  "verification.json": "5f55617596661ff5a86326faa12c4a6aff9ad166142a8fba9ac706f9696fcabe"
 }

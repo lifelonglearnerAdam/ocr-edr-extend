@@ -13,10 +13,13 @@ try:
     from ocr_edr.dashboard_evidence import (
         verify_completion_binding,
         verify_four_arm_coverage,
+        verify_native_coverage,
         verify_prompt_stage,
+        verify_walkthrough_cases,
     )
 except ImportError:
     verify_completion_binding = verify_four_arm_coverage = verify_prompt_stage = None
+    verify_native_coverage = verify_walkthrough_cases = None
 
 
 class DashboardIntegrityTests(unittest.TestCase):
@@ -87,8 +90,96 @@ class DashboardIntegrityTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render_dashboard(self.snapshot(), "{{ASSET:missing.png}}{{DATA}}", {})
 
+    def test_beginner_explanation_is_required_when_requested_by_template(self):
+        with self.assertRaises(ValueError):
+            render_dashboard(self.snapshot(), "{{EXPLAINER}}{{DATA}}", {})
+        self.assertIn(
+            "具体样本",
+            render_dashboard(self.snapshot(), "{{EXPLAINER}}{{DATA}}", {}, "<p>具体样本</p>"),
+        )
+
 
 class EvidenceBindingTests(unittest.TestCase):
+    def test_native_results_require_all_four_32_source_conditions(self):
+        self.assertTrue(callable(verify_native_coverage))
+        arms = ["unchanged_0", "base", "all", "no_explicit_preservation"]
+        rows = [
+            {"arm": a, "sample_id": str(i), "parent_page": str(i)} for a in arms for i in range(32)
+        ]
+        summary = [
+            {
+                "arm": a,
+                "variant": "all",
+                "cases": 32,
+                "pages": 32,
+                "teds_initial_matching_n": 13,
+                "teds_initial_nonmatching_n": 19,
+            }
+            for a in arms
+        ]
+        verify_native_coverage({"cases": rows, "summary": summary})
+        for bad_rows, bad_summary in [
+            (rows[:-1], summary),
+            (rows, summary[:3]),
+            (rows[:-1] + [rows[0]], summary),
+            (rows, [{**summary[0], "cases": 31}, *summary[1:]]),
+        ]:
+            with self.assertRaises(ValueError):
+                verify_native_coverage({"cases": bad_rows, "summary": bad_summary})
+
+    def test_shared_case_actions_scores_and_output_hashes_are_actual_frozen_facts(self):
+        self.assertTrue(callable(verify_walkthrough_cases))
+        import copy
+        import hashlib
+
+        digest = hashlib.sha256(b"<table></table>").hexdigest()
+        projection = [
+            {
+                "sample_id": "p1",
+                "source_document": "PMC1",
+                "input_sha256": digest,
+                "outcomes": [
+                    {
+                        "arm": "all",
+                        "action": {"action": "stop"},
+                        "initial_teds": 1.0,
+                        "final_teds": 1.0,
+                        "output_sha256": digest,
+                    }
+                ],
+            }
+        ]
+        evaluation = {
+            "cases": [
+                {
+                    "sample_id": "p1",
+                    "arm": "all",
+                    "document_id": "PMC1",
+                    "initial_teds": 1.0,
+                    "final_teds": 1.0,
+                    "proposed_action": {"action": "stop"},
+                }
+            ]
+        }
+        predictions = [
+            {
+                "sample_id": "p1",
+                "arm": "all",
+                "initial_prediction": "<table></table>",
+                "final_prediction": "<table></table>",
+            }
+        ]
+        verify_walkthrough_cases(projection, evaluation, predictions)
+        for field, replacement in [
+            ("action", {"action": "delete_row", "row": 1}),
+            ("final_teds", 0.9),
+            ("output_sha256", "different"),
+        ]:
+            bad = copy.deepcopy(projection)
+            bad[0]["outcomes"][0][field] = replacement
+            with self.assertRaises(ValueError):
+                verify_walkthrough_cases(bad, evaluation, predictions)
+
     def test_completed_seal_rejects_changed_stats_training_or_evaluation(self):
         self.assertTrue(callable(verify_completion_binding))
         hashes = {
