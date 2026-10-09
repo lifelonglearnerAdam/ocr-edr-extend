@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T13:22:21.215634+00:00",
+  "updated_at": "2026-10-09T14:21:36.758133+00:00",
   "repository": "https://github.com/lifelonglearnerAdam/ocr-edr-extend",
   "goal_status": "active_incomplete",
   "table_screen": {
@@ -504,8 +504,9 @@
     "main_stats_sha256": "ec056bdd882f98e4413d71e0eddc85b5ec0d4a9184f410347685f871c32549db",
     "verified_completion_sha256": "2c7c9bb64abb7415abd1fa7b9cab940fd98122fd408530b6acec8deb6ae4588d",
     "senior_provenance_sha256": "527383e49732dd78a91d54e0b71204600d29d1e65575a25c4514c5846566aa7e",
-    "page_template_sha256": "672397acb93b41c7f254a2af8440514700654f0807f44577e81d401535fc7aa1",
-    "beginner_explanation_sha256": "e65088c19b2817fb7b2cf6efc0b621a872b8b3b9fec960873a8640968cdeb73d"
+    "page_template_sha256": "f4e73769f7366b078927acfa99d4358aa0cc98a9f3a26b8fc7ee15b9499a46d0",
+    "beginner_explanation_sha256": "e65088c19b2817fb7b2cf6efc0b621a872b8b3b9fec960873a8640968cdeb73d",
+    "briefing_explanation_sha256": "329fbddcc4ef666a05955b32bfc8da34df5dd7bc5e9adf8924d716b0f45d0ea6"
   },
   "walkthroughs": [
     {
@@ -712,6 +713,19 @@
         "caps": 0
       }
     ]
+  },
+  "diagnosis_component_progress": {
+    "training_status": "running",
+    "observed_steps": 6,
+    "target_steps": 381,
+    "training_service": "active",
+    "pipeline_stage": "training",
+    "pipeline_status": "not_started",
+    "train_documents": 127,
+    "train_records": 406,
+    "exposures": 1524,
+    "quality_results": "pending_review",
+    "scope": "separate adapter; same base and weak controlled train sources"
   },
   "source_evidence_probe": {
     "status": "completed",

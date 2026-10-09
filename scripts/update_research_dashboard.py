@@ -3,6 +3,8 @@
 
 import argparse
 import json
+import shutil
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -201,6 +203,7 @@ def main():
             "senior_provenance_sha256": sha256(args.site / "senior-provenance.json"),
             "page_template_sha256": sha256(args.site / "template.html"),
             "beginner_explanation_sha256": sha256(args.site / "beginner.fragment.html"),
+            "briefing_explanation_sha256": sha256(args.site / "briefing.fragment.html"),
         },
     }
     if (args.site / "walkthrough-data.json").exists():
@@ -321,6 +324,61 @@ def main():
                 if s["variant"] == "all"
             ]
     data["current_activity"] = activity
+    diagnosis_root = root / "experiments/runs/table-diagnosis-20261009"
+    if (diagnosis_root / "training/run.json").exists():
+        training_record = json.loads((diagnosis_root / "training/run.json").read_text())
+        if (
+            training_record["study"] != "table_diagnosis_nf4_sft_20261009"
+            or training_record["config"]["steps"] != 381
+            or training_record["exposures"] != 1524
+            or training_record["dev_optimizer_examples"] != 0
+            or training_record["calibration_locked_optimizer_examples"] != 0
+        ):
+            raise ValueError("Diagnosis progress belongs to a different experiment")
+        steps = training_record["completed_steps"]
+        log = diagnosis_root / "training/training.jsonl"
+        if log.exists():
+            lines = log.read_text().splitlines()
+            # The last line may still be written; only a complete observed log row
+            # contributes to progress. Never use this live file as final evidence.
+            for line in reversed(lines):
+                try:
+                    entry = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                steps = max(steps, entry["step"])
+                break
+        if type(steps) is not int or not 0 <= steps <= 381:
+            raise ValueError("Invalid recorded diagnosis optimizer progress")
+        service = "unknown"
+        if shutil.which("systemctl"):
+            unit = subprocess.run(
+                [
+                    "systemctl",
+                    "--user",
+                    "is-active",
+                    "ocr-edr-table-diagnosis-training-20261009.service",
+                ],
+                capture_output=True,
+                text=True,
+                timeout=5,
+            )
+            service = unit.stdout.strip() or "unknown"
+        pipeline = diagnosis_root / "pipeline-status.json"
+        current_stage = json.loads(pipeline.read_text()) if pipeline.exists() else {}
+        data["diagnosis_component_progress"] = {
+            "training_status": training_record["status"],
+            "observed_steps": steps,
+            "target_steps": 381,
+            "training_service": service,
+            "pipeline_stage": current_stage.get("stage", "training"),
+            "pipeline_status": current_stage.get("status", "not_started"),
+            "train_documents": 127,
+            "train_records": 406,
+            "exposures": 1524,
+            "quality_results": "pending_review",
+            "scope": "separate adapter; same base and weak controlled train sources",
+        }
     source_probe = root / "experiments/runs/table-source-evidence-complete-20261009"
     if (source_probe / "completion.json").exists():
         completion = json.loads((source_probe / "completion.json").read_text())
@@ -385,8 +443,9 @@ def main():
                 (
                     (args.site / "beginner.fragment.html").read_text()
                     if (args.site / "beginner.fragment.html").exists()
-                    else None
-                ),
+                    else ""
+                )
+                + (args.site / "briefing.fragment.html").read_text(),
             )
         )
     print(

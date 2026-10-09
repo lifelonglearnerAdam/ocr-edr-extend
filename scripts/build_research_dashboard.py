@@ -23,6 +23,8 @@ def main():
         if (args.site / "beginner.fragment.html").exists()
         else None
     )
+    if (args.site / "briefing.fragment.html").exists():
+        explainer = (explainer or "") + (args.site / "briefing.fragment.html").read_text()
     output.write_text(render_dashboard(data, template, assets, explainer))
     print(
         json.dumps(

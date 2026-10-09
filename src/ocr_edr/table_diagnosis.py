@@ -6,6 +6,20 @@ import json
 from .table_pilot import apply_table_action, table_cell_map
 
 
+def verify_guided_runtime(guided, baseline):
+    fields = [
+        "config_sha256",
+        "versions",
+        "gpu",
+        "cuda_runtime",
+        "quantization",
+        "adapter_sha256",
+        "model_receipt_sha256",
+    ]
+    if any(k not in guided or k not in baseline or guided[k] != baseline[k] for k in fields):
+        raise ValueError("Guided and unhinted model/runtime conditions differ")
+
+
 def _object(pairs):
     result = {}
     for key, value in pairs:

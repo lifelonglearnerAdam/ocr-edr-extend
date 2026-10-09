@@ -1,4 +1,5 @@
 import hashlib
+import importlib.util
 import json
 import sys
 import unittest
@@ -13,16 +14,38 @@ try:
         displace_region,
         parse_diagnosis,
         verify_diagnosis_binding,
+        verify_guided_runtime,
     )
 except ImportError:
     diagnosis_from_action = parse_diagnosis = diagnosis_prompt = displace_region = (
         bind_diagnosis
     ) = verify_diagnosis_binding = None
+    verify_guided_runtime = None
 
 TABLE = "<table><tr><td>A</td><td>B</td></tr><tr><td>C</td><td>27.3</td></tr><tr><td>Total</td><td>100</td></tr></table>"
 
 
+@unittest.skipUnless(importlib.util.find_spec("lxml"), "optional table parser")
 class TableDiagnosisTests(unittest.TestCase):
+    def test_guided_runtime_cannot_mix_precision_versions_model_or_training_identity(self):
+        self.assertTrue(callable(verify_guided_runtime))
+        record = {
+            name: name
+            for name in [
+                "config_sha256",
+                "versions",
+                "gpu",
+                "cuda_runtime",
+                "quantization",
+                "adapter_sha256",
+                "model_receipt_sha256",
+            ]
+        }
+        verify_guided_runtime(record, record)
+        for field in record:
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                verify_guided_runtime({**record, field: "changed"}, record)
+
     def test_targets_contain_only_class_and_current_candidate_region_not_answer_text(self):
         self.assertTrue(callable(diagnosis_from_action))
         for action, error, region in [

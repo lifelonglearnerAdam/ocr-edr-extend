@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-09T14:21:40.863Z",
+  "closest_works": 4,
+  "compact_goal": true,
+  "offline_download": true,
+  "mobile_widths": {
+    "viewport": 390,
+    "document": 390
+  },
+  "console_errors": [],
+  "full_tests": 167,
+  "optional_skips": 0,
+  "test_seconds": 69.382,
+  "ruff": "passed",
+  "black": "126 files checked",
+  "readme_local_links": "all exist",
+  "new_diagnosis_quality": "not yet available",
+  "review_scope": "drivers and factual wording; no new model result"
+}
