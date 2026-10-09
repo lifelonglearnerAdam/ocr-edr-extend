@@ -1,6 +1,27 @@
 """Complete source-matched native candidates, without labels in student input."""
 
+import re
+
 from .table_pilot import parse_table
+
+
+def blank_table_observation(item, call):
+    """Project actual blank-image evidence for execution; keep the frozen log intact."""
+    digest = call.get("intervention_image_sha256", "")
+    if (
+        any(call.get(k) != v for k, v in item.items())
+        or call.get("original_source_sha256") != item["source_sha256"]
+        or not re.fullmatch(r"[0-9a-f]{64}", digest)
+        or call.get("ordered_image_sha256") != [digest]
+    ):
+        raise ValueError("Blank evidence is not bound to the original source and candidate")
+    observed = {
+        **item,
+        "source_image": "blank/" + item["family_id"] + ".png",
+        "source_sha256": digest,
+    }
+    execution = {**call, **observed, "original_source_image": item["source_image"]}
+    return observed, execution
 
 
 def native_model_identity(run, receipt_hash, legacy_provenance=None):

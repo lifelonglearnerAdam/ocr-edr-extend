@@ -15,7 +15,11 @@ import _bootstrap  # noqa: F401
 import yaml
 from PIL import Image
 
-from ocr_edr.native_table_repair import native_repair_inputs, verify_native_calls
+from ocr_edr.native_table_repair import (
+    blank_table_observation,
+    native_repair_inputs,
+    verify_native_calls,
+)
 from ocr_edr.native_tables import load_native_table_sources
 from ocr_edr.official_tables import load_official_table_normalizer, verify_official_table_sources
 from ocr_edr.qwen import QwenFormulaProposer
@@ -49,6 +53,12 @@ def main():
         "official-root",
     ]:
         parser.add_argument("--" + name, type=Path, required=True)
+    parser.add_argument(
+        "--conditions",
+        nargs="+",
+        choices=["all", "no_explicit_preservation"],
+        default=["all", "no_explicit_preservation"],
+    )
     args = parser.parse_args()
     cfg = yaml.safe_load(args.config.read_text())
     project = Path(__file__).resolve().parents[1]
@@ -59,6 +69,13 @@ def main():
         raise ValueError("Probe requires fully audited original native outputs")
     if sha256(native / "evaluation/evaluation.json") != audit["evaluation_sha256"]:
         raise ValueError("Original native evaluation changed")
+    if (
+        sha256(native / "evaluation/predictions.jsonl")
+        != audit["evidence_sha256"]["predictions.jsonl"]
+    ):
+        raise ValueError("Original frozen terminal outputs changed")
+    if len(set(args.conditions)) != len(args.conditions):
+        raise ValueError("Probe conditions must be distinct")
     inputs = native_repair_inputs(
         rows(native / "frozen-native-inputs/predictions.jsonl"),
         load_native_table_sources(args.dataset, role="model_dev"),
@@ -89,7 +106,7 @@ def main():
         "status": "running",
         "started_at": datetime.now(timezone.utc).isoformat(),
         "cases": 32,
-        "conditions": ["all", "no_explicit_preservation"],
+        "conditions": args.conditions,
         "completed_calls": {},
         "reference_access": "none",
         "calibration_locked_access": False,
@@ -195,6 +212,11 @@ def main():
                         save(out / "run.json", receipt)
                         print(arm, receipt["completed_calls"][arm], "/32", flush=True)
             # Compare only after this arm's complete output log is closed/frozen.
+            if (
+                sha256(native / "evaluation/predictions.jsonl")
+                != audit["evidence_sha256"]["predictions.jsonl"]
+            ):
+                raise ValueError("Original terminal outputs changed during generation")
             original_predictions = {
                 r["sample_id"]: r
                 for r in rows(native / "evaluation/predictions.jsonl")
@@ -202,9 +224,10 @@ def main():
             }
             paired = []
             for item, call, original_call in zip(inputs, generated, original_calls):
+                observation, execution = blank_table_observation(item, call)
                 final = adapt_table_call(
-                    item,
-                    call,
+                    observation,
+                    execution,
                     renderer=renderer.render,
                     max_new_tokens=192,
                     prompt_format="descriptive_schema",

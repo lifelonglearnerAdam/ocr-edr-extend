@@ -6,6 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 try:
     from ocr_edr.native_table_repair import (
+        blank_table_observation,
         native_model_identity,
         native_repair_inputs,
         verify_native_calls,
@@ -13,10 +14,55 @@ try:
 except ImportError:
     native_repair_inputs = verify_native_calls = None
     native_model_identity = None
+    blank_table_observation = None
 
 
 @unittest.skipUnless(importlib.util.find_spec("lxml"), "optional table parser")
 class NativeRepairIdentityTests(unittest.TestCase):
+    def test_blank_execution_binds_actual_image_without_weakening_original_source_guard(self):
+        self.assertTrue(callable(blank_table_observation))
+        source = {
+            "sample_id": "p1-native",
+            "family_id": "p1",
+            "source_image": "real.png",
+            "source_sha256": "a" * 64,
+            "prediction": "<table><tr><td>17</td></tr></table>",
+        }
+        call = {
+            **source,
+            "original_source_sha256": "a" * 64,
+            "intervention_image_sha256": "b" * 64,
+            "ordered_image_sha256": ["b" * 64],
+            "condition": "all",
+            "raw_output": '{"action":"stop"}',
+            "input_tokens": 1,
+            "output_tokens": 1,
+            "generation_seconds": 0.0,
+        }
+        observed, execution = blank_table_observation(source, call)
+        self.assertEqual(observed["source_sha256"], "b" * 64)
+        self.assertEqual(execution["original_source_sha256"], "a" * 64)
+        self.assertEqual(execution["ordered_image_sha256"], [observed["source_sha256"]])
+        self.assertEqual(call["source_sha256"], "a" * 64)
+        from ocr_edr.table_sft_screen import adapt_table_call
+
+        kwargs = {
+            "renderer": lambda markup: {},
+            "max_new_tokens": 192,
+            "prompt_format": "descriptive_schema",
+        }
+        with self.assertRaises(ValueError):
+            adapt_table_call(source, call, **kwargs)
+        result = adapt_table_call(observed, execution, **kwargs)
+        self.assertEqual(result["trace"][0]["contract"], "accepted_contract")
+        for change in [
+            {"original_source_sha256": "c" * 64},
+            {"ordered_image_sha256": ["a" * 64]},
+            {"prediction": "changed"},
+        ]:
+            with self.assertRaises(ValueError):
+                blank_table_observation(source, {**call, **change})
+
     def test_all_sources_retained_and_only_five_model_input_fields_emitted(self):
         self.assertTrue(callable(native_repair_inputs))
         sources = [{"family_id": "p1", "source_image": "one.png", "source_sha256": "a" * 64}]
