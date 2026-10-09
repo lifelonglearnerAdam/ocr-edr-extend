@@ -26,10 +26,18 @@ def parse_diagnosis(initial, raw):
         if value["error"] is not None or value["region"] is not None:
             raise ValueError("Valid verdict cannot name an error or region")
         return value
-    if value["verdict"] != "invalid" or value["error"] not in {"content", "extra", "structure"}:
+    if (
+        value["verdict"] != "invalid"
+        or not isinstance(value["error"], str)
+        or value["error"] not in {"content", "extra", "structure"}
+    ):
         raise ValueError("Unknown diagnosis verdict or error")
     region = value["region"]
-    if not isinstance(region, dict) or region.get("unit") not in {"cell", "row"}:
+    if (
+        not isinstance(region, dict)
+        or not isinstance(region.get("unit"), str)
+        or region["unit"] not in {"cell", "row"}
+    ):
         raise ValueError("Diagnosis region must name a current cell or row")
     fields = {"unit", "row", "cell"} if region["unit"] == "cell" else {"unit", "row"}
     if set(region) != fields or any(

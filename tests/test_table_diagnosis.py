@@ -78,6 +78,19 @@ class TableDiagnosisTests(unittest.TestCase):
         ]:
             with self.assertRaises(ValueError):
                 parse_diagnosis(TABLE, raw)
+        for field in ["error", "unit"]:
+            for wrong in [[], {}, None, 4]:
+                value = {
+                    "verdict": "invalid",
+                    "error": "content",
+                    "region": {"unit": "cell", "row": 1, "cell": 1},
+                }
+                if field == "error":
+                    value["error"] = wrong
+                else:
+                    value["region"]["unit"] = wrong
+                with self.subTest(field=field, wrong=wrong), self.assertRaises(ValueError):
+                    parse_diagnosis(TABLE, json.dumps(value))
 
     def test_displacement_is_deterministic_different_legal_region_and_preserves_error_verdict(self):
         self.assertTrue(callable(displace_region))
