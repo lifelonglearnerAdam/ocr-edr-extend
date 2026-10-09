@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T14:48:24.145919+00:00",
+  "updated_at": "2026-10-09T15:26:04.790897+00:00",
   "repository": "https://github.com/lifelonglearnerAdam/ocr-edr-extend",
   "goal_status": "active_incomplete",
   "table_screen": {
@@ -504,7 +504,7 @@
     "main_stats_sha256": "ec056bdd882f98e4413d71e0eddc85b5ec0d4a9184f410347685f871c32549db",
     "verified_completion_sha256": "2c7c9bb64abb7415abd1fa7b9cab940fd98122fd408530b6acec8deb6ae4588d",
     "senior_provenance_sha256": "527383e49732dd78a91d54e0b71204600d29d1e65575a25c4514c5846566aa7e",
-    "page_template_sha256": "f4e73769f7366b078927acfa99d4358aa0cc98a9f3a26b8fc7ee15b9499a46d0",
+    "page_template_sha256": "8d3ea7426757028291ce6af5e8a793c293a6b9458e79030f8535eb0426c3f652",
     "beginner_explanation_sha256": "e65088c19b2817fb7b2cf6efc0b621a872b8b3b9fec960873a8640968cdeb73d",
     "briefing_explanation_sha256": "329fbddcc4ef666a05955b32bfc8da34df5dd7bc5e9adf8924d716b0f45d0ea6"
   },
@@ -716,16 +716,20 @@
   },
   "diagnosis_component_progress": {
     "training_status": "running",
-    "observed_steps": 6,
+    "observed_steps": 199,
+    "stalled": false,
     "target_steps": 381,
-    "training_service": "inactive",
+    "training_service": "active",
     "pipeline_stage": "waiting_owned_training",
     "pipeline_status": "waiting_training",
     "train_documents": 127,
     "train_records": 406,
     "exposures": 1524,
     "quality_results": "pending_review",
-    "scope": "separate adapter; same base and weak controlled train sources"
+    "scope": "separate adapter; same base and weak controlled train sources",
+    "retry_after_interruption": true,
+    "discarded_original_steps": 6,
+    "discarded_original_exposures": 24
   },
   "source_evidence_probe": {
     "status": "completed",
