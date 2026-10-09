@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T14:21:36.758133+00:00",
+  "updated_at": "2026-10-09T14:31:16.554960+00:00",
   "repository": "https://github.com/lifelonglearnerAdam/ocr-edr-extend",
   "goal_status": "active_incomplete",
   "table_screen": {
@@ -719,8 +719,8 @@
     "observed_steps": 6,
     "target_steps": 381,
     "training_service": "active",
-    "pipeline_stage": "training",
-    "pipeline_status": "not_started",
+    "pipeline_stage": "waiting_owned_training",
+    "pipeline_status": "waiting_training",
     "train_documents": 127,
     "train_records": 406,
     "exposures": 1524,
