@@ -1,0 +1,10 @@
+{
+  "tests": 101,
+  "optional_integrations_skipped": 0,
+  "status": "passed",
+  "command": "OCR_EDR_TEST_CDM=1 OCR_EDR_TEST_TABLE=1 OCR_EDR_TEST_TECTONIC=1 .venv-pilot/bin/python -m unittest discover -s tests -q",
+  "log_sha256": "c4bc4c664113d1c76f9b750c088f664621117e166422731bb90f5b55226ac47e",
+  "ruff": "passed",
+  "black": "passed",
+  "model_cache_boundary_fix": "fail-before/pass-after recorded; external links and hash drift still rejected"
+}

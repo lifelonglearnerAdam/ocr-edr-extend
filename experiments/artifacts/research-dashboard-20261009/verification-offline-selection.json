@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-09T13:22:25.528Z",
+  "figures": 3,
+  "comparison_rows": 3,
+  "probe_rows": 2,
+  "offline_rows_not_duplicated": true,
+  "case_interaction": true,
+  "mobile_widths": {
+    "viewport": 390,
+    "document": 390
+  },
+  "console_errors": [],
+  "offline_saved_peer_condition": "Source-only",
+  "offline_saved_flow": "verifier",
+  "regression_reproduced_before_fix": true
+}

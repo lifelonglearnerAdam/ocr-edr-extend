@@ -1,0 +1,4 @@
+arm,variant,cases,source_groups,initial_mean_cdm,final_mean_cdm,mean_delta_cdm,initial_metric_matching,initial_metric_nonmatching,matching_regressions,nonmatching_fixed,preserve_metric_proxy,improved,degraded,changed
+unchanged_0,native_parser_prediction,32,32,0.899375,0.899375,0.0,21,11,0,0,1.0,0,0,0
+base,native_parser_prediction,32,32,0.899375,0.899375,0.0,21,11,0,0,1.0,0,0,1
+all,native_parser_prediction,32,32,0.899375,0.98990625,0.09053125,21,11,0,6,1.0,10,0,31

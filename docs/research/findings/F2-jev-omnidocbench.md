@@ -2,6 +2,8 @@
 
 # F2 — Jev 判定模型与 OmniDocBench 实验台
 
+> 2026-10-06 接口更正：实际读取的官方模型页明确 `jev-1.13.0` 为纯文本/结构化文本输入，不接受图片。Choice confidence是归一化pmax，不能直接等同最大概率。以下保留原始文献调研背景；Visual Jev的文献描述不能证明当前托管接口可用。当前设计及核查边界见 [JEV_INTERFACE_CHECK_20261006.md](../JEV_INTERFACE_CHECK_20261006.md)。
+
 **检索日**：2026-09-28
 
 ## Jev（TypeSafe 决策模型）

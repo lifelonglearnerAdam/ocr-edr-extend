@@ -1,0 +1,10 @@
+{
+  "available_train_images": 986122,
+  "train_label_lines": 1061791,
+  "minimum_index": 0,
+  "maximum_index": 1061790,
+  "image_indices_outside_labels": 0,
+  "nonblank_labels": 987289,
+  "card_advertised_total": 1061791,
+  "available_images_vs_card_difference": 75669
+}

@@ -1,0 +1,19 @@
+{
+  "named_parser": "lukas-blecher/LaTeX-OCR",
+  "records": 32,
+  "initial_core_cdm": 0.899375,
+  "initial_metric_matching": 21,
+  "initial_metric_nonmatching": 11,
+  "cap_hits": 0,
+  "empty_predictions": 0,
+  "measured_parser_seconds": 9.47266457500001,
+  "reference_access_during_parser_or_student": false,
+  "parser_predictions_were_not_student_training_data": true,
+  "sources_role": "previously inspected development; not locked hold-out documents",
+  "final_student_evaluation_status": "completed: 32 fixed source pairs, no output filtering",
+  "student_final_cdm": 0.98990625,
+  "native_full_fixes": 6,
+  "native_partial_improvements": 4,
+  "matching_regressions_by_metric": 0,
+  "scope": "already inspected 32-source development parser-shift; no locked benchmark transfer claim"
+}

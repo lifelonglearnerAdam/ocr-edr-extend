@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/bitsandbytes-foundation/bitsandbytes/0.48.1/docs/source/installation.mdx",
+    "accessed_at": "2026-10-07T12:43:42.020450+00:00",
+    "file": "bitsandbytes-installation.mdx",
+    "sha256": "2d20a28f3199289ef5bd671b271ef9f818d8e77792b4faaacdb182fb0e2862f6",
+    "bytes": 11173
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/peft/v0.17.1/src/peft/utils/other.py",
+    "accessed_at": "2026-10-07T12:43:49.840602+00:00",
+    "file": "peft-other.py",
+    "sha256": "9b0cdf3c607d1ffc679f17af2e8b977307b36857b8410bb06ce44bff719e0bdd",
+    "bytes": 58867
+  },
+  {
+    "url": "https://pypi.org/pypi/bitsandbytes/0.48.1/json",
+    "accessed_at": "2026-10-07T12:43:50.546169+00:00",
+    "file": "bitsandbytes-pypi.json",
+    "sha256": "bc3fdcd81e9f41f293010ae85fe2588e80f0b92eea618be527ac34c344991ce6",
+    "bytes": 13367
+  },
+  {
+    "url": "https://pypi.org/pypi/peft/0.17.1/json",
+    "accessed_at": "2026-10-07T12:43:51.681911+00:00",
+    "file": "peft-pypi.json",
+    "sha256": "33f7ff8eec4385dbc6c605357b729e16d2f22c186b75af1db9102121ee62de31",
+    "bytes": 16590
+  }
+]

@@ -1,0 +1,6 @@
+# Isolated CDM replay environment (Python 3.11+; recorded runs use 3.12).
+# Runtime also needs pdfLaTeX, ImageMagick 7 with PDF support, and Ghostscript.
+numpy==2.3.3
+scipy==1.16.2
+Pillow==11.3.0
+pylatexenc==2.10

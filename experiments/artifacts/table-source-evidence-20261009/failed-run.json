@@ -1,0 +1,68 @@
+{
+  "status": "failed",
+  "started_at": "2026-10-09T12:52:55.842651+00:00",
+  "cases": 32,
+  "conditions": [
+    "all",
+    "no_explicit_preservation"
+  ],
+  "completed_calls": {
+    "all": 32
+  },
+  "reference_access": "none",
+  "calibration_locked_access": false,
+  "model_receipt_sha256": "dd60552afec53b549fe0f95202a880f519c4082171bee4ead4f407f9f59a45bc",
+  "config_sha256": "beea51ef0e4d3027ac6e5aeb16dd507ff9712bc8fe2675754da8a36d20e4290e",
+  "protocol_sha256": "893689b9eadaa92eb03e92faa91d03f9095be0439cab2292c6213eb171261378",
+  "script_sha256": "5835913d4395990d36ebeb950ed05ef0fcc215cadf726c07ad0cf8c85554433a",
+  "native_prediction_sha256": "6bfe68cd225e3cac1f645849174209725936367b31fe8a91bf7a248c93ccd2f3",
+  "native_audit_sha256": "7db5250bf9387a2f981dba0dd6ca2eec85f48f1971f8f98ae087353fa6791e34",
+  "intervention": "all-white RGB PNG, same source width and height",
+  "scope": "post-hoc source sensitivity; no independent quality or untouched-source claim",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "bitsandbytes": "0.48.1",
+    "Pillow": "11.3.0"
+  },
+  "original_call_sha256": {
+    "all": "e2402a43b8476f3e8e17b8de486129a9f59f06c166dec4ba002d460fc11c8848"
+  },
+  "adapter_sha256": {
+    "all": {
+      "README.md": "e2fc947a14e7826dc02876b4091a3b3d8b6caf95bef2fbb004fd62ad26d1710a",
+      "adapter_config.json": "21efbe8a428b8676af049dc77312ff1f7526e0a40e4d20e0f67dbec3eb39af48",
+      "adapter_model.safetensors": "f77415304dd3c8016e2cf97741d2991159f40d7123d944460c4708f1dd29f4a1"
+    }
+  },
+  "official_source": {
+    "repository": "opendatalab/OmniDocBench",
+    "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "files": {
+      "src/metrics/table_metric.py": {
+        "git_blob_sha1": "705e294919bb1ff96cf1a69655b1267958a66407",
+        "sha256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e"
+      },
+      "src/core/preprocess/data_preprocess.py": {
+        "git_blob_sha1": "71f27dcbe9975e08303e138a250e4e6f5258c89b",
+        "sha256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd"
+      },
+      "src/core/preprocess/table_postprocess.py": {
+        "git_blob_sha1": "b00c37e0a7c44d21cb9b2fedae2fc69a64d61f59",
+        "sha256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762"
+      },
+      "src/core/preprocess/table_utils.py": {
+        "git_blob_sha1": "d91e64f33eb50d4fae66df64496705cffb494b06",
+        "sha256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731"
+      },
+      "src/core/preprocess/text_postprocess.py": {
+        "git_blob_sha1": "bb6c315f86ab66903159c2b10ee1a8f4d034acbb",
+        "sha256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29"
+      }
+    }
+  },
+  "error_type": "ValueError",
+  "error": "Frozen call input/evidence/condition mismatch",
+  "finished_at": "2026-10-09T12:53:17.693951+00:00"
+}

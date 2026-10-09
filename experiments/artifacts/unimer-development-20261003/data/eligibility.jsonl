@@ -1,0 +1,47 @@
+{"archive_path": "UniMER-Test/spe/0168216.png", "annotation_index": 168216, "split": "spe", "reason": "empty_or_over_200_characters"}
+{"archive_path": "UniMER-Test/spe/0088288.png", "annotation_index": 88288, "split": "spe", "reason": "unsupported_mathtext", "error_type": "ValueError"}
+{"archive_path": "UniMER-Test/spe/0121727.png", "annotation_index": 121727, "split": "spe", "reason": "unsupported_mathtext", "error_type": "ValueError"}
+{"archive_path": "UniMER-Test/spe/0002514.png", "annotation_index": 2514, "split": "spe", "reason": "empty_or_over_200_characters"}
+{"archive_path": "UniMER-Test/spe/0077315.png", "annotation_index": 77315, "split": "spe", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/spe/0202768.png", "annotation_index": 202768, "split": "spe", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/spe/0172029.png", "annotation_index": 172029, "split": "spe", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/spe/0054724.png", "annotation_index": 54724, "split": "spe", "reason": "selected", "family_id": "u001"}
+{"archive_path": "UniMER-Test/spe/0133125.png", "annotation_index": 133125, "split": "spe", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/spe/0182962.png", "annotation_index": 182962, "split": "spe", "reason": "selected", "family_id": "u002"}
+{"archive_path": "UniMER-Test/spe/0171421.png", "annotation_index": 171421, "split": "spe", "reason": "selected", "family_id": "u003"}
+{"archive_path": "UniMER-Test/spe/0178958.png", "annotation_index": 178958, "split": "spe", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/spe/0089092.png", "annotation_index": 89092, "split": "spe", "reason": "empty_or_over_200_characters"}
+{"archive_path": "UniMER-Test/spe/0214029.png", "annotation_index": 214029, "split": "spe", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/spe/0011896.png", "annotation_index": 11896, "split": "spe", "reason": "selected", "family_id": "u004"}
+{"archive_path": "UniMER-Test/spe/0042557.png", "annotation_index": 42557, "split": "spe", "reason": "selected", "family_id": "u005"}
+{"archive_path": "UniMER-Test/spe/0012109.png", "annotation_index": 12109, "split": "spe", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/spe/0138435.png", "annotation_index": 138435, "split": "spe", "reason": "selected", "family_id": "u006"}
+{"archive_path": "UniMER-Test/spe/0078507.png", "annotation_index": 78507, "split": "spe", "reason": "selected", "family_id": "u007"}
+{"archive_path": "UniMER-Test/spe/0119457.png", "annotation_index": 119457, "split": "spe", "reason": "empty_or_over_200_characters"}
+{"archive_path": "UniMER-Test/spe/0039753.png", "annotation_index": 39753, "split": "spe", "reason": "selected", "family_id": "u008"}
+{"archive_path": "UniMER-Test/sce/0000787.png", "annotation_index": 787, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0004273.png", "annotation_index": 4273, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0000596.png", "annotation_index": 596, "split": "sce", "reason": "selected", "family_id": "u009"}
+{"archive_path": "UniMER-Test/sce/0002433.png", "annotation_index": 2433, "split": "sce", "reason": "selected", "family_id": "u010"}
+{"archive_path": "UniMER-Test/sce/0004284.png", "annotation_index": 4284, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0000025.png", "annotation_index": 25, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0001238.png", "annotation_index": 1238, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0003747.png", "annotation_index": 3747, "split": "sce", "reason": "selected", "family_id": "u011"}
+{"archive_path": "UniMER-Test/sce/0001971.png", "annotation_index": 1971, "split": "sce", "reason": "unsupported_mathtext", "error_type": "ValueError"}
+{"archive_path": "UniMER-Test/sce/0005468.png", "annotation_index": 5468, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0005727.png", "annotation_index": 5727, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0006254.png", "annotation_index": 6254, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0005922.png", "annotation_index": 5922, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0005989.png", "annotation_index": 5989, "split": "sce", "reason": "selected", "family_id": "u012"}
+{"archive_path": "UniMER-Test/sce/0002147.png", "annotation_index": 2147, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0001777.png", "annotation_index": 1777, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0005413.png", "annotation_index": 5413, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0004858.png", "annotation_index": 4858, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0004119.png", "annotation_index": 4119, "split": "sce", "reason": "selected", "family_id": "u013"}
+{"archive_path": "UniMER-Test/sce/0004003.png", "annotation_index": 4003, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0002812.png", "annotation_index": 2812, "split": "sce", "reason": "selected", "family_id": "u014"}
+{"archive_path": "UniMER-Test/sce/0001945.png", "annotation_index": 1945, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0003268.png", "annotation_index": 3268, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0001524.png", "annotation_index": 1524, "split": "sce", "reason": "no_defined_single_symbol_perturbation"}
+{"archive_path": "UniMER-Test/sce/0005639.png", "annotation_index": 5639, "split": "sce", "reason": "selected", "family_id": "u015"}
+{"archive_path": "UniMER-Test/sce/0005951.png", "annotation_index": 5951, "split": "sce", "reason": "selected", "family_id": "u016"}

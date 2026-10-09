@@ -1,0 +1,58 @@
+{
+  "source_path_base": "sealed packet",
+  "documents": 8,
+  "final_only_sha256": "027b2cfa7be5b05606ef9b3960686ded6c4488dd859ea853430d77a410b5b082",
+  "trajectory_sha256": "4417b19ef63db4a9d7262f024c77b8806aba4191562ddc4f21f9ea2bef655d0e",
+  "matched_training_token_budget": false,
+  "student_training_executed": false,
+  "cases": [
+    {
+      "case_id": "t_2785cb44d917",
+      "source_sha256": "cecf99ab2245cc62ad5fd3ee8d1a59fc10d50e408df6c1ea671b1e064ce46250",
+      "initial_html_sha256": "a66f0fd526a8e7169cd1ff4589ce52a5669111aaa7614bbada17f1860adbac30",
+      "final_html_sha256": "a66f0fd526a8e7169cd1ff4589ce52a5669111aaa7614bbada17f1860adbac30"
+    },
+    {
+      "case_id": "t_31d42d213e8e",
+      "source_sha256": "f49b9155ca528ce289a3520694fc5d9c667532f59be61da6e5dadc66dca062d5",
+      "initial_html_sha256": "dd768a6bc02b3ba98845dc3f86b374fbf6245fd65225c2d6ec2f2f46d20544ea",
+      "final_html_sha256": "dd768a6bc02b3ba98845dc3f86b374fbf6245fd65225c2d6ec2f2f46d20544ea"
+    },
+    {
+      "case_id": "t_3ed5f2fa02ed",
+      "source_sha256": "602bd6affd080ba1f78696efdb40b23e2e735b2749e7b85b0dddf8e7070a940a",
+      "initial_html_sha256": "d0cdae58e3fd53c97c2d1611267b282425b46671b0066f92eb0598a309fb164b",
+      "final_html_sha256": "d0cdae58e3fd53c97c2d1611267b282425b46671b0066f92eb0598a309fb164b"
+    },
+    {
+      "case_id": "t_63332743fc90",
+      "source_sha256": "2c1575d4f0485daa2b8e541fba10a4f9cac5fcc442de86bd86108b83478c126c",
+      "initial_html_sha256": "9cef4923e6cd80b244e2bdfa268e56cd74b7f6b57e3b55f466b121926491b0a6",
+      "final_html_sha256": "da66f8827c7ec14881d5650749f3e138aee515ce40158682ebd5445fb03ea40d"
+    },
+    {
+      "case_id": "t_cd47af960194",
+      "source_sha256": "37710510c4dc05c0b214cf2c918ccecda05f48d8776d234845a735d71db71f2a",
+      "initial_html_sha256": "4a95bc653a06b6eaf1072f99805fbaa4070682b87a1592dbe752bdeb802d8a0a",
+      "final_html_sha256": "f8dd79dfffbb40ecbaf28caa1ee20c9f2820a0842d6d5453b458856d679cd1bd"
+    },
+    {
+      "case_id": "t_ce982e45d87b",
+      "source_sha256": "4d5fb36c884342e47333b331947a1c38cc5a4445d425e6e7c5fd0df98f406ce6",
+      "initial_html_sha256": "c3779adbae95a0a74476182c36c2fd9a26350758be3e5934b53d935eeb2ca2f4",
+      "final_html_sha256": "bd9c31700a3b2b239522e68edcaa1268288346792f449de97385a0ad307ad2c2"
+    },
+    {
+      "case_id": "t_eb8ea6f1cfe6",
+      "source_sha256": "28b8c4f324bababf831c4db0be4016f051d39eda3bfee3bb8445b39e85a32b58",
+      "initial_html_sha256": "2b0197700aa63ff10ed38f9e14aabe040bd71680af6dce98a7ab4371a0042e2d",
+      "final_html_sha256": "c0593d5531c39d744fb0e916c29f67e866a2b8ef25bda7c1dc457f44bec9c477"
+    },
+    {
+      "case_id": "t_ecbc2954c449",
+      "source_sha256": "a374ebce48acadb05a60641c439f7785716ac35965bbc3f2429ed82556a8617b",
+      "initial_html_sha256": "571c64205c2029a8eb45c932c1ec3a2fcf14f65351403794b674a402e5eefe07",
+      "final_html_sha256": "effa5b4f5ad76e24040a466a18cf6e864479a41c5142d1cea8d5d53044b17059"
+    }
+  ]
+}

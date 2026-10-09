@@ -1,0 +1,151 @@
+# Research registry: planned contrasts, not a claim that these runners exist.
+version: 20261006
+design: docs/research/INTEGRATED_RESEARCH_20261006.md
+claim_status: novelty_and_joint_effectiveness_unproven
+task_scope: [formula, table]
+student_target: Qwen/Qwen2-VL-2B-Instruct
+invariants:
+  references_in_policy_input: false
+  references_in_deployment_judge_input: false
+  fixed_full_input_coverage: true
+  inspected_pages_cannot_be_locked_tests: true
+  failures_stay_in_denominator: true
+  parser_and_modality_reports_separate: true
+  structural_legality_implies_correctness: false
+  metric_full_match_implies_source_correctness: false
+data_roles: [train, model_dev, gate_calibration, locked_evaluation]
+directions:
+  H1: structure_preserving_formula_and_table_repair
+  H2: budgeted_edit_render_stop_policy_learning
+  H3: independently_calibrated_text_jev_routing_on_visual_structural_evidence
+  H4: direct_answer_vs_verified_teacher_trajectory_distillation
+  H5: held_out_parser_transfer
+contrasts:
+  P0:
+    status: completed_single_seed_formula_development_screen
+    fixed: [base_model, seed, source_families, optimizer_steps, example_exposures, image_bounds]
+    arms: [base, direct_sft_all, direct_sft_no_explicit_preservation]
+    changed: [training_presence, explicit_preservation_targets]
+    disclosed_not_matched: [actual_token_counts, target_distribution]
+    recipe: configs/train/sft_formula_screen.yaml
+  P1:
+    status: planned
+    fixed: [student, source_groups, training_budget, inference_budget]
+    arms: [annotation_only_sft, controlled_errors_only_sft, native_errors_only_sft, mixed_sft]
+  P_table:
+    status: two_base_prompt_controls_completed_no_repairs_optimizer_pending
+    fixed: [base_model, seed, original_documents, optimizer_steps, document_exposures, image_bounds]
+    arms: [base, direct_sft_all, direct_sft_no_explicit_preservation]
+    recipe: configs/train/sft_table_screen.yaml
+    admission_policy: configs/train/table_admission_20261007.yaml
+    admitted_train: {documents: 127, records: 406}
+    model_dev: {documents: 32, records: 103}
+    optimizer_steps_per_arm: 381
+    exposures_per_document: 12
+    disclosed_not_matched: [actual_token_counts, repair_variant_exposures, target_distribution]
+    report: docs/research/TABLE_SFT_READINESS_20261007.md
+    base_result: docs/research/TABLE_BASE_RESULTS_20261007.md
+    base_executable_actions: 0
+    base_development_cases: 103
+    next_control: literal_json_examples_before_attributing_sft_gain_to_visual_repair
+    prompt_control_protocol: docs/research/TABLE_PROMPT_CONTROL_PROTOCOL_20261007.md
+    prompt_control_result: docs/research/TABLE_PROMPT_CONTROL_RESULTS_20261007.md
+    literal_base: {cases: 103, executable_actions: 103, stop_actions: 103, actual_edits: 0, full_fixes: 0}
+    training_source_prompt_smoke: {source_documents: 1, variants: 3, descriptive_valid: 0, literal_valid: 3, literal_stop_actions: 3, actual_edits: 0}
+  P_table_nf4:
+    status: completed_two_arms_full_development_and_posthoc_prompt_ablation
+    report: docs/research/TABLE_NF4_READINESS_RESULTS_20261007.md
+    protocol: docs/research/TABLE_NF4_SCREEN_PROTOCOL_20261007.md
+    recipe: configs/train/sft_table_nf4_screen_20261007.yaml
+    arms: [same_nf4_base, all, no_explicit_preservation]
+    fixed: [student_revision, seed, documents, document_exposures, optimizer_steps, inference_precision, prompt]
+    hardware: RTX_5070_Laptop_GPU_8GiB
+    precision: nf4_double_quant_bf16_matmul_fp32_nonquantized
+    loss_projection: supervised_positions_exact_masked_CE
+    inference_projection: last_position_only
+    optimizer_steps_per_arm: 381
+    exposures_per_document: 12
+    full_training_completed: true
+    full_evaluation_conditions: {model_conditions: 3, cases_each: 103, documents: 32}
+    result: docs/research/TABLE_NF4_RESULTS_20261009.md
+    prompt_followup: docs/research/TABLE_PROMPT_ABLATION_RESULTS_20261009.md
+    first_literal_result: {all_full_fixes: 0, all_regressions: 12, no_preservation_full_fixes: 0, no_preservation_regressions: 12}
+    descriptive_followup: {all_full_fixes: 31, all_regressions: 0, no_preservation_full_fixes: 48, no_preservation_regressions: 14}
+    descriptive_all_fix_scope: synthetic_extra_row_only
+    prompt_followup_post_hoc: true
+    completed_all_arm_steps: 381
+    analysis_protocol: docs/research/TABLE_NF4_ANALYSIS_PROTOCOL_20261007.md
+    recovery_protocol: docs/research/RESEARCH_RECOVERY_20261009.md
+    original_second_arm_external_interruption_steps: 62
+    original_interrupted_optimizer_exposures_retained: 248
+    independent_bf16_condition_retained: true
+    disclosed_not_matched: [supervised_token_counts, repair_variant_exposures]
+  D0:
+    status: interactive_teacher_train_pilot_collected_student_distillation_pending
+    fixed: [teacher_version, student, source_groups, training_token_budget]
+    arms: [annotation_targets, teacher_direct_answers, teacher_verified_trajectories, shuffled_process_control]
+    teacher_pilot_report: docs/research/INTERACTIVE_TEACHER_RESULTS_20261007.md
+    teacher_pilot: {train_documents: 12, native: 6, controlled: 6, sealed_episodes: 12, edit_attempts: 9, provisional_paired_documents: 8, review_required: 4}
+    current_views: same_final_answer_projection_vs_its_observed_trajectory
+    separately_elicited_direct_teacher_condition: false
+    immutable_teacher_snapshot_available: false
+    independent_visual_teacher_labels_available: false
+    matched_training_token_budget: false
+    student_distillation_executed: false
+  E0:
+    status: planned_after_functioning_sft_proposals
+    fixed: [proposer_checkpoint, candidates, generation_budget, editor]
+    arms: [source_only, source_and_render, fresh_loop, stale_evidence_control]
+  E1:
+    status: planned_with_native_edit_reachability_audit
+    fixed: [checkpoint, cases, budgets, acceptance]
+    arms: [bounded_patch, global_rewrite]
+  V0:
+    status: awaiting_independent_acceptance_labels_and_jev_interface_verification
+    fixed: [candidate_pool, all_generation_costs, calibration_source_groups]
+    arms: [always_accept, syntax_only, frozen_vlm, jev_only, jev_structural_conflict, jev_structural_escalation, offline_oracle_bound]
+    jev_direct_image_support: false
+    jev_input: provenance_tagged_structured_evidence_only
+    mandatory_extra_comparator: fixed_rules_on_the_same_structured_evidence
+    include_visual_evidence_generation_cost: true
+  R0:
+    status: awaiting_sft_baseline_and_reward_audit
+    fixed: [sft_initialization, source_groups, additional_training_budget, interaction_budget]
+    arms: [sft_continued, grpo, grpo_no_good_branch, grpo_no_cost, grpo_metric_only_reward]
+  R1:
+    status: planned_after_R0
+    fixed: [policy_checkpoint, acceptance, render_call_budget]
+    arms: [fixed_render_schedule, random_schedule, learned_information_request]
+  T0:
+    status: second_parser_development_completed_untouched_transfer_pending
+    identified_development_parsers: [Norm/nougat-latex-base, lukas-blecher/LaTeX-OCR]
+    frozen_student_second_parser_result: docs/research/SECOND_PARSER_RESULTS_20261007.md
+    limitations: [same_previously_inspected_sources, original_document_ids_unavailable, unknown_pretraining_overlap, single_seed]
+    fixed: [frozen_pipeline, decision_thresholds, budgets]
+    arms: [seen_parser, entirely_held_out_parser]
+    minimum_identified_parsers: 2
+  T1:
+    status: native_table_development_completed_with_explicit_coordinate_compatibility_sft_pending
+    prepared_table_roles: {train: 128, model_dev: 32, gate_calibration: 32, locked_evaluation: 64}
+    table_role_unit: PMC_article_one_table_per_article
+    flagged_training_annotation_family: p0002
+    published_splits_share_original_articles: true
+    identified_native_table_parser: PaddleOCR_English_det_rec_SLANet_e218c0a
+    native_table_report: docs/research/NATIVE_TABLE_RESULTS_20261007.md
+    coordinate_compatibility_is_not_student_gain: true
+    normalized_metric_full_match_is_not_raw_render_fidelity: true
+    fixed: [family_partitions, compute_reporting]
+    arms: [formula, table, mixed_modalities]
+metrics:
+  proposal: [format_validity, changed_scope_correctness, offline_repair_opportunity]
+  selection: [accepted_good_proposals, accepted_harmful_proposals, rejected_good_proposals, coverage, escalation]
+  deployed: [all_input_quality_delta, bad_fixes, good_regressions, preservation, verified_visual_consistency]
+  quality_metrics: [official_core_CDM_with_scope_disclosure, official_TEDS, official_TEDS_S, blinded_source_audit]
+  cost: [input_tokens, output_tokens, render_calls, judge_calls, turns, generation_time, end_to_end_time]
+statistical_plan:
+  resampling_unit: original_document_or_page_if_available_else_source_image_with_limitation
+  paired_bootstrap: true
+  multi_seed_confirmation_after_screen: 3
+  risk_weight_sensitivity: [1, 2, 4]
+  n32_is_not_1percent_risk_certificate: true
+  threshold_search_requires_independent_confirmation_or_valid_correction: true

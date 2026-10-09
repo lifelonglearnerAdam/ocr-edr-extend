@@ -1,0 +1,34 @@
+{
+  "target_provenance": "published annotation controlled targets, not native or teacher trajectories",
+  "optimizer_steps": 0,
+  "calibration_or_locked_targets_loaded": false,
+  "roles": {
+    "train": {
+      "records": 410,
+      "documents": 128,
+      "variants": {
+        "preservation": 128,
+        "cell_perturbation": 128,
+        "extra_row": 128,
+        "span_perturbation": 26
+      },
+      "sha256": "3e2d0de39e8762663b8d18fccf93b2ae1cf8cab85ad99565ac29d5bdef941e7c"
+    },
+    "model_dev": {
+      "records": 103,
+      "documents": 32,
+      "variants": {
+        "preservation": 32,
+        "cell_perturbation": 32,
+        "extra_row": 32,
+        "span_perturbation": 7
+      },
+      "sha256": "e7c32d34765b7e540820d7b1f199a679643edb89f9910be6124eb22b2715ad03"
+    }
+  },
+  "source_sha256": {
+    "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/scripts/assemble_table_supervision.py": "a5e480d31f732b59048553f96e33e67435def2b45f057b153284f3138aa1dc64",
+    "src/ocr_edr/table_supervision.py": "0e3ed2feb09ab7b620d6ea58ff0359a349e09a5b305ad81801119d47eefadd15",
+    "src/ocr_edr/table_pilot.py": "58547685a9168568f50828b17f5da1c7cf752f9b32e82578cad7615f543944f3"
+  }
+}

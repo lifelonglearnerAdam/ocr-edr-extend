@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "verified_at": "2026-10-09T01:51:05.802475+00:00",
+  "scientific_outputs_verified": true,
+  "controller_original_status": "failed",
+  "controller_finalization_issue": "run.json versus report.json mismatch; independently verified without rerunning successful stages",
+  "original_controller_receipt_modified": false,
+  "evidence_sha256": {
+    "controller": "db24f705995763a2520659abc1e8765523c29e30e7c5c3cfd9c620e7321a9279",
+    "training_all": "e5e814547a985b9e57c7e4073721b5039c5eeffd7fa8490a8f57275724e38fa8",
+    "reload_all": "eab302a2e8ec0d8cdcc08746c4b37bfcbbc3713920f61c1188ca7b6e0209c4e1",
+    "training_no_explicit_preservation": "a5d6b539ff760ad1f189a8616d0c599ef8900c90f3edca4dad97091c7de3dd5e",
+    "reload_no_explicit_preservation": "738c16c34a8f393b441ec3fbc321092429943cd910d0d7969d779594798a143b",
+    "inference_base": "aea67be028c3340e18b0228c9bf2d21fc328f26c43e598a0404458453b4ca534",
+    "inference_all": "564ce2c13bf5ce62f3f22518423ba7e99df31a533f610473d6d9d9274c0199e3",
+    "inference_no_explicit_preservation": "d579976a58de0f74041eaa71b7e2151bde5258e90666708e90ef4ae4e7c96ef9",
+    "evaluation": "1614833581ffe4f72c942014dc8d8a1bb8de53bba14374744c0f9ae027ecd573",
+    "statistics_report": "ec056bdd882f98e4413d71e0eddc85b5ec0d4a9184f410347685f871c32549db"
+  },
+  "verification_source_sha256": "34dc7aa15f297f51d0107ec66313964317df0d91b47dbdf8038710163d66831e",
+  "study_scope": "single-seed development, not full five-direction goal completion"
+}

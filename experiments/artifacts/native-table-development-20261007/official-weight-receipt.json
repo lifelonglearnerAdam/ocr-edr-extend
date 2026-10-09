@@ -1,0 +1,92 @@
+{
+  "status": "downloaded",
+  "source_revision": "e218c0a35fbcb5085ab3527931b2d8d08f8f0292",
+  "url_selection": "English PubTabNet evaluation combination in pinned official table README",
+  "upstream_published_sha256": null,
+  "identity_scope": "hashes of retrieved bytes from official URLs; URLs may be mutable",
+  "assets": [
+    {
+      "url": "https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar",
+      "retrieved_at": "2026-10-07T08:56:42.942378+00:00",
+      "archive": "en_ppocr_mobile_v2.0_table_det_infer.tar",
+      "bytes": 5001216,
+      "sha256": "ee45ac8b78668b48d50cc90433caa67f2d29d0521ddc70cef415b68dbda7d88b",
+      "files": {
+        "._en_ppocr_mobile_v2.0_table_det_infer": {
+          "bytes": 223,
+          "sha256": "5a5958045e8248355ef4055af4bc57ad9b0820ef38c1f426fede7af3e97a502c"
+        },
+        "en_ppocr_mobile_v2.0_table_det_infer/._inference.pdiparams.info": {
+          "bytes": 644,
+          "sha256": "e2b2a58d0c0f3bf75f7751f72290194cef32b4fa74d309a0a1408f44fbb96e9e"
+        },
+        "en_ppocr_mobile_v2.0_table_det_infer/inference.pdiparams.info": {
+          "bytes": 28012,
+          "sha256": "a63525ab42e9f8d6ea2ff36d8d1c489981afd160744f7288bf9fcf4c33ab318f"
+        },
+        "en_ppocr_mobile_v2.0_table_det_infer/._inference.pdmodel": {
+          "bytes": 642,
+          "sha256": "d0debcee384a0f6bf8799d83e980d282e0ed83e2e7e8fd6d91eee5bcf2a9eab0"
+        },
+        "en_ppocr_mobile_v2.0_table_det_infer/inference.pdmodel": {
+          "bytes": 1149323,
+          "sha256": "ada221c26228dfdef86248e3e9b1f2de0d3e441ab50c5179ccb5f5de06c406f8"
+        },
+        "en_ppocr_mobile_v2.0_table_det_infer/._inference.pdiparams": {
+          "bytes": 223,
+          "sha256": "5a5958045e8248355ef4055af4bc57ad9b0820ef38c1f426fede7af3e97a502c"
+        },
+        "en_ppocr_mobile_v2.0_table_det_infer/inference.pdiparams": {
+          "bytes": 3815364,
+          "sha256": "76358447d96c22eae28c287021d8f83d1da7282f1044ddcc7a2c412bb9b60569"
+        }
+      }
+    },
+    {
+      "url": "https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar",
+      "retrieved_at": "2026-10-07T08:56:45.875039+00:00",
+      "archive": "en_ppocr_mobile_v2.0_table_rec_infer.tar",
+      "bytes": 7220736,
+      "sha256": "375184e6340c35758937052a2f7c2704e1519ba05d7b572c7e151de3e9ae8f4c",
+      "files": {
+        "en_ppocr_mobile_v2.0_table_rec_infer/inference.pdiparams.info": {
+          "bytes": 26977,
+          "sha256": "dcba860b5e3be1cd3ea52d3713d27d53a28c19ca52602f226d7177de8ef60f87"
+        },
+        "en_ppocr_mobile_v2.0_table_rec_infer/inference.pdmodel": {
+          "bytes": 1139573,
+          "sha256": "ecb6c85f71225a3cc1eb339639c058eae8041e92c01cc601989a9cb8659f223b"
+        },
+        "en_ppocr_mobile_v2.0_table_rec_infer/inference.pdiparams": {
+          "bytes": 6050778,
+          "sha256": "d0c6e6e81789e6e0420cd806d5b98c8521fac5522aab32f709bee18b79074e4b"
+        }
+      }
+    },
+    {
+      "url": "https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/paddle3.0b2/en_ppstructure_mobile_v2.0_SLANet_infer.tar",
+      "retrieved_at": "2026-10-07T08:56:48.291274+00:00",
+      "archive": "en_ppstructure_mobile_v2.0_SLANet_infer.tar",
+      "bytes": 7976960,
+      "sha256": "f1768f59180b3e0bcc098a4b8ba9a76ad361327b64c2de2f5cfe7c28ad5ee22e",
+      "files": {
+        "en_ppstructure_mobile_v2.0_SLANet_infer/inference.pdmodel": {
+          "bytes": 353488,
+          "sha256": "a968b59f14284ef84563be1e4aa945ee076451137041c8dd604c58b196938352"
+        },
+        "en_ppstructure_mobile_v2.0_SLANet_infer/inference.pdiparams": {
+          "bytes": 7580402,
+          "sha256": "41c5587892b65faeafffaf1a0dc08dff154f21454eb254a574073a85c33a9f75"
+        },
+        "en_ppstructure_mobile_v2.0_SLANet_infer/inference.yml": {
+          "bytes": 1287,
+          "sha256": "7a2bcf9c7f0be63a19aac7bd83b975517e3947742bd0a16445ff3eb816b17c64"
+        },
+        "en_ppstructure_mobile_v2.0_SLANet_infer/inference.pdiparams.info": {
+          "bytes": 35261,
+          "sha256": "57e0db4e2ec5332848284b2e1244adec9bcd9aab65ef6072299ecc7deea11243"
+        }
+      }
+    }
+  ]
+}

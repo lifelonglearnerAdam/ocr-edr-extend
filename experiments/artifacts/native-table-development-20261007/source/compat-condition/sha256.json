@@ -1,0 +1,7 @@
+{
+  "scripts/run_native_table_baseline.py": "965e8944d1dc8eb14151a6bba5d3600dc1de5708f3ddbdb8ed36d06ba3ba7136",
+  "scripts/evaluate_native_table_baseline.py": "d68fdaad91691d03ed06a10fc625082f44e6f341605ea6acde4038e5289743c0",
+  "src/ocr_edr/native_tables.py": "927a6b8168eb7cde7b0ffbc62dd7a2df09ba881cd30c10350e15393d4cf213bd",
+  "configs/eval/native_ppstructure_compat_20261007.yaml": "2a8c5aa34c8ce661a8a33cf6530d849a079ce5160b5a41c9433933bb0d24fec5",
+  "docs/research/NATIVE_TABLE_COORDINATE_ADDENDUM_20261007.md": "cae3d52a38ae6df24866115ab54f5094fd9d0f9c0d3a15ad1821c81155024ff1"
+}

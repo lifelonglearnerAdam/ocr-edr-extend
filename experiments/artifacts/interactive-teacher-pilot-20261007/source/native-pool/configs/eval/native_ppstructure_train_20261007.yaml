@@ -1,0 +1,35 @@
+study: native_ppstructure_admitted_train_pool_20261007
+author_revision: e218c0a35fbcb5085ab3527931b2d8d08f8f0292
+expected_sources: 127
+seed: 20261007
+models:
+  det: en_ppocr_mobile_v2.0_table_det_infer
+  rec: en_ppocr_mobile_v2.0_table_rec_infer
+  table: en_ppstructure_mobile_v2.0_SLANet_infer
+options:
+  use_gpu: false
+  use_onnx: false
+  enable_mkldnn: true
+  cpu_threads: 4
+  show_log: false
+  table_algorithm: SLANet
+  table_max_len: 488
+  merge_no_span_structure: true
+  det_limit_side_len: 736
+  det_limit_type: min
+  rec_image_shape: 3,32,320
+  rec_algorithm: SVTR_LCNet
+  use_space_char: true
+  rec_batch_num: 6
+character_dictionaries:
+  rec_char_dict_path: ppocr/utils/dict/table_dict.txt
+  table_char_dict_path: ppocr/utils/dict/table_structure_dict.txt
+scope:
+  dataset_role: train
+  references_in_inference: false
+  ground_truth_boxes_in_inference: false
+  retries_per_source: 0
+  parser_unseen_source_claim: false
+  original_reference_is_weak_supervision: true
+box_decode: original_frame_compatibility
+admission_sha256: 6a65f68a9bfedd6d61a4a8677bc950494de7040db3971ddf02cdbd83f2dfade3

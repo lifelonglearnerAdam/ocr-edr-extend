@@ -1,0 +1,14 @@
+{
+  "status": "comparison_recovered",
+  "verified_at": "2026-10-09T13:03:02.732146+00:00",
+  "cases": 32,
+  "new_model_calls": 0,
+  "failed_receipt_sha256": "3e2d6a48cd6d7b6f510284a99a48e9372257e83c6784aff873a17f40aaecd119",
+  "original_script_sha256": "5835913d4395990d36ebeb950ed05ef0fcc215cadf726c07ad0cf8c85554433a",
+  "saved_calls_sha256": "e786efc540fb544f4c5f168f5109b0f0f020aab201e6b8a2a0cecf36dec7744f",
+  "comparison_sha256": "4d0e66b5a3439427ba322bdca7c84aa02d6097a00a111ea5ed403cf0686d832a",
+  "recovery_script_sha256": "f8c73752d35ac995217ff3571be8da6776b54b0b9572f6639b0df07a99c06f8e",
+  "source_projection_sha256": "1ade2200a5ec18ad72acb8734c9d145105104fa7fa5dd5512092b487bf71f2a2",
+  "original_receipts_and_calls_modified": false,
+  "native_predictions_sha256": "bd9f8579f8614e1642c77ef815ce6040bc84fe068bc2cf2a8f1136d2fb2a970e"
+}

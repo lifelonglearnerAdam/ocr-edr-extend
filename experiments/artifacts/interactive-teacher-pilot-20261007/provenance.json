@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-10-07T12:17:29.715993+00:00",
+  "publication_scope": "hashes, numeric results, sanitized events and exact executed source snapshots; raw images/HTML/teacher decisions are local",
+  "cohort_seal_sha256": "bcac83b834301467bd8ec189d46ed682521c86ab220a92ac46f6983558a84b5d",
+  "original_files_sha256": {
+    "packet": "6980f6de2ea0077840dd029844855e5bd8204d0b9eb10443d55177a772d15923",
+    "native_pool_run": "5ac3c7e096c13ed2d3c9fb523120a831ab8d1f570a98a798f5a39140e5fb262e",
+    "native_pool_predictions": "84d5d3ba4ac1a8a3526ba53180e2fa804c82824169bb96416e731494c8b19e8f",
+    "final_audit_run": "7325058b4c8c0fd9334c0f6afbd7c755b4626960cea45411d95085cb21c7a60e",
+    "full_episode_export": "f1b190e9783c2516b3699b754e881e7c7f84b39a7f83c024737b070c6a747755",
+    "review_queue": "ff31e639cd8c2bbf8542ff4b84d72b3c9a1dffd3643ed6e0378b6695eb57f653"
+  },
+  "teacher_model_label": "gpt-6-astra",
+  "teacher_effort_label": "max",
+  "immutable_teacher_snapshot_available": false,
+  "teacher_tokens": null,
+  "teacher_cost": null,
+  "native_pool_sources": 127,
+  "native_pool_pipeline_seconds": 347.04675179719925,
+  "local_paths_redacted": true
+}

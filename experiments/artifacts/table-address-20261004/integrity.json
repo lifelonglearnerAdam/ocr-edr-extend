@@ -1,0 +1,254 @@
+{
+  "source_revision": "be7344741e680ed5be1dcad7021339221874989e",
+  "source_dirty": false,
+  "cases": 14,
+  "calls": 28,
+  "rows": 42,
+  "call_order_and_manifest_verified": true,
+  "all_input_and_source_hashes_verified": true,
+  "all_applied_actions_replayed": true,
+  "reference_hash_unchanged": true,
+  "original_baseline_comparisons": [
+    {
+      "sample_id": "d001",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d002",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d003",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d004",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d005",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d006",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d007",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d008",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d009",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d010",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d011",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d012",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d013",
+      "matched": true,
+      "different_fields": []
+    },
+    {
+      "sample_id": "d014",
+      "matched": true,
+      "different_fields": []
+    }
+  ],
+  "original_baseline_matches": 14,
+  "per_call_verification": [
+    {
+      "sample_id": "d001",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d001",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d002",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d002",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d003",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d003",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d004",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d004",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d005",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d005",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d006",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d006",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d007",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d007",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d008",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d008",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d009",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d009",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d010",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d010",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d011",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d011",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d012",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d012",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d013",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d013",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d014",
+      "arm": "source_only_patch",
+      "hashes_match": true,
+      "action_replay_matches": true
+    },
+    {
+      "sample_id": "d014",
+      "arm": "source_only_patch_indexed",
+      "hashes_match": true,
+      "action_replay_matches": true
+    }
+  ]
+}

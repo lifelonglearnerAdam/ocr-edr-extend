@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-10-07T12:17:29.715656+00:00",
+  "full_tests": 135,
+  "optional_skips": 0,
+  "integration_flags": [
+    "OCR_EDR_TEST_TABLE=1",
+    "OCR_EDR_TEST_TECTONIC=1",
+    "OCR_EDR_TEST_CDM=1"
+  ],
+  "test_log_sha256": "4ffc7bfef41a8ec6d2fc53e9beb76d3d406a2b14719cd99f5a2d4c56fe39f1c4",
+  "ruff": "passed on src scripts tests",
+  "black": "96 files passed",
+  "read_only_code_review": "no blocking findings after prompt-freeze interface repair; not independent visual judging",
+  "teacher_related_tests": 11,
+  "teacher_episodes_replayed": 12,
+  "initial_render_reproduced": 12,
+  "successful_update_render_reproduced": 9,
+  "teacher_generation_reference_access": "no cohort reference access reported before seal",
+  "independent_visual_judge": false,
+  "student_optimizer_steps": 0,
+  "frozen_packet_files": 222,
+  "private_raw_artifacts_published": false,
+  "core_only_tests": {
+    "discovered": 135,
+    "skipped_optional": 45,
+    "result": "passed",
+    "log_sha256": "dd3add2b9a402a94e05787831d34a8e21d15ebea682d4c3c1e30e8585005c416"
+  }
+}

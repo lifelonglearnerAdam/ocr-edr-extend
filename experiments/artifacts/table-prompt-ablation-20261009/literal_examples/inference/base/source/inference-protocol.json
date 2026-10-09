@@ -1,0 +1,15 @@
+{
+  "study": "table_nf4_prompt_ablation_20261009",
+  "training_config_sha256": "beea51ef0e4d3027ac6e5aeb16dd507ff9712bc8fe2675754da8a36d20e4290e",
+  "prompt_formats": ["literal_examples", "descriptive_schema"],
+  "conditions": ["base", "all", "no_explicit_preservation"],
+  "cases": 103,
+  "documents": 32,
+  "max_new_tokens": 192,
+  "do_sample": false,
+  "post_hoc_exploratory": true,
+  "adapter_model_sha256": {
+    "all": "f77415304dd3c8016e2cf97741d2991159f40d7123d944460c4708f1dd29f4a1",
+    "no_explicit_preservation": "943d6b55689bedffe29e7724b9d5fcf08f9193bb7667e5fdbe36347ccd30c2dc"
+  }
+}

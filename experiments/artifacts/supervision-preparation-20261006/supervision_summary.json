@@ -1,0 +1,54 @@
+{
+  "new_model_calls": 160,
+  "training_steps": 0,
+  "weights_changed": false,
+  "splits": {
+    "train": {
+      "sources": 128,
+      "sft_examples": 384,
+      "variants": {
+        "preservation": 128,
+        "controlled_error": 128,
+        "native_parser_prediction": 128
+      },
+      "native_records": 128,
+      "native_empty_outputs": 0,
+      "native_length_cap_hits": 0,
+      "native_whitespace_key_matches": 59,
+      "native_whitespace_key_nonmatches": 69,
+      "native_generation_seconds": 105.7559625259928,
+      "native_output_tokens": 4981,
+      "recognizer_input_sha256": "48bda34b58711c09ecd6600fe5e34bfb30185db11516573c5d8b94e0d5cac22c",
+      "recognizer_predictions_sha256": "e14d9550f37189ea37aa89371f4deb7f7e206a9e489583cd7d8b2824a0cdcdb2",
+      "sft_sha256": "71b7e76f69bfe10bc3585f30a188b271b5bb36a2e707b7d0183052055b6a9703"
+    },
+    "dev": {
+      "sources": 32,
+      "sft_examples": 96,
+      "variants": {
+        "preservation": 32,
+        "controlled_error": 32,
+        "native_parser_prediction": 32
+      },
+      "native_records": 32,
+      "native_empty_outputs": 0,
+      "native_length_cap_hits": 0,
+      "native_whitespace_key_matches": 21,
+      "native_whitespace_key_nonmatches": 11,
+      "native_generation_seconds": 31.78924425599689,
+      "native_output_tokens": 1497,
+      "recognizer_input_sha256": "f61ba702bcc17d6ad54af3190422a7b0b2d30f1f1b5a5bdd066f2d33d98e166d",
+      "recognizer_predictions_sha256": "d878f11ed6ecb1113295f431176060432cb19c49820b4836ed787ac0f70f2a13",
+      "sft_sha256": "75e7c54015bcd60441b874258677c04eb136671da217ef3e917d9a5cf66cbbb4"
+    }
+  },
+  "model": "Norm/nougat-latex-base",
+  "model_revision": "6c6f2afe62ae51d57d0621ea9f2e11e02fb8385a",
+  "processor_revision": "d735d3a31bfd0cd48a020e01c5233a9154c6d4c2",
+  "reference_access_during_inference": "none",
+  "model_outputs_used_for_selection": false,
+  "supervision_assembly_script_sha256": "c8c4ad1790849d2432b8e55ec12e24ca8af6cbff7c8788fa0f4feb22fcd47507",
+  "native_match_metric": "whitespace-removed string equality only; not visual correctness, CDM or TEDS",
+  "training_contract": "assistant target tokens only; dev records excluded from optimizer updates; trainer not executed",
+  "targets_source_audited": "fixed first eight sources per split inspected; not all annotations validated"
+}

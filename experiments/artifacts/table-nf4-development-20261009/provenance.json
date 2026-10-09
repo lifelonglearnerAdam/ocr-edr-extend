@@ -1,0 +1,23 @@
+{
+  "archived_at": "2026-10-09T10:28:51.342151+00:00",
+  "complete_training_steps_per_arm": 381,
+  "inference_calls_per_arm": 103,
+  "documents": 32,
+  "cases_per_arm": 103,
+  "original_run_hashes": {
+    "evaluation": "1614833581ffe4f72c942014dc8d8a1bb8de53bba14374744c0f9ae027ecd573",
+    "evaluation_content": "06184a38ebe2c9647e641f768e4f9d223f8cb8ab4024eceda24fae22541c9a6a",
+    "predictions": "0c4d25f034a2afcc0611ed48ce2d432d3f28c9d52a74f34d71a0b8025636098f",
+    "statistics": "ec056bdd882f98e4413d71e0eddc85b5ec0d4a9184f410347685f871c32549db",
+    "source_audit": "11eb5f53618bb30ab6f530a6581119bc9afe8f142ed2fa3c0badbef0873e1bd3",
+    "completion": "2c7c9bb64abb7415abd1fa7b9cab940fd98122fd408530b6acec8deb6ae4588d"
+  },
+  "source_audit_family_count": 23,
+  "source_audit_scope": "all changed sources, assistant post-hoc review, not independent gold",
+  "raw_images_html_targets_weights_published": false,
+  "known_controller_receipt_failure_separately_verified": true,
+  "discarded_interrupted_second_steps": 62,
+  "discarded_interrupted_exposures": 248,
+  "discarded_inner_loop_training_seconds": 334.8921471599997,
+  "goal_complete": false
+}

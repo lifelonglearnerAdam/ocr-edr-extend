@@ -1,0 +1,40 @@
+# 共享研究进展页
+
+在线地址：<https://lifelonglearnerAdam.github.io/ocr-edr-extend/>。
+
+`index.html`是可离线打开的单文件报告，包含内嵌数据和已核对图表，无外部字体/JS依赖。`research-data.json`保存公开数值快照；`senior-provenance.json`标记学长材料来源、转录数字和未独立复现的边界。
+
+更新流程：
+
+```bash
+.venv-pilot/bin/python scripts/update_research_dashboard.py
+.venv-pilot/bin/python scripts/build_research_dashboard.py
+```
+
+只有完整且hash相符的实验进入成果数字，运行进度来自最近读取的阶段回执。已发布页面每60秒检查同目录JSON快照是否更新；本地证据变化后生成/提交快照，GitHub Pages workflow自动部署。它不是浏览器直接连接训练GPU，离线下载版保留对应时间的快照。
+
+当前用户已明确授权及时上传更新，可启用本地观察器：
+
+```bash
+.venv-pilot/bin/python scripts/watch_research_dashboard.py \
+  --publish --interval 60 \
+  --receipt experiments/runs/research-dashboard-20261009/watcher.json
+```
+
+观察器只提交生成的HTML/JSON，不携带其他已暂存文件；没有证据/模板变化时不制造时间戳提交。推送冲突或验证失败会停并保留回执，不force-push。新增实验/学长材料须先完成來源核对、协议与输入绑定，再接入更新器；原始失败、限制和归属均保留。
+
+页面按“几分钟结论 / 模块与实验详细解释 / 证据复现”三个层次组织，包含指标术语、表格原负结果、固定checkpoint提示消融、公式/原生parser/教师记录及H1–H5路线。学长核验百分比与修复TEDS不直接比较，原PDF私人Windows路径不分发。
+
+## 面向科研初学者的具体解释
+
+2026-10-09新增 `beginner.fragment.html`，包含实际终端任务、四个冻结样本的源内容/候选/动作/结果、七步实验过程与常见疑问。`walkthrough-data.json` 和 `native-walkthrough-data.json` 分别绑定受控和原生评估，更新器核对每例动作、文档、分数及输入/输出hash；无法用一份自报hash伪造案例成绩。新原生汇总还核对全部32源×4条件和三组原调用/adapter。下载后的HTML保留图表与案例交互；网页每60秒检查已发布数据，GitHub Pages发布有延迟，不等于直接流式读取GPU。
+
+页面另有三幅HTML流程／对照图：已执行的真实失败路径、学长核验与本项目修复的连接蓝图（状态明确）、完整受控与原生结果表；源图/白图探针的动作比较同步显示。模板与解释fragment的hash进入更新快照，因此仅解释图表更新也会触发网页的版本刷新。
+
+## 当前Linux自动更新服务
+
+本机已安装并启用用户级 `ocr-edr-research-dashboard.service`，工作目录为当前ext4研究副本；终端关闭不影响其运行，用户会话在线时每60秒检查已支持实验与页面模板。只在内容变化时提交并推送生成的两个文件；其他暂存工作或非快进push会拒绝，不覆盖协作者内容。本站再每60秒检查已发布版本；GitHub Pages构建仍有发布延迟。
+
+可用 `systemctl --user status ocr-edr-research-dashboard.service` 查看、`journalctl --user -u ocr-edr-research-dashboard.service` 查日志、`systemctl --user stop ocr-edr-research-dashboard.service` 停止。可移植配置在 `configs/systemd/ocr-edr-research-dashboard.service`；它不包含认证材料。原nohup观察器在宿主执行会话结束后退出，其历史记录保留；新用户服务另写运行回执。
+
+诊断训练发生过系统休眠后的停滞；进度板现同时显示新运行与原6步/24暴露中断，运行回执通过显式恢复指向并核对hash，不能拼接旧新步数。服务active但optimizer超过5分钟未更新会标记停滞，不能显示为持续推进。当前重跑、后续诊断/修复服务只在GPU任务期间使用idle:sleep抑制，结束释放。

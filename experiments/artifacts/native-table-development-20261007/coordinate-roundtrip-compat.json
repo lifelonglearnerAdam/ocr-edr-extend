@@ -1,0 +1,56 @@
+{
+  "scope": "real author encoder plus explicit original-frame compatibility; no model/GT use",
+  "cases": [
+    {
+      "height": 50,
+      "width": 200,
+      "original": [
+        20.0,
+        10.0,
+        100.0,
+        35.0
+      ],
+      "restored": [
+        20.0,
+        10.0,
+        100.0,
+        35.0
+      ],
+      "passed": true
+    },
+    {
+      "height": 200,
+      "width": 50,
+      "original": [
+        5.0,
+        40.0,
+        25.0,
+        140.0
+      ],
+      "restored": [
+        5.0,
+        40.0,
+        25.0,
+        140.0
+      ],
+      "passed": true
+    },
+    {
+      "height": 200,
+      "width": 200,
+      "original": [
+        20.0,
+        40.0,
+        100.0,
+        140.0
+      ],
+      "restored": [
+        20.0,
+        40.0,
+        100.0,
+        140.0
+      ],
+      "passed": true
+    }
+  ]
+}

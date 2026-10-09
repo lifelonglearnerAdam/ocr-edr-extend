@@ -1,0 +1,15 @@
+dataset: pubtabnet-four-roles-20261007
+source_policy: published_annotations_as_weak_supervision_with_known_conflict_exclusion
+review_scope: first_eight_training_source_reference_pairs_nonblind_development_audit
+expected_original_records: 410
+expected_original_documents: 128
+excluded_families:
+  p0002: released_reference_missing_visible_bottom_row
+expected_admitted_records: 406
+expected_admitted_documents: 127
+reference_correction_performed: false
+exclude_entire_source_family: true
+replace_excluded_source: false
+unreviewed_labels_assumed_independently_verified: false
+calibration_or_locked_optimizer_access: false
+model_dev_filtering_based_on_quality: false

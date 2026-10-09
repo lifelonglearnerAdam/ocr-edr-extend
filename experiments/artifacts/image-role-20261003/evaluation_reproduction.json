@@ -1,0 +1,10 @@
+{
+  "operation": "offline artifact replay; no model calls",
+  "cases": 140,
+  "summary_records": 7,
+  "cases_equal": true,
+  "summary_equal": true,
+  "whole_evaluation_equal": true,
+  "original_evaluation_sha256": "07b74e8ac53bac11a36e74c8d7f90d69220bde62b013f8597740b2bf6e65b5cd",
+  "replayed_evaluation_sha256": "07b74e8ac53bac11a36e74c8d7f90d69220bde62b013f8597740b2bf6e65b5cd"
+}

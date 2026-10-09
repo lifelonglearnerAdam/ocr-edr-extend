@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "train_records": 406,
+  "train_documents": 127,
+  "model_dev_records_verified_not_optimized": 103,
+  "max_sequence_tokens_observed": 2708,
+  "min_supervised_tokens": 7,
+  "max_supervised_tokens": 114,
+  "config_sha256": "02b8c0cca5864a3d5468b50fd318ac7832a4f84f17eddb0bef76b353d15fe73b",
+  "preflight_sha256": "047f6862b51073a389ff8bd6dc83c3e6630cf8efe418e70a2dd57167f7d0ebb1",
+  "arms": {
+    "all": {
+      "exposures": 1524,
+      "documents": 127,
+      "exposures_per_document": 12,
+      "planned_optimizer_steps": 381,
+      "processed_tokens": 2087582,
+      "assistant_supervised_tokens": 24181,
+      "variant_exposures": {
+        "extra_row": 483,
+        "cell_perturbation": 483,
+        "preservation": 483,
+        "span_perturbation": 75
+      }
+    },
+    "no_explicit_preservation": {
+      "exposures": 1524,
+      "documents": 127,
+      "exposures_per_document": 12,
+      "planned_optimizer_steps": 381,
+      "processed_tokens": 2133604,
+      "assistant_supervised_tokens": 30406,
+      "variant_exposures": {
+        "span_perturbation": 100,
+        "cell_perturbation": 712,
+        "extra_row": 712
+      }
+    }
+  },
+  "optimizer_steps_completed": 0,
+  "calibration_locked_targets_loaded": false
+}

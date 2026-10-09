@@ -1,0 +1,27 @@
+# Fixed development screen; not teacher distillation or an RL recipe.
+study: formula_direct_sft_preservation_screen_20261006
+model_revision: 895c3a49bc3fa70a340399125c650a463535e71c
+seed: 20261006
+steps: 192
+gradient_accumulation: 4
+learning_rate: 0.0001
+lora_rank: 4
+lora_alpha: 8
+clip_gradient: 1.0
+max_sequence_tokens: 2048
+min_pixels: 100352
+max_pixels: 200704
+arms: [all, no_explicit_preservation]
+inference:
+  max_new_tokens: 256
+  evidence: source_only
+  do_sample: false
+data:
+  dataset: unimer-supervision-20261006
+  train_sources: 128
+  dev_sources: 32
+  train_records_all: 384
+  train_records_no_explicit_preservation: 256
+  dev_records: 96
+  exposures_per_arm: 768
+  dev_optimizer_access: false

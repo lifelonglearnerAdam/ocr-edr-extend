@@ -1,0 +1,11 @@
+{
+  "complete_local_tests": 101,
+  "optional_integrations_skipped": 0,
+  "status": "passed",
+  "tests_log_sha256": "97fca8584d7dcbea97a084c036c69081ce9235cd28b829b4b77e569284d1a2ae",
+  "document_image_content_intersections_final_roles": 0,
+  "all_target_actions_roundtrip_checked": 828,
+  "training_steps": 0,
+  "native_table_parser_used": null,
+  "locked_images_human_inspected": false
+}

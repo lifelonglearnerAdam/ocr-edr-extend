@@ -1,0 +1,65 @@
+{
+  "started_at": "2026-10-06T14:53:06.039380+00:00",
+  "status": "completed",
+  "condition": "all",
+  "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+  "adapter_sha256": {
+    "README.md": "88736ebf6e0c5fa557d504f1846ecd26c981763ed9167219c3240f0b3bafa094",
+    "adapter_config.json": "17f25592670df7db273cd042ff17a4bdca71671f86703fc60770938a1252064f",
+    "adapter_model.safetensors": "345997e9f9040e114fd1c09c6d5498f5f461b71d75cc0c231959857f740fc2cb"
+  },
+  "input_sha256": "8e8614090b2fd9f790ca069d282d00344d341ed6b8a247addec081181f643380",
+  "cases": 96,
+  "reference_access": "none",
+  "source_revision": "626104f5c5a7f48c1475b0ca187e74f3977b1c89",
+  "source_dirty": true,
+  "source_sha256": {
+    "scripts/run_sft_screen.py": "fe1d3adbbfa7dc36a96e756defbab692ca41a75b82173e4521f1df7800455e54",
+    "src/ocr_edr/qwen.py": "d82329b69e59de30f6a04b28be37cdee379dd203e365a88323a9613c65616d2e",
+    "src/ocr_edr/formula_pilot.py": "647aa92d9b9177c775a48987916b95ddb79aa37299fcfa126258e496dc30f95c"
+  },
+  "config_sha256": "9c475eaa9e0f2e4cf6a48831e6630be7fb9a850d11a95f6e6aeacc6734a99b29",
+  "config": {
+    "study": "formula_direct_sft_preservation_screen_20261006",
+    "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+    "seed": 20261006,
+    "steps": 192,
+    "gradient_accumulation": 4,
+    "learning_rate": 0.0001,
+    "lora_rank": 4,
+    "lora_alpha": 8,
+    "clip_gradient": 1.0,
+    "max_sequence_tokens": 2048,
+    "min_pixels": 100352,
+    "max_pixels": 200704,
+    "arms": [
+      "all",
+      "no_explicit_preservation"
+    ],
+    "inference": {
+      "max_new_tokens": 256,
+      "evidence": "source_only",
+      "do_sample": false
+    },
+    "data": {
+      "dataset": "unimer-supervision-20261006",
+      "train_sources": 128,
+      "dev_sources": 32,
+      "train_records_all": 384,
+      "train_records_no_explicit_preservation": 256,
+      "dev_records": 96,
+      "exposures_per_arm": 768,
+      "dev_optimizer_access": false
+    }
+  },
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "Pillow": "11.3.0"
+  },
+  "gate": "none during generation; raw calls frozen before offline adapter and reference scoring",
+  "completed_calls": 96,
+  "calls_sha256": "ec0884cc09fee86e394fd6eb839bd2f32a5a1fc55961585bf67402d2e5fc8fef",
+  "finished_at": "2026-10-06T14:56:18.575962+00:00"
+}

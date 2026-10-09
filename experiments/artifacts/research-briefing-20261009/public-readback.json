@@ -1,0 +1,18 @@
+{
+  "site": "https://lifelonglearneradam.github.io/ocr-edr-extend/",
+  "checked_at": "2026-10-09T14:35:22.003Z",
+  "html_status": 200,
+  "data_status": 200,
+  "html_sha256": "8d0d9065a8a693b26e681cc5e553a6aa56673bd3efe1ffd726e3a84bb814a819",
+  "data_sha256": "6ca6b5022d825ba54b4159218c777ac0527748fe0446e2256345038598bb180b",
+  "expected_html_sha256": "8d0d9065a8a693b26e681cc5e553a6aa56673bd3efe1ffd726e3a84bb814a819",
+  "expected_data_sha256": "6ca6b5022d825ba54b4159218c777ac0527748fe0446e2256345038598bb180b",
+  "readme_url": "https://github.com/lifelonglearnerAdam/ocr-edr-extend/blob/feat/image-role-research/README.md",
+  "readme_rendered_page_check": "previous browser request timed out; verify source through official API separately",
+  "status": "passed",
+  "console_errors": [],
+  "readme_source_api_hash_verified": true,
+  "readme_git_blob_sha1": "4c8e3b22beabce30d36a5f3c8f192b64d92d0ae8",
+  "deployed_snapshot_commit": "cd9f8b9f1543db6a77758cb9aa1a120aac32ed57",
+  "pages_run_id": 37944802889
+}

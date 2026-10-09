@@ -1,0 +1,89 @@
+{
+  "recorded_at": "2026-10-09T01:39:57.420725+00:00",
+  "source_access": "read_only",
+  "target_filesystem": "ext4",
+  "recovered_remote_commit": "2ab5a01434c0786ce46ea5890ede81027625fe2b",
+  "copied_files": 44353,
+  "copied_bytes": 12361462459,
+  "private_copy_manifest_sha256": "8eef05686374af72a9bdc3bb4961c9e928f89609f5d164d7497599b74f8d42c3",
+  "read_failures": [
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/bug/imagemagick-7.q16",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/bug/libmagickcore-7.q16-10",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/bug/libmagickwand-7.q16-10",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/doc",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/ls-R",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/scripts/pax/lib/commons-logging.jar",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/scripts/pax/lib/pdfbox.jar",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/tex/generic/config/language.dat",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/tex/generic/config/language.dat.lua",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/tex/generic/config/language.def",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/tex/latex/pdfx/sRGB_IEC61966-2-1_black_scaled.icc",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/web2c/fmtutil.cnf",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texlive/texmf-dist/web2c/updmap.cfg",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texmf/web2c/fmtutil.cnf",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "data/raw/cdm-tex-runtime-20261004/root/usr/share/texmf/web2c/updmap.cfg",
+      "error": "Unsupported/unresolved NTFS reparse link"
+    },
+    {
+      "path": "experiments/artifacts/table-nf4-analysis-protocol-20261007/README.md",
+      "error": "[Errno 5] Input/output error: '<READ_ONLY_PROJECT>/experiments/artifacts/table-nf4-analysis-protocol-20261007/README.md'"
+    },
+    {
+      "path": "experiments/artifacts/table-nf4-analysis-protocol-20261007/sha256.json",
+      "error": "[Errno 5] Input/output error: '<READ_ONLY_PROJECT>/experiments/artifacts/table-nf4-analysis-protocol-20261007/sha256.json'"
+    },
+    {
+      "path": "experiments/artifacts/table-nf4-analysis-protocol-20261007/verification.json",
+      "error": "[Errno 5] Input/output error: '<READ_ONLY_PROJECT>/experiments/artifacts/table-nf4-analysis-protocol-20261007/verification.json'"
+    }
+  ],
+  "tracked_content_differences": [],
+  "baseline_model_verified_files": 12,
+  "baseline_model_verified_bytes": 4429603990,
+  "execution_and_statistics_files_verified": 22,
+  "original_source_mutated": false,
+  "calibration_locked_scope": "byte-preserving migration only; not optimizer input or visual/model inspection"
+}

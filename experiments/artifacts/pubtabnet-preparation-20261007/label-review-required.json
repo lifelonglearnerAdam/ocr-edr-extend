@@ -1,0 +1,10 @@
+{
+  "before_any_table_training": true,
+  "optimizer_started": false,
+  "visually_flagged_training_families": [
+    "p0002"
+  ],
+  "released_labels_and_selected_manifests_kept_frozen": true,
+  "training_admission_rule_pending": "source annotation review must determine separate corrected or excluded supervised examples; no label correction based on model scores",
+  "all_label_examples_not_independently_validated": true
+}

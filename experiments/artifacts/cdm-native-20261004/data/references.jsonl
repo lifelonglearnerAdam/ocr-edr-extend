@@ -1,0 +1,16 @@
+{"sample_id": "n001", "family_id": "u001", "reference": "s h _ { 1 } + \\lambda = \\partial _ { j } \\rho ^ { j } ,", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n002", "family_id": "u002", "reference": "{ \\mathbf { a } } ^ { 2 } = Q ( \\mathbf { a } ) = \\epsilon _ { \\mathbf { a } } { \\left| \\mathbf { a } \\right| } ^ { 2 }", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n003", "family_id": "u003", "reference": "Y _ { \\ell ( - m ) }", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n004", "family_id": "u004", "reference": "L _ { n } , \\; G _ { n + \\frac { 1 } { 2 } } ^ { \\pm } , \\; U _ { n + 1 } , \\; \\Lambda _ { n + 2 - s } ^ { ( s ) } , \\; ( n \\geq - 1 ) .", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n005", "family_id": "u005", "reference": "\\eta _ { K , 0 } ( x ) = \\sqrt { \\frac { m } { 2 } } \\cosh ^ { - 1 } ( m x )", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n006", "family_id": "u006", "reference": "\\frac { d \\Gamma } { d E } \\sim p ( E _ { \\mathrm { m a x } } - E ) \\sqrt { ( E _ { \\mathrm { m a x } } - E ) ^ { 2 } - \\xi } ,", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n007", "family_id": "u007", "reference": "f ( z ) = - e ^ { 2 \\nu \\pi i } f ( z e ^ { - \\pi i } ) + o \\left( ( z - \\sigma _ { k } ) ^ { - 1 } \\right) , \\quad z \\to \\sigma _ { k } , \\quad \\sigma _ { k } = i y _ { k } , \\lambda _ { \\nu , k } .", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n008", "family_id": "u008", "reference": "a _ { \\mu ; \\nu } = E _ { \\mu \\nu } + \\frac { \\Lambda } { 3 } a h _ { \\mu \\nu } + \\frac { \\Theta } { 3 }", "source_kind": "spe", "variant": "native", "error_type": null}
+{"sample_id": "n009", "family_id": "u009", "reference": "\\mathbf { 0 . 2 { - } 0 . 8 \\ m g }", "source_kind": "sce", "variant": "native", "error_type": null}
+{"sample_id": "n010", "family_id": "u010", "reference": "B _ { E } = 5 \\times 1 0 ^ { 4 } \\, \\mathrm { n T }", "source_kind": "sce", "variant": "native", "error_type": null}
+{"sample_id": "n011", "family_id": "u011", "reference": "p = 8 t + 1", "source_kind": "sce", "variant": "native", "error_type": null}
+{"sample_id": "n012", "family_id": "u012", "reference": "N _ { \\mathrm { A } } \\mathrm { C } \\times 1 0 ^ { - 2 4 } / 3 )", "source_kind": "sce", "variant": "native", "error_type": null}
+{"sample_id": "n013", "family_id": "u013", "reference": "( \\mathrm { P c } ) ] ^ { 2 + }", "source_kind": "sce", "variant": "native", "error_type": null}
+{"sample_id": "n014", "family_id": "u014", "reference": "\\left( \\left( \\mathrm { N H } _ { 4 } \\right) _ { 6 } \\mathrm { H } _ { 2 } \\mathrm { ~ W } _ { 1 2 } \\mathrm { O } _ { 4 0 } , \\mathrm { F l u k a , } \\geq 8 5 \\% \\mathrm { W O } _ { 3 } \\right)", "source_kind": "sce", "variant": "native", "error_type": null}
+{"sample_id": "n015", "family_id": "u015", "reference": "\\mathrm { H _ { 0 } }", "source_kind": "sce", "variant": "native", "error_type": null}
+{"sample_id": "n016", "family_id": "u016", "reference": "\\mathrm { N O _ { 3 } - N }", "source_kind": "sce", "variant": "native", "error_type": null}

@@ -1,0 +1,65 @@
+{
+  "new_model_calls": 0,
+  "audit_type": "post-evaluation visual/structural observation; frozen references and scores unchanged",
+  "observations": [
+    {
+      "sample_id": "n009",
+      "observation": "Visible source unit is mg. Image-only low/high and normalized source-only audit correct Omega/Xi-like native symbols to mg. Reinspection confirms a content correction; bold styling differs. Core CDM increases 0.778 to 1.0. Raw frozen repair arms remain the native string after their original rollback.",
+      "decision": "Useful source-grounded development proposal; no aggregate gain or held-out claim."
+    },
+    {
+      "sample_id": "n012",
+      "observation": "Source and reference have A subscripted and C on the baseline. Native string puts AC together in the subscript. Fresh official CDM visualization reproduces F1=1.0 with 12 matched/reference/prediction tokens despite that visible structural difference. The image-only response also moves /3 and closing punctuation into the exponent and scores 0.96.",
+      "decision": "CDM matching is not literal structural correctness; retain independent structure audit before using it as an acceptance label or sole reward."
+    },
+    {
+      "sample_id": "n013",
+      "observation": "Source has a short visible overbar absent from the frozen released reference. The normalized source-only audit changes p_c to Pc and drops the overbar and closing parenthesis; core CDM rises 0.8 to 0.923. Fresh visualization confirms missing parenthesis and overbar.",
+      "decision": "Reference-agreement improvement with material source disagreement; not a demonstrated visually correct repair. Do not relabel frozen annotations."
+    },
+    {
+      "sample_id": "n001",
+      "observation": "Source-first/last repair outputs coordinate tuples in place of formula text; CDM decreases 1 to 0.143. Previously saved source/reference/initial/final contact sheet was reinspected.",
+      "decision": "Harmful content replacement remains in evaluation."
+    },
+    {
+      "sample_id": "n002",
+      "observation": "Source-first repair replaces formula with coordinate tuples; CDM decreases 1 to 0.065. Contact sheet reinspected.",
+      "decision": "Harmful content replacement remains in evaluation."
+    },
+    {
+      "sample_id": "n003",
+      "observation": "Source-only repair replaces Y with its script expression with coordinate tuples; CDM decreases 1 to 0.174. Contact sheet reinspected.",
+      "decision": "Harmful content replacement remains in evaluation."
+    },
+    {
+      "sample_id": "n006",
+      "observation": "Image-only recognition replaces a derivative/radical expression with coordinate tuples; CDM decreases 1 to 0.17. Source/initial contact sheet and saved raw candidate reinspected.",
+      "decision": "Harmful content replacement remains in evaluation."
+    },
+    {
+      "sample_id": "n007",
+      "observation": "Source-only repair and image-only recognition replace the formula with coordinate tuples (CDM 1 to 0.118). Source-first repair retains the formula but drops its terminal period (1 to 0.99). Source contact sheet and literal strings reinspected.",
+      "decision": "Separate catastrophic replacement from small punctuation loss; both remain in paired scores."
+    }
+  ],
+  "private_visual_sha256": {
+    "experiments/runs/unimer-development-20261003/native-tex-inspection/cases-01-04.png": "e2060bd1884f5d55d77fc784e1b47b5eb89ce9713c31f4a0568f79d4cf871df7",
+    "experiments/runs/unimer-development-20261003/native-tex-inspection/cases-05-08.png": "6368bdf284158454703c16fdbee3bbc57d6f5dc346ce4a72f30387a9ce6e7ded",
+    "experiments/runs/unimer-development-20261003/native-tex-inspection/cases-09-12.png": "777111267af9401ae6ec89d0e853536d28b0d893df7392ba803733e92bbae30a",
+    "experiments/runs/unimer-development-20261003/data/images/u012.png": "305afa2eae415d7c1623f3ea97d529007b3fcaec6fd2f9a80d170383d08c812e",
+    "experiments/runs/unimer-development-20261003/data/images/u013.png": "cc9f53cc806f27f8154ed2081b5f6d9f3e5097aa814f11b98d92a54d75f10922",
+    "experiments/runs/cdm-native-20261004/visual-audit/n009/gt_base.png": "f8b8ec15915af5ffd242ac82653d8a70cee9e731db3242dafd685952be431135",
+    "experiments/runs/cdm-native-20261004/visual-audit/n009/pred_base.png": "f70ef44d0856bf01f660d9629bcd11d8060683135255cdfa3c0b5ebfd7ef2b42",
+    "experiments/runs/cdm-native-20261004/visual-audit/n009/gt_bbox.jsonl": "dd11fd412b160bb2e96cf25b488a83864328cadc8e6c6e322019f51f56aa3853",
+    "experiments/runs/cdm-native-20261004/visual-audit/n009/pred_bbox.jsonl": "e28d20d6e3bc8099d4b3b364796e65acd73b938904881139ca75eaf57ce3802f",
+    "experiments/runs/cdm-native-20261004/visual-audit/n012/gt_base.png": "adc92c059e5bb2b1a6b747af933b40dd840e81986beb024a8ab3f22f0cb0d07d",
+    "experiments/runs/cdm-native-20261004/visual-audit/n012/pred_base.png": "6daab91c01a25b65364ea5faf48f312c241f74b71c5ce058a863101813b6c95e",
+    "experiments/runs/cdm-native-20261004/visual-audit/n012/gt_bbox.jsonl": "88c4e52e0ab97bd945fb6783183dfd301d9613809d0200086bbb3868c90a7cea",
+    "experiments/runs/cdm-native-20261004/visual-audit/n012/pred_bbox.jsonl": "9f63f7a0643d184b871004727e527b8395e7daa439a46015bf0c88e6ce580722",
+    "experiments/runs/cdm-native-20261004/visual-audit/n013/gt_base.png": "405dcd4d52dc23fdee36b0f997c16b1a573bf6960b2efe1ec444982fd808ef90",
+    "experiments/runs/cdm-native-20261004/visual-audit/n013/pred_base.png": "fe19f5375c845a6589415517435087b18c210e5c8f2e533bf27e6585ae6b88fd",
+    "experiments/runs/cdm-native-20261004/visual-audit/n013/gt_bbox.jsonl": "079f76710103e5705fbe9142a1739dad48af799f5a8844d67b58e70906ab7737",
+    "experiments/runs/cdm-native-20261004/visual-audit/n013/pred_bbox.jsonl": "3f20c5514529432a33f9f8a212678b29eabe81115ab69b77acd019ddc54a51af"
+  }
+}

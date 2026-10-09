@@ -1,0 +1,96 @@
+{
+  "cases": [
+    {
+      "sample_id": "p0153-extra_row",
+      "kind": "duplicate",
+      "source_document": "PMC4733134",
+      "source_scope": "local value/label transcription from inspected source, not the complete original image/HTML",
+      "original_visible_value": "17.3",
+      "candidate_value": "17.3",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "delete_row",
+            "row": 12
+          },
+          "initial_teds": 0.925,
+          "final_teds": 1.0,
+          "output_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 12
+          },
+          "initial_teds": 0.925,
+          "final_teds": 1.0,
+          "output_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+        }
+      ],
+      "input_sha256": "8fe432199f5650dfad61c8e919b8d577afca7035e23012e78fd1c146218c1f32"
+    },
+    {
+      "sample_id": "p0153-cell_perturbation",
+      "kind": "number",
+      "source_document": "PMC4733134",
+      "source_scope": "local value/label transcription from inspected source, not the complete original image/HTML",
+      "original_visible_value": "17.3",
+      "candidate_value": "27.3",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "stop"
+          },
+          "initial_teds": 0.9932432432432432,
+          "final_teds": 0.9932432432432432,
+          "output_sha256": "9ccf1b59da92dd1ea5bb46ad09baa8671b90f2bea144860080c18132a9e26fa8"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 11
+          },
+          "initial_teds": 0.9932432432432432,
+          "final_teds": 0.9121621621621622,
+          "output_sha256": "7611dc8cee98e31dbfbfe6980b0174f0ee122b11b4ad1e5ce8582a8f9c073df2"
+        }
+      ],
+      "input_sha256": "9ccf1b59da92dd1ea5bb46ad09baa8671b90f2bea144860080c18132a9e26fa8"
+    },
+    {
+      "sample_id": "p0153-preservation",
+      "kind": "preserve",
+      "source_document": "PMC4733134",
+      "source_scope": "local value/label transcription from inspected source, not the complete original image/HTML",
+      "original_visible_value": "17.3",
+      "candidate_value": "17.3",
+      "outcomes": [
+        {
+          "arm": "all",
+          "action": {
+            "action": "stop"
+          },
+          "initial_teds": 1.0,
+          "final_teds": 1.0,
+          "output_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+        },
+        {
+          "arm": "no_explicit_preservation",
+          "action": {
+            "action": "delete_row",
+            "row": 11
+          },
+          "initial_teds": 1.0,
+          "final_teds": 0.9189189189189189,
+          "output_sha256": "01ae13fef1b4c929278e4904bba27dbd009fac7b62593a1e1daae52f6bb35784"
+        }
+      ],
+      "input_sha256": "5cfa5c34f120678f60950ad096b5636faaaf43891a73519611a180308da9c49b"
+    }
+  ],
+  "evaluation_original_sha256": "e549c2a7d253c03418bb16fe509e29fbab04e372166a70d6e1cf4ea87a82a2cb"
+}

@@ -1,0 +1,10 @@
+{
+  "core_command": ".venv/bin/python -m unittest discover -s tests -v",
+  "core_tests_run": 80,
+  "core_optional_tests_skipped": 15,
+  "full_command": "OCR_EDR_TEST_CDM=1 OCR_EDR_TEST_TABLE=1 OCR_EDR_TEST_TECTONIC=1 .venv-pilot/bin/python -m unittest discover -s tests -q",
+  "full_tests_run": 80,
+  "full_optional_tests_skipped": 0,
+  "full_status": "passed",
+  "full_log": "integration-checks.log"
+}

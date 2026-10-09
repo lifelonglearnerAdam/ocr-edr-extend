@@ -1,0 +1,21 @@
+{
+  "backend": "weasyprint:66.0:1f060aff6621ef29b4233c154088a2a0a6774a4d79630724a3b2f8c12f8fcb53:991cef7bec55f34d59dd8d9ab4dc91b9f354fb37ef4a3a0ddd4a304fb2f54043:120",
+  "fonts": {
+    "Noto Sans CJK SC": {
+      "filename": "NotoSansCJK-Regular.ttc",
+      "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+    },
+    "sans-serif": {
+      "filename": "NotoSans-Regular.ttf",
+      "sha256": "89c3c497f618fdaa0b2d1e98fef93582f28c71debd2c4a8cdf41f190ced2909d"
+    }
+  },
+  "versions": {
+    "lxml": "6.0.2",
+    "weasyprint": "66.0",
+    "Pillow": "11.3.0",
+    "apted": "1.0.3",
+    "Levenshtein": "0.27.1",
+    "beautifulsoup4": "4.14.2"
+  }
+}

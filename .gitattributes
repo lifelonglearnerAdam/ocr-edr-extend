@@ -1,0 +1,2 @@
+# Preserve the fetched upstream license bytes and its recorded hash exactly.
+experiments/artifacts/pubtabnet-preparation-20261007/PRIMARY_LICENSE.md -whitespace

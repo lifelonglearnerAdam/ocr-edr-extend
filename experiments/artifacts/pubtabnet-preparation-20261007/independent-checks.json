@@ -1,0 +1,28 @@
+{
+  "whole_prepared_hash_inventory_verified": 271,
+  "role_pair_intersections_documents_bytes_pixels": 0,
+  "roles": {
+    "train": {
+      "sources": 128,
+      "action_targets_roundtrip_verified": 410,
+      "input_has_reference_or_ground_truth_address": false
+    },
+    "model_dev": {
+      "sources": 32,
+      "action_targets_roundtrip_verified": 103,
+      "input_has_reference_or_ground_truth_address": false
+    },
+    "gate_calibration": {
+      "sources": 32,
+      "action_targets_roundtrip_verified": 102,
+      "input_has_reference_or_ground_truth_address": false
+    },
+    "locked_evaluation": {
+      "sources": 64,
+      "action_targets_roundtrip_verified": 213,
+      "input_has_reference_or_ground_truth_address": false
+    }
+  },
+  "validation_is_not_a_visual_annotation_or_model_quality_claim": true,
+  "locked_images_visually_inspected": false
+}

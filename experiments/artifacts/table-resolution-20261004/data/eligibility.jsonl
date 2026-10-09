@@ -1,0 +1,10 @@
+{"img_id": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg", "gt_position": [6], "cells": 24, "reference_chars": 519, "eligible": true, "selected": true, "reasons": []}
+{"img_id": "eastmoney_62b4149b1612ce28d20f26cd5c5b2e18f80b26fca6e4452e090376a2fe72eae3.pdf_0.jpg", "gt_position": [30], "cells": 54, "reference_chars": 866, "eligible": false, "selected": false, "reasons": ["reference_length", "cell_count", "repeated_parent_page"]}
+{"img_id": "docstructbench_dianzishu_zhongwenzaixian-o.O-61522235.pdf_170.jpg", "gt_position": [9], "cells": 39, "reference_chars": 727, "eligible": false, "selected": false, "reasons": ["cell_count"]}
+{"img_id": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4.jpg", "gt_position": [8], "cells": 69, "reference_chars": 1736, "eligible": false, "selected": false, "reasons": ["reference_length", "cell_count"]}
+{"img_id": "notes_f7f010b78016aeebd76e56d9283eb67f_49.jpg", "gt_position": [15], "cells": 24, "reference_chars": 501, "eligible": true, "selected": true, "reasons": []}
+{"img_id": "yanbaopptmerge_0c79d327060dbf9f1582d03c235dadb039533a19091d2c0d24f2ad95d267f79b.pdf_2.jpg", "gt_position": [4], "cells": 20, "reference_chars": 601, "eligible": true, "selected": true, "reasons": []}
+{"img_id": "jiaocaineedrop_Chapter9.pdf_46.jpg", "gt_position": [27], "cells": 11, "reference_chars": 275, "eligible": true, "selected": true, "reasons": []}
+{"img_id": "jiaocaineedrop_jiaocai_needrop_en_1898.jpg", "gt_position": [17], "cells": 90, "reference_chars": 1197, "eligible": false, "selected": false, "reasons": ["reference_length", "cell_count"]}
+{"img_id": "notes_1ba14cb325bc448f7201b20502ecf2b5_15.jpg", "gt_position": [18], "cells": 18, "reference_chars": 339, "eligible": true, "selected": false, "reasons": ["fixed_source_limit"]}
+{"img_id": "docstructbench_dianzishu_zhongwenzaixian-o.O-61520814.pdf_185.jpg", "gt_position": [3], "cells": 43, "reference_chars": 745, "eligible": false, "selected": false, "reasons": ["cell_count"]}

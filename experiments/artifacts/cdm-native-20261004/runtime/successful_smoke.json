@@ -1,0 +1,114 @@
+{
+  "official_revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "source_files_verified": 19,
+  "versions": {
+    "numpy": "2.3.3",
+    "scipy": "1.16.2",
+    "Pillow": "11.3.0",
+    "pylatexenc": "2.10"
+  },
+  "runtime_env_path": "/run/media/zimozeng/Data/recovered_final/optimization/ocr-edr-team/data/raw/cdm-tex-runtime-20261004/env.json",
+  "seed": 20261004,
+  "temporary_directory": "/home/zimozeng/.cache/ocr-edr-cdm-20261004",
+  "controls": [
+    {
+      "name": "identical",
+      "reference": "x^2+1",
+      "prediction": "x^2+1",
+      "metrics": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "F1_score": 1.0,
+        "tp": 4,
+        "gt_tokens": 4,
+        "pred_tokens": 4,
+        "cdm_vis": {
+          "case_dir": "experiments/runs/cdm-readiness-20261004/controls-home/identical",
+          "meta_json": "experiments/runs/cdm-readiness-20261004/controls-home/identical/meta.json",
+          "match_png": "experiments/runs/cdm-readiness-20261004/controls-home/identical/match.png",
+          "match_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/identical/match_base.png",
+          "gt_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/identical/gt_base.png",
+          "gt_vis_png": "experiments/runs/cdm-readiness-20261004/controls-home/identical/gt_vis.png",
+          "pred_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/identical/pred_base.png",
+          "pred_vis_png": "experiments/runs/cdm-readiness-20261004/controls-home/identical/pred_vis.png",
+          "gt_bbox_jsonl": "experiments/runs/cdm-readiness-20261004/controls-home/identical/gt_bbox.jsonl",
+          "pred_bbox_jsonl": "experiments/runs/cdm-readiness-20261004/controls-home/identical/pred_bbox.jsonl"
+        }
+      },
+      "seconds": 2.0906716720000986
+    },
+    {
+      "name": "equivalent_bracing",
+      "reference": "x^2+1",
+      "prediction": "x^{2}+1",
+      "metrics": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "F1_score": 1.0,
+        "tp": 4,
+        "gt_tokens": 4,
+        "pred_tokens": 4,
+        "cdm_vis": {
+          "case_dir": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing",
+          "meta_json": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/meta.json",
+          "match_png": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/match.png",
+          "match_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/match_base.png",
+          "gt_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/gt_base.png",
+          "gt_vis_png": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/gt_vis.png",
+          "pred_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/pred_base.png",
+          "pred_vis_png": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/pred_vis.png",
+          "gt_bbox_jsonl": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/gt_bbox.jsonl",
+          "pred_bbox_jsonl": "experiments/runs/cdm-readiness-20261004/controls-home/equivalent_bracing/pred_bbox.jsonl"
+        }
+      },
+      "seconds": 1.9436366100003397
+    },
+    {
+      "name": "wrong_exponent",
+      "reference": "x^2+1",
+      "prediction": "x^3+1",
+      "metrics": {
+        "recall": 0.75,
+        "precision": 0.75,
+        "F1_score": 0.75,
+        "tp": 3,
+        "gt_tokens": 4,
+        "pred_tokens": 4,
+        "cdm_vis": {
+          "case_dir": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent",
+          "meta_json": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/meta.json",
+          "match_png": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/match.png",
+          "match_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/match_base.png",
+          "gt_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/gt_base.png",
+          "gt_vis_png": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/gt_vis.png",
+          "pred_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/pred_base.png",
+          "pred_vis_png": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/pred_vis.png",
+          "gt_bbox_jsonl": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/gt_bbox.jsonl",
+          "pred_bbox_jsonl": "experiments/runs/cdm-readiness-20261004/controls-home/wrong_exponent/pred_bbox.jsonl"
+        }
+      },
+      "seconds": 1.9939761040000121
+    },
+    {
+      "name": "invalid_prediction",
+      "reference": "x^2+1",
+      "prediction": "\\frac{",
+      "metrics": {
+        "recall": 0.0,
+        "precision": 0.0,
+        "F1_score": 0.0,
+        "tp": 0,
+        "gt_tokens": 4,
+        "pred_tokens": 0,
+        "cdm_vis": {
+          "case_dir": "experiments/runs/cdm-readiness-20261004/controls-home/invalid_prediction",
+          "meta_json": "experiments/runs/cdm-readiness-20261004/controls-home/invalid_prediction/meta.json",
+          "gt_base_png": "experiments/runs/cdm-readiness-20261004/controls-home/invalid_prediction/gt_base.png",
+          "gt_vis_png": "experiments/runs/cdm-readiness-20261004/controls-home/invalid_prediction/gt_vis.png",
+          "gt_bbox_jsonl": "experiments/runs/cdm-readiness-20261004/controls-home/invalid_prediction/gt_bbox.jsonl"
+        }
+      },
+      "seconds": 1.6893353749997004
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "files": {
+    "scripts/run_sft_screen.py": "fe1d3adbbfa7dc36a96e756defbab692ca41a75b82173e4521f1df7800455e54",
+    "src/ocr_edr/qwen.py": "d82329b69e59de30f6a04b28be37cdee379dd203e365a88323a9613c65616d2e"
+  },
+  "inference_input_fields": [
+    "sample_id",
+    "family_id",
+    "source_image",
+    "source_sha256",
+    "prediction"
+  ],
+  "max_new_tokens": 256,
+  "do_sample": false,
+  "inputs": 96,
+  "references_read_during_generation": false,
+  "conditions": [
+    "base",
+    "all",
+    "no_explicit_preservation"
+  ],
+  "conditions_generation_device_plan": {
+    "base": 2,
+    "all": 0,
+    "no_explicit_preservation": 1
+  },
+  "parallel_jobs_on_different_4090_gpus": true,
+  "same_image_groups_but_not_exact_token_budgets": true,
+  "raw_outputs_frozen_before_reference_evaluation": true
+}

@@ -21,11 +21,15 @@ from ocr_edr.formula_pilot import (
 from ocr_edr.loop import Observation
 
 
-def evaluate(predictions: list[dict], references: list[dict], root: Path) -> tuple[list, list]:
+def evaluate(
+    predictions: list[dict], references: list[dict], root: Path, renderer=None
+) -> tuple[list, list]:
     refs = {ref["sample_id"]: ref for ref in references}
     if len(refs) != len(references):
         raise ValueError("Duplicate reference sample IDs")
-    renderer = MathTextRenderer(root / "evaluation_renders")
+    if not refs or not predictions:
+        raise ValueError("Empty reference or prediction coverage")
+    renderer = renderer or MathTextRenderer(root / "evaluation_renders")
     rows, groups = [], defaultdict(list)
     seen = set()
     for result in predictions:
@@ -33,7 +37,11 @@ def evaluate(predictions: list[dict], references: list[dict], root: Path) -> tup
         if key in seen:
             raise ValueError("Duplicate prediction per sample/arm")
         seen.add(key)
+        if result["sample_id"] not in refs:
+            raise ValueError("Unexpected prediction sample ID")
         ref = refs[result["sample_id"]]
+        if result.get("family_id", ref["family_id"]) != ref["family_id"]:
+            raise ValueError("Prediction/reference family mismatch")
         signatures = []
         errors = []
         for markup in [ref["reference"], result["initial_prediction"], result["final_prediction"]]:
@@ -72,8 +80,8 @@ def evaluate(predictions: list[dict], references: list[dict], root: Path) -> tup
         rows.append(row)
         groups[result["arm"]].append(row)
     arm_ids = [{row["sample_id"] for row in group} for group in groups.values()]
-    if any(ids != arm_ids[0] for ids in arm_ids):
-        raise ValueError("Unpaired arm coverage; do not compare partial cases")
+    if any(ids != set(refs) for ids in arm_ids):
+        raise ValueError("Unpaired arm/reference coverage; do not compare partial cases")
     summary = []
     for arm, group in groups.items():
         bad = [r for r in group if not r["initial_raster_exact_proxy"]]
@@ -121,14 +129,20 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", required=True, type=Path)
     parser.add_argument("--references", required=True, type=Path)
+    parser.add_argument("--renderer", choices=["mathtext", "tectonic"], default="mathtext")
     args = parser.parse_args()
     root = args.run.resolve()
 
     def read_rows(path):
         return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
+    renderer = None
+    if args.renderer == "tectonic":
+        from ocr_edr.tex import TectonicRenderer
+
+        renderer = TectonicRenderer(root / "evaluation_renders")
     rows, summary = evaluate(
-        read_rows(root / "predictions.jsonl"), read_rows(args.references), root
+        read_rows(root / "predictions.jsonl"), read_rows(args.references), root, renderer
     )
     (root / "evaluation.json").write_text(
         json.dumps(

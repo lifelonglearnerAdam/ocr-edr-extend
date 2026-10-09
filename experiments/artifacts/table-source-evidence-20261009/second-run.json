@@ -1,0 +1,66 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-09T12:59:13.404194+00:00",
+  "cases": 32,
+  "conditions": [
+    "no_explicit_preservation"
+  ],
+  "completed_calls": {
+    "no_explicit_preservation": 32
+  },
+  "reference_access": "none",
+  "calibration_locked_access": false,
+  "model_receipt_sha256": "dd60552afec53b549fe0f95202a880f519c4082171bee4ead4f407f9f59a45bc",
+  "config_sha256": "beea51ef0e4d3027ac6e5aeb16dd507ff9712bc8fe2675754da8a36d20e4290e",
+  "protocol_sha256": "893689b9eadaa92eb03e92faa91d03f9095be0439cab2292c6213eb171261378",
+  "script_sha256": "51ee300d85ada58e2e2a0f04ea885ce524d89a2ae49fab0df06c8917a373992e",
+  "native_prediction_sha256": "6bfe68cd225e3cac1f645849174209725936367b31fe8a91bf7a248c93ccd2f3",
+  "native_audit_sha256": "7db5250bf9387a2f981dba0dd6ca2eec85f48f1971f8f98ae087353fa6791e34",
+  "intervention": "all-white RGB PNG, same source width and height",
+  "scope": "post-hoc source sensitivity; no independent quality or untouched-source claim",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "bitsandbytes": "0.48.1",
+    "Pillow": "11.3.0"
+  },
+  "original_call_sha256": {
+    "no_explicit_preservation": "98fc9daa543250c037620f36c8181ef08b6b29ffd066f10b5d4d92052a5ab379"
+  },
+  "adapter_sha256": {
+    "no_explicit_preservation": {
+      "README.md": "79fbb3de39de19bf33eb100a283e607564b86be2db5d57d0cc13a6bac424bd67",
+      "adapter_config.json": "687b562350d150d1451de7b05f24a246b1da9b0a20a7c47c5d7ae8cdb853d70b",
+      "adapter_model.safetensors": "943d6b55689bedffe29e7724b9d5fcf08f9193bb7667e5fdbe36347ccd30c2dc"
+    }
+  },
+  "official_source": {
+    "repository": "opendatalab/OmniDocBench",
+    "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "files": {
+      "src/metrics/table_metric.py": {
+        "git_blob_sha1": "705e294919bb1ff96cf1a69655b1267958a66407",
+        "sha256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e"
+      },
+      "src/core/preprocess/data_preprocess.py": {
+        "git_blob_sha1": "71f27dcbe9975e08303e138a250e4e6f5258c89b",
+        "sha256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd"
+      },
+      "src/core/preprocess/table_postprocess.py": {
+        "git_blob_sha1": "b00c37e0a7c44d21cb9b2fedae2fc69a64d61f59",
+        "sha256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762"
+      },
+      "src/core/preprocess/table_utils.py": {
+        "git_blob_sha1": "d91e64f33eb50d4fae66df64496705cffb494b06",
+        "sha256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731"
+      },
+      "src/core/preprocess/text_postprocess.py": {
+        "git_blob_sha1": "bb6c315f86ab66903159c2b10ee1a8f4d034acbb",
+        "sha256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29"
+      }
+    }
+  },
+  "comparison_sha256": "2060f97f238df40228eb3a27f13a6e43a7ff0c1a5a2f23c27fcc7d50374f5330",
+  "finished_at": "2026-10-09T12:59:48.251479+00:00"
+}

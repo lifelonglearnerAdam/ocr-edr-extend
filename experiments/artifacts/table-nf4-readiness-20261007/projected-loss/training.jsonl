@@ -1,0 +1,2 @@
+{"step": 1, "loss_mean": 1.0688984394073486, "gradient_norm_before_clip": 5.723178386688232, "elapsed_seconds": 4.050548915998661}
+{"step": 2, "loss_mean": 0.7749085426330566, "gradient_norm_before_clip": 2.848323106765747, "elapsed_seconds": 4.865616897997825}

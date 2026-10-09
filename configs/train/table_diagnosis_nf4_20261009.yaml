@@ -1,0 +1,39 @@
+study: table_diagnosis_nf4_sft_20261009
+precision_profile: nf4_lora_8gb
+loss_projection: supervised_only
+model_revision: 895c3a49bc3fa70a340399125c650a463535e71c
+seed: 20261007
+steps: 381
+gradient_accumulation: 4
+passes_per_document: 12
+learning_rate: 0.0001
+lora_rank: 4
+lora_alpha: 8
+clip_gradient: 1.0
+max_sequence_tokens: 4096
+min_pixels: 100352
+max_pixels: 200704
+arms: [all]
+versions:
+  torch: 2.8.0+cu128
+  transformers: 4.57.1
+  peft: 0.17.1
+  bitsandbytes: 0.48.1
+  Pillow: 11.3.0
+inference:
+  max_new_tokens: 192
+  do_sample: false
+  evidence: source_and_current_html_addresses
+  prompt_format: table_diagnosis
+  logits_projection: last_position_only
+data:
+  dataset: pubtabnet-four-roles-20261007
+  admitted_train_documents: 127
+  admitted_train_records: 406
+  model_dev_documents: 32
+  model_dev_records: 103
+  explicit_preservation_records: 127
+  excluded_training_families: [p0002]
+  calibration_locked_optimizer_access: false
+  admission_policy: configs/train/table_admission_20261007.yaml
+  target_provenance: controlled_action_class_location_projection_no_answer_text

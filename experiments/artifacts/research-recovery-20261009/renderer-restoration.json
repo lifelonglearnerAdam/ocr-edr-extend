@@ -1,0 +1,11 @@
+{
+  "official_package_archives_sha256_verified": 15,
+  "package_symlinks_restored": 15,
+  "package_file_modes_restored": 15346,
+  "private_environment_and_tex_config_relocated": true,
+  "local_magick_entry_executable_restored": true,
+  "first_full_validation_disposition": "reference rendering failed due to missing executable permissions; failure retained, not scored as model zero",
+  "cdm_focused_after_repair_passed": 9,
+  "mode_repair_receipt_sha256": "9027b260a39b676c5af0019964987f9fe9dc6decaf2e512ad5b4825b9de7abd0",
+  "wrapper_repair_receipt_sha256": "e81775b9eb3ed5573f663720e85dfa02ba1be589f062915daea2e2e6e53731b2"
+}

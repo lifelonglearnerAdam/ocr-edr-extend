@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-10-07T14:52:07.359635+00:00",
+  "original_run_sha256": {
+    "full-logits": "a6bd22e0a40d22dcf5e28da6cab6074793e9022030d7fd4bfd5358d1004669da",
+    "projected-loss": "f44f839fa8e77d07b0921fb4b6a358460707c2eb10e89ff027c643e1a5e711b1",
+    "standalone-reload": "e495fdda744dd96ba74fc3417b9c76faacb29aa715617b313c419836baae6e88"
+  },
+  "original_failed_receipts_unchanged": true,
+  "full_381_step_arms_completed_by_this_archive": false,
+  "table_accuracy_claim": false,
+  "raw_data_or_checkpoint_weights_published": false
+}

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-09T12:44:20.976Z",
+  "case_tabs": [
+    "duplicate",
+    "number",
+    "preserve",
+    "native"
+  ],
+  "native_conditions": 3,
+  "offline_interactions": true,
+  "original_result_rows": 4,
+  "mobile_widths": {
+    "viewport": 390,
+    "document": 390
+  },
+  "console_errors": [],
+  "tests": 159,
+  "optional_skips": 0,
+  "full_test_seconds": 33.438,
+  "ruff": "passed",
+  "black": "117 files checked",
+  "native_metric_replay": "exact",
+  "review": "read-only reviewer found no remaining blocking findings"
+}

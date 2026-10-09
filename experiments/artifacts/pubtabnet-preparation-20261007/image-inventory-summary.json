@@ -1,0 +1,17 @@
+{
+  "counts": {
+    "test": 9138,
+    "train": 500777,
+    "val": 9115
+  },
+  "document_counts": {
+    "test": 9033,
+    "train": 290449,
+    "val": 8977
+  },
+  "split_intersections": {
+    "test__train": 6124,
+    "test__val": 216,
+    "train__val": 6105
+  }
+}

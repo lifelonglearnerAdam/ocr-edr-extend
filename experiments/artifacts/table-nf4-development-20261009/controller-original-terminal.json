@@ -1,0 +1,54 @@
+{
+  "status": "failed",
+  "pid": 25116,
+  "started_at": "2026-10-09T01:18:53.759657+00:00",
+  "stage": "statistics",
+  "completed_stages": [
+    {
+      "stage": "training_all",
+      "finished_at": "2026-10-09T01:18:53.763203+00:00",
+      "receipt_sha256": "e5e814547a985b9e57c7e4073721b5039c5eeffd7fa8490a8f57275724e38fa8"
+    },
+    {
+      "stage": "training_no_explicit_preservation",
+      "finished_at": "2026-10-09T01:45:16.687041+00:00",
+      "receipt_sha256": "a5d6b539ff760ad1f189a8616d0c599ef8900c90f3edca4dad97091c7de3dd5e"
+    },
+    {
+      "stage": "reload_all",
+      "finished_at": "2026-10-09T01:45:26.769140+00:00",
+      "receipt_sha256": "eab302a2e8ec0d8cdcc08746c4b37bfcbbc3713920f61c1188ca7b6e0209c4e1"
+    },
+    {
+      "stage": "reload_no_explicit_preservation",
+      "finished_at": "2026-10-09T01:45:35.932071+00:00",
+      "receipt_sha256": "738c16c34a8f393b441ec3fbc321092429943cd910d0d7969d779594798a143b"
+    },
+    {
+      "stage": "inference_base",
+      "finished_at": "2026-10-09T01:47:01.638565+00:00",
+      "receipt_sha256": "aea67be028c3340e18b0228c9bf2d21fc328f26c43e598a0404458453b4ca534"
+    },
+    {
+      "stage": "inference_all",
+      "finished_at": "2026-10-09T01:48:36.296402+00:00",
+      "receipt_sha256": "564ce2c13bf5ce62f3f22518423ba7e99df31a533f610473d6d9d9274c0199e3"
+    },
+    {
+      "stage": "inference_no_explicit_preservation",
+      "finished_at": "2026-10-09T01:50:00.402180+00:00",
+      "receipt_sha256": "d579976a58de0f74041eaa71b7e2151bde5258e90666708e90ef4ae4e7c96ef9"
+    },
+    {
+      "stage": "evaluation",
+      "finished_at": "2026-10-09T01:50:53.005336+00:00",
+      "receipt_sha256": "1614833581ffe4f72c942014dc8d8a1bb8de53bba14374744c0f9ae027ecd573"
+    }
+  ],
+  "driver_sha256": "52884acd05b704abe7d62af65a940b401fe0ab5ac17fa9f0eea26867c48db3bf",
+  "inputs_sha256": "92f86998c8e9e8a2c7ee478505eaf25832840888bddae3e42b4fc0087d087a20",
+  "child_pid": 38755,
+  "error_type": "FileNotFoundError",
+  "error": "[Errno 2] No such file or directory: '<RECOVERED_PROJECT>/experiments/runs/table-nf4-screen-recovery-20261009/statistics/run.json'",
+  "finished_at": "2026-10-09T01:50:57.212788+00:00"
+}

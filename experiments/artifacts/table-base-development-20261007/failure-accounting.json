@@ -1,0 +1,21 @@
+{
+  "cases": 103,
+  "source_documents": 32,
+  "executable_actions": 0,
+  "rollbacks": 103,
+  "token_cap": 60,
+  "unexpected_action_schema": 32,
+  "duplicate_json_key": 8,
+  "malformed_json": 3,
+  "raw_error_counts": {
+    "token_cap": 60,
+    "JSONDecodeError: Expecting ',' delimiter: line 1 column 563 (char 562)": 1,
+    "ValueError: Unexpected bounded-edit schema": 32,
+    "ValueError: Duplicate JSON action key": 8,
+    "JSONDecodeError: Expecting value: line 1 column 83 (char 82)": 2
+  },
+  "semantic_correction_attempted": false,
+  "all_reference_labels_are_weak": true,
+  "format_failure_is_not_a_visual_incapability_proof": true,
+  "zero_regressions_with_zero_accepted_actions_is_not_learned_preservation": true
+}

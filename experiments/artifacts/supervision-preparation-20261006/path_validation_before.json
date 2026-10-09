@@ -1,0 +1,8 @@
+{
+  "status": "failed_before_correction",
+  "reproduction": "validate_pilot_inputs(rows, native_input_manifest.parent)",
+  "error_type": "FileNotFoundError",
+  "cause": "native manifest retained paths relative to train/dev folders after being written to the supervision folder",
+  "earlier_assembly_retained": "supervision-superseded-relative-paths",
+  "source_images_labels_and_native_model_outputs_changed": false
+}

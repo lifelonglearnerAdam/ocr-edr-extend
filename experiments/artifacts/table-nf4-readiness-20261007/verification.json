@@ -1,0 +1,62 @@
+{
+  "recorded_at": "2026-10-07T14:52:07.359336+00:00",
+  "full_tests": 140,
+  "optional_skips": 0,
+  "test_gpu_visibility": "empty for CPU/integration suite while authorized training used GPU",
+  "pip_check": "no broken requirements found",
+  "ruff": "passed",
+  "black_files": 103,
+  "read_only_reviews": [
+    "training path no blocking findings",
+    "NF4 inference and pairing no blocking findings; 13 reviewer CPU tests passed"
+  ],
+  "loss_parity": {
+    "tiny_qwen_text_and_visual": true,
+    "loss_rtol": 1e-06,
+    "loss_atol": 1e-06,
+    "gradient_rtol": 1e-05,
+    "gradient_atol": 1e-07
+  },
+  "generation_parity": {
+    "tiny_qwen_visual_greedy_tokens": 4,
+    "exact_token_equality": true
+  },
+  "known_red_tests": [
+    "missing precision implementation",
+    "missing projected-loss implementation",
+    "cross-precision/projection comparisons accepted by prior evaluator",
+    "external config snapshot raised outside failed-receipt handler"
+  ],
+  "log_hashes": {
+    "nf4-pretraining-tests-20261007.log": {
+      "sha256": "9517c289924e2c33ab1fe026a55f0cae0173c94115654ed951019803eadf9c76",
+      "bytes": 50715
+    },
+    "nf4-training-cli-regression-20261007.log": {
+      "sha256": "3682df87f5c06c8144ed1e4d8aa9572fb8ace70f2164e507c96edabee56a8a22",
+      "bytes": 1811
+    },
+    "nf4-pairing-red-20261007.log": {
+      "sha256": "8692683a042b986c2cf41816b2c5d9c47686577ff1f0eb3c9e03b1cdac98cad9",
+      "bytes": 3023
+    },
+    "nf4-pairing-green-20261007.log": {
+      "sha256": "7955f8f75f983a656fb579d54fd3a35ec2ec6a0ef6094b8b481d8ae4eadafd1c",
+      "bytes": 922
+    },
+    "nf4-projection-generation-test-20261007.log": {
+      "sha256": "1422af4767cc7cbe84cda38df120b760bee8a00d67b90075f4c404d8f52215e4",
+      "bytes": 454
+    },
+    "nf4-final-tests-20261007.log": {
+      "sha256": "8c654f8ddb78a93c4e6915efe505021d6db10c0f1a1d78f10f25e5fdbc3efbc6",
+      "bytes": 50021
+    }
+  },
+  "core_only_tests": {
+    "discovered": 140,
+    "optional_skips": 47,
+    "result": "passed",
+    "log_sha256": "dbddf66f7093fbaa85317edde0814b6f0517bf5053769308d1bf15df71364f32"
+  }
+}

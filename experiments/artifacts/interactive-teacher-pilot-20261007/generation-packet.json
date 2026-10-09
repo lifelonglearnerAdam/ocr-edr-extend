@@ -1,0 +1,85 @@
+{
+  "status": "prepared",
+  "created_at": "2026-10-07T11:27:10.709210+00:00",
+  "teacher_model_label": "gpt-6-astra",
+  "teacher_effort_label": "max",
+  "teacher_identity_source": "active session turn_context observed 2026-10-07T08:51:15.935Z",
+  "teacher_immutable_snapshot_available": false,
+  "teacher_mode": "interactive_assistant",
+  "source_documents": 12,
+  "native_cases": 6,
+  "controlled_cases": 6,
+  "tasks": [
+    {
+      "case_id": "t_0027f30ac77f",
+      "task_sha256": "481c7ccec7d9222ef630291964f2d0a0fc2df541dbf37c44e1da1b221c112f00",
+      "source_sha256": "68417164c1dfe7f466aeff605190e911ef4440187cf0cbd6207c5adc5dc0ea2b"
+    },
+    {
+      "case_id": "t_2785cb44d917",
+      "task_sha256": "40629ac6b5307a1973bc8af7edec80c330f2d6fb43102fa8eed7295f79b92d6b",
+      "source_sha256": "cecf99ab2245cc62ad5fd3ee8d1a59fc10d50e408df6c1ea671b1e064ce46250"
+    },
+    {
+      "case_id": "t_31d42d213e8e",
+      "task_sha256": "0e6f84746c24140f75d575422f82d47700735e78effe20ef3fdb3952ad0f8267",
+      "source_sha256": "f49b9155ca528ce289a3520694fc5d9c667532f59be61da6e5dadc66dca062d5"
+    },
+    {
+      "case_id": "t_3cbfba55f702",
+      "task_sha256": "d7807dfcab645d311552ebdde65c4fc4213b6c6c6d6db05150e21b167ee09e34",
+      "source_sha256": "c0ff1438c72ba9514cb6ff93c7ac6b9353dfa259de84a451c3a6b2443f677ac5"
+    },
+    {
+      "case_id": "t_3ed5f2fa02ed",
+      "task_sha256": "92f6277a30b15a77c6a3d37c6a9620f7685ff05bc7272163b6381e16fa343942",
+      "source_sha256": "602bd6affd080ba1f78696efdb40b23e2e735b2749e7b85b0dddf8e7070a940a"
+    },
+    {
+      "case_id": "t_58aed9566a37",
+      "task_sha256": "652072931505e7f846a66a00c3e9036f15473ff589555635efd868965f39a61c",
+      "source_sha256": "a6983da4c2c8877bdddb471c359dc9051d23ef05ba1de25112eb1d3d24b8f204"
+    },
+    {
+      "case_id": "t_63332743fc90",
+      "task_sha256": "2f0076a7692233159d2e687f790a1b791eb084d81ffecf448bdfb6d07455930a",
+      "source_sha256": "2c1575d4f0485daa2b8e541fba10a4f9cac5fcc442de86bd86108b83478c126c"
+    },
+    {
+      "case_id": "t_895887a8de7d",
+      "task_sha256": "31bd43736fb67e96db461d763f0b1eadeb5a2c8ed21e3263750fd31d3db0f093",
+      "source_sha256": "694739fa7bf762b6539c5d71d4e8f218e1bf09054f86ae1e1546b306ff75d47d"
+    },
+    {
+      "case_id": "t_cd47af960194",
+      "task_sha256": "27204b67f77474ccc46b4fe1a7a4013999c37f301880ffbdb5bfe2c550476028",
+      "source_sha256": "37710510c4dc05c0b214cf2c918ccecda05f48d8776d234845a735d71db71f2a"
+    },
+    {
+      "case_id": "t_ce982e45d87b",
+      "task_sha256": "dcf68ccf8731d97f458b62371fe18168c858413e5983e4be66a0581f0ca74bd0",
+      "source_sha256": "4d5fb36c884342e47333b331947a1c38cc5a4445d425e6e7c5fd0df98f406ce6"
+    },
+    {
+      "case_id": "t_eb8ea6f1cfe6",
+      "task_sha256": "243324ce3682f69f2286026fa3fb47e09aeb55f4ee0fe0c2e5da9fed72063440",
+      "source_sha256": "28b8c4f324bababf831c4db0be4016f051d39eda3bfee3bb8445b39e85a32b58"
+    },
+    {
+      "case_id": "t_ecbc2954c449",
+      "task_sha256": "c791e792d7911f9a436054cc9e8b848628991eb2b4d6b99749772ef71550180b",
+      "source_sha256": "a374ebce48acadb05a60641c439f7785716ac35965bbc3f2429ed82556a8617b"
+    }
+  ],
+  "selection_seed": "interactive-teacher-20261007",
+  "selection_uses_model_quality": false,
+  "dataset_sha256": "6b0f11251005d510c040f38c267d2121fc4a046f5f1f61419301812d5afb8796",
+  "native_run_sha256": "5ac3c7e096c13ed2d3c9fb523120a831ab8d1f570a98a798f5a39140e5fb262e",
+  "admission_sha256": "6a65f68a9bfedd6d61a4a8677bc950494de7040db3971ddf02cdbd83f2dfade3",
+  "private_mapping_sha256": "217227c0a2a41ac1682dc32a91c5bb717d29de87ad5929dc1f63f4dd486aa4ee",
+  "reference_access_before_teacher_decisions": false,
+  "max_edit_attempts_per_case": 3,
+  "calibration_locked_access": false,
+  "driver_sha256": "633b6b7ea359942a27fe3f227ae9df962484bec57ff5caa9ec038318cd7925fb",
+  "teacher_prompt_sha256": "236a62aa147c283d358ff3f26ef7de631987ab2fb3ae8eca9de2bdeff9babc3f"
+}

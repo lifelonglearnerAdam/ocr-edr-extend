@@ -1,0 +1,8 @@
+{
+  "run": "inference",
+  "status": "retained_integration_diagnostic",
+  "use_as_student_repair_baseline": false,
+  "reason": "standard SLANet training normalization and selected export/decoder coordinate convention are inconsistent for non-square images",
+  "replacement_for_native_development": "compat-inference with explicit runtime override",
+  "original_run_and_scores_overwritten": false
+}

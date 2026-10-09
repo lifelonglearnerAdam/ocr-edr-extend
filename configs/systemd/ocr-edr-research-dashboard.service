@@ -1,0 +1,14 @@
+[Unit]
+Description=OCR-EDR verified research-page evidence observer
+
+[Service]
+Type=simple
+WorkingDirectory=%h/research/optimization/ocr-edr-team
+ExecStart=%h/research/optimization/ocr-edr-team/.venv-pilot/bin/python %h/research/optimization/ocr-edr-team/scripts/watch_research_dashboard.py --publish --interval 60 --receipt %h/research/optimization/ocr-edr-team/experiments/runs/research-dashboard-20261009/watcher-v4-service.json
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=GIT_TERMINAL_PROMPT=0
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

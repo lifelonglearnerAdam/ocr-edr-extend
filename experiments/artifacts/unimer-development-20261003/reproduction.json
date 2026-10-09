@@ -1,0 +1,71 @@
+{
+  "operation": "offline formula score, adapter and agreement replays; no model calls or source images",
+  "comparisons": [
+    {
+      "part": "controlled-tex",
+      "cases": 128,
+      "summary_records": 4,
+      "cases_equal": true,
+      "summary_equal": true,
+      "decisions_equal": true,
+      "whole_evaluation_equal": true,
+      "original_evaluation_sha256": "5bcd9e6fc46bea316e6d177f102c6b464b30656350467f82b1dbe1787add77bc",
+      "replayed_evaluation_sha256": "5bcd9e6fc46bea316e6d177f102c6b464b30656350467f82b1dbe1787add77bc"
+    },
+    {
+      "part": "native-tex",
+      "cases": 64,
+      "summary_records": 4,
+      "cases_equal": true,
+      "summary_equal": true,
+      "decisions_equal": true,
+      "whole_evaluation_equal": true,
+      "original_evaluation_sha256": "243fea1f90bffcd5d4c20a8c53cbf10bf881ffeb250f6f40152b93bb8cfdf077",
+      "replayed_evaluation_sha256": "243fea1f90bffcd5d4c20a8c53cbf10bf881ffeb250f6f40152b93bb8cfdf077"
+    },
+    {
+      "part": "controlled-tex-adapter-audit",
+      "cases": 256,
+      "summary_records": 8,
+      "cases_equal": true,
+      "summary_equal": true,
+      "decisions_equal": true,
+      "whole_evaluation_equal": false,
+      "original_evaluation_sha256": "01bef3d406369ec6f4c8aea45c91308b83b248bbfc600a670cb38b1828b5e157",
+      "replayed_evaluation_sha256": "27204ea221ddeb9fc689894b209c589ae9c794ba7ac59702aa22061f7628e830"
+    },
+    {
+      "part": "native-tex-adapter-audit",
+      "cases": 128,
+      "summary_records": 8,
+      "cases_equal": true,
+      "summary_equal": true,
+      "decisions_equal": true,
+      "whole_evaluation_equal": false,
+      "original_evaluation_sha256": "d28f2f405ee0816e61fe62490546000a9f1a590cb0113eda442c19a61154acfa",
+      "replayed_evaluation_sha256": "2d53550da4f940a0e1858da1dadabd79fe2081092ebc543ea57c582b04e8be62"
+    },
+    {
+      "part": "controlled-tex-agreement-audit",
+      "cases": 96,
+      "summary_records": 3,
+      "cases_equal": true,
+      "summary_equal": true,
+      "decisions_equal": true,
+      "whole_evaluation_equal": true,
+      "original_evaluation_sha256": "708ba5f3304319d0859c067313437a3ff40b7f5f58414f2a9b3bc1e6a19afdab",
+      "replayed_evaluation_sha256": "708ba5f3304319d0859c067313437a3ff40b7f5f58414f2a9b3bc1e6a19afdab"
+    },
+    {
+      "part": "native-tex-agreement-audit",
+      "cases": 48,
+      "summary_records": 3,
+      "cases_equal": true,
+      "summary_equal": true,
+      "decisions_equal": true,
+      "whole_evaluation_equal": true,
+      "original_evaluation_sha256": "4cf4bd3906da528a123bec6d1e6de7328167313035df4abf6d8901f771126946",
+      "replayed_evaluation_sha256": "4cf4bd3906da528a123bec6d1e6de7328167313035df4abf6d8901f771126946"
+    }
+  ]
+}

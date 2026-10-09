@@ -1,0 +1,49 @@
+{
+  "recorded_at": "2026-10-07T07:35:32.177011+00:00",
+  "phase": "table_sft_readiness_not_optimizer_result",
+  "training_steps_completed": 0,
+  "local_full_tests": {
+    "count": 117,
+    "failures": 0,
+    "optional_skips": 0,
+    "seconds": 24.711,
+    "command": "OCR_EDR_TEST_CDM=1 OCR_EDR_TEST_TABLE=1 OCR_EDR_TEST_TECTONIC=1 .venv-pilot/bin/python -m unittest discover -s tests -q"
+  },
+  "ruff": "passed",
+  "black": "passed",
+  "independent_readonly_code_review": {
+    "critical": 0,
+    "important": 1,
+    "important_resolved": "paired evaluation rejects GPU/CUDA/admission/PEFT mismatch; four actual CLI negatives failed before fix and passed after"
+  },
+  "formula_optimizer_ast_body_matches_commit": "af048ac02dc3efb53f132a84630001bef95ad11a",
+  "admitted_train": {
+    "documents": 127,
+    "records": 406
+  },
+  "model_dev": {
+    "documents": 32,
+    "records": 103
+  },
+  "remote_staging": {
+    "source_images": 159,
+    "files": 165,
+    "model_files": 12,
+    "model_bytes": 4429603990,
+    "model_revision": "895c3a49bc3fa70a340399125c650a463535e71c",
+    "image_hashes_verified": true,
+    "model_hashes_verified": true,
+    "calibration_images_transferred": 0,
+    "locked_images_transferred": 0,
+    "training_started": false,
+    "runtime_dependencies": {
+      "python": "3.11.16",
+      "torch": "2.5.1+cu121",
+      "transformers": "4.57.1",
+      "peft": "0.17.1",
+      "lxml": "6.0.2"
+    },
+    "existing_interpreter_dependencies_reused_with_separate_project_data_and_overlay": true
+  },
+  "new_model_performance_claim": false
+}

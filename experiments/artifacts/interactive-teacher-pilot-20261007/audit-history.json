@@ -1,0 +1,15 @@
+{
+  "first_audit_sha256": "1ea6ba215a6d06a60d04c1da80daac229a4d39c85fac19176a60c930d74f857e",
+  "final_audit_sha256": "7325058b4c8c0fd9334c0f6afbd7c755b4626960cea45411d95085cb21c7a60e",
+  "first_code_sha256": {
+    "scripts/audit_teacher_table_pilot.py": "9623538d278900558be619e775eb05b3eca2d2fe8a60187a6d9f6ea38aee4d27",
+    "src/ocr_edr/teacher_audit.py": "57578e6fd882bd45ed49c0f21825f3c76dc236a56b301acb86671d9cb533ecdc"
+  },
+  "final_code_sha256": {
+    "scripts/audit_teacher_table_pilot.py": "8ed0904cda843254257e88db421fffec79d15198197377add8d496ea565cb107",
+    "src/ocr_edr/teacher_audit.py": "33375d053bc9b3fa99b15fc8245d2b8fd4cf5eacda9d4b73f077404b23da1d30"
+  },
+  "first_audit_disposition": "retained locally; pre-format implementation, superseded by source-snapshotted final audit",
+  "first_and_final_evaluation_bytes_identical": true,
+  "paired_view_bytes_identical": true
+}

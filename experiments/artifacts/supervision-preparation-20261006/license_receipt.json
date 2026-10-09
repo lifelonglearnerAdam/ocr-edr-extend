@@ -1,0 +1,8 @@
+{
+  "dataset_card_url": "https://huggingface.co/datasets/wanderkid/UniMER_Dataset/blob/2343ddd963290469da36ca83e3a56c66e068add9/README.md",
+  "dataset_card_license": "apache-2.0",
+  "repository_license_url": "https://raw.githubusercontent.com/opendatalab/UniMERNet/5a2c80d96b1d2dba447ff18d873e5fb73ba03c35/LICENSE",
+  "retrieved_at": "2026-10-06T13:24:10.425599+00:00",
+  "manual_component_notice": "The dataset card separately requires manual acquisition of HME100K for copyright compliance. No separate HME100K download is performed.",
+  "component_provenance_per_image": "not supplied in the image archive; not inferred from numeric IDs"
+}

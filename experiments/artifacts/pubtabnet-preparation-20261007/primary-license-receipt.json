@@ -1,0 +1,8 @@
+{
+  "url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubTabNet/8ffde9024bd331f5a61c3c549fdf30dd3c3e43a5/LICENSE.md",
+  "http": 200,
+  "sha256": "fd3534b2d5a47a239850b7aa1f6bd68b44d23455f233c586f57e21c19245c668",
+  "primary_annotations": "CDLA-Permissive-1.0",
+  "images": "PMC Open Access conditions; per-article image license not inferred",
+  "mirror_card": "CDLA-Sharing-1.0; metadata conflict retained"
+}

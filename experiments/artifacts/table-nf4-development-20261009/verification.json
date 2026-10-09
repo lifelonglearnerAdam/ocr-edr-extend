@@ -1,0 +1,9 @@
+{
+  "full_model_conditions_complete": true,
+  "raw_files_verified": true,
+  "reference_scope": "model_dev published weak reference",
+  "call_count": 309,
+  "source_audit_scope": "post-hoc developer observations, not independent visual gold",
+  "software_review": "no blocking issues after dashboard seal-binding fix; experimental inference default protocol still rejects undeclared changes",
+  "public_raw_data": false
+}

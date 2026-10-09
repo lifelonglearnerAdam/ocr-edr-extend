@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "verified_at": "2026-10-09T13:07:24.592340+00:00",
+  "cases": 32,
+  "conditions": 2,
+  "model_calls": 64,
+  "first_arm_reused_calls": 32,
+  "repeated_model_calls": 0,
+  "reference_access": "none",
+  "calibration_locked_access": false,
+  "interrupted_comparison_preserved": true,
+  "comparison_sha256": "fc7b362a1537c3ff5f657963143ba0a7d11e8d831c8bf9857a93f77e6d063caf",
+  "evidence_sha256": {
+    "failed_run": "3e2d6a48cd6d7b6f510284a99a48e9372257e83c6784aff873a17f40aaecd119",
+    "saved_all_calls": "e786efc540fb544f4c5f168f5109b0f0f020aab201e6b8a2a0cecf36dec7744f",
+    "recovery": "6b520f8c13ffb7c1e82dec54a9a737956bc5aff0dae7f1dc998fc09912264839",
+    "recovered_comparison": "4d0e66b5a3439427ba322bdca7c84aa02d6097a00a111ea5ed403cf0686d832a",
+    "second_run": "57cfec088b197a0235945d4b765ab136dadea9d746077bcbb59ef3a34accec72",
+    "second_calls": "b4af130185144518197b3e2f674f617f17ca3f3e5a1d3256ed894bab6387a675",
+    "second_comparison": "2060f97f238df40228eb3a27f13a6e43a7ff0c1a5a2f23c27fcc7d50374f5330"
+  },
+  "summary": [
+    {
+      "arm": "all",
+      "cases": 32,
+      "raw_output_equal": 27,
+      "action_equal": 27,
+      "final_html_equal": 27,
+      "normalized_html_equal": 27,
+      "hit_length_cap": 0,
+      "input_tokens": 41269,
+      "output_tokens": 222,
+      "generation_seconds": 16.252950044998215,
+      "blank_actions": {
+        "stop": 26,
+        "delete_row": 6
+      },
+      "contracts": {
+        "accepted_contract": 32
+      },
+      "calls_sha256": "e786efc540fb544f4c5f168f5109b0f0f020aab201e6b8a2a0cecf36dec7744f"
+    },
+    {
+      "arm": "no_explicit_preservation",
+      "cases": 32,
+      "raw_output_equal": 10,
+      "action_equal": 10,
+      "final_html_equal": 10,
+      "normalized_html_equal": 10,
+      "hit_length_cap": 0,
+      "input_tokens": 41269,
+      "output_tokens": 443,
+      "generation_seconds": 22.810733317995982,
+      "blank_actions": {
+        "replace_cell": 8,
+        "delete_row": 24
+      },
+      "contracts": {
+        "accepted_contract": 32
+      },
+      "calls_sha256": "b4af130185144518197b3e2f674f617f17ca3f3e5a1d3256ed894bab6387a675"
+    }
+  ],
+  "scope": "source sensitivity, no new accuracy or independent visual correctness claim"
+}

@@ -1,0 +1,7 @@
+{
+  "configs/eval/native_ppstructure_20261007.yaml": "e1334b8ea743fb1c4a5835996a823d6c40c9b8ca8cd4d6a735e25c5cbde11e36",
+  "docs/research/NATIVE_TABLE_PROTOCOL_20261007.md": "097471f82b351b5bc57a0a2ff25d3cce690fd158d77e75a05d0e37ed5871d521",
+  "scripts/run_native_table_baseline.py": "e3f819d77991feb727c6117d68362fa5b5562ca255a0b33b0f6f002e28e692e1",
+  "src/ocr_edr/native_tables.py": "63fbb548b31476cbe78b4b67f465282b4a020960014bcb99ced32623beaa9093",
+  "src/ocr_edr/sft.py": "ba3f543820539cb24fa674cf3063955f79ce4cf02ce4b0089a6c0bc13f7b4cb6"
+}

@@ -1,0 +1,56 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-07T09:52:46.345951+00:00",
+  "inference_run_sha256": "e823f8381a9ebb77daed1a905c9715362749252975926c6c02340c762b406a29",
+  "reference_sha256": "d09a01006106e70610968ffa6e96bf016425e8d1d90d946fae253de2140c64e9",
+  "predictions_sha256": "6bfe68cd225e3cac1f645849174209725936367b31fe8a91bf7a248c93ccd2f3",
+  "source_sha256": {
+    "scripts/evaluate_native_table_baseline.py": "d68fdaad91691d03ed06a10fc625082f44e6f341605ea6acde4038e5289743c0",
+    "src/ocr_edr/native_tables.py": "927a6b8168eb7cde7b0ffbc62dd7a2df09ba881cd30c10350e15393d4cf213bd",
+    "src/ocr_edr/table_pilot.py": "58547685a9168568f50828b17f5da1c7cf752f9b32e82578cad7615f543944f3",
+    "src/ocr_edr/official_tables.py": "ec088bde7b44396e2af97c5c9d9c73d1ca0fdff5ab4ad2f31d7d63933ee75375"
+  },
+  "metric": "unmodified official OmniDocBench TEDS and TEDS-S; symmetric HTML normalization",
+  "parser_failure_policy": "zero scores with source/call/time retained; no row removal",
+  "label_scope": "released weak-reference agreement, not visual correctness",
+  "editor_scope": "raw DOM counts and aligned text/span comparison; not exhaustive TEDS action oracle",
+  "parser_pretraining_overlap": "PubTabNet advertised; current dev sources derive from public train",
+  "benchmark_evaluation": false,
+  "official_source": {
+    "repository": "opendatalab/OmniDocBench",
+    "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+    "files": {
+      "src/metrics/table_metric.py": {
+        "git_blob_sha1": "705e294919bb1ff96cf1a69655b1267958a66407",
+        "sha256": "5694f070d87ffb0a919b326ec293abb70fd9eae00b3a1dc00983dd4e8b20216e"
+      },
+      "src/core/preprocess/data_preprocess.py": {
+        "git_blob_sha1": "71f27dcbe9975e08303e138a250e4e6f5258c89b",
+        "sha256": "d108d0726f0cc36eaf1fed2786a0405531549b3b32879e64fd4690ff88ba9dbd"
+      },
+      "src/core/preprocess/table_postprocess.py": {
+        "git_blob_sha1": "b00c37e0a7c44d21cb9b2fedae2fc69a64d61f59",
+        "sha256": "6aa7e91b3f52371cd5e62bcc30bb5bbc8c3d7c7dd5c80862024bbae8929b7762"
+      },
+      "src/core/preprocess/table_utils.py": {
+        "git_blob_sha1": "d91e64f33eb50d4fae66df64496705cffb494b06",
+        "sha256": "febb662ee1be4e97343833c3844321e8ac3d4f29452fd2ceeef5f965add9b731"
+      },
+      "src/core/preprocess/text_postprocess.py": {
+        "git_blob_sha1": "bb6c315f86ab66903159c2b10ee1a8f4d034acbb",
+        "sha256": "2b995619c2013bbffefee50795940a2271a74fcbdd667b8a41ff2d83f33dda29"
+      }
+    }
+  },
+  "versions": {
+    "lxml": "6.0.2",
+    "apted": "1.0.3",
+    "Levenshtein": "0.27.1",
+    "beautifulsoup4": "4.14.2",
+    "pylatexenc": "2.10"
+  },
+  "evaluation_sha256": "878c12f4ba6c8ef6f49f7fcc509bc1e4272883c4b1105a14d0df7c0380e1fa6f",
+  "finished_at": "2026-10-07T09:52:46.992830+00:00",
+  "original_receipt_sha256": "b3b7b420d12e4d91a05ceeb9ca5fbc183b45a0820c500b8924d3d06bbd2f0b17",
+  "public_copy_transformation": "host-local source/model path prefixes replaced by logical roots; source keys made repository-relative; hashes preserved"
+}

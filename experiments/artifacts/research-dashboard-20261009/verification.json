@@ -1,0 +1,40 @@
+{
+  "full_environment_tests": 152,
+  "optional_skips": 0,
+  "test_log_sha256": "dbe433c87ff16029406d6d3edebf5b7869110b7187949fb645000f40c8b4550f",
+  "browser_tests": {
+    "desktop_tabs": true,
+    "category_filter": true,
+    "module_navigation": true,
+    "mobile_horizontal_page_overflow": false,
+    "offline_download_four_condition_rows": true,
+    "javascript_page_errors": 0
+  },
+  "read_only_review": "blocked on seal binding before fix; fix independently reverified; no blocking issues remain",
+  "senior_sources": "5 supplied PDF pages read/rendered; metrics transcribed with attribution, no independent reproduction",
+  "public_data_review": "raw images/target HTML/weights/credentials/private paths excluded; safe vetted PDF figure crops included",
+  "deployment_status": "published_and_publicly_read_back",
+  "public_readback": {
+    "verified_at": "2026-10-09T11:53:56.912Z",
+    "checks": [
+      {
+        "url": "https://lifelonglearneradam.github.io/ocr-edr-extend/",
+        "status": 200,
+        "sha256": "05ba15157095ba55a71167d7cd0275739a42b3febea05286fb243e4b9ec5806b",
+        "matches_committed_snapshot": true
+      },
+      {
+        "url": "https://lifelonglearneradam.github.io/ocr-edr-extend/research-data.json",
+        "status": 200,
+        "sha256": "d67cc4a492dd3d0b5ed22122699841c0310e207d42d5c5e582a7b4ed7e1043b9",
+        "matches_committed_snapshot": true
+      }
+    ],
+    "pages_workflow_run": 37924411420,
+    "workflow_result": "success after narrowly allowing research branch",
+    "default_branch_merged": false
+  },
+  "public_html_sha256": "05ba15157095ba55a71167d7cd0275739a42b3febea05286fb243e4b9ec5806b",
+  "public_json_sha256": "d67cc4a492dd3d0b5ed22122699841c0310e207d42d5c5e582a7b4ed7e1043b9",
+  "generated_output_matches_builder": true
+}

@@ -1,0 +1,13 @@
+{
+  "repository": "opendatalab/OmniDocBench",
+  "revision": "f133a71e9e91c3621c7ce8994200a7b394a06eb3",
+  "source_records_sha256": "eba92eb6233f9a45f6247d77f39fee28f1ca6b9d671e27cc13d707f700b7fa16",
+  "role": "development; exclude source pages from future frozen tests",
+  "selection": "first four eligible by sha256(20261004:img_id:gt_position), unique parent pages",
+  "source_count": 4,
+  "cases": 14,
+  "source_prediction_parser": "not identified in the published demo records",
+  "model_outputs_used_for_selection": false,
+  "input_sha256": "447aa0d9294b60650161dbe3678bb08c3d8b411af1e54addd84fd7f8438aa215",
+  "reference_sha256": "847271cd7c76ceaf3199bed408881453985ad71d14c27fb7d9b4514b2764fc33"
+}

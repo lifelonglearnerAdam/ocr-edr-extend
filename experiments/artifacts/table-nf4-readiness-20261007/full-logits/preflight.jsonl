@@ -1,0 +1,2 @@
+{"sample_id": "p0055-extra_row", "family_id": "p0055", "variant": "extra_row", "tokens": 2708, "supervised_tokens": 13, "masked_tokens": 2695, "grid": [[1, 16, 36]]}
+{"sample_id": "p0079-cell_perturbation", "family_id": "p0079", "variant": "cell_perturbation", "tokens": 968, "supervised_tokens": 21, "masked_tokens": 947, "grid": [[1, 10, 64]]}

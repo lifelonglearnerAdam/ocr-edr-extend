@@ -1,0 +1,55 @@
+{
+  "retrieved_at": "2026-10-09T14:05:57.944365+00:00",
+  "sources": [
+    {
+      "title": "LATTE",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/32422",
+      "published": "2025-04-11",
+      "read_scope": "publisher title/abstract, delta-view and formula/table scope; not a full-paper reread"
+    },
+    {
+      "title": "DOCR-Inspector",
+      "url": "https://arxiv.org/html/2512.10619v1",
+      "published": "2025-12-11",
+      "read_scope": "arXiv v1 abstract/method/training and diagnosis-guided refinement passages"
+    },
+    {
+      "title": "OCR-EDR",
+      "url": "https://arxiv.org/html/2609.03445v1",
+      "published": "2026-09-03",
+      "read_scope": "arXiv v1 task/Algorithm1/training/refinement/GRPO and curriculum appendix"
+    },
+    {
+      "title": "From Diagnosis to Correction / DEC",
+      "url": "https://arxiv.org/html/2608.09842v1",
+      "published": "2026-08",
+      "read_scope": "arXiv v1 method/gate/ranker/rollback/routing ablation/training/limitations"
+    },
+    {
+      "title": "OCR-Agent",
+      "url": "https://arxiv.org/html/2602.21053v1",
+      "published": "2026-02",
+      "read_scope": "arXiv v1 abstract/introduction/capability and memory reflection"
+    },
+    {
+      "title": "ReViCo",
+      "url": "https://arxiv.org/html/2608.27154v1",
+      "published": "2026-08-27",
+      "read_scope": "arXiv v1 abstract and task definitions; scene visual correction, not a formula/table repair benchmark"
+    },
+    {
+      "title": "Conformal Risk Control",
+      "url": "https://arxiv.org/abs/2208.02814",
+      "published": "v4 2025-06-13",
+      "read_scope": "abstract and version history only; next-stage statistical reading, no guarantee claim"
+    },
+    {
+      "title": "TypeSafe Jev models",
+      "url": "https://docs.typesafe.ai/models",
+      "published": "undated live documentation",
+      "read_scope": "current model and text-only input table; no paid API call"
+    }
+  ],
+  "scope": "bounded primary-source recheck, not an exhaustive novelty search",
+  "external_results_independently_reproduced": false
+}

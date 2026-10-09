@@ -1,0 +1,290 @@
+{
+  "sources": 32,
+  "comparison": [
+    {
+      "family_id": "p0129",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0130",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0131",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0132",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0133",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.814697265625e-06
+    },
+    {
+      "family_id": "p0134",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0135",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0136",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0137",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0138",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0139",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0140",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0141",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0142",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0143",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0144",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 5.565705848198377e-06
+    },
+    {
+      "family_id": "p0145",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0146",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0147",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0148",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0149",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0150",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0151",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0152",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0153",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0154",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0155",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0156",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    },
+    {
+      "family_id": "p0157",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0158",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 3.0517578125e-05
+    },
+    {
+      "family_id": "p0159",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 6.003457997394435e-06
+    },
+    {
+      "family_id": "p0160",
+      "raw_dom_skeleton_equal": true,
+      "ocr_text_confidence_equal": true,
+      "ocr_boxes_equal": true,
+      "expected_coordinate_rescale_equal": true,
+      "max_coordinate_rescale_error": 1.52587890625e-05
+    }
+  ],
+  "p0141_normalized_td_skeleton_equal": true,
+  "p0141_official_teds_s_denominator": [
+    {
+      "condition": "original",
+      "normalized_descendant_denominator": 34,
+      "teds_structure": 0.7647058823529411,
+      "distance_recovered_from_score": 8.000000000000002
+    },
+    {
+      "condition": "compat",
+      "normalized_descendant_denominator": 38,
+      "teds_structure": 0.7894736842105263,
+      "distance_recovered_from_score": 8.0
+    }
+  ],
+  "escaped_format_marker_sources": 31,
+  "meaning": "decoded raw structure and OCR output equivalence; no claim of captured model-logit bit equality",
+  "driver_sha256": "b2b4f02385bd4297394f748d0ba8eb5ff0ed2638a2c70057e6df3c723551ba32",
+  "input_sha256": {
+    "inference/run.json": "00b5ed3ac001484432397d63994f319f44c7b15e8dbac18b9a7a19fe46421833",
+    "inference/predictions.jsonl": "4c9ef7ba10a10a580802031d5513080fc53a0cade0ea0fee75a77a56ab8953e3",
+    "compat-inference/run.json": "e823f8381a9ebb77daed1a905c9715362749252975926c6c02340c762b406a29",
+    "compat-inference/predictions.jsonl": "6bfe68cd225e3cac1f645849174209725936367b31fe8a91bf7a248c93ccd2f3"
+  },
+  "coordinate_tolerance": {
+    "relative": 1e-05,
+    "absolute": 0.0001
+  },
+  "all_32_checks_passed": true
+}

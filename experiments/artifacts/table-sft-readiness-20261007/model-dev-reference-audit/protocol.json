@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-10-07T07:25:07.962172+00:00",
+  "scope": "all 32 model-dev source/released-reference pairs; no prediction output access",
+  "selection": "one preservation variant for every frozen model-dev family",
+  "method": "assistant visual inspection; not an independent human character-level audit",
+  "images": 32,
+  "calibration_locked_images_loaded": false,
+  "reference_sha256": "d09a01006106e70610968ffa6e96bf016425e8d1d90d946fae253de2140c64e9",
+  "driver_sha256": "302e1646217ed0fbd1acf3f65dc2aaf9390ca036ac7a142444991674887caa67",
+  "reference_edits": false,
+  "exclude_cases_based_on_audit": false,
+  "purpose": "flag clear discrepancies and uncertainty; retain all 103 cases for scoring"
+}
