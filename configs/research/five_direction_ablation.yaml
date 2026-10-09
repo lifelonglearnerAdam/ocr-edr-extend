@@ -68,6 +68,9 @@ contrasts:
     full_training_completed: false
     completed_all_arm_steps: 381
     analysis_protocol: docs/research/TABLE_NF4_ANALYSIS_PROTOCOL_20261007.md
+    recovery_protocol: docs/research/RESEARCH_RECOVERY_20261009.md
+    original_second_arm_external_interruption_steps: 62
+    original_interrupted_optimizer_exposures_retained: 248
     independent_bf16_condition_retained: true
     disclosed_not_matched: [supervised_token_counts, repair_variant_exposures]
   D0:

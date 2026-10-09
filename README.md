@@ -6,6 +6,8 @@ OCR-EDR 闭环纠错方法的 **公式 / 表格专项** 普适化与 **Agentic R
 
 本项目的工作区是 `optimization/ocr-edr-team`，当前 Linux 挂载路径以实际检测结果为准。研究方向依据该工作区的独立研究简报推进；MonkeyOCR Note 表格/公式复核属于另一个项目。MonkeyOCR 可作为多系统实验中的一个基线。
 
+10月9日因原NTFS卷只读/I/O故障，[恢复到Linux原生文件系统](docs/research/RESEARCH_RECOVERY_20261009.md)中的`~/research/optimization/ocr-edr-team`。已完成的第一臂381步检查点保留并核验；第二臂在外部中断后从原基座重跑，原62步及成本记录未删除。模型/数据/22个执行文件hash保持一致，完整质量评估仍待运行结果。
+
 完整资料：[研究简报](docs/research/brief.md)、[OCR-EDR 机制](docs/research/findings/F1-ocr-edr.md)、[Jev 与评测](docs/research/findings/F2-jev-omnidocbench.md)。引用数字来自研究记录，尚未在本项目独立复现。
 
 ## 目标（本组研究方向）

@@ -1,0 +1,16 @@
+{
+  "full_environment_tests": 144,
+  "optional_skips": 0,
+  "test_log_sha256": "9b4e7d28dbbd7a61a6077363051cc3c30edbe5604bcc0c9c76a4c8550b3c6a73",
+  "ruff": "passed",
+  "black_checked_files": 106,
+  "read_only_review": "22 frozen files, model12files, allcheckpoint, data roles verified; one final statistics receipt-name mismatch documented and separate completion verifier installed",
+  "original_no_preservation_completed_steps": 62,
+  "restarted_no_preservation_first62_loss_exact_matches": 62,
+  "original_and_restored_preflight_and_schedule_byte_identical": true,
+  "complete_two_arm_quality_result_available": false,
+  "final_verifier_source_sha256": "34dc7aa15f297f51d0107ec66313964317df0d91b47dbdf8038710163d66831e",
+  "recovery_driver_source_sha256": "52884acd05b704abe7d62af65a940b401fe0ab5ac17fa9f0eea26867c48db3bf",
+  "git_index_repair_attempted": false,
+  "original_experiment_receipts_rewritten": false
+}
