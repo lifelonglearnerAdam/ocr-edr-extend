@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T12:40:25.579613+00:00",
+  "updated_at": "2026-10-09T13:11:43.368576+00:00",
   "repository": "https://github.com/lifelonglearnerAdam/ocr-edr-extend",
   "goal_status": "active_incomplete",
   "table_screen": {
@@ -503,7 +503,9 @@
     "main_evaluation_sha256": "06184a38ebe2c9647e641f768e4f9d223f8cb8ab4024eceda24fae22541c9a6a",
     "main_stats_sha256": "ec056bdd882f98e4413d71e0eddc85b5ec0d4a9184f410347685f871c32549db",
     "verified_completion_sha256": "2c7c9bb64abb7415abd1fa7b9cab940fd98122fd408530b6acec8deb6ae4588d",
-    "senior_provenance_sha256": "527383e49732dd78a91d54e0b71204600d29d1e65575a25c4514c5846566aa7e"
+    "senior_provenance_sha256": "527383e49732dd78a91d54e0b71204600d29d1e65575a25c4514c5846566aa7e",
+    "page_template_sha256": "79d6b1e6a791195076a403c412ad58bbb1203099262ca8738e33d43402091ee1",
+    "beginner_explanation_sha256": "e65088c19b2817fb7b2cf6efc0b621a872b8b3b9fec960873a8640968cdeb73d"
   },
   "walkthroughs": [
     {
@@ -710,5 +712,65 @@
         "caps": 0
       }
     ]
+  },
+  "source_evidence_probe": {
+    "status": "completed",
+    "cases": 32,
+    "model_calls": 64,
+    "summary": [
+      {
+        "arm": "all",
+        "cases": 32,
+        "raw_output_equal": 27,
+        "action_equal": 27,
+        "final_html_equal": 27,
+        "normalized_html_equal": 27,
+        "hit_length_cap": 0,
+        "input_tokens": 41269,
+        "output_tokens": 222,
+        "generation_seconds": 16.252950044998215,
+        "blank_actions": {
+          "stop": 26,
+          "delete_row": 6
+        },
+        "contracts": {
+          "accepted_contract": 32
+        },
+        "calls_sha256": "e786efc540fb544f4c5f168f5109b0f0f020aab201e6b8a2a0cecf36dec7744f"
+      },
+      {
+        "arm": "no_explicit_preservation",
+        "cases": 32,
+        "raw_output_equal": 10,
+        "action_equal": 10,
+        "final_html_equal": 10,
+        "normalized_html_equal": 10,
+        "hit_length_cap": 0,
+        "input_tokens": 41269,
+        "output_tokens": 443,
+        "generation_seconds": 22.810733317995982,
+        "blank_actions": {
+          "replace_cell": 8,
+          "delete_row": 24
+        },
+        "contracts": {
+          "accepted_contract": 32
+        },
+        "calls_sha256": "b4af130185144518197b3e2f674f617f17ca3f3e5a1d3256ed894bab6387a675"
+      }
+    ],
+    "comparison_sha256": "fc7b362a1537c3ff5f657963143ba0a7d11e8d831c8bf9857a93f77e6d063caf",
+    "first_arm_reused_calls": 32,
+    "scope": "post-hoc mechanism probe, no new quality/accuracy claim",
+    "real_actions": {
+      "all": {
+        "stop": 31,
+        "delete_row": 1
+      },
+      "no_explicit_preservation": {
+        "replace_cell": 25,
+        "delete_row": 7
+      }
+    }
   }
 }

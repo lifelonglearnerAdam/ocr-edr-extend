@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-09T13:16:11.993Z",
+  "figures": 3,
+  "comparison_rows": 3,
+  "probe_rows": 2,
+  "offline_rows_not_duplicated": true,
+  "case_interaction": true,
+  "mobile_widths": {
+    "viewport": 390,
+    "document": 390
+  },
+  "console_errors": [],
+  "full_tests": 161,
+  "optional_skips": 0,
+  "test_seconds": 35.878,
+  "ruff": "passed",
+  "black": "118 files checked",
+  "review": "no remaining blocking findings;64paired source comparisons replayed independently"
+}

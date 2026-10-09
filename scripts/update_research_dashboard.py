@@ -13,6 +13,7 @@ from ocr_edr.dashboard_evidence import (
     verify_four_arm_coverage,
     verify_native_coverage,
     verify_prompt_stage,
+    verify_source_probe_coverage,
     verify_walkthrough_cases,
 )
 from ocr_edr.native_table_repair import native_repair_inputs, verify_native_calls
@@ -198,6 +199,8 @@ def main():
             "main_stats_sha256": sha256(args.results / "statistics/report.json"),
             "verified_completion_sha256": sha256(args.results / "verified-completion.json"),
             "senior_provenance_sha256": sha256(args.site / "senior-provenance.json"),
+            "page_template_sha256": sha256(args.site / "template.html"),
+            "beginner_explanation_sha256": sha256(args.site / "beginner.fragment.html"),
         },
     }
     if (args.site / "walkthrough-data.json").exists():
@@ -318,6 +321,48 @@ def main():
                 if s["variant"] == "all"
             ]
     data["current_activity"] = activity
+    source_probe = root / "experiments/runs/table-source-evidence-complete-20261009"
+    if (source_probe / "completion.json").exists():
+        completion = json.loads((source_probe / "completion.json").read_text())
+        comparison = json.loads((source_probe / "comparison.json").read_text())
+        if completion["status"] != "completed" or completion["model_calls"] != 64:
+            raise ValueError("Source image probe is not complete")
+        if sha256(source_probe / "comparison.json") != completion["comparison_sha256"]:
+            raise ValueError("Source probe comparison differs from its completion seal")
+        old = root / "experiments/runs/table-source-evidence-20261009"
+        new = root / "experiments/runs/table-source-evidence-second-arm-20261009"
+        paths = {
+            "failed_run": old / "run.json",
+            "saved_all_calls": old / "all/calls.jsonl",
+            "recovery": old / "recovery.json",
+            "recovered_comparison": old / "replayed-comparison.json",
+            "second_run": new / "run.json",
+            "second_calls": new / "no_explicit_preservation/calls.jsonl",
+            "second_comparison": new / "comparison.json",
+        }
+        if any(sha256(p) != completion["evidence_sha256"][name] for name, p in paths.items()):
+            raise ValueError("Source probe generating or recovery evidence changed")
+        verify_source_probe_coverage(comparison)
+        if comparison["summary"] != completion["summary"]:
+            raise ValueError("Source probe displayed summary differs from paired evidence")
+        generated = json.loads((new / "run.json").read_text())
+        if generated["native_audit_sha256"] != sha256(args.native_results / "audit.json"):
+            raise ValueError("Original source action audit changed after the probe")
+        original_actions = json.loads((args.native_results / "audit.json").read_text())[
+            "action_counts"
+        ]
+        data["source_evidence_probe"] = {
+            "status": "completed",
+            "cases": 32,
+            "model_calls": 64,
+            "summary": comparison["summary"],
+            "comparison_sha256": completion["comparison_sha256"],
+            "first_arm_reused_calls": 32,
+            "scope": "post-hoc mechanism probe, no new quality/accuracy claim",
+            "real_actions": {
+                arm: original_actions[arm] for arm in ["all", "no_explicit_preservation"]
+            },
+        }
     validate_snapshot(data)
     args.site.mkdir(parents=True, exist_ok=True)
     current = args.site / "research-data.json"

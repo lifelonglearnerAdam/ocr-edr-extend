@@ -15,11 +15,13 @@ try:
         verify_four_arm_coverage,
         verify_native_coverage,
         verify_prompt_stage,
+        verify_source_probe_coverage,
         verify_walkthrough_cases,
     )
 except ImportError:
     verify_completion_binding = verify_four_arm_coverage = verify_prompt_stage = None
     verify_native_coverage = verify_walkthrough_cases = None
+    verify_source_probe_coverage = None
 
 
 class DashboardIntegrityTests(unittest.TestCase):
@@ -100,6 +102,42 @@ class DashboardIntegrityTests(unittest.TestCase):
 
 
 class EvidenceBindingTests(unittest.TestCase):
+    def test_white_image_probe_keeps_both_full_cohorts_and_recomputes_agreement_counts(self):
+        self.assertTrue(callable(verify_source_probe_coverage))
+        arms = ["all", "no_explicit_preservation"]
+        rows = [
+            {
+                "arm": arm,
+                "sample_id": str(i),
+                "raw_output_equal": True,
+                "action_equal": True,
+                "final_html_equal": True,
+                "normalized_html_equal": True,
+                "hit_length_cap": False,
+            }
+            for arm in arms
+            for i in range(32)
+        ]
+        summary = [
+            {
+                "arm": arm,
+                "cases": 32,
+                "raw_output_equal": 32,
+                "action_equal": 32,
+                "final_html_equal": 32,
+                "normalized_html_equal": 32,
+                "hit_length_cap": 0,
+            }
+            for arm in arms
+        ]
+        verify_source_probe_coverage({"cases": rows, "summary": summary})
+        with self.assertRaises(ValueError):
+            verify_source_probe_coverage({"cases": rows[:-1], "summary": summary})
+        with self.assertRaises(ValueError):
+            verify_source_probe_coverage(
+                {"cases": rows, "summary": [{**summary[0], "action_equal": 31}, summary[1]]}
+            )
+
     def test_native_results_require_all_four_32_source_conditions(self):
         self.assertTrue(callable(verify_native_coverage))
         arms = ["unchanged_0", "base", "all", "no_explicit_preservation"]

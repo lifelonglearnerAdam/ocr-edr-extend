@@ -3,6 +3,40 @@
 import hashlib
 
 
+def verify_source_probe_coverage(comparison):
+    """Two full32-source cohorts; displayed agreement is a count, not accuracy."""
+    arms = {"all", "no_explicit_preservation"}
+    rows = comparison["cases"]
+    if len(rows) != 64 or len({(r["arm"], r["sample_id"]) for r in rows}) != 64:
+        raise ValueError("Source probe needs all64 unique paired results")
+    summary = comparison["summary"]
+    if len(summary) != 2 or {r["arm"] for r in summary} != arms:
+        raise ValueError("Both source probe conditions required")
+    identities = None
+    for arm in arms:
+        group = [r for r in rows if r["arm"] == arm]
+        ids = {r["sample_id"] for r in group}
+        if len(ids) != 32 or (identities is not None and identities != ids):
+            raise ValueError("Source probe source pairing differs")
+        identities = ids
+        total = next(r for r in summary if r["arm"] == arm)
+        if total["cases"] != 32:
+            raise ValueError("Source probe denominator differs")
+        for key in [
+            "raw_output_equal",
+            "action_equal",
+            "final_html_equal",
+            "normalized_html_equal",
+            "hit_length_cap",
+        ]:
+            if (
+                any(type(r[key]) is not bool for r in group)
+                or type(total[key]) is not int
+                or total[key] != sum(r[key] for r in group)
+            ):
+                raise ValueError("Source agreement summary differs from all paired cases")
+
+
 def verify_completion_binding(completion, observed_hashes):
     if (
         completion.get("status") != "completed"

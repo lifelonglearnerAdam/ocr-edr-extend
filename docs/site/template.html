@@ -15,7 +15,7 @@
 <body>
 <header class="topbar"><div class="shell"><a class="brand" href="#overview">OCR<span>·</span>EDR <span class="muted small">/ RESEARCH NOTE</span></a><div class="top-actions"><a href="https://github.com/lifelonglearnerAdam/ocr-edr-extend" target="_blank" rel="noopener">GitHub ↗</a><button id="download-data" class="button secondary" type="button">下载数据</button><button id="download-html" class="button" type="button">下载报告</button></div></div></header>
 <div class="shell layout">
-<aside class="sidebar"><div class="nav-title">共享研究记录</div><nav class="nav" aria-label="研究页面导航"><a href="#overview">01 · 当前结论</a><a href="#now">我现在在终端做什么</a><a href="#walkthrough">四个案例一步步看</a><a href="#experiment-story">这轮实验到底干了什么</a><a href="#guide">阅读指南与术语</a><a href="#framework">02 · 联合研究框架</a><a href="#senior">03 · 学长的核验成果</a><a href="#table-results">04 · 表格训练结果</a><a href="#other-results">05 · 公式与教师成果</a><a href="#ablation">06 · 消融与下一步</a><a href="#evidence">07 · 证据与复现</a><a href="#updates">08 · 更新记录</a></nav><div class="note"><strong>阅读约定</strong><p>数字旁保留样本量、指标和来源。学长报告、本项目实测、计划假设分别标记。</p><p>完整科研目标仍在推进。页面展示已发生的工作，不以训练完成代替方法有效。</p><span id="sidebar-updated"></span></div></aside>
+<aside class="sidebar"><div class="nav-title">共享研究记录</div><nav class="nav" aria-label="研究页面导航"><a href="#overview">01 · 当前结论</a><a href="#now">我现在在终端做什么</a><a href="#visual-map">图解与实验对照</a><a href="#walkthrough">四个案例一步步看</a><a href="#experiment-story">这轮实验到底干了什么</a><a href="#guide">阅读指南与术语</a><a href="#framework">02 · 联合研究框架</a><a href="#senior">03 · 学长的核验成果</a><a href="#table-results">04 · 表格训练结果</a><a href="#other-results">05 · 公式与教师成果</a><a href="#ablation">06 · 消融与下一步</a><a href="#evidence">07 · 证据与复现</a><a href="#updates">08 · 更新记录</a></nav><div class="note"><strong>阅读约定</strong><p>数字旁保留样本量、指标和来源。学长报告、本项目实测、计划假设分别标记。</p><p>完整科研目标仍在推进。页面展示已发生的工作，不以训练完成代替方法有效。</p><span id="sidebar-updated"></span></div></aside>
 <main class="main">
 <section id="overview" class="hero"><div class="hero-top"><div class="eyebrow">STANDALONE OCR-EDR EXTENSION</div><span class="pill pending">五方向研究 · 进行中</span></div><h1>让模型找到识别错误，<br>只改有依据的那一处</h1><p>电脑从论文截图读出公式或表格时，可能把数字读错、漏字、合并错行。我们研究：怎样让较小的模型找到错误、改对位置，并避免把本来好的内容改坏。学长主要做“判断哪里错”的公式核验；我在做修复模型、对照实验和结果检查，最终要把两者接起来。你可以先读下面的真实案例，再看实验表格。</p><div class="proof"><span class="pill">两臂训练＋完整评估</span><span class="pill peer">学长核验材料已纳入</span><span class="pill pending">提示影响与能力局限已观测</span></div><p class="small muted" style="margin-bottom:0">更新记录：<strong id="updated-at">加载中</strong> · <span id="refresh-status">单文件快照，可离线阅读</span></p></section>
 <div class="metrics"><div class="metric"><div class="tag">本项目 · 实测训练</div><div class="value">381 × 2</div><div class="caption">两组终态优化器步；每组 127 文档</div></div><div class="metric"><div class="tag">学长 · 材料报告</div><div class="value">98.17<span style="font-size:16px">%</span></div><div class="caption">Normal admissible joint，Qwen3.5，n=1800</div></div><div class="metric"><div class="tag">本项目 · 表格开发</div><div class="value neg" id="repairs-kpi">0 / 71</div><div class="caption">两组 SFT 均未全修复初始参考不匹配输入</div></div><div class="metric"><div class="tag">本项目 · 公式开发</div><div class="value" id="formula-kpi">0.9899</div><div class="caption">LaTeX-OCR 同源开发 core CDM；非锁定迁移</div></div></div>
@@ -46,7 +46,7 @@
 'use strict';
 const data=JSON.parse(document.getElementById('research-data').textContent);
 const el=id=>document.getElementById(id);
-['table-results-body','training-table','table-delta-chart','prompt-progress','prompt-completed','evidence-hashes','peer-provenance'].forEach(id=>el(id).replaceChildren());
+['table-results-body','training-table','table-delta-chart','prompt-progress','prompt-completed','evidence-hashes','peer-provenance','visual-comparison-body','probe-comparison-body'].forEach(id=>el(id).replaceChildren());
 const label={unchanged_0:'不修改基线',base:'原模型（base）',all:'含保持训练（all）',no_explicit_preservation:'去保持训练'};
 const fmt=(v,n=4)=>Number(v).toFixed(n);
 const text=(node,value)=>{node.textContent=value;return node};
@@ -70,10 +70,22 @@ if(nativeActivity.results){
  const body=document.createElement('tbody');nativeActivity.results.filter(r=>r.arm!=='unchanged_0').forEach(r=>row(body,[label[r.arm],r.repairs,r.regressions]));resultsTable.append(head,body);el('native-live-result').append(resultsTable);
  const all=nativeActivity.results.find(r=>r.arm==='all'),no=nativeActivity.results.find(r=>r.arm==='no_explicit_preservation'),base=nativeActivity.results.find(r=>r.arm==='base');
  const lesson=document.createElement('p');lesson.className='case-footer';lesson.textContent='全部32张真实解析器输出都计入评分。含保持训练：'+all.repairs+'/'+bad+'全修复，'+all.regressions+'/'+good+'原满分退化；去保持训练：'+no.repairs+'/'+bad+'全修复，'+no.regressions+'/'+good+'退化。去保持模型写出'+no.changed+'次修改，其中'+no.normalized_changed+'次改变规范化结果，'+no.degraded+'次分数下降，没有一次分数提高。原模型'+base.adapter_failures+'次动作契约失败回退（'+base.caps+'次触顶），不能把零退化说成会保持。';el('native-live-result').append(lesson);
- const current=document.createElement('p');current.className='small muted';current.textContent='下一步：检查模型是否真正使用源图，再改善错误位置与真实错误监督。新实验尚未完成时不填成绩。';el('native-live-result').append(current);
+ const current=document.createElement('p');current.id='native-next-step';current.className='small muted';current.textContent='下一步：检查模型是否真正使用源图，再改善错误位置与真实错误监督。新实验尚未完成时不填成绩。';el('native-live-result').append(current);
 }
 }
 document.querySelectorAll('[data-case]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-case]').forEach(n=>n.setAttribute('aria-selected',String(n===b)));document.querySelectorAll('[data-case-pane]').forEach(p=>p.hidden=p.dataset.casePane!==b.dataset.case)}));
+const controlled=data.prompt_ablation?.completed_evaluations?.descriptive_schema;
+if(controlled&&nativeActivity?.results){['base','all','no_explicit_preservation'].forEach(arm=>{const c=controlled.find(r=>r.arm===arm),n=nativeActivity.results.find(r=>r.arm===arm);row(el('visual-comparison-body'),[label[arm],c.repairs+'/'+data.table_screen.initial_nonmatching,c.regressions+'/'+data.table_screen.initial_matching,n.repairs+'/'+nativeActivity.initial_nonmatching,n.regressions+'/'+nativeActivity.initial_matching]);});}
+if(data.source_evidence_probe?.status==='completed'){
+const rows=data.source_evidence_probe.summary;const sentence=rows.map(r=>label[r.arm]+'：替换为空白图后，'+r.action_equal+'/'+r.cases+'动作完全相同').join('；');
+text(el('image-probe-summary'),sentence+'。有些动作改变了，所以不能直接说模型完全不看图；变化也不等于正确理解。此探针没有新增修复正确率。');
+const actionNames={stop:'停止',replace_cell:'改单元格',delete_row:'删行',set_span:'改跨度',rejected:'拒绝'};
+const describe=actions=>Object.entries(actions).map(([k,v])=>(actionNames[k]||k)+v+'次').join('、');
+rows.forEach(r=>row(el('probe-comparison-body'),[label[r.arm],describe(data.source_evidence_probe.real_actions[r.arm]),describe(r.blank_actions),r.action_equal+'/'+r.cases]));
+text(el('research-current-status'),'原生与白图两项诊断已完成');
+text(el('native-next-step'),'这轮已继续完成64次白图机制探针，见下方图3。下一步改善真实错误与地址绑定，再验证学长诊断的下游收益。');
+}
+
 const ns='http://www.w3.org/2000/svg';
 function svg(tag,attrs,content){const n=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(content!==undefined)n.textContent=content;return n}
 const chart=el('table-delta-chart'),scale=v=>190+(v+.08)/.10*310;
