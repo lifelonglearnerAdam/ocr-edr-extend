@@ -11,6 +11,7 @@ except ImportError:
 
 try:
     from ocr_edr.dashboard_evidence import (
+        live_optimizer_progress,
         verify_completion_binding,
         verify_four_arm_coverage,
         verify_native_coverage,
@@ -22,6 +23,7 @@ except ImportError:
     verify_completion_binding = verify_four_arm_coverage = verify_prompt_stage = None
     verify_native_coverage = verify_walkthrough_cases = None
     verify_source_probe_coverage = None
+    live_optimizer_progress = None
 
 
 class DashboardIntegrityTests(unittest.TestCase):
@@ -102,6 +104,26 @@ class DashboardIntegrityTests(unittest.TestCase):
 
 
 class EvidenceBindingTests(unittest.TestCase):
+    def test_live_service_without_optimizer_progress_is_not_reported_as_progress(self):
+        self.assertTrue(callable(live_optimizer_progress))
+        run = {"status": "running", "completed_steps": 0}
+        log = ['{"step":6}', '{"step":7']
+        result = live_optimizer_progress(run, log, service="active", idle_seconds=3500)
+        self.assertEqual(result["observed_steps"], 6)
+        self.assertTrue(result["stalled"])
+        self.assertFalse(
+            live_optimizer_progress(run, log, service="active", idle_seconds=2)["stalled"]
+        )
+        self.assertFalse(
+            live_optimizer_progress(run, log, service="inactive", idle_seconds=3500)["stalled"]
+        )
+        complete = {"status": "completed", "completed_steps": 381}
+        self.assertFalse(
+            live_optimizer_progress(complete, [], service="inactive", idle_seconds=3500)["stalled"]
+        )
+        with self.assertRaises(ValueError):
+            live_optimizer_progress(run, ['{"step":382}'], service="active", idle_seconds=2)
+
     def test_white_image_probe_keeps_both_full_cohorts_and_recomputes_agreement_counts(self):
         self.assertTrue(callable(verify_source_probe_coverage))
         arms = ["all", "no_explicit_preservation"]

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Continue the owned training service through reload,135diagnoses and341refinements."""
 
+import argparse
 import json
 import os
 import subprocess
@@ -16,7 +17,16 @@ from ocr_edr.sft import sha256
 
 def main():
     project = Path(__file__).resolve().parents[1]
-    root = project / "experiments/runs/table-diagnosis-20261009"
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--study", type=Path, default=project / "experiments/runs/table-diagnosis-20261009"
+    )
+    parser.add_argument(
+        "--training-unit", default="ocr-edr-table-diagnosis-training-20261009.service"
+    )
+    args = parser.parse_args()
+    root = args.study.resolve()
+    root.relative_to(project / "experiments/runs")
     receipt_path = root / "pipeline-status.json"
     if receipt_path.exists():
         raise ValueError(
@@ -37,7 +47,7 @@ def main():
         "started_at": datetime.now(timezone.utc).isoformat(),
         "completed_stages": [],
         "driver_sha256": sha256(Path(__file__)),
-        "owned_training_unit": "ocr-edr-table-diagnosis-training-20261009.service",
+        "owned_training_unit": args.training_unit,
         "calibration_locked_access": False,
     }
 

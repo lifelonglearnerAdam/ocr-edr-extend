@@ -1,6 +1,28 @@
 """Bind public result updates to sealed complete experiment evidence."""
 
 import hashlib
+import json
+
+
+def live_optimizer_progress(run, lines, *, service, idle_seconds):
+    """Only completed optimizer log rows show progress; service activity is separate."""
+    steps = run["completed_steps"]
+    for line in reversed(lines):
+        try:
+            entry = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        steps = max(steps, entry["step"])
+        break
+    if type(steps) is not int or not 0 <= steps <= 381:
+        raise ValueError("Invalid recorded diagnosis optimizer progress")
+    return {
+        "observed_steps": steps,
+        "stalled": service == "active"
+        and run["status"] == "running"
+        and steps < 381
+        and idle_seconds >= 300,
+    }
 
 
 def verify_source_probe_coverage(comparison):

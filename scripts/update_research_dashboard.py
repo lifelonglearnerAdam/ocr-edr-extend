@@ -5,12 +5,14 @@ import argparse
 import json
 import shutil
 import subprocess
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
 import _bootstrap  # noqa: F401
 
 from ocr_edr.dashboard_evidence import (
+    live_optimizer_progress,
     verify_completion_binding,
     verify_four_arm_coverage,
     verify_native_coverage,
@@ -325,6 +327,21 @@ def main():
             ]
     data["current_activity"] = activity
     diagnosis_root = root / "experiments/runs/table-diagnosis-20261009"
+    training_unit = "ocr-edr-table-diagnosis-training-20261009.service"
+    recovery = None
+    location = diagnosis_root / "recovery-location.json"
+    if location.exists():
+        selected = json.loads(location.read_text())
+        diagnosis_root = (root / selected["active_study"]).resolve()
+        diagnosis_root.relative_to(root / "experiments/runs")
+        recovery = json.loads((diagnosis_root / "recovery-receipt.json").read_text())
+        if (
+            sha256(diagnosis_root / "recovery-receipt.json") != selected["recovery_receipt_sha256"]
+            or recovery["status"] != "original_interrupted"
+            or not recovery["original_receipt_preserved"]
+        ):
+            raise ValueError("Diagnosis recovery location lacks explicit preserved evidence")
+        training_unit = selected["training_unit"]
     if (diagnosis_root / "training/run.json").exists():
         training_record = json.loads((diagnosis_root / "training/run.json").read_text())
         if (
@@ -335,21 +352,7 @@ def main():
             or training_record["calibration_locked_optimizer_examples"] != 0
         ):
             raise ValueError("Diagnosis progress belongs to a different experiment")
-        steps = training_record["completed_steps"]
         log = diagnosis_root / "training/training.jsonl"
-        if log.exists():
-            lines = log.read_text().splitlines()
-            # The last line may still be written; only a complete observed log row
-            # contributes to progress. Never use this live file as final evidence.
-            for line in reversed(lines):
-                try:
-                    entry = json.loads(line)
-                except json.JSONDecodeError:
-                    continue
-                steps = max(steps, entry["step"])
-                break
-        if type(steps) is not int or not 0 <= steps <= 381:
-            raise ValueError("Invalid recorded diagnosis optimizer progress")
         service = "unknown"
         if shutil.which("systemctl"):
             unit = subprocess.run(
@@ -357,18 +360,24 @@ def main():
                     "systemctl",
                     "--user",
                     "is-active",
-                    "ocr-edr-table-diagnosis-training-20261009.service",
+                    training_unit,
                 ],
                 capture_output=True,
                 text=True,
                 timeout=5,
             )
             service = unit.stdout.strip() or "unknown"
+        progress = live_optimizer_progress(
+            training_record,
+            log.read_text().splitlines() if log.exists() else [],
+            service=service,
+            idle_seconds=time.time() - log.stat().st_mtime if log.exists() else 0,
+        )
         pipeline = diagnosis_root / "pipeline-status.json"
         current_stage = json.loads(pipeline.read_text()) if pipeline.exists() else {}
         data["diagnosis_component_progress"] = {
             "training_status": training_record["status"],
-            "observed_steps": steps,
+            **progress,
             "target_steps": 381,
             "training_service": service,
             "pipeline_stage": current_stage.get("stage", "training"),
@@ -378,6 +387,11 @@ def main():
             "exposures": 1524,
             "quality_results": "pending_review",
             "scope": "separate adapter; same base and weak controlled train sources",
+            "retry_after_interruption": recovery is not None,
+            "discarded_original_steps": recovery["discarded_steps"] if recovery else 0,
+            "discarded_original_exposures": (
+                recovery["discarded_optimizer_exposures"] if recovery else 0
+            ),
         }
     source_probe = root / "experiments/runs/table-source-evidence-complete-20261009"
     if (source_probe / "completion.json").exists():

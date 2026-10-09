@@ -86,7 +86,7 @@ text(el('research-current-status'),'原生与白图两项诊断已完成');
 text(el('native-next-step'),'这轮已继续完成64次白图机制探针，见下方图3。下一步改善真实错误与地址绑定，再验证学长诊断的下游收益。');
 }
 
-if(data.diagnosis_component_progress){const d=data.diagnosis_component_progress;const live=d.training_service==='active'?'已观察到训练服务运行':'训练服务状态 '+d.training_service;text(el('diagnosis-component-progress'),'优化器日志已记录 '+d.observed_steps+'/'+d.target_steps+' 步；'+live+'。后续流水线阶段：'+d.pipeline_stage+'。没有完成并审核的新质量结果，不能把381步预算说成已训练完成。');}
+if(data.diagnosis_component_progress){const d=data.diagnosis_component_progress;const live=d.stalled?'服务仍活着，但optimizer已超过5分钟没有新步，需排查':d.training_service==='active'?'训练服务运行，进度以optimizer日志为准':'训练服务状态 '+d.training_service;const retry=d.retry_after_interruption?'原运行在'+d.discarded_original_steps+'步/'+d.discarded_original_exposures+'次暴露后中断，原记录保留；当前从固定基座重跑。':'';text(el('diagnosis-component-progress'),retry+'optimizer日志已记录 '+d.observed_steps+'/'+d.target_steps+' 步；'+live+'。后续流水线阶段：'+d.pipeline_stage+'。质量结果尚未完成审核，不把运行状态当效果。');}
 const ns='http://www.w3.org/2000/svg';
 function svg(tag,attrs,content){const n=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(content!==undefined)n.textContent=content;return n}
 const chart=el('table-delta-chart'),scale=v=>190+(v+.08)/.10*310;
