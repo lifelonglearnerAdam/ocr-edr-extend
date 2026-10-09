@@ -1,0 +1,23 @@
+{
+  "status": "original_interrupted",
+  "observed_at": "2026-10-09T14:50:21.250968+00:00",
+  "original_unit_terminal_state": {
+    "ActiveState": "inactive",
+    "MainPID": "0",
+    "Result": "success",
+    "ExecMainCode": "0",
+    "ExecMainStatus": "0"
+  },
+  "original_receipt_preserved": true,
+  "original_training_receipt_sha256": "053a314e8e720aabd51f7713daafbc5519d35c95a6d70141a35045992aa456fc",
+  "original_training_log_sha256": "44754384ea21ba0d7fdcd5f0e19577b14c49c382b06926828c4eebd1a792ab0a",
+  "original_pipeline_receipt_sha256": "defac8c83a9c707322d29d91c4d321f99a430aee0940228352603c10c6d2855a",
+  "discarded_steps": 6,
+  "discarded_optimizer_exposures": 24,
+  "original_checkpoint_present": false,
+  "retry_from_pinned_base": true,
+  "retry_steps": 381,
+  "retry_optimizer_exposures": 1524,
+  "calibration_locked_access": false,
+  "sleep_inhibition": "runtime idle:sleep block only during owned GPU task"
+}

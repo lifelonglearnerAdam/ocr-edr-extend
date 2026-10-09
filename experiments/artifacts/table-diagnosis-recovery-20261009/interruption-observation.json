@@ -1,0 +1,148 @@
+{
+  "observed_at": "2026-10-09T14:46:13.365931+00:00",
+  "classification": "owned training process alive but no optimizer progress after repeated host suspend/resume",
+  "last_completed_step": 6,
+  "logged_exposures": 24,
+  "last_logged_optimizer_seconds": 43.621739551001156,
+  "last_log_timestamp_utc": "2026-10-09T13:47:55.303227+00:00",
+  "no_log_progress_seconds": 3498.0627591609955,
+  "original_checkpoint_present": false,
+  "process_state": "R",
+  "process_user_ticks": 155299,
+  "process_system_ticks": 199058,
+  "ptrace_stack_access": "denied by existing OS policy; no policy change",
+  "gpu_observation": "0 %, 4151 MiB, 14.38 W",
+  "original_files_sha256": {
+    "training/run.json": "053a314e8e720aabd51f7713daafbc5519d35c95a6d70141a35045992aa456fc",
+    "training/training.jsonl": "44754384ea21ba0d7fdcd5f0e19577b14c49c382b06926828c4eebd1a792ab0a",
+    "training/preflight.jsonl": "cca4bd595bbd2998a4ba38e1784ed7ff42e6e43c2aa4e7cd371cc0c4160f9671",
+    "training/schedule.jsonl": "b4e21ae5f5f36112455055357c7b11a81f2c9b38a2ef5da7fff5890c617c8c8e",
+    "pipeline-status.json": "7ff2bfd4d72cb7f4c2f69c2335b4af0f22a05490715f1c9975b81560ebe61ac4"
+  },
+  "hardware_failure_causality": "suspend/resume precedes stalled work; CUDA stack unavailable, so exact driver mechanism unproven",
+  "planned_recovery": "retain original run; end only owned stuck process; restart fixed381-step protocol from pinned base in new directory with runtime sleep inhibition",
+  "calibration_locked_access": false,
+  "power_events": [
+    {
+      "timestamp_utc": "2026-10-09T13:47:27.077429+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:47:30.554633+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:47:59.070806+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:48:02.558662+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:48:31.101749+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:48:34.567822+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:49:03.004351+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:49:06.568321+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:49:35.140735+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:49:38.574670+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:50:07.020782+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:50:10.562857+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:50:38.998959+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:50:42.572369+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:51:11.037324+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:51:14.553401+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:51:42.908147+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:51:45.565106+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:52:13.921776+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:52:17.559607+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:52:46.269861+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:52:49.575646+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:53:18.092605+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "Performing sleep operation 'suspend'..."
+    },
+    {
+      "timestamp_utc": "2026-10-09T13:53:21.580622+00:00",
+      "unit": "systemd-suspend.service",
+      "message": "System returned from sleep operation 'suspend'."
+    }
+  ],
+  "suspend_operations": 12
+}

@@ -36,3 +36,5 @@
 本机已安装并启用用户级 `ocr-edr-research-dashboard.service`，工作目录为当前ext4研究副本；终端关闭不影响其运行，用户会话在线时每60秒检查已支持实验与页面模板。只在内容变化时提交并推送生成的两个文件；其他暂存工作或非快进push会拒绝，不覆盖协作者内容。本站再每60秒检查已发布版本；GitHub Pages构建仍有发布延迟。
 
 可用 `systemctl --user status ocr-edr-research-dashboard.service` 查看、`journalctl --user -u ocr-edr-research-dashboard.service` 查日志、`systemctl --user stop ocr-edr-research-dashboard.service` 停止。可移植配置在 `configs/systemd/ocr-edr-research-dashboard.service`；它不包含认证材料。原nohup观察器在宿主执行会话结束后退出，其历史记录保留；新用户服务另写运行回执。
+
+诊断训练发生过系统休眠后的停滞；进度板现同时显示新运行与原6步/24暴露中断，运行回执通过显式恢复指向并核对hash，不能拼接旧新步数。服务active但optimizer超过5分钟未更新会标记停滞，不能显示为持续推进。当前重跑、后续诊断/修复服务只在GPU任务期间使用idle:sleep抑制，结束释放。

@@ -11,6 +11,7 @@ from statistics import mean
 import _bootstrap  # noqa: F401
 from run_table_diagnosis import load_cohort
 
+from ocr_edr.diagnosis_analysis import diagnosis_summary, paired_component_cost
 from ocr_edr.native_table_repair import verify_native_calls
 from ocr_edr.official_tables import (
     load_official_table_normalizer,
@@ -87,6 +88,7 @@ def main():
     seals = {}
     all_reports = {}
     cost = []
+    scenario_cost = []
     for cohort, conditions in [
         ("controlled", ["learned", "displaced_region", "oracle_controlled"]),
         ("native", ["learned"]),
@@ -227,6 +229,30 @@ def main():
                 "teds_structure": structure.evaluate(p, r),
             },
         )
+        executed = {(r["arm"], r["sample_id"]): r for r in predictions}
+        for case in report["cases"]:
+            trace = executed[case["arm"], case["sample_id"]]["trace"]
+            case["render_attempts"] = sum(r.get("render_attempts", 0) for r in trace)
+            case["render_seconds"] = sum(r.get("render_seconds", 0) for r in trace)
+        diagnostics = rows(args.study / "diagnoses" / cohort / "calls.jsonl")
+        for condition in ["without_diagnosis", *conditions]:
+            group = [r for r in report["cases"] if r["arm"] == condition]
+            scenario_cost.append(
+                {
+                    "cohort": cohort,
+                    "arm": condition,
+                    **paired_component_cost(
+                        group,
+                        diagnostics,
+                        use_diagnosis=condition in {"learned", "displaced_region"},
+                    ),
+                    "deployment_interpretation": (
+                        "label-assisted upper bound, not deployable"
+                        if condition == "oracle_controlled"
+                        else "recorded model generation only; not end-to-end latency"
+                    ),
+                }
+            )
         all_reports[cohort] = report
         (out / (cohort + "-evaluation.json")).write_text(json.dumps(report, indent=2) + "\n")
         (out / (cohort + "-predictions.jsonl")).write_text(
@@ -253,28 +279,12 @@ def main():
                 }
             )
         (out / (cohort + "-contrasts.json")).write_text(json.dumps(contrast, indent=2) + "\n")
-    summary = []
-    for variant in ["all", *sorted({r["variant"] for r in gold})]:
-        group = [r for r in gold if variant == "all" or r["variant"] == variant]
-        summary.append(
-            {
-                "variant": variant,
-                "cases": len(group),
-                "valid_outputs": sum(r["valid_output"] for r in group),
-                "verdict_correct": sum(r["verdict_correct"] for r in group),
-                "strict_joint": sum(r["strict_joint"] for r in group),
-                "valid_false_positive": sum(
-                    r["target"]["verdict"] == "valid"
-                    and (r["prediction"] or {}).get("verdict") == "invalid"
-                    for r in group
-                ),
-                "invalid_missed": sum(
-                    r["target"]["verdict"] == "invalid"
-                    and (r["prediction"] or {}).get("verdict") == "valid"
-                    for r in group
-                ),
-            }
-        )
+    summary = diagnosis_summary(
+        gold,
+        expected_ids={
+            r["sample_id"] for r in load_cohort(args.dataset, "controlled", args.native_run)
+        },
+    )
     for cohort in ["controlled", "native"]:
         calls = rows(args.study / "diagnoses" / cohort / "calls.jsonl")
         cost.append(
@@ -294,6 +304,13 @@ def main():
         "finished_at": datetime.now(timezone.utc).isoformat(),
         "diagnosis_summary": summary,
         "component_cost": cost,
+        "paired_scenario_cost": scenario_cost,
+        "analysis_source_sha256": {
+            "scripts/evaluate_table_diagnosis.py": sha256(Path(__file__)),
+            "src/ocr_edr/diagnosis_analysis.py": sha256(
+                Path(__file__).resolve().parents[1] / "src/ocr_edr/diagnosis_analysis.py"
+            ),
+        },
         "refinement_seals": seals,
         "official_source": official,
         "evaluation_sha256": {

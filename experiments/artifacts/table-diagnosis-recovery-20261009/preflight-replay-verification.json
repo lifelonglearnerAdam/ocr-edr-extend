@@ -1,0 +1,39 @@
+{
+  "status": "replay_verified",
+  "verified_at": "2026-10-09T14:59:45.318540+00:00",
+  "matched_fields": [
+    "config_sha256",
+    "config",
+    "model_receipt_sha256",
+    "admission_sha256",
+    "train_manifest_sha256",
+    "diagnosis_targets_sha256",
+    "exposures",
+    "document_exposures",
+    "family_exposures",
+    "variant_exposures",
+    "versions",
+    "total_processed_tokens",
+    "total_supervised_tokens",
+    "trainable_parameters"
+  ],
+  "preflight_sha256": "cca4bd595bbd2998a4ba38e1784ed7ff42e6e43c2aa4e7cd371cc0c4160f9671",
+  "schedule_sha256": "b4e21ae5f5f36112455055357c7b11a81f2c9b38a2ef5da7fff5890c617c8c8e",
+  "original_logged_steps": 6,
+  "retry_completed_log_steps": 35,
+  "first6_loss_and_gradient_exact": true,
+  "per_step_exact": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "original_training_receipt_sha256": "053a314e8e720aabd51f7713daafbc5519d35c95a6d70141a35045992aa456fc",
+  "retry_training_receipt_at_check_sha256": "263cc44285d11733f80abbf86d605a4c23d22d363f968d6c79cf90dd3a6c651f",
+  "discarded_steps_not_added_to_retry_budget": true,
+  "retry_fixed_target_steps": 381,
+  "runtime_inhibitors_observed": true,
+  "new_quality_results_available": false
+}
