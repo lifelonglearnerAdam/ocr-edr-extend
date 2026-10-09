@@ -28,6 +28,9 @@ class NativeRepairIdentityTests(unittest.TestCase):
             "source_sha256": "a" * 64,
             "prediction": "<table><tr><td>17</td></tr></table>",
         }
+        from ocr_edr.table_sft_screen import adapt_table_call, table_messages
+
+        messages, prompt = table_messages(source["prediction"], prompt_format="descriptive_schema")
         call = {
             **source,
             "original_source_sha256": "a" * 64,
@@ -38,14 +41,14 @@ class NativeRepairIdentityTests(unittest.TestCase):
             "input_tokens": 1,
             "output_tokens": 1,
             "generation_seconds": 0.0,
+            "messages": messages,
+            "prompt": prompt,
         }
         observed, execution = blank_table_observation(source, call)
         self.assertEqual(observed["source_sha256"], "b" * 64)
         self.assertEqual(execution["original_source_sha256"], "a" * 64)
         self.assertEqual(execution["ordered_image_sha256"], [observed["source_sha256"]])
         self.assertEqual(call["source_sha256"], "a" * 64)
-        from ocr_edr.table_sft_screen import adapt_table_call
-
         kwargs = {
             "renderer": lambda markup: {},
             "max_new_tokens": 192,
